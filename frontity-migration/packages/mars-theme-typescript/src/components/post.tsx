@@ -1,8 +1,30 @@
 import { useEffect } from "react";
-import { connect, styled } from "frontity";
+import { connect, useConnect, styled } from "frontity";
 import Link from "./link";
 import List from "./list";
+import {
+  isAttachmentEntity,
+  isPageEntity,
+  isPostEntity,
+} from "@frontity/source";
+import { Packages } from "../../types";
 import FeaturedMedia from "./featured-media";
+import { PostTypeEntity, PostTypeData } from "@frontity/source/types";
+
+/**
+ * Properties received by the `Post` component.
+ */
+interface PostProps {
+  /**
+   * Data element representing a URL in your frontity site.
+   */
+  data: PostTypeData;
+
+  /**
+   * Whether to render this component.
+   */
+  when?: boolean;
+}
 
 /**
  * The Post component that Mars uses to render any kind of "post type", like
@@ -23,15 +45,12 @@ import FeaturedMedia from "./featured-media";
  *
  * @returns The {@link Post} element rendered.
  */
-const Post = ({ state, actions, libraries }) => {
-  // Get information about the current URL.
-  const data = state.source.get(state.router.link);
+const Post = ({ data }: PostProps): JSX.Element => {
+  const { state, actions, libraries } = useConnect<Packages>();
   // Get the data of the post.
-  const post = state.source[data.type][data.id];
+  const post: PostTypeEntity = state.source[data.type][data.id];
   // Get the data of the author.
   const author = state.source.author[post.author];
-  // Get a human readable date.
-  const date = new Date(post.date);
 
   // Get the html2react component.
   const Html2React = libraries.html2react.Component;
@@ -52,8 +71,8 @@ const Post = ({ state, actions, libraries }) => {
       <div>
         <Title dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
 
-        {/* Hide author and date on pages */}
-        {!data.isPage && (
+        {/* Only display author and date on posts */}
+        {isPostEntity(post) && (
           <div>
             {author && (
               <StyledLink link={author.link}>
@@ -64,27 +83,30 @@ const Post = ({ state, actions, libraries }) => {
             )}
             <DateWrapper>
               {" "}
-              on <b>{date.toDateString()}</b>
+              on <b>{new Date(post.date).toDateString()}</b>
             </DateWrapper>
           </div>
         )}
       </div>
 
       {/* Look at the settings to see if we should include the featured image */}
-      {state.theme.featured.showOnPost && (
-        <FeaturedMedia id={post.featured_media} />
-      )}
+      {state.theme.featured.showOnPost &&
+        (isPostEntity(post) || isPageEntity(post)) && (
+          <FeaturedMedia id={post.featured_media} />
+        )}
 
-      {data.isAttachment ? (
+      {isAttachmentEntity(post) && (
         // If the post is an attachment, just render the description property,
         // which already contains the thumbnail.
-        <div dangerouslySetInnerHTML={{ __html: post.description.rendered }} />
-      ) : (
+        <div dangerouslySetInnerHTML={{ __html: post.description?.rendered }} />
+      )}
+
+      {(isPostEntity(post) || isPageEntity(post)) && (
         // Render the content using the Html2React component so the HTML is
         // processed by the processors we included in the
         // libraries.html2react.processors array.
         <Content>
-          <Html2React html={post.content.rendered} />
+          <Html2React html={post.content?.rendered} />
         </Content>
       )}
     </Container>

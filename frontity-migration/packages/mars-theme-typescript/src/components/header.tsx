@@ -1,9 +1,16 @@
-import { connect, styled } from "frontity";
+import { connect, styled, useConnect } from "frontity";
 import Link from "./link";
 import Nav from "./nav";
 import MobileMenu from "./menu";
+import { Packages } from "../../types";
 
-const Header = ({ state }) => {
+/**
+ * The header of the site, showing the title and description, and the nav bar.
+ *
+ * @returns The header element.
+ */
+const Header = () => {
+  const { state } = useConnect<Packages>();
   return (
     <>
       <Container>
@@ -18,7 +25,6 @@ const Header = ({ state }) => {
   );
 };
 
-// Connect the Header component to get access to the `state` in it's `props`
 export default connect(Header);
 
 const Container = styled.div`

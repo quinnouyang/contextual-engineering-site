@@ -1,15 +1,17 @@
-import { Package, Action } from "frontity/types";
+import { Package, Action, MergePackages, Frontity } from "frontity/types";
 import { AutoPrefetch } from "@frontity/components/link/types";
 import Html2React from "@frontity/html2react/types";
+import Router from "@frontity/router/types";
+import Source from "@frontity/source/types";
 
 /**
  * A Frontity starter theme designed to learn Frontity.
  */
-interface MarsTheme extends Package {
+interface MarsThemeTypeScript extends Package {
   /**
    * The name of this package.
    */
-  name: "@frontity/mars-theme";
+  name: "@frontity/mars-theme-typescript";
 
   /**
    * Root components exposed by this package.
@@ -75,29 +77,25 @@ interface MarsTheme extends Package {
       /**
        * Toggles the mobile menu between opened and closed states.
        */
-      toggleMobileMenu: Action<MarsTheme>;
+      toggleMobileMenu: Action<Packages>;
 
       /**
        * Closes the mobile menu, not matter the previous state.
        */
-      closeMobileMenu: Action<MarsTheme>;
-    };
-  };
-
-  /**
-   * The libraries exposed by this package.
-   */
-  libraries: {
-    /**
-     * The Html2React namespace.
-     */
-    html2react: {
-      /**
-       * The Html2React processors.
-       */
-      processors: Html2React["libraries"]["html2react"]["processors"];
+      closeMobileMenu: Action<Packages>;
     };
   };
 }
 
-export default MarsTheme;
+export default MarsThemeTypeScript;
+
+/**
+ * Packages required by `MarsThemeTypeScript`.
+ */
+export type Packages = MergePackages<
+  Frontity,
+  Router,
+  Source,
+  Html2React,
+  MarsThemeTypeScript
+>;

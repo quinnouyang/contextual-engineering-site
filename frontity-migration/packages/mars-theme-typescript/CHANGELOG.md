@@ -1,6 +1,6 @@
 # Change Log
 
-## 1.6.2
+## 1.6.1
 
 ### Patch Changes
 
@@ -9,26 +9,20 @@
 - Updated dependencies [[`379a4476`](https://github.com/frontity/frontity/commit/379a44761423b4e47466359bbfe598615a869dcb)]:
   - @frontity/components@1.8.2
 
-## 1.6.1
-
-### Patch Changes
-
-- [`f87b062d`](https://github.com/frontity/frontity/commit/f87b062d8c65088b3c245c3c2ae4ca82cecd00a8) [#836](https://github.com/frontity/frontity/pull/836) Thanks [@luisherranz](https://github.com/luisherranz)! - Fix some duplicate fields in the README.
-
-- Updated dependencies [[`f87b062d`](https://github.com/frontity/frontity/commit/f87b062d8c65088b3c245c3c2ae4ca82cecd00a8), [`f87b062d`](https://github.com/frontity/frontity/commit/f87b062d8c65088b3c245c3c2ae4ca82cecd00a8)]:
-  - frontity@1.17.0
-  - @frontity/components@1.8.1
-
 ## 1.6.0
 
 ### Minor Changes
 
-- [`facd9b2e`](https://github.com/frontity/frontity/commit/facd9b2e682effaa9d023378f7798afcaa18b615) [#825](https://github.com/frontity/frontity/pull/825) Thanks [@michalczaplinski](https://github.com/michalczaplinski)! - Make the mars-theme "AMP-aware" and clean up the theme to pass the AMP html-validator checks.
+- [`f87b062d`](https://github.com/frontity/frontity/commit/f87b062d8c65088b3c245c3c2ae4ca82cecd00a8) [#836](https://github.com/frontity/frontity/pull/836) Thanks [@luisherranz](https://github.com/luisherranz)! - Release the first version of `mars-theme-typescript`, which is a port of `mars-theme` to TypeScript.
+
+  The version is 1.6.0 because it starts with the same version/changelog than `mars-theme`.
 
 ### Patch Changes
 
-- Updated dependencies [[`ba161a58`](https://github.com/frontity/frontity/commit/ba161a58ca6759c1209f926af28f8b3aba141476)]:
-  - frontity@1.16.1
+- Updated dependencies [[`f87b062d`](https://github.com/frontity/frontity/commit/f87b062d8c65088b3c245c3c2ae4ca82cecd00a8), [`f87b062d`](https://github.com/frontity/frontity/commit/f87b062d8c65088b3c245c3c2ae4ca82cecd00a8), [`f87b062d`](https://github.com/frontity/frontity/commit/f87b062d8c65088b3c245c3c2ae4ca82cecd00a8)]:
+  - frontity@1.17.0
+  - @frontity/components@1.8.1
+  - @frontity/source@1.5.2
 
 ## 1.5.2
 

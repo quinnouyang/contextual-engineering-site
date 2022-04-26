@@ -1,16 +1,33 @@
-import { connect, styled } from "frontity";
+import { connect, styled, useConnect } from "frontity";
+import { PostEntity } from "@frontity/source/types";
 import Link from "../link";
 import FeaturedMedia from "../featured-media";
+import { Packages } from "../../../types";
 
 /**
- * Item Component
- *
- * It renders the preview of a blog post. Each blog post contains
- * - Title: clickable title of the post
- * - Author: name of author and published date
- * - FeaturedMedia: the featured image/video of the post
+ * The props of the {@link Item} component.
  */
-const Item = ({ state, item }) => {
+interface ItemProps {
+  /**
+   * The post that should be shown.
+   */
+  item: PostEntity;
+}
+
+/**
+ * List item Component.
+ *
+ * It renders the preview of a blog post. Each blog post contains:
+ * - Title: clickable title of the post.
+ * - Author: name of author and published date.
+ * - FeaturedMedia: the featured image/video of the post.
+ *
+ * @param props - Defined in {@link ItemProps}.
+ *
+ * @returns The rendered post.
+ */
+const Item = ({ item }: ItemProps): JSX.Element => {
+  const { state } = useConnect<Packages>();
   const author = state.source.author[item.author];
   const date = new Date(item.date);
 

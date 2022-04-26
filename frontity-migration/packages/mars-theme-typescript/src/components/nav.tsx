@@ -1,29 +1,34 @@
-import { connect, styled } from "frontity";
+import { connect, styled, useConnect } from "frontity";
 import Link from "./link";
+import { Packages } from "../../types";
 
 /**
- * Navigation Component
+ * The navigation component. It renders the navigation links.
  *
- * It renders the navigation links
+ * @returns The `<nav>` tag with the menu.
  */
-const Nav = ({ state }) => (
-  <NavContainer>
-    {state.theme.menu.map(([name, link]) => {
-      // Check if the link matched the current page url
-      const data = state.source.get(state.router.link);
-      const isCurrentPage = data.route === link;
+const Nav = (): JSX.Element => {
+  const { state } = useConnect<Packages>();
 
-      return (
-        <NavItem key={name}>
-          {/* If link url is the current page, add `aria-current` for a11y */}
-          <Link link={link} aria-current={isCurrentPage ? "page" : undefined}>
-            {name}
-          </Link>
-        </NavItem>
-      );
-    })}
-  </NavContainer>
-);
+  return (
+    <NavContainer>
+      {state.theme.menu.map(([name, link]) => {
+        // Check if the link matched the current page url.
+        const data = state.source.get(state.router.link);
+        const isCurrentPage = data.route === link;
+
+        return (
+          <NavItem key={name}>
+            {/* If link url is the current page, add `aria-current` for a11y */}
+            <Link link={link} aria-current={isCurrentPage ? "page" : undefined}>
+              {name}
+            </Link>
+          </NavItem>
+        );
+      })}
+    </NavContainer>
+  );
+};
 
 export default connect(Nav);
 

@@ -1,4 +1,20 @@
-import { styled, connect } from "frontity";
+import { styled } from "frontity";
+import { ErrorData } from "@frontity/source/types";
+
+/**
+ * The props of the {@link PageError} component.
+ */
+interface PageErrorProps {
+  /**
+   * The data stored in the state for this URL.
+   */
+  data: ErrorData;
+
+  /**
+   * Whether or not to render this component. Used by the `<Switch>` component.
+   */
+  when?: boolean;
+}
 
 const description404 = (
   <>
@@ -17,10 +33,14 @@ const description = (
   </>
 );
 
-// The 404 page component
-const Page404 = ({ state }) => {
-  const data = state.source.get(state.router.link);
-
+/**
+ * The Error page component. It shows either a 404 page if the error is a 404
+ * or a generic error if it's a different one.
+ *
+ * @param props - The props, defined in {@link PageErrorProps}.
+ * @returns The error screen.
+ */
+const PageError = ({ data }: PageErrorProps): JSX.Element => {
   const title = "Oops! Something went wrong";
   const title404 = "Oops! 404";
 
@@ -32,7 +52,7 @@ const Page404 = ({ state }) => {
   );
 };
 
-export default connect(Page404);
+export default PageError;
 
 const Container = styled.div`
   width: 800px;

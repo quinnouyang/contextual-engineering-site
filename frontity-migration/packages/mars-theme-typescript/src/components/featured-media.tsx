@@ -1,5 +1,26 @@
-import { connect, styled } from "frontity";
 import Image from "@frontity/components/image";
+import { connect, styled, useConnect } from "frontity";
+import { Packages } from "../../types";
+
+/**
+ * Props of the {@link FeaturedMedia} component.
+ */
+interface FeaturedMediaProps {
+  /**
+   * ID of the attachment entity.
+   */
+  id: number;
+}
+
+/**
+ * Props of the {@link Container} component.
+ */
+interface ContainerProps {
+  /**
+   * Flag indicating if the component is rendered in AMP mode.
+   */
+  isAmp: boolean;
+}
 
 /**
  * The Component that renders a featured media, typically an image. The featured
@@ -10,7 +31,8 @@ import Image from "@frontity/components/image";
  *
  * @returns A react component.
  */
-const FeaturedMedia = ({ state, id }) => {
+const FeaturedMedia = ({ id }: FeaturedMediaProps): JSX.Element => {
+  const { state } = useConnect<Packages>();
   const media = state.source.attachment[id];
 
   if (!media) return null;
@@ -43,7 +65,7 @@ const FeaturedMedia = ({ state, id }) => {
 
 export default connect(FeaturedMedia);
 
-const Container = styled.div`
+const Container = styled.div<ContainerProps>`
   margin-top: 16px;
   height: 300px;
   ${({ isAmp }) => isAmp && "position: relative;"};
