@@ -22,6 +22,7 @@
     "@frontity/mars-theme-typescript": "./packages/mars-theme-typescript",
     "@frontity/tiny-router": "^1.4.4",
     "@frontity/wp-source": "^1.11.7",
+    "dayjs": "^1.11.1",
     "frontity": "^1.17.2",
     "test-theme": "file:packages/test-theme"
   },
