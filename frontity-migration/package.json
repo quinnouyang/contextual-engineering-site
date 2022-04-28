@@ -17,11 +17,17 @@
   },
   "prettier": {},
   "dependencies": {
-    "frontity": "^1.17.2",
     "@frontity/core": "^1.15.1",
-    "@frontity/wp-source": "^1.11.7",
-    "@frontity/tiny-router": "^1.4.4",
     "@frontity/html2react": "^1.7.0",
-    "@frontity/mars-theme": "./packages/mars-theme"
+    "@frontity/mars-theme-typescript": "./packages/mars-theme-typescript",
+    "@frontity/tiny-router": "^1.4.4",
+    "@frontity/wp-source": "^1.11.7",
+    "dayjs": "^1.11.1",
+    "frontity": "^1.17.2",
+    "test-theme": "file:packages/test-theme"
+  },
+  "devDependencies": {
+    "@types/node-fetch": "^2.6.1",
+    "@types/react": "^18.0.7"
   }
 }
