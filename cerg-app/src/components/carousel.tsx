@@ -102,7 +102,7 @@ export default function Carousel() {
         <BiRightArrowAlt size="40px" />
       </IconButton>
       {/* Slider */}
-      <Slider {...settings} ref={(slider) => setSlider(slider)}>
+      <Slider {...settings} ref={(slider: any) => setSlider(slider)}>
         {cards.map((card, index) => (
           <Box
             key={index}
@@ -114,7 +114,11 @@ export default function Carousel() {
             backgroundImage={`url(${card.image})`}
           >
             {/* This is the block you need to change, to customize the caption */}
-            <Container size="container.lg" height="600px" position="relative">
+            <Container
+              size="container.lg"
+              height="600px"
+              position="relative"
+            >
               <Stack
                 spacing={6}
                 w={"full"}

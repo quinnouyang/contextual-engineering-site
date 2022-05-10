@@ -1,12 +1,11 @@
 import { AppProps } from "next/app";
 import { ChakraProvider } from "@chakra-ui/react";
-import theme from "../src/theme";
 import "../src/theme/styles.css";
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (
     // Custon theme!
-    <ChakraProvider theme={theme}>
+    <ChakraProvider>
       <Component {...pageProps} />
     </ChakraProvider>
   );

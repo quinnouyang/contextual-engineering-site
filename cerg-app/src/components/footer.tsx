@@ -9,7 +9,7 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 
-const Logo = (props: any) => {
+const CombinedLogo = (props: any) => {
   return (
     <svg
       // xmlns="http://www.w3.org/2000/svg"
@@ -45,9 +45,9 @@ export default function Footer() {
       color={useColorModeValue("gray.700", "gray.200")}
     >
       <Container maxW={"6xl"} py={10}>
-        <HStack justifyContent="space-between">
+        <HStack>
           <Stack>
-            <Logo color={useColorModeValue("gray.700", "white")} />
+            <CombinedLogo color={useColorModeValue("gray.700", "white")} />
             <Heading size="md">Contextual Engineering Research Group</Heading>
           </Stack>
           {/* TO-DO: ROUTING */}
