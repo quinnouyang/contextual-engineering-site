@@ -15,7 +15,6 @@ import {
   useBreakpointValue,
   useDisclosure,
   useColorMode,
-  AspectRatio,
 } from "@chakra-ui/react";
 import {
   HamburgerIcon,
@@ -25,7 +24,23 @@ import {
   MoonIcon,
   SunIcon,
 } from "@chakra-ui/icons";
-import Logo from "./logo";
+
+const Logo = () => {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg">
+      <g>
+        <path
+          fill="#13294b"
+          d="m201.06 79.252v-77.781h-200v77.781h44.443v133.33h-44.443v77.781h200v-77.781h-44.443v-133.33h44.443z"
+        />
+        <path
+          fill="#e84a27"
+          d="m156.62 68.148h33.332v-55.552h-177.78v55.552h33.338c6.1309 0 11.11 4.9737 11.11 11.11v133.33c0 6.1368-4.9796 11.11-11.11 11.11h-33.338v55.557h177.78v-55.557h-33.332c-6.1368 0-11.11-4.9737-11.11-11.11v-133.33c0-6.1368 4.9737-11.11 11.11-11.11"
+        />
+      </g>
+    </svg>
+  );
+};
 
 export default function NavBar() {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -33,6 +48,8 @@ export default function NavBar() {
 
   return (
     <Box>
+      {/* Color is slightly inaccurate */}
+      <Box bg="#e84a27" w="100%" h={"7px"} />
       <Flex
         bg={useColorModeValue("white", "gray.800")}
         color={useColorModeValue("gray.600", "white")}
@@ -59,21 +76,27 @@ export default function NavBar() {
           />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
-          {/* <Text
+          <Text
             textAlign={useBreakpointValue({ base: "center", md: "left" })}
             fontFamily={"heading"}
             color={useColorModeValue("gray.800", "white")}
           >
-            Logo
-          </Text> */}
-          <Logo />
+            UIUC Contextual Engineering
+          </Text>
           <Flex display={{ base: "none", md: "flex" }} ml={10}>
             <DesktopNav />
           </Flex>
         </Flex>
-        <Button onClick={toggleColorMode}>
-          {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
-        </Button>
+        <Stack
+          flex={{ base: 1, md: 0 }}
+          justify={"flex-end"}
+          direction={"row"}
+          spacing={6}
+        >
+          <Button onClick={toggleColorMode}>
+            {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
+          </Button>
+        </Stack>
       </Flex>
 
       <Collapse in={isOpen} animateOpacity>
@@ -245,22 +268,22 @@ interface NavItem {
 
 const NAV_ITEMS: Array<NavItem> = [
   {
-    label: "Inspiration",
+    label: "Home",
     children: [
       {
         label: "Explore Design Work",
         subLabel: "Trending Design to inspire you",
-        href: "#",
+        href: "/page",
       },
       {
         label: "New & Noteworthy",
         subLabel: "Up-and-coming Designers",
-        href: "#",
+        href: "/#",
       },
     ],
   },
   {
-    label: "Find Work",
+    label: "Research",
     children: [
       {
         label: "Job Board",
@@ -270,6 +293,42 @@ const NAV_ITEMS: Array<NavItem> = [
       {
         label: "Freelance Projects",
         subLabel: "An exclusive list for contract work",
+        href: "#",
+      },
+    ],
+  },
+  {
+    label: "People",
+    children: [
+      {
+        label: "CLICK HERE",
+        href: "/people",
+      },
+    ],
+  },
+  {
+    label: "Publications",
+    children: [
+      {
+        label: "Job Board",
+        href: "#",
+      },
+    ],
+  },
+  {
+    label: "Academics",
+    children: [
+      {
+        label: "Job Board",
+        href: "#",
+      },
+    ],
+  },
+  {
+    label: "Contact",
+    children: [
+      {
+        label: "Job Board",
         href: "#",
       },
     ],

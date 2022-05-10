@@ -6,7 +6,6 @@ export default function Page() {
   return (
     <>
       <NavBar />
-      <Link href="/#">Go back!</Link>
       <Footer />
     </>
   );
