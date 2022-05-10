@@ -20,6 +20,13 @@ const settings: Settings<Theme | WpSource> = {
       state: {
         source: {
           url: "https://test.frontity.org",
+          postTypes: [
+            {
+              type: "destinations",
+              endpoint: "destinations",
+              archive: "/destinations",
+            },
+          ],
         },
       },
     },
