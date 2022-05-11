@@ -9,12 +9,13 @@ import {
   Icon,
   Link,
   Popover,
-  PopoverTrigger,
+  PopoverTrigger as OrigPopoverTrigger,
   PopoverContent,
   useColorModeValue,
   useBreakpointValue,
   useDisclosure,
   useColorMode,
+  AspectRatio,
 } from "@chakra-ui/react";
 import {
   HamburgerIcon,
@@ -24,23 +25,11 @@ import {
   MoonIcon,
   SunIcon,
 } from "@chakra-ui/icons";
+import Logo from "./logo";
 
-const Logo = () => {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg">
-      <g>
-        <path
-          fill="#13294b"
-          d="m201.06 79.252v-77.781h-200v77.781h44.443v133.33h-44.443v77.781h200v-77.781h-44.443v-133.33h44.443z"
-        />
-        <path
-          fill="#e84a27"
-          d="m156.62 68.148h33.332v-55.552h-177.78v55.552h33.338c6.1309 0 11.11 4.9737 11.11 11.11v133.33c0 6.1368-4.9796 11.11-11.11 11.11h-33.338v55.557h177.78v-55.557h-33.332c-6.1368 0-11.11-4.9737-11.11-11.11v-133.33c0-6.1368 4.9737-11.11 11.11-11.11"
-        />
-      </g>
-    </svg>
-  );
-};
+// Temporary fix: React 18 issue
+export const PopoverTrigger: React.FC<{ children: React.ReactNode }> =
+  OrigPopoverTrigger;
 
 export default function NavBar() {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -83,6 +72,9 @@ export default function NavBar() {
           >
             UIUC Contextual Engineering
           </Text>
+          <AspectRatio ratio={1} w={"100px"}>
+            <Logo />
+          </AspectRatio>
           <Flex display={{ base: "none", md: "flex" }} ml={10}>
             <DesktopNav />
           </Flex>
@@ -108,7 +100,7 @@ export default function NavBar() {
 
 const DesktopNav = () => {
   const linkColor = useColorModeValue("gray.600", "gray.200");
-  const linkHoverColor = useColorModeValue("gray.800", "white");
+  const linkHoverColor = useColorModeValue("gray.100", "white");
   const popoverContentBgColor = useColorModeValue("white", "gray.800");
 
   return (
@@ -125,7 +117,8 @@ const DesktopNav = () => {
                 color={linkColor}
                 _hover={{
                   textDecoration: "none",
-                  color: linkHoverColor,
+                  // color: linkHoverColor,
+                  backgroundColor: linkHoverColor,
                 }}
               >
                 {navItem.label}
@@ -269,67 +262,73 @@ interface NavItem {
 const NAV_ITEMS: Array<NavItem> = [
   {
     label: "Home",
-    children: [
-      {
-        label: "Explore Design Work",
-        subLabel: "Trending Design to inspire you",
-        href: "/page",
-      },
-      {
-        label: "New & Noteworthy",
-        subLabel: "Up-and-coming Designers",
-        href: "/#",
-      },
-    ],
+    // children: [
+    //   {
+    //     label: "Explore Design Work",
+    //     subLabel: "Trending Design to inspire you",
+    //     href: "/page",
+    //   },
+    //   {
+    //     label: "New & Noteworthy",
+    //     subLabel: "Up-and-coming Designers",
+    //     href: "/#",
+    //   },
+    // ],
+    href: "/#",
   },
   {
     label: "Research",
-    children: [
-      {
-        label: "Job Board",
-        subLabel: "Find your dream design job",
-        href: "#",
-      },
-      {
-        label: "Freelance Projects",
-        subLabel: "An exclusive list for contract work",
-        href: "#",
-      },
-    ],
+    // children: [
+    //   {
+    //     label: "Job Board",
+    //     subLabel: "Find your dream design job",
+    //     href: "#",
+    //   },
+    //   {
+    //     label: "Freelance Projects",
+    //     subLabel: "An exclusive list for contract work",
+    //     href: "#",
+    //   },
+    // ],
+    href: "/page",
   },
   {
     label: "People",
-    children: [
-      {
-        label: "CLICK HERE",
-        href: "/people",
-      },
-    ],
+    // children: [
+    //   {
+    //     label: "CLICK HERE",
+    //     href: "/people",
+    //   },
+    // ],
+    href: "/people",
   },
   {
     label: "Publications",
-    children: [
-      {
-        label: "Job Board",
-        href: "#",
-      },
-    ],
+    // children: [
+    //   {
+    //     label: "Job Board",
+    //     href: "#",
+    //   },
+    // ],
   },
   {
     label: "Academics",
-    children: [
-      {
-        label: "Job Board",
-        href: "#",
-      },
-    ],
+    // children: [
+    //   {
+    //     label: "Job Board",
+    //     href: "#",
+    //   },
+    // ],
   },
   {
     label: "Contact",
     children: [
       {
-        label: "Job Board",
+        label: "Dropdown go brr",
         href: "#",
+      },
+      {
+        label: "Food (no link)",
       },
     ],
   },

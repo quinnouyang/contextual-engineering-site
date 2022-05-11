@@ -1,7 +1,7 @@
 import { Link, Container, Flex } from "@chakra-ui/react";
-import Carousel from "../src/components/carousel";
-import Cart from "../src/components/cart";
-import Details from "../src/components/details";
+import Carousel from "../src/demo-components/carousel";
+import Cart from "../src/demo-components/cart";
+import Details from "../src/demo-components/details";
 import Footer from "../src/components/footer";
 import Logo from "../src/components/logo";
 import NavBar from "../src/components/navbar";

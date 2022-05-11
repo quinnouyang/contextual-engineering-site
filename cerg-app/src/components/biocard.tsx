@@ -1,48 +1,58 @@
 import {
+  AspectRatio,
+  Divider,
   Flex,
-  Box,
+  Heading,
   Image,
-  useColorModeValue,
+  Popover,
+  PopoverContent,
+  PopoverTrigger as OrigPopoverTrigger,
+  Text,
+  VStack,
 } from "@chakra-ui/react";
+import { FC } from "react";
+import { IState as IProps } from "../../pages/people";
 
-const data = {
-  imageURL:
-    "https://images.unsplash.com/photo-1572635196237-14b3f281503f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=4600&q=80",
-  name: "Wayfarer Classic",
-  shortBio: "blah."
+// Temporary fix: React 18 issue
+export const PopoverTrigger: React.FC<{ children: React.ReactNode }> =
+  OrigPopoverTrigger;
+
+const CARD_WIDTH = "300px";
+
+const BioPopover: FC<IProps> = ({ person }) => {
+  return (
+    <VStack p={4} spacing={1}>
+      <Heading fontSize={"1xl"}>{person.name}</Heading>
+      <Text fontSize={"md"} fontWeight="medium">
+        {person.creds}
+      </Text>
+      <Divider />
+      <Text fontSize={"md"}>{person.shortBio}</Text>
+    </VStack>
+  );
 };
 
-export default function BioCard() {
+const BioCard: FC<IProps> = ({ person }) => {
   return (
-    <Flex p={50} w="full" alignItems="center" justifyContent="center">
-      <Box
-        bg={useColorModeValue("white", "gray.800")}
-        maxW="sm"
-        borderWidth="1px"
-        rounded="lg"
-        shadow="lg"
-        position="relative"
-      >
-        <Image
-          src={data.imageURL}
-          alt={`Picture of ${data.name}`}
-          roundedTop="lg"
-        />
+    <Flex w="full">
+      <Popover trigger="hover">
+        <PopoverTrigger>
+          <AspectRatio w={CARD_WIDTH} ratio={3 / 4}>
+            <Image src={person.headshotPath} />
+          </AspectRatio>
+        </PopoverTrigger>
 
-        <Box p="6">
-          <Flex mt="1" justifyContent="space-between" alignContent="center">
-            <Box
-              fontSize="2xl"
-              fontWeight="semibold"
-              as="h4"
-              lineHeight="tight"
-              isTruncated
-            >
-              {data.name}
-            </Box>
-          </Flex>
-        </Box>
-      </Box>
+        <PopoverContent
+          rounded={"none"}
+          w={CARD_WIDTH}
+          maxH={"400px"}
+          overflow="scroll"
+        >
+          <BioPopover person={person} />
+        </PopoverContent>
+      </Popover>
     </Flex>
   );
-}
+};
+
+export default BioCard;
