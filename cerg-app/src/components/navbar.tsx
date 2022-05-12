@@ -9,13 +9,14 @@ import {
   Icon,
   Link,
   Popover,
-  PopoverTrigger as OrigPopoverTrigger,
+  PopoverTrigger, // as OrigPopoverTrigger,
   PopoverContent,
   useColorModeValue,
-  useBreakpointValue,
   useDisclosure,
   useColorMode,
-  AspectRatio,
+  Divider,
+  Heading,
+  HStack,
 } from "@chakra-ui/react";
 import {
   HamburgerIcon,
@@ -25,15 +26,17 @@ import {
   MoonIcon,
   SunIcon,
 } from "@chakra-ui/icons";
-import Logo from "./logo";
+import FullWordmark from "./full-wordmark";
+import LetterLogo from "./letter-logo";
 
-// Temporary fix: React 18 issue
-export const PopoverTrigger: React.FC<{ children: React.ReactNode }> =
-  OrigPopoverTrigger;
+// // Temporary fix: React 18 conflict (downgraded to v17 for now...)
+// export const PopoverTrigger: React.FC<{ children: React.ReactNode }> =
+//   OrigPopoverTrigger;
 
 export default function NavBar() {
   const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onToggle } = useDisclosure();
+  // const isNotSmall = useMediaQuery();
 
   return (
     <Box>
@@ -43,8 +46,8 @@ export default function NavBar() {
         bg={useColorModeValue("white", "gray.800")}
         color={useColorModeValue("gray.600", "white")}
         minH={"60px"}
-        py={{ base: 2 }}
-        px={{ base: 4 }}
+        py={2}
+        px={4}
         borderBottom={1}
         borderStyle={"solid"}
         borderColor={useColorModeValue("gray.200", "gray.900")}
@@ -64,17 +67,30 @@ export default function NavBar() {
             aria-label={"Toggle Navigation"}
           />
         </Flex>
-        <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
-          <Text
+        <Flex
+          // Height necessary for <Divisor />
+          h="full"
+          flex={{ base: 1 }}
+          justify={{ base: "center", md: "start" }}
+        >
+          {/* <Text
             textAlign={useBreakpointValue({ base: "center", md: "left" })}
             fontFamily={"heading"}
             color={useColorModeValue("gray.800", "white")}
           >
-            UIUC Contextual Engineering
-          </Text>
-          <AspectRatio ratio={1} w={"100px"}>
-            <Logo />
-          </AspectRatio>
+            UIUC
+          </Text> */}
+          <Stack display={{ base: "none", md: "block" }} align="left" h="60px">
+            {/* <FullWordmark /> */}
+            <Heading size="md">Contextual Engineering Research Group</Heading>
+            <Divider orientation="vertical" />
+            {/* <Divider orientation="vertical" /> */}
+          </Stack>
+          <HStack display={{ base: "block", md: "none" }} align="center">
+            {/* <LetterLogo /> */}
+            <Heading size="md">Contextual Engineering</Heading>
+          </HStack>
+          {/* <Divider orientation="vertical" /> */}
           <Flex display={{ base: "none", md: "flex" }} ml={10}>
             <DesktopNav />
           </Flex>
@@ -91,6 +107,7 @@ export default function NavBar() {
         </Stack>
       </Flex>
 
+      {/* Toggles dropdown */}
       <Collapse in={isOpen} animateOpacity>
         <MobileNav />
       </Collapse>
@@ -112,8 +129,7 @@ const DesktopNav = () => {
               <Link
                 p={2}
                 href={navItem.href ?? "#"}
-                fontSize={"sm"}
-                fontWeight={500}
+                fontSize={"md"}
                 color={linkColor}
                 _hover={{
                   textDecoration: "none",

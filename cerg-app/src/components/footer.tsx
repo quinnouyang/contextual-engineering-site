@@ -10,7 +10,7 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
-import CombinedLogo from "./combined-logo";
+import ShortWordmark from "./short-wordmark";
 
 export default function Footer() {
   return (
@@ -24,9 +24,13 @@ export default function Footer() {
       <Container maxW="6xl">
         <HStack p={8}>
           <Stack>
-            <CombinedLogo />
-            <Heading size="md">Contextual Engineering Research Group</Heading>
-            <Text fontSize="sm">Copyright © 2022. All rights reserved.</Text>
+            <ShortWordmark />
+            <Heading fontSize={{ base: "sm", sm: "md", md: "lg" }}>
+              Contextual Engineering Research Group
+            </Heading>
+            <Text fontSize={{ base: "x-small", sm: "sm" }}>
+              Copyright © 2022. All rights reserved.
+            </Text>
           </Stack>
           <Spacer />
           <Flex
@@ -36,16 +40,33 @@ export default function Footer() {
             columnGap={4}
             rowGap={2}
           >
-            <Link fontWeight="semibold" href="#">
+            {/* TO-DO: Centralize Link stylings */}
+            <Link
+              fontWeight="semibold"
+              fontSize={{ base: "sm", sm: "md" }}
+              href="#"
+            >
               About
             </Link>
-            <Link fontWeight="semibold" href="#">
+            <Link
+              fontWeight="semibold"
+              fontSize={{ base: "sm", sm: "md" }}
+              href="#"
+            >
               People
             </Link>
-            <Link fontWeight="semibold" href="#">
+            <Link
+              fontWeight="semibold"
+              fontSize={{ base: "sm", sm: "md" }}
+              href="#"
+            >
               Research
             </Link>
-            <Link fontWeight="semibold" href="#">
+            <Link
+              fontWeight="semibold"
+              fontSize={{ base: "sm", sm: "md" }}
+              href="#"
+            >
               Contact
             </Link>
           </Flex>

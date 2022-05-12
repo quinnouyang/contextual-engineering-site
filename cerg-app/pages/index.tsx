@@ -1,18 +1,17 @@
-import { Link, Container, Flex } from "@chakra-ui/react";
+import { Container, Flex } from "@chakra-ui/react";
 import Carousel from "../src/demo-components/carousel";
 import Cart from "../src/demo-components/cart";
 import Details from "../src/demo-components/details";
 import Footer from "../src/components/footer";
-import Logo from "../src/components/logo";
 import NavBar from "../src/components/navbar";
 
-export default function Home() {
+export default function HomePage() {
   return (
     <>
       <NavBar />
       {/* <Link href="/page">Test Page!</Link> */}
       <Carousel />
-      {/* Responsive UI! Arrays and objects (for <3 breakpoints) */}
+      {/* Responsive UI! Arrays and objects (for < 3 breakpoints) */}
       <Container maxW="container.xl" p={0}>
         <Flex
           // Functional scrolling (?). {"smallest"/deafult, medium and up}
