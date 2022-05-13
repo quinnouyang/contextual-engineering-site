@@ -1,21 +1,24 @@
+// POTENTIAL BUG: <DesktopNav> sometimes orients vertically instead of horizontally. Shrink and expand page width page in developer toosl to (usually) fix and don't hard refresh.
+
 import {
   Box,
   Flex,
   Text,
   IconButton,
-  Button,
   Stack,
   Collapse,
   Icon,
   Link,
   Popover,
-  PopoverTrigger, // as OrigPopoverTrigger,
+  PopoverTrigger as OrigPopoverTrigger,
   PopoverContent,
   useColorModeValue,
   useDisclosure,
-  useColorMode,
-  Divider,
   Heading,
+  Container,
+  VStack,
+  Show,
+  Spacer,
   HStack,
 } from "@chakra-ui/react";
 import {
@@ -23,105 +26,117 @@ import {
   CloseIcon,
   ChevronDownIcon,
   ChevronRightIcon,
-  MoonIcon,
-  SunIcon,
+  SearchIcon,
 } from "@chakra-ui/icons";
-import FullWordmark from "./full-wordmark";
-import LetterLogo from "./letter-logo";
+import BlockLogo from "../figures/block-logo";
+import VerticalDivider from "../figures/vertical-divider";
 
-// // Temporary fix: React 18 conflict (downgraded to v17 for now...)
-// export const PopoverTrigger: React.FC<{ children: React.ReactNode }> =
-//   OrigPopoverTrigger;
+// Temporary fix: React 18 conflict (downgraded to v17 for now...)
+export const PopoverTrigger: React.FC<{ children: React.ReactNode }> =
+  OrigPopoverTrigger;
 
 export default function NavBar() {
-  const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onToggle } = useDisclosure();
-  // const isNotSmall = useMediaQuery();
-
   return (
     <Box>
-      {/* Color is slightly inaccurate */}
-      <Box bg="#e84a27" w="100%" h={"7px"} />
-      <Flex
-        bg={useColorModeValue("white", "gray.800")}
-        color={useColorModeValue("gray.600", "white")}
-        minH={"60px"}
-        py={2}
-        px={4}
-        borderBottom={1}
-        borderStyle={"solid"}
-        borderColor={useColorModeValue("gray.200", "gray.900")}
-        align={"center"}
-      >
-        <Flex
-          flex={{ base: 1, md: "auto" }}
-          ml={{ base: -2 }}
-          display={{ base: "flex", md: "none" }}
-        >
-          <IconButton
-            onClick={onToggle}
-            icon={
-              isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />
-            }
-            variant={"ghost"}
-            aria-label={"Toggle Navigation"}
-          />
-        </Flex>
-        <Flex
-          // Height necessary for <Divisor />
-          h="full"
-          flex={{ base: 1 }}
-          justify={{ base: "center", md: "start" }}
-        >
-          {/* <Text
-            textAlign={useBreakpointValue({ base: "center", md: "left" })}
-            fontFamily={"heading"}
-            color={useColorModeValue("gray.800", "white")}
-          >
-            UIUC
-          </Text> */}
-          <Stack display={{ base: "none", md: "block" }} align="left" h="60px">
-            {/* <FullWordmark /> */}
-            <Heading size="md">Contextual Engineering Research Group</Heading>
-            <Divider orientation="vertical" />
-            {/* <Divider orientation="vertical" /> */}
-          </Stack>
-          <HStack display={{ base: "block", md: "none" }} align="center">
-            {/* <LetterLogo /> */}
-            <Heading size="md">Contextual Engineering</Heading>
-          </HStack>
-          {/* <Divider orientation="vertical" /> */}
-          <Flex display={{ base: "none", md: "flex" }} ml={10}>
+      <Container maxW="container.lg">
+        <Flex py={{ base: 4, md: 8 }} alignItems="center">
+          <HeadingLogo />
+          <Spacer />
+          <Show above="md">
             <DesktopNav />
-          </Flex>
+          </Show>
+          <VStack spacing={0}>
+            <Search />
+            {/* Mobile menu ICON */}
+            <Show below="md">
+              <IconButton
+                onClick={onToggle}
+                icon={
+                  isOpen ? (
+                    <CloseIcon w={3} h={3} />
+                  ) : (
+                    <HamburgerIcon w={5} h={5} />
+                  )
+                }
+                variant={"ghost"}
+                aria-label={"Toggle Navigation"}
+              />
+            </Show>
+          </VStack>
         </Flex>
-        <Stack
-          flex={{ base: 1, md: 0 }}
-          justify={"flex-end"}
-          direction={"row"}
-          spacing={6}
+      </Container>
+      {/* Mobile menu DROPDOWN */}
+      <Stack justify={"flex-end"} direction={"row"}>
+        <Box
+          w="50vw"
+          position="absolute" // Overlap outside content by not stretching parent <Box>
+          zIndex={"10"}
         >
-          <Button onClick={toggleColorMode}>
-            {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
-          </Button>
-        </Stack>
-      </Flex>
-
-      {/* Toggles dropdown */}
-      <Collapse in={isOpen} animateOpacity>
-        <MobileNav />
-      </Collapse>
+          <Collapse in={isOpen} animateOpacity>
+            <MobileNav />
+          </Collapse>
+        </Box>
+      </Stack>
     </Box>
   );
 }
 
+// TO-DO
+const Search = () => {
+  return (
+    <IconButton aria-label="Toggle Search Bar" variant="ghost">
+      <SearchIcon />
+    </IconButton>
+  );
+};
+
+// Decent but hard-coded responsive headings
+const HeadingLogo = () => {
+  return (
+    <>
+      <BlockLogo style={{ width: "2em" }} /* Hard-coded:( */ />
+      <Flex>
+        <VerticalDivider
+          style={{
+            width: "0.1em",
+            height: "inherit" /* BUG: height does not follow <BlockLogo> */,
+            margin: "0 1em 0 1em",
+          }}
+        />
+        <VStack alignItems={"left"} spacing={0}>
+          <Link href="\#">
+            <Heading fontSize={{ base: "1xl", md: "2xl" }}>
+              Contextual Engineering
+              <Show above="md">
+                <br />
+              </Show>{" "}
+              Research Group
+            </Heading>
+          </Link>
+          <Show above="sm">
+            <Link href="http://illinois.edu/">
+              <Text
+                /*fontStyle={"thin"}*/ fontSize={{ base: "x-small", md: "sm" }}
+              >
+                University of Illinois Urbana-Champaign
+              </Text>
+            </Link>
+          </Show>
+        </VStack>
+      </Flex>
+    </>
+  );
+};
+
+// TO-DO: Simplify names, customize & simplify styling properties and behaviors
 const DesktopNav = () => {
   const linkColor = useColorModeValue("gray.600", "gray.200");
-  const linkHoverColor = useColorModeValue("gray.100", "white");
+  const linkHoverColor = useColorModeValue("gray.800", "white");
   const popoverContentBgColor = useColorModeValue("white", "gray.800");
 
   return (
-    <Stack direction={"row"} spacing={4}>
+    <HStack direction={"row"} spacing={2} alignItems="center">
       {NAV_ITEMS.map((navItem) => (
         <Box key={navItem.label}>
           <Popover trigger={"hover"} placement={"bottom-start"}>
@@ -133,8 +148,8 @@ const DesktopNav = () => {
                 color={linkColor}
                 _hover={{
                   textDecoration: "none",
-                  // color: linkHoverColor,
-                  backgroundColor: linkHoverColor,
+                  color: linkHoverColor,
+                  backgroundColor: "gray.50",
                 }}
               >
                 {navItem.label}
@@ -160,7 +175,7 @@ const DesktopNav = () => {
           </Popover>
         </Box>
       ))}
-    </Stack>
+    </HStack>
   );
 };
 
@@ -203,7 +218,7 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
 
 const MobileNav = () => {
   return (
-    <Stack
+    <VStack
       bg={useColorModeValue("white", "gray.800")}
       p={4}
       display={{ md: "none" }}
@@ -211,7 +226,7 @@ const MobileNav = () => {
       {NAV_ITEMS.map((navItem) => (
         <MobileNavItem key={navItem.label} {...navItem} />
       ))}
-    </Stack>
+    </VStack>
   );
 };
 
@@ -221,7 +236,7 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
   return (
     <Stack spacing={4} onClick={children && onToggle}>
       <Flex
-        py={2}
+        // py={2}
         as={Link}
         href={href ?? "#"}
         justify={"space-between"}
@@ -277,67 +292,8 @@ interface NavItem {
 
 const NAV_ITEMS: Array<NavItem> = [
   {
-    label: "Home",
-    // children: [
-    //   {
-    //     label: "Explore Design Work",
-    //     subLabel: "Trending Design to inspire you",
-    //     href: "/page",
-    //   },
-    //   {
-    //     label: "New & Noteworthy",
-    //     subLabel: "Up-and-coming Designers",
-    //     href: "/#",
-    //   },
-    // ],
+    label: "About",
     href: "/#",
-  },
-  {
-    label: "Research",
-    // children: [
-    //   {
-    //     label: "Job Board",
-    //     subLabel: "Find your dream design job",
-    //     href: "#",
-    //   },
-    //   {
-    //     label: "Freelance Projects",
-    //     subLabel: "An exclusive list for contract work",
-    //     href: "#",
-    //   },
-    // ],
-    href: "/page",
-  },
-  {
-    label: "People",
-    // children: [
-    //   {
-    //     label: "CLICK HERE",
-    //     href: "/people",
-    //   },
-    // ],
-    href: "/people",
-  },
-  {
-    label: "Publications",
-    // children: [
-    //   {
-    //     label: "Job Board",
-    //     href: "#",
-    //   },
-    // ],
-  },
-  {
-    label: "Academics",
-    // children: [
-    //   {
-    //     label: "Job Board",
-    //     href: "#",
-    //   },
-    // ],
-  },
-  {
-    label: "Contact",
     children: [
       {
         label: "Dropdown go brr",
@@ -347,5 +303,19 @@ const NAV_ITEMS: Array<NavItem> = [
         label: "Food (no link)",
       },
     ],
+  },
+  {
+    label: "Research",
+    href: "/page",
+  },
+  {
+    label: "People",
+    href: "/people",
+  },
+  {
+    label: "Academics",
+  },
+  {
+    label: "News",
   },
 ];

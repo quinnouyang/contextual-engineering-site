@@ -1,120 +1,101 @@
 import {
   extendTheme,
   theme as base,
-  withDefaultColorScheme,
-  withDefaultVariant,
+  // withDefaultColorScheme,
+  // withDefaultVariant,
 } from "@chakra-ui/react";
-import { mode } from "@chakra-ui/theme-tools";
+// import { mode } from "@chakra-ui/theme-tools";
 
-const brandRing = {
-  _focus: {
-    ring: 2,
-    ringColor: "brand.500",
-  },
-};
+// const brandRing = {
+//   _focus: {
+//     ring: 2,
+//     ringColor: "brand.500",
+//   },
+// };
 
-const inputSelectStyles = {
-  variants: {
-    filled: {
-      field: {
-        _focus: {
-          // Override default border highlight color
-          borderColor: "brand.500",
-        },
-      },
-    },
-  },
-  sizes: {
-    md: {
-      field: {
-        // Override default round borders
-        borderRadius: "none",
-      },
-    },
-  },
-};
+// const inputSelectStyles = {
+//   variants: {
+//     filled: {
+//       field: {
+//         _focus: {
+//           // Override default border highlight color
+//           borderColor: "brand.500",
+//         },
+//       },
+//     },
+//   },
+//   sizes: {
+//     md: {
+//       field: {
+//         // Override default round borders
+//         borderRadius: "none",
+//       },
+//     },
+//   },
+// };
 
 const theme = extendTheme(
   {
-    colors: {
-      brand: {
-        50: "#f5fee5",
-        100: "#e1fbb2",
-        200: "#cdf781",
-        300: "#b8ee56",
-        400: "#a2e032",
-        500: "#8ac919",
-        600: "#71ab09",
-        700: "#578602",
-        800: "#3c5e00",
-        900: "#203300",
-      },
-    },
+    // colors: {
+    //   brand: {
+    //     50: "#f5fee5",
+    //     100: "#e1fbb2",
+    //     200: "#cdf781",
+    //     300: "#b8ee56",
+    //     400: "#a2e032",
+    //     500: "#8ac919",
+    //     600: "#71ab09",
+    //     700: "#578602",
+    //     800: "#3c5e00",
+    //     900: "#203300",
+    //   },
+    // },
     fonts: {
       // Also set default font in case specified ones have not loaded (Imported into _app.tsx via styles.css)
       heading: `Montserrat, ${base.fonts?.heading}`,
-      body: `Inter, ${base.fonts?.body}`,
+      body: `Montserrat, ${base.fonts?.body}`,
     },
-    components: {
-      Button: {
-        variants: {
-          primary: (props: any) => ({
-            rounded: "None",
-            ...brandRing,
-            // Toggles: (darkMode, lightMode)
-            color: mode("white", "gray.800")(props),
-            // Slight increases...
-            backgroundColor: mode("brand.500", "brand.200")(props),
-            _hover: {
-              backgroundColor: mode("brand.600", "brand.300"),
-            },
-            _active: {
-              backgroundColor: mode("brand.700", "brand.400"),
-            },
-          }),
-        },
-      },
-      Input: { ...inputSelectStyles },
-      Select: { ...inputSelectStyles },
-      Checkbox: {
-        baseStyle: {
-          // Override border highlight (ring) and radius
-          control: {
-            borderRadius: "none",
-            ...brandRing,
-          },
-        },
-      },
-    },
-  },
-  // Custom global defaults
-  withDefaultColorScheme({
-    colorScheme: "brand",
-    components: ["Checkbox"],
-  }),
-  withDefaultVariant({
-    variant: "filled",
-    components: ["Input", "Select"],
-  })
+    //   components: {
+    //     Button: {
+    //       variants: {
+    //         primary: (props: any) => ({
+    //           rounded: "None",
+    //           ...brandRing,
+    //           // Toggles: (darkMode, lightMode)
+    //           color: mode("white", "gray.800")(props),
+    //           // Slight increases...
+    //           backgroundColor: mode("brand.500", "brand.200")(props),
+    //           _hover: {
+    //             backgroundColor: mode("brand.600", "brand.300"),
+    //           },
+    //           _active: {
+    //             backgroundColor: mode("brand.700", "brand.400"),
+    //           },
+    //         }),
+    //       },
+    //     },
+    //     Input: { ...inputSelectStyles },
+    //     Select: { ...inputSelectStyles },
+    //     Checkbox: {
+    //       baseStyle: {
+    //         // Override border highlight (ring) and radius
+    //         control: {
+    //           borderRadius: "none",
+    //           ...brandRing,
+    //         },
+    //       },
+    //     },
+    //   },
+  }
+  // // Custom global defaults
+  // withDefaultColorScheme({
+  //   colorScheme: "brand",
+  //   components: ["Checkbox"],
+  // }),
+  // withDefaultVariant({
+  //   variant: "filled",
+  //   components: ["Input", "Select"],
+  // })
 );
 
 export default theme;
-
-// const svg = document.querySelector("svg");
-
-// if (svg) {
-//   const { xMin, xMax, yMin, yMax } = [...svg?.children].reduce((acc, el) => {
-//     const { x, y, width, height } = el.getBBox();
-//     if (!acc.xMin || x < acc.xMin) acc.xMin = x;
-//     if (!acc.xMax || x + width > acc.xMax) acc.xMax = x + width;
-//     if (!acc.yMin || y < acc.yMin) acc.yMin = y;
-//     if (!acc.yMax || y + height > acc.yMax) acc.yMax = y + height;
-//     return acc;
-//   }, {});
-
-//   console.log(svg);
-
-//   const viewbox = `${xMin} ${yMin} ${xMax - xMin} ${yMax - yMin}`;
-
-//   svg?.setAttribute("viewBox", viewbox);
-// }

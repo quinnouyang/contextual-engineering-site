@@ -3,26 +3,25 @@ import {
   Container,
   Flex,
   Heading,
-  HStack,
   Link,
   Spacer,
   Stack,
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
-import ShortWordmark from "./short-wordmark";
+import ShortWordmark from "../figures/short-wordmark";
 
 export default function Footer() {
   return (
     <Box
       bg={useColorModeValue("gray.50", "gray.900")}
       color={useColorModeValue("gray.700", "gray.200")}
-      pos={"relative"}
-      bottom={0}
-      w={"full"}
+      // pos={"relative"}
+      // bottom={0}
+      // w={"full"}
     >
-      <Container maxW="6xl">
-        <HStack p={8}>
+      <Container maxW="container.lg">
+        <Flex paddingTop={8} paddingBottom={8} >
           <Stack>
             <ShortWordmark />
             <Heading fontSize={{ base: "sm", sm: "md", md: "lg" }}>
@@ -32,11 +31,11 @@ export default function Footer() {
               Copyright © 2022. All rights reserved.
             </Text>
           </Stack>
-          <Spacer />
+          <Spacer minW="10vw"/>
           <Flex
-            w="32vw"
             wrap="wrap"
             justifyContent="right"
+            alignContent={"center"}
             columnGap={4}
             rowGap={2}
           >
@@ -70,7 +69,7 @@ export default function Footer() {
               Contact
             </Link>
           </Flex>
-        </HStack>
+        </Flex>
       </Container>
     </Box>
   );

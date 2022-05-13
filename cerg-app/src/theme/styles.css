@@ -1,4 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700&display=swap");
 body {
   overscroll-behavior: none;
+}
+
+/* Hard coded:( */
+.divider {
+  display: inline-block;
+  width: 2px;
+  background-color: black;
+  margin: 0 10px;
+  width: 1rem;
+  height: 3rem;
 }

@@ -1,9 +1,4 @@
-import {
-  Box,
-  Heading,
-  SimpleGrid,
-  VStack,
-} from "@chakra-ui/react";
+import { Box, Heading, SimpleGrid, VStack } from "@chakra-ui/react";
 import Footer from "../src/components/footer";
 import NavBar from "../src/components/navbar";
 import BioCard from "../src/components/biocard";
