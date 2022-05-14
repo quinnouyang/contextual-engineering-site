@@ -39,17 +39,21 @@ export default function NavBar() {
   const { isOpen, onToggle } = useDisclosure();
   return (
     <Box>
-      <Container maxW="container.lg">
-        <Flex py={{ base: 4, md: 8 }} alignItems="center">
+      <Container maxW={{base: "container.sm", md: "container.md", lg: "container.lg"}}>
+        <Flex
+          py={{ base: "1em", lg: "2em" }}
+          alignItems="center"
+          justifyContent={"center"}
+        >
           <HeadingLogo />
           <Spacer />
-          <Show above="md">
+          <Show above="lg">
             <DesktopNav />
           </Show>
-          <VStack spacing={0}>
+          <HStack spacing={0}>
             <Search />
             {/* Mobile menu ICON */}
-            <Show below="md">
+            <Show below="lg">
               <IconButton
                 onClick={onToggle}
                 icon={
@@ -63,7 +67,7 @@ export default function NavBar() {
                 aria-label={"Toggle Navigation"}
               />
             </Show>
-          </VStack>
+          </HStack>
         </Flex>
       </Container>
       {/* Mobile menu DROPDOWN */}
@@ -95,34 +99,38 @@ const Search = () => {
 const HeadingLogo = () => {
   return (
     <>
-      <BlockLogo style={{ width: "2em" }} /* Hard-coded:( */ />
-      <Flex>
+      <Flex /*alignContent={"center"}*/>
+        <Flex width={{ base: "1.5em", lg: "2em" }}>
+          <BlockLogo style={{ width: "inherit" }} /* Hard-coded:( */ />
+        </Flex>
         <VerticalDivider
           style={{
             width: "0.1em",
             height: "inherit" /* BUG: height does not follow <BlockLogo> */,
             margin: "0 1em 0 1em",
           }}
+          color="illiniBlue"
         />
-        <VStack alignItems={"left"} spacing={0}>
+        <VStack alignItems={"center"} spacing={0}>
           <Link href="\#">
-            <Heading fontSize={{ base: "1xl", md: "2xl" }}>
+            <Heading fontSize={{ base: "1xl", lg: "2xl" }}>
               Contextual Engineering
-              <Show above="md">
-                <br />
-              </Show>{" "}
+              <br />
               Research Group
             </Heading>
+            <Show above="sm">
+              <Link href="http://illinois.edu/">
+                <Text
+                  /*fontStyle={"thin"}*/ fontSize={{
+                    base: "x-small",
+                    lg: "sm",
+                  }}
+                >
+                  University of Illinois Urbana-Champaign
+                </Text>
+              </Link>
+            </Show>
           </Link>
-          <Show above="sm">
-            <Link href="http://illinois.edu/">
-              <Text
-                /*fontStyle={"thin"}*/ fontSize={{ base: "x-small", md: "sm" }}
-              >
-                University of Illinois Urbana-Champaign
-              </Text>
-            </Link>
-          </Show>
         </VStack>
       </Flex>
     </>
@@ -136,16 +144,16 @@ const DesktopNav = () => {
   const popoverContentBgColor = useColorModeValue("white", "gray.800");
 
   return (
-    <HStack direction={"row"} spacing={2} alignItems="center">
+    <HStack direction={"row"} /*alignItems="center"*/>
       {NAV_ITEMS.map((navItem) => (
         <Box key={navItem.label}>
           <Popover trigger={"hover"} placement={"bottom-start"}>
             <PopoverTrigger>
               <Link
-                p={2}
                 href={navItem.href ?? "#"}
                 fontSize={"md"}
                 color={linkColor}
+                p={"0.5em"}
                 _hover={{
                   textDecoration: "none",
                   color: linkHoverColor,
@@ -158,14 +166,14 @@ const DesktopNav = () => {
 
             {navItem.children && (
               <PopoverContent
-                border={0}
-                boxShadow={"xl"}
+                // border={0}
+                // boxShadow={"xl"}
                 bg={popoverContentBgColor}
-                p={4}
-                rounded={"xl"}
+                // p={"0.5em"}
+                rounded={"none"}
                 minW={"sm"}
               >
-                <Stack>
+                <Stack spacing={0}>
                   {navItem.children.map((child) => (
                     <DesktopSubNav key={child.label} {...child} />
                   ))}
@@ -186,7 +194,7 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
       role={"group"}
       display={"block"}
       p={2}
-      rounded={"md"}
+      rounded={"none"}
       _hover={{ bg: useColorModeValue("pink.50", "gray.900") }}
     >
       <Stack direction={"row"} align={"center"}>
@@ -220,8 +228,8 @@ const MobileNav = () => {
   return (
     <VStack
       bg={useColorModeValue("white", "gray.800")}
-      p={4}
-      display={{ md: "none" }}
+      // p={4}
+      display={{ lg: "none" }}
     >
       {NAV_ITEMS.map((navItem) => (
         <MobileNavItem key={navItem.label} {...navItem} />
@@ -307,10 +315,21 @@ const NAV_ITEMS: Array<NavItem> = [
   {
     label: "Research",
     href: "/page",
+    children: [
+      {
+        label: "Focus Areas"
+      },
+      {
+        label: "Projects",
+      },
+    ]
   },
   {
     label: "People",
     href: "/people",
+  },
+  {
+    label: "Resources",
   },
   {
     label: "Academics",
