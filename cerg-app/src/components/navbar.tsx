@@ -39,7 +39,9 @@ export default function NavBar() {
   const { isOpen, onToggle } = useDisclosure();
   return (
     <Box>
-      <Container maxW={{base: "container.sm", md: "container.md", lg: "container.lg"}}>
+      <Container
+        maxW={{ base: "container.sm", md: "container.md", lg: "container.lg" }}
+      >
         <Flex
           py={{ base: "1em", lg: "2em" }}
           alignItems="center"
@@ -86,51 +88,71 @@ export default function NavBar() {
   );
 }
 
-// TO-DO
+// TO-DO: Functionality
+// UI Bug: Icon bumps up during hover
 const Search = () => {
+  const iconColor = useColorModeValue("illiniOrange", "white");
   return (
-    <IconButton aria-label="Toggle Search Bar" variant="ghost">
+    <IconButton
+      aria-label="Toggle Search Bar"
+      variant="ghost"
+      rounded={"none"}
+      _hover={{
+        bg: "none",
+        color: iconColor,
+        borderBottomColor: "illiniOrange",
+        borderBottomWidth: "0.2em",
+      }}
+    >
       <SearchIcon />
     </IconButton>
   );
 };
 
-// Decent but hard-coded responsive headings
+// Decent but slightly hard-coded responsive headings
 const HeadingLogo = () => {
+  const linkHoverColor = useColorModeValue("illiniOrange", "white");
   return (
     <>
       <Flex /*alignContent={"center"}*/>
         <Flex width={{ base: "1.5em", lg: "2em" }}>
-          <BlockLogo style={{ width: "inherit" }} /* Hard-coded:( */ />
+          <BlockLogo />
         </Flex>
         <VerticalDivider
           style={{
             width: "0.1em",
-            height: "inherit" /* BUG: height does not follow <BlockLogo> */,
+            height: "inherit",
             margin: "0 1em 0 1em",
           }}
           color="illiniBlue"
         />
-        <VStack alignItems={"center"} spacing={0}>
-          <Link href="\#">
-            <Heading fontSize={{ base: "1xl", lg: "2xl" }}>
+        <VStack align={"center"} alignItems={"flex-start"} spacing={0}>
+          <Link href="\#" _hover={{ textDecoration: "none" }}>
+            <Heading
+              fontSize={{ base: "1xl", lg: "2xl" }}
+              _hover={{ color: linkHoverColor }}
+            >
               Contextual Engineering
               <br />
               Research Group
             </Heading>
-            <Show above="sm">
-              <Link href="http://illinois.edu/">
-                <Text
-                  /*fontStyle={"thin"}*/ fontSize={{
-                    base: "x-small",
-                    lg: "sm",
-                  }}
-                >
-                  University of Illinois Urbana-Champaign
-                </Text>
-              </Link>
-            </Show>
           </Link>
+          <Show above="md">
+            <Link
+              href="http://illinois.edu/"
+              _hover={{ textDecoration: "none" }}
+            >
+              <Text
+                fontSize={{
+                  base: "x-small",
+                  lg: "sm",
+                }}
+                _hover={{ color: linkHoverColor }}
+              >
+                University of Illinois Urbana-Champaign
+              </Text>
+            </Link>
+          </Show>
         </VStack>
       </Flex>
     </>
@@ -138,32 +160,36 @@ const HeadingLogo = () => {
 };
 
 // TO-DO: Simplify names, customize & simplify styling properties and behaviors
+// UI Bug: Dropdown bumps up during hover
 const DesktopNav = () => {
   const linkColor = useColorModeValue("gray.600", "gray.200");
-  const linkHoverColor = useColorModeValue("gray.800", "white");
+  const linkHoverColor = useColorModeValue("illiniOrange", "white");
   const popoverContentBgColor = useColorModeValue("white", "gray.800");
 
   return (
     <HStack direction={"row"} /*alignItems="center"*/>
       {NAV_ITEMS.map((navItem) => (
         <Box key={navItem.label}>
-          <Popover trigger={"hover"} placement={"bottom-start"}>
+          <Popover trigger={"hover"} placement={"bottom-start"} gutter={0}>
             <PopoverTrigger>
               <Link
                 href={navItem.href ?? "#"}
-                fontSize={"md"}
+                fontSize={"lg"}
                 color={linkColor}
-                p={"0.5em"}
+                m={"0.5em"}
+                py={"0.5em"}
                 _hover={{
                   textDecoration: "none",
                   color: linkHoverColor,
-                  backgroundColor: "gray.50",
+                  borderBottomColor: "illiniOrange",
+                  borderBottomWidth: "0.2em",
                 }}
               >
                 {navItem.label}
               </Link>
             </PopoverTrigger>
 
+            {/* Dropdown */}
             {navItem.children && (
               <PopoverContent
                 // border={0}
@@ -171,11 +197,11 @@ const DesktopNav = () => {
                 bg={popoverContentBgColor}
                 // p={"0.5em"}
                 rounded={"none"}
-                minW={"sm"}
+                minW={"xs"}
               >
                 <Stack spacing={0}>
                   {navItem.children.map((child) => (
-                    <DesktopSubNav key={child.label} {...child} />
+                    <DropdownContent key={child.label} {...child} />
                   ))}
                 </Stack>
               </PopoverContent>
@@ -187,21 +213,22 @@ const DesktopNav = () => {
   );
 };
 
-const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
+const DropdownContent = ({ label, href, subLabel }: NavItem) => {
   return (
     <Link
       href={href}
       role={"group"}
       display={"block"}
-      p={2}
+      px={"1em"}
+      py={"0.5em"}
       rounded={"none"}
-      _hover={{ bg: useColorModeValue("pink.50", "gray.900") }}
+      _hover={{ bg: useColorModeValue("gray.100", "gray.900") }}
     >
       <Stack direction={"row"} align={"center"}>
         <Box>
           <Text
             transition={"all .3s ease"}
-            _groupHover={{ color: "pink.400" }}
+            _groupHover={{ color: "illiniOrange" }}
             fontWeight={500}
           >
             {label}
@@ -211,19 +238,25 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
         <Flex
           transition={"all .3s ease"}
           transform={"translateX(-10px)"}
-          opacity={0}
+          opacity={0} // Invisible until _groupHover
           _groupHover={{ opacity: "100%", transform: "translateX(0)" }}
           justify={"flex-end"}
-          align={"center"}
+          // align={"center"}
           flex={1}
         >
-          <Icon color={"pink.400"} w={5} h={5} as={ChevronRightIcon} />
+          <Icon
+            color={"illiniOrange"}
+            w={"1.5em"}
+            h={"1.5em"}
+            as={ChevronRightIcon}
+          />
         </Flex>
       </Stack>
     </Link>
   );
 };
 
+// TO-DO: Implement after DesktopNav is decent
 const MobileNav = () => {
   return (
     <VStack
@@ -302,37 +335,24 @@ const NAV_ITEMS: Array<NavItem> = [
   {
     label: "About",
     href: "/#",
-    children: [
-      {
-        label: "Dropdown go brr",
-        href: "#",
-      },
-      {
-        label: "Food (no link)",
-      },
-    ],
   },
   {
     label: "Research",
-    href: "/page",
     children: [
       {
-        label: "Focus Areas"
+        label: "Focus Areas",
       },
       {
         label: "Projects",
       },
-    ]
+      {
+        label: "Resources",
+      },
+    ],
   },
   {
-    label: "People",
-    href: "/people",
-  },
-  {
-    label: "Resources",
-  },
-  {
-    label: "Academics",
+    label: "Team",
+    href: "/team",
   },
   {
     label: "News",

@@ -7,12 +7,10 @@ export default function LetterLogo(props: any) {
     <Link href="http://illinois.edu/">
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        // height={288.895}
-        // width={200}
-        style={{ width: "inherit", height: "inherit" }}
-        viewBox="0 0 200 288.895"
-        aria-label="Block UIUC Logo"
         href="http://illinois.edu/"
+        viewBox="0 0 200 288.895"
+        style={{ width: "inherit" }}
+        aria-label="Block UIUC Logo"
         {...props}
       >
         <path

@@ -1,10 +1,10 @@
 import {
   extendTheme,
+  // withDefaultColorScheme,
   theme as baseTheme,
-  withDefaultColorScheme,
+  // withDefaultProps,
   // withDefaultVariant,
 } from "@chakra-ui/react";
-// import { mode } from "@chakra-ui/theme-tools";
 
 // const brandRing = {
 //   _focus: {
@@ -34,13 +34,17 @@ import {
 //   },
 // };
 
-const theme = extendTheme(
+// TO-DO: Implement default component styles (no round borders, black as illiniBlue, etc.)
+const customTheme = extendTheme(
   {
     // From https://marketing.illinois.edu/design/color
     colors: {
+      brand: baseTheme.colors.red,
       illiniOrange: "#FF552E", // Bright orange
       illiniBlue: "#13294B", // Very dark blue
       altgeldOrange: "#DD3403", // Dark bright orange
+
+      // Generally grows darker/stronger from top to bottom
       heritageOrange: {
         50: "#F5821E", // Light-ish orange
         100: "#E56E15",
@@ -72,26 +76,14 @@ const theme = extendTheme(
         300: "#1E3877", // Dark blue
       },
     },
-    // colors: {
-    //   brand: {
-    //     50: "#f5fee5",
-    //     100: "#e1fbb2",
-    //     200: "#cdf781",
-    //     300: "#b8ee56",
-    //     400: "#a2e032",
-    //     500: "#8ac919",
-    //     600: "#71ab09",
-    //     700: "#578602",
-    //     800: "#3c5e00",
-    //     900: "#203300",
-    //   },
-    // },
     fonts: {
-      // Also set default font in case specified ones have not loaded (Imported into _app.tsx via styles.css)
-      heading: `Montserrat, ${baseTheme.fonts?.heading}`,
-      body: `Montserrat, ${baseTheme.fonts?.body}`,
-      mono: `Montserrat, ${baseTheme.fonts?.mono}`,
+      // `[default], [backup]`
+      heading: `Montserrat, sans-serif`,
+      body: `Montserrat, sans-serif`,
+      mono: `Montserrat, sans-serif`,
     },
+    // Less boilerplate way?
+    // TO-DO: Determine and implement desired font weights
     components: {
       Heading: {
         baseStyle: {
@@ -109,9 +101,6 @@ const theme = extendTheme(
         },
       },
     },
-    // styles: {
-    //   global: {},
-    // },
     //   components: {
     //     Button: {
     //       variants: {
@@ -155,4 +144,4 @@ const theme = extendTheme(
   // })
 );
 
-export default theme;
+export default customTheme;

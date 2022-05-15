@@ -11,17 +11,17 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { FC } from "react";
-import { IState as IProps } from "../../pages/people";
+import { IState as IProps } from "../../pages/team";
 
 // Temporary fix: React 18 issue
 export const PopoverTrigger: React.FC<{ children: React.ReactNode }> =
   OrigPopoverTrigger;
 
-const CARD_WIDTH = "300px";
+const CARD_WIDTH = "16em";
 
 const BioPopover: FC<IProps> = ({ person }) => {
   return (
-    <VStack p={4} spacing={1}>
+    <VStack p={"2em"}>
       <Heading fontSize={"1xl"}>{person.name}</Heading>
       <Text fontSize={"md"} fontWeight="medium">
         {person.creds}

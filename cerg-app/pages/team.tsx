@@ -1,7 +1,8 @@
-import { Box, Heading, SimpleGrid, VStack } from "@chakra-ui/react";
+import { Box, Flex, Heading, SimpleGrid, VStack } from "@chakra-ui/react";
 import Footer from "../src/components/footer";
 import NavBar from "../src/components/navbar";
 import BioCard from "../src/components/biocard";
+import TopBar from "../src/figures/top-bar";
 
 export interface IState {
   person: {
@@ -45,14 +46,14 @@ const people: IState["person"][] = [
 export default function Page() {
   return (
     <>
+      <TopBar />
       <NavBar />
-      <VStack spacing={4}>
-        <Heading mt={4}>People</Heading>
-        <Box m={50}>
+      <VStack>
+        <Heading>Meet the Team</Heading>
+        <Box>
           <SimpleGrid
             columns={{ base: 1, sm: 2, md: 3, lg: 4 }}
-            spacing={4}
-            m={8}
+            spacing={"2em"}
           >
             {people.map((person) => {
               return <BioCard key={person.name} person={person} />;

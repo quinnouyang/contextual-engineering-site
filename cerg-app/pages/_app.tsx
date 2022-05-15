@@ -1,13 +1,16 @@
 import { AppProps } from "next/app";
-import { ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider/*, ScaleFade*/ } from "@chakra-ui/react";
 import "../src/theme/styles.css";
-import Theme from "../src/theme/theme";
+import CustomTheme from "../src/theme/custom-theme";
+import "@fontsource/montserrat";
 
-const App = ({ Component, pageProps }: AppProps) => {
+const App = ({ Component, pageProps/*, router*/ }: AppProps) => {
   return (
-    // Custom theme!
-    <ChakraProvider theme={Theme}>
+    <ChakraProvider theme={CustomTheme}>
+      {/* Disorienting page transition, a nice-to-have if can make it smooth */}
+      {/* <ScaleFade key={router.route} initialScale={0.9} in={true}> */}
       <Component {...pageProps} />
+      {/* </ScaleFade> */}
     </ChakraProvider>
   );
 };
