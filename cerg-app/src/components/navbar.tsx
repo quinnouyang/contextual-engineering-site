@@ -49,7 +49,7 @@ export default function NavBar(curr: CurrNavItem) {
       <Container
         maxW={{ base: "container.sm", md: "container.md", lg: "container.lg" }}
       >
-        <Flex py={{ base: "1em", lg: "2em" }}>
+        <Flex py={{ base: "1.5em", md: "2em" }}>
           <HeadingLogo />
           <Spacer />
           <Show above="lg">
@@ -110,22 +110,14 @@ const HeadingLogo = () => {
         <Flex width={{ base: "1.5em", lg: "2em" }}>
           <BlockLogo />
         </Flex>
-        <VerticalDivider
-          style={{
-            width: "0.1em",
-            height: "inherit",
-            margin: "0 1em 0 1em",
-          }}
-        />
-        <VStack align={"center"} alignItems={"flex-start"} spacing={0}>
+        <VerticalDivider style={{ margin: "0 1em 0 1em" }} />
+        <VStack /*align={"center"}*/ alignItems={"flex-start"} spacing={0}>
           <Link href="\#" _hover={{ textDecoration: "none" }}>
             <Heading
               fontSize={{ base: "1xl", md: "2xl" }}
               _hover={{ color: linkHoverColor }}
             >
-              Contextual Engineering
-              <br />
-              Research Group
+              Contextual Engineering <br /> Research Group
             </Heading>
           </Link>
           <Show above="md">

@@ -5,9 +5,7 @@ body {
 /* Hard coded:( */
 .divider {
   display: inline-block;
-  width: 2px;
-  background-color: #13294B; /* Hard-coded: Illini Blue */
-  margin: 0 10px;
-  width: 1rem;
-  height: 3rem;
+  width: 1px;
+  height: inherit;
+  background-color: #13294b; /* Hard-coded: Illini Blue */
 }

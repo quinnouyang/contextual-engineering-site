@@ -6,14 +6,13 @@ import Link from "next/link";
 
 export default function FullWordmark(props: any) {
   return (
-    <Link href="http://illinois.edu/">
+    <Link href="http://illinois.edu/" aria-label="UIUC Website">
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        xmlSpace="preserve"
+        // xmlSpace="preserve"
         viewBox="0 0 401.254 104.293"
-        width={401.253}
-        height={104.293}
-        aria-label="Full UIUC Wordmark"
+        // style={{ width: "inherit" }}
+        width="inherit"
         {...props}
       >
         <path
@@ -29,7 +28,7 @@ export default function FullWordmark(props: any) {
         <path
           d="M421.191 601.699h90.243v150.422H30.078V601.699h90.262c16.598 0 30.078-13.457 30.078-30.086V210.586c0-16.594-13.48-30.078-30.078-30.078H30.078V30.098h481.356v150.41h-90.243c-16.617 0-30.093 13.484-30.093 30.078v361.027c0 16.629 13.476 30.086 30.093 30.086"
           style={{
-            fill: "#f0412f",
+            fill: "#FF552E",
             fillOpacity: 1,
             fillRule: "nonzero",
             stroke: "none",

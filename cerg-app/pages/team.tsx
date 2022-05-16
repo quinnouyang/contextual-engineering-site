@@ -2,7 +2,7 @@ import { Box, Flex, Heading, SimpleGrid, VStack } from "@chakra-ui/react";
 import Footer from "../src/components/footer";
 import NavBar from "../src/components/navbar";
 import BioCard from "../src/components/biocard";
-import TopBar from "../src/figures/top-bar";
+import TopBar from "../src/figures/orange-bar";
 
 export interface IState {
   person: {

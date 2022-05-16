@@ -4,13 +4,12 @@ import Link from "next/link";
 
 export default function LetterLogo(props: any) {
   return (
-    <Link href="http://illinois.edu/">
+    <Link href="http://illinois.edu/" aria-label="UIUC Website">
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        href="http://illinois.edu/"
         viewBox="0 0 200 288.895"
-        style={{ width: "inherit" }}
-        aria-label="Block UIUC Logo"
+        // style={{ width: "inherit" }}
+        width="inherit"
         {...props}
       >
         <path

@@ -4,14 +4,13 @@ import Cart from "../src/demo-components/cart";
 import Details from "../src/demo-components/details";
 import Footer from "../src/components/footer";
 import NavBar from "../src/components/navbar";
-import TopBar from "../src/figures/top-bar";
+import OrangeBar from "../src/figures/orange-bar";
 
 export default function HomePage() {
   return (
     <>
-      <TopBar />
+      <OrangeBar />
       <NavBar {...{ label: "Home" }} />
-      {/* <Link href="/page">Test Page!</Link> */}
       <Carousel />
       {/* Responsive UI! Arrays and objects (for < 3 breakpoints) */}
       <Container maxW="container.xl" p={0}>
