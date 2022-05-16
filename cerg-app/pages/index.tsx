@@ -10,7 +10,7 @@ export default function HomePage() {
   return (
     <>
       <TopBar />
-      <NavBar />
+      <NavBar {...{ label: "Home" }} />
       {/* <Link href="/page">Test Page!</Link> */}
       <Carousel />
       {/* Responsive UI! Arrays and objects (for < 3 breakpoints) */}

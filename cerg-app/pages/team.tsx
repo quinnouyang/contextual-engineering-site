@@ -43,11 +43,11 @@ const people: IState["person"][] = [
   },
 ];
 
-export default function Page() {
+export default function TeamPage() {
   return (
     <>
       <TopBar />
-      <NavBar />
+      <NavBar {...{ label: "Team" }} />
       <VStack>
         <Heading>Meet the Team</Heading>
         <Box>
