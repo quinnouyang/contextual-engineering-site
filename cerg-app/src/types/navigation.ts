@@ -47,3 +47,22 @@ export const NAVBAR_ITEMS: Array<NavItem> = [
     href: "/news",
   },
 ];
+
+export const FOOTER_ITEMS: Array<NavItem> = [
+  {
+    label: "About",
+    href: "/about",
+  },
+  {
+    label: "Contact",
+    href: "/contact",
+  },
+  {
+    label: "Team",
+    href: "/team",
+  },
+  {
+    label: "News",
+    href: "/news",
+  },
+];

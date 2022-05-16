@@ -10,6 +10,7 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import ShortWordmark from "../figures/short-wordmark";
+import { FOOTER_ITEMS, NavItem } from "../types/navigation";
 
 export default function Footer() {
   return (
@@ -18,17 +19,24 @@ export default function Footer() {
       color={useColorModeValue("gray.700", "gray.200")}
     >
       <Container maxW="container.lg">
-        <Flex paddingTop={8} paddingBottom={8} >
+        <Flex paddingTop={8} paddingBottom={8}>
           <Stack>
-            <ShortWordmark />
-            <Heading fontSize={{ base: "sm", sm: "md", md: "lg" }}>
+            <Link href="http://illinois.edu/">
+              <ShortWordmark />
+            </Link>
+            <Heading
+              as={Link}
+              href={"/#"}
+              _hover={{ textDecoration: "none", color: "illiniOrange" }}
+              fontSize={{ base: "sm", sm: "md", md: "lg" }}
+            >
               Contextual Engineering Research Group
             </Heading>
             <Text fontSize={{ base: "x-small", sm: "sm" }}>
               Copyright © 2022. All rights reserved.
             </Text>
           </Stack>
-          <Spacer minW="10vw"/>
+          <Spacer minW="10vw" />
           <Flex
             wrap="wrap"
             justifyContent="right"
@@ -36,38 +44,26 @@ export default function Footer() {
             columnGap={4}
             rowGap={2}
           >
-            {/* TO-DO: Centralize Link stylings */}
-            <Link
-              fontWeight="semibold"
-              fontSize={{ base: "sm", sm: "md" }}
-              href="#"
-            >
-              About
-            </Link>
-            <Link
-              fontWeight="semibold"
-              fontSize={{ base: "sm", sm: "md" }}
-              href="#"
-            >
-              People
-            </Link>
-            <Link
-              fontWeight="semibold"
-              fontSize={{ base: "sm", sm: "md" }}
-              href="#"
-            >
-              Research
-            </Link>
-            <Link
-              fontWeight="semibold"
-              fontSize={{ base: "sm", sm: "md" }}
-              href="#"
-            >
-              Contact
-            </Link>
+            {FOOTER_ITEMS.map((item) => {
+              return <CustomLink {...item} />;
+            })}
           </Flex>
         </Flex>
       </Container>
     </Box>
   );
 }
+
+// TO-DO: Set as a variant
+const CustomLink = ({ label, href }: NavItem) => {
+  return (
+    <Link
+      fontWeight={"semibold"}
+      fontSize={{ base: "sm", sm: "md" }}
+      href={href}
+      _hover={{ textDecoration: "none", color: "illiniOrange" }}
+    >
+      {label}
+    </Link>
+  );
+};
