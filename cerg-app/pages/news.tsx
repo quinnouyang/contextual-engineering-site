@@ -1,12 +1,12 @@
 import Footer from "../src/components/footer";
 import NavBar from "../src/components/navbar";
-import TopBar from "../src/figures/orange-bar";
+import WithBackgroundImage from "../src/demo-components/with-background-image-and-gradient";
 
 export default function NewsPage() {
   return (
     <>
-      <TopBar />
       <NavBar {...{ label: "News" }} />
+      <WithBackgroundImage />
       <Footer />
     </>
   );

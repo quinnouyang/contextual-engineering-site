@@ -98,6 +98,17 @@ const customTheme = extendTheme(
       Link: {
         baseStyle: {
           color: "illiniBlue",
+          _hover: { textDecoration: "none", color: "illiniOrange" },
+        },
+      },
+      Divider: {
+        baseStyle: {
+          borderColor: "cloudWhite.300",
+        },
+      },
+      StackDivider: {
+        baseStyle: {
+          borderColor: "cloudWhite.300",
         },
       },
     },

@@ -66,3 +66,21 @@ export const FOOTER_ITEMS: Array<NavItem> = [
     href: "/news",
   },
 ];
+
+export const FOOTER_EXTERNAL_ITEMS: Array<NavItem> = [
+  {
+    label: "Privacy",
+    href: "https://www.vpaa.uillinois.edu/resources/web_privacy",
+  },
+  {
+    label: "Cookies",
+    href: "https://www.vpaa.uillinois.edu/resources/cookies",
+  },
+  {
+    label: "Sitemap",
+  },
+  {
+    label: "GitHub",
+    href: "https://github.com/quinnouyang/contextual-engineering-site",
+  },
+];

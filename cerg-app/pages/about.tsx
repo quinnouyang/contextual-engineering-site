@@ -1,12 +1,12 @@
 import Footer from "../src/components/footer";
 import NavBar from "../src/components/navbar";
-import TopBar from "../src/figures/orange-bar";
+import CallToActionWithVideo from "../src/demo-components/cta-with-image";
 
 export default function AboutPage() {
   return (
     <>
-      <TopBar />
       <NavBar {...{ label: "About" }} />
+      <CallToActionWithVideo />
       <Footer />
     </>
   );

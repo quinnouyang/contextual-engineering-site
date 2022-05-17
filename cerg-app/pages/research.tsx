@@ -1,12 +1,12 @@
 import Footer from "../src/components/footer";
+import Hero from "../src/components/hero";
 import NavBar from "../src/components/navbar";
-import TopBar from "../src/figures/orange-bar";
 
 export default function ResearchPage() {
   return (
     <>
-      <TopBar />
       <NavBar {...{ label: "Research" }} />
+      <Hero />
       <Footer />
     </>
   );

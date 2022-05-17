@@ -12,9 +12,9 @@ export default function ShortWordmark(props: any) {
         // style={{ width: "fit", height: "fit" }}
         // viewbox="0 0 150 27.392"
         height={27.392}
-        width={150}
+        width="inherit"
         href="http://illinois.edu/"
-        aria-label="Short UIUC Wordmark"
+        aria-label="UIUC Website"
         {...props}
       >
         <path
@@ -23,9 +23,9 @@ export default function ShortWordmark(props: any) {
         />
         <path
           d="M14.59 6.922h2.93V2.04H1.893v4.883h2.93c.54 0 .977.437.977.977v11.719c0 .54-.438.976-.977.976h-2.93v4.884H17.52v-4.884h-2.93a.976.976 0 0 1-.977-.976V7.898c0-.539.438-.976.977-.976"
-          stroke="#e04e39"
+          stroke="#FF552E"
           strokeWidth={0.085515}
-          fill="#e84a27"
+          fill="#FF552E"
         />
       </svg>
     </Link>

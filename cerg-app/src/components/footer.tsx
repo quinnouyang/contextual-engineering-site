@@ -1,73 +1,53 @@
 import {
   Box,
   Container,
-  Divider,
   Flex,
   Heading,
-  HStack,
   Link,
   Show,
   Spacer,
-  Stack,
   Text,
-  useColorModeValue,
-  VStack,
 } from "@chakra-ui/react";
 import FullWordmark from "../figures/full-wordmark";
 import ShortWordmark from "../figures/short-wordmark";
 import VerticalDivider from "../figures/vertical-divider";
-import { FOOTER_ITEMS, NavItem } from "../types/navigation";
+import { FOOTER_ITEMS, FOOTER_EXTERNAL_ITEMS } from "../types/navigation";
 
 export default function Footer() {
   return (
-    <Box
-      bg={useColorModeValue("gray.50", "gray.900")}
-      color={useColorModeValue("gray.700", "gray.200")}
-      // position="relative"
-      // bottom={0}
-    >
+    <Box bg={"cloudWhite.50"}>
       <Container
-        maxW={{ base: "container.sm", md: "container.md", lg: "container.lg" }}
+        py="2em"
+        maxW={{
+          base: "container.sm",
+          lg: "container.md",
+          xl: "container.lg",
+        }}
       >
-        <Flex py="2em">
-          <VStack align="center" alignItems={"flex-start"}>
-            <FooterLogo />
-            <HStack>
-              <Text fontSize={{ base: "x-small", sm: "sm" }}>
-                Copyright © 2022. All rights reserved.
-              </Text>
-              <Divider orientation="vertical" borderColor={"illiniBlue"} />
-              <Text
-                as={Link}
-                href="https://www.vpaa.uillinois.edu/resources/web_privacy"
-                _hover={{ textDecoration: "none", color: "illiniOrange" }}
-                fontSize={{ base: "x-small", sm: "sm" }}
-              >
-                Privacy Policy
-              </Text>
-              <Divider orientation="vertical" borderColor={"illiniBlue"} />
-              <Text
-                as={Link}
-                href="https://www.vpaa.uillinois.edu/resources/cookies"
-                _hover={{ textDecoration: "none", color: "illiniOrange" }}
-                fontSize={{ base: "x-small", sm: "sm" }}
-              >
-                Cookies
-              </Text>
-            </HStack>
-          </VStack>
+        <Flex>
+          <FooterLogo />
           <Spacer />
           <Flex
             wrap="wrap"
-            justifyContent="right"
-            align={"center"}
+            align={{ base: "flex-end", sm: "center" }}
+            direction={{ base: "column", sm: "row" }}
             columnGap={"1em"}
           >
-            {FOOTER_ITEMS.map((item) => {
-              return <CustomLink {...item} />;
+            {FOOTER_ITEMS.map(({ label, href }) => {
+              return (
+                <Link
+                  key={label}
+                  href={href}
+                  fontSize={{ base: "sm", md: "md" }}
+                  fontWeight={"semibold"}
+                >
+                  {label}
+                </Link>
+              );
             })}
           </Flex>
         </Flex>
+        <BottomInformation />
       </Container>
     </Box>
   );
@@ -77,45 +57,45 @@ export default function Footer() {
 const FooterLogo = () => {
   return (
     <Flex
-      align={"center"}
       alignItems="flex-start"
-      direction={{ base: "column", md: "row" }}
-      h="full"
+      direction={{ base: "column", lg: "row" }}
+      rowGap={"0.5em"}
     >
-      {/* <Show above="md"> */}
-      <Flex height={{ base: "2em", md: "3em" }}>
-        <Show above="md">
-          <FullWordmark />
-        </Show>
-        <Show below="md">
-          <ShortWordmark />
-        </Show>
-      </Flex>
-      <Show above="md">
-        <VerticalDivider style={{ margin: "0 1em 0 1em" }} />
+      <Show above="lg">
+        <FullWordmark height="3em" />
+        <VerticalDivider
+          style={{
+            margin: "0 1em 0 1em",
+            height: "3em" /* Hard-coded height */,
+          }}
+        />
       </Show>
-      <Link href={"/#"} _hover={{ textDecoration: "none" }}>
-        <Heading
-          fontSize={{ base: "md", md: "lg" }}
-          _hover={{ color: "illiniOrange" }}
-        >
-          Contextual Engineering <br /> Research Group
-        </Heading>
-      </Link>
+      <Show below="lg">
+        <ShortWordmark />
+      </Show>
+      <Heading as={Link} fontSize={{ base: "md", lg: "lg" }} href={"/#"}>
+        Contextual Engineering <br /> Research Group
+      </Heading>
     </Flex>
   );
 };
 
-// TO-DO: Set as a variant
-const CustomLink = ({ label, href }: NavItem) => {
+const BottomInformation = () => {
   return (
-    <Link
-      fontWeight={"semibold"}
-      fontSize={{ base: "sm", md: "md" }}
-      href={href}
-      _hover={{ textDecoration: "none", color: "illiniOrange" }}
-    >
-      {label}
-    </Link>
+    <Flex mt={"0.5em"}>
+      <Flex columnGap={"1em"} wrap="wrap">
+        {FOOTER_EXTERNAL_ITEMS.map(({ label, href }) => {
+          return (
+            <Text key={label} as={Link} href={href} fontSize={{ base: "xs", md: "sm" }}>
+              {label}
+            </Text>
+          );
+        })}
+      </Flex>
+      <Spacer />
+      <Text fontSize={{ base: "xs", md: "sm" }}>
+        Copyright © 2022<Show above="sm">. All rights reserved.</Show>
+      </Text>
+    </Flex>
   );
 };
