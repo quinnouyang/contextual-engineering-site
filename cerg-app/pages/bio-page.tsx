@@ -1,15 +1,32 @@
-import Footer from "../src/components/footer";
-import NavBar from "../src/components/navbar";
+import {
+  AspectRatio,
+  Image,
+  Container,
+  Heading,
+  Stack,
+  Flex,
+  Spacer,
+} from "@chakra-ui/react";
 import { Person } from "../src/types/team-members";
 
-export async function BioPage(person: Person) {
-  const paths = person.map((post) => ({
-    params: { id: post.id },
-  }));
+/**
+ * ROUGH DESIGN
+ * |---------------------|-----------
+ * |  [FULL NAME]        |
+ * |  pronouns, email,   |
+ * |  crds, "position"   |
+ * |---------------------|
+ */
+export default function BioPage(person: Person) {
   return (
-    <>
-      <NavBar {...{ label: "Template" }} />
-      <Footer />
-    </>
+    <Container>
+      <Flex direction={["column", "row"]}>
+        <Heading>{person.name}</Heading>
+        <Spacer />
+        <AspectRatio ratio={3 / 4} w="16em">
+          <Image src={person.headshotPath} alt={person.name} />
+        </AspectRatio>
+      </Flex>
+    </Container>
   );
 }

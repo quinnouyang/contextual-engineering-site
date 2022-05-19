@@ -6,7 +6,7 @@ const settings: Settings<Theme | WpSource> = {
   name: "frontity-migration",
   state: {
     frontity: {
-      url: "https://test.frontity.org",
+      url: "https://contextual.engineering.illinois.edu/",
       title: "Test Frontity Blog",
       description: "WordPress installation for Frontity development",
     },
@@ -19,7 +19,7 @@ const settings: Settings<Theme | WpSource> = {
       name: "@frontity/wp-source",
       state: {
         source: {
-          url: "https://test.frontity.org",
+          url: "https://contextual.engineering.illinois.edu/",
           postTypes: [
             {
               type: "destinations",

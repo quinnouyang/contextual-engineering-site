@@ -1,8 +1,6 @@
 import {
   AspectRatio,
-  Box,
   Divider,
-  Flex,
   Heading,
   Image,
   Popover,
@@ -11,79 +9,55 @@ import {
   Text,
   VStack,
   Link,
+  HStack,
 } from "@chakra-ui/react";
-import { useEffect, useRef } from "react";
 import { Person } from "../types/team-members";
 
 // Temporary fix: React 18 issue
 export const PopoverTrigger: React.FC<{ children: React.ReactNode }> =
   OrigPopoverTrigger;
 
-// const CARD_WIDTH = "16em";
-
-// const BioPopover = (person: Person) => {
-//   return (
-// <VStack p={"1em"} w={CARD_WIDTH}>
-//   <Heading fontSize={"1xl"} textAlign="center">
-//     {person.name}
-//   </Heading>
-//   <Text fontSize={"md"} fontWeight="medium">
-//     {person.creds}
-//   </Text>
-//   <Divider />
-//   <Text fontSize={"md"}>{person.shortBio}</Text>
-// </VStack>
-//   );
-// };
-
-// const BioCard = (person: Person) => {
-//   return (
-//     <Flex w={"full"}>
-//       <Popover trigger="hover">
-//         <PopoverTrigger>
-//           <AspectRatio w={CARD_WIDTH} ratio={3 / 4}>
-//             <Image src={person.headshotPath} />
-//           </AspectRatio>
-//         </PopoverTrigger>
-
-//         <PopoverContent
-//           rounded={"none"}
-//           w={CARD_WIDTH}
-//           p={0}
-//           maxH={"400px"}
-//           overflow="scroll"
-//         >
-//           <BioPopover {...person} />
-//         </PopoverContent>
-//       </Popover>
-//     </Flex>
-//   );
-// };
+const CARD_WIDTH = "16em";
 
 const CardInfo = (person: Person) => {
   return (
     <VStack p={"1em"}>
-      <Heading as={Link} href={"/" + person.name} fontSize={"1xl"} textAlign="center">
-        {person.name}
-      </Heading>
-      <Text fontSize={"md"} fontWeight="medium">
+      <HStack>
+        <Heading
+          as={Link}
+          href={"/" + person.name}
+          fontSize={"1xl"}
+          textAlign="center"
+        >
+          {person.name}
+        </Heading>
+      </HStack>
+      <Text fontSize={{ base: "sm", md: "md" }} fontWeight="medium">
         {person.creds}
       </Text>
       <Divider />
-      <Text fontSize={"md"}>{person.shortBio}</Text>
+      <Text fontSize={"xs"}>{person.shortBio}</Text>
     </VStack>
   );
 };
 
+/**
+ * TO-DO
+ * Design:
+ * - Popover behavior: replace image or appear at button? Last row of popovers can overlap awkwardly. Bottom popovers especially restricted in mobile view. Cannot click card to close popover (compromise of hover trigger).
+ * - External link: cannot hover over name. Link icon? "See more"?
+ * - Content: short (?) + full bio? Roughly standardize outline(s)
+ * - Categories: undergraduate, graduate, staff (?)
+ */
 const BioCard = (person: Person) => {
   return (
-    <Popover trigger="hover">
+    <Popover trigger="hover" gutter={0} flip={false}>
       <PopoverTrigger>
-        <AspectRatio ratio={3 / 4}>
+        <AspectRatio ratio={3 / 4} w={CARD_WIDTH}>
           <Image src={person.headshotPath} alt={person.name} />
         </AspectRatio>
       </PopoverTrigger>
-      <PopoverContent rounded={"none"} maxH="400px" overflow="scroll">
+      <PopoverContent rounded={"none"} w={CARD_WIDTH}>
         <CardInfo {...person} />
       </PopoverContent>
     </Popover>

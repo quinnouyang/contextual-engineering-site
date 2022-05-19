@@ -111,6 +111,15 @@ const customTheme = extendTheme(
           borderColor: "cloudWhite.300",
         },
       },
+      Container: {
+        baseStyle: {
+          maxW: {
+            base: "container.sm",
+            lg: "container.md",
+            xl: "container.lg",
+          },
+        },
+      },
     },
     //   components: {
     //     Button: {

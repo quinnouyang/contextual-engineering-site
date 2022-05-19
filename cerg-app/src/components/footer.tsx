@@ -26,7 +26,7 @@ export default function Footer() {
       >
         <Flex>
           <FooterLogo />
-          <Spacer />
+          {/* <Spacer /> */}
           <Flex
             wrap="wrap"
             align={{ base: "flex-end", sm: "center" }}
@@ -83,12 +83,12 @@ const FooterLogo = () => {
 const BottomInformation = () => {
   return (
     <Flex mt={"0.5em"}>
-      <Flex columnGap={"1em"} wrap="wrap">
+      <Flex columnGap={{ base: "0.5em", md: "1em" }} wrap="wrap">
         {FOOTER_EXTERNAL_ITEMS.map(({ label, href }) => {
           return (
-            <Text key={label} as={Link} href={href} fontSize={{ base: "xs", md: "sm" }}>
+            <Link key={label} href={href} fontSize={{ base: "xs", md: "sm" }}>
               {label}
-            </Text>
+            </Link>
           );
         })}
       </Flex>

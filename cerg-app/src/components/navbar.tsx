@@ -50,13 +50,7 @@ export default function NavBar(curr: CurrNavItem) {
   return (
     <Box bg="cloudWhite.50">
       <OrangeBar />
-      <Container
-        maxW={{
-          base: "container.sm",
-          lg: "container.md",
-          xl: "container.lg",
-        }}
-      >
+      <Container>
         <Flex py={{ base: "1.5em", md: "2em" }}>
           <HeadingLogo />
           <Spacer />
