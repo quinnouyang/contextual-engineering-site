@@ -1,10 +1,24 @@
-import { Flex } from "@chakra-ui/react";
+import { Center, Flex, VStack } from "@chakra-ui/react";
 import Footer from "../src/components/footer";
 import NavBar from "../src/components/navbar";
 import BioCard from "../src/components/biocard";
-import Hero from "../src/components/hero";
 import { PEOPLE } from "../src/types/team-members";
 import { useState } from "react";
+import FancyHeading from "../src/figures/fancy-heading";
+
+const Hero = (props: { leftText: string; rightText: string }) => {
+  return (
+    <Center bgColor={"archesBlue.50"}>
+      <VStack
+        h={"25vh"}
+        maxW={{ base: "container.xs", sm: "container.sm", md: "container.md" }}
+        justify="center"
+      >
+        <FancyHeading leftText={props.leftText} rightText={props.rightText} />
+      </VStack>
+    </Center>
+  );
+};
 
 export default function TeamPage() {
   const [isOpen, toggleIsOpen] = useState(false);
@@ -17,7 +31,7 @@ export default function TeamPage() {
         wrap={"wrap"}
         gap={"1em"}
         justify="center"
-        mx={{ base: "2em", sm: "4em" }}
+        m={{ base: "2em", sm: "4em" }}
       >
         {PEOPLE.map((person) => {
           return (
@@ -30,7 +44,7 @@ export default function TeamPage() {
           );
         })}
       </Flex>
-      <Hero leftText="Join the " rightText="Team." />
+      {/* <Hero leftText="Join the " rightText="Team." /> */}
       <Footer />
     </>
   );

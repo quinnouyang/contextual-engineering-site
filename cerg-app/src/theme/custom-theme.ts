@@ -58,9 +58,9 @@ const customTheme = extendTheme(
         300: "#D2D2D2", // Light gray
       },
       archesBlue: {
-        50: "#009FD4", // Very light "water" blue
-        100: "#7FC3E1",
-        200: "#A6D7EB",
+        50: "#D2EBF5", // Very light "water" blue
+        100: "#A6D7EB",
+        200: "#7FC3E1",
         300: "#009FD4", // Sky blue
       },
       industrialBlue: {
