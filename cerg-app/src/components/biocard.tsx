@@ -24,8 +24,8 @@ const CardInfo = (person: Person) => {
     <VStack p={"1em"}>
       <HStack>
         <Heading
-          as={Link}
-          href={"/" + person.name}
+          // as={Link}
+          // href={"/" + person.name}
           fontSize={"1xl"}
           textAlign="center"
         >
@@ -36,7 +36,7 @@ const CardInfo = (person: Person) => {
         {person.creds}
       </Text>
       <Divider />
-      <Text fontSize={"xs"}>{person.shortBio}</Text>
+      <Text fontSize={"sm"}>{person.shortBio}</Text>
     </VStack>
   );
 };

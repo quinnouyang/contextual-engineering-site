@@ -8,6 +8,7 @@ export interface Person {
   readonly name: string;
   readonly headshotPath: string;
   readonly creds?: string;
+  readonly email?: string;
   readonly shortBio: string;
   readonly fullBio: string;
   readonly researchTopics?: string[];
@@ -22,6 +23,7 @@ export const PEOPLE: Array<Person> = [
     name: "Ann-Perry Witmer",
     headshotPath: "/images/smiley-e1580149018141-768x1024.jpeg/",
     creds: "Ph.D, P.E.",
+    email: "awitmer@illinois.edu",
     shortBio: `Ann holds Professional Engineer licenses and is a LEED Accredited Professional. In addition to teaching senior design and contextual engineering courses at UIUC, Ann acts as faculty advisor to Engineers Without Borders-UIUC and AWWA/WEF student chapters. Her research focus is on investigating the relationship between technical design and non-engineering considerations such as politics, culture and economics.`,
     fullBio: `Ann-Perry Witmer came to engineering in midlife when she enrolled in the University of Illinois’ College of Engineering after a successful career in newspapering. After graduating with honors and becoming the first civil engineering major  to win the prestigious Harvey Jordan Award from the College of Engineering, she became a practicing professional engineer in Wisconsin, designing water systems for communities throughout the Midwest. She also served as chair of the American Water Works Association’s state section and continues to play a leadership role in the international AWWA organization. Ann holds Professional Engineer licenses in Wisconsin, Illinois, and Minnesota, and is a LEED Accredited Professional.
     While working in consulting, Ann helped to create organizations that work directly with communities in Central America and the Caribbean to provide engineering assistance for disadvantaged communities in need of safe, sustainable drinking water, which led her to her current role at the University of Illinois. In addition to teaching senior design and contextual engineering courses in the Department of Agricultural and Biological Engineering, Ann leads the robust Contextual Engineering Research Group and acts as faculty advisor to Engineers Without Borders-UIUC and AWWA/WEF student chapters. Her service travels have taken her to Central America, Africa, Asia and South America, where she’s developed a deep understanding of the relationship between technical and social considerations that must be co-evaluated for design effectiveness.
