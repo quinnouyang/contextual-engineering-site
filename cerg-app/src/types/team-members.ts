@@ -10,12 +10,12 @@ export interface Person {
   readonly creds?: string;
   readonly email?: string;
   readonly shortBio: string;
-  readonly fullBio: string;
-  readonly researchTopics?: string[];
-  readonly publications?: string[];
-  readonly education?: string[];
-  readonly awards?: string[];
-  readonly affiliations?: string[];
+  readonly fullBio: string; // POSTPONE
+  readonly researchTopics?: string[]; // POSTPONE
+  readonly publications?: string[]; // POSTPONE
+  readonly education?: string[]; // POSTPONE
+  readonly awards?: string[]; // POSTPONE
+  readonly affiliations?: string[]; // POSTPONE
 }
 
 export const PEOPLE: Array<Person> = [
