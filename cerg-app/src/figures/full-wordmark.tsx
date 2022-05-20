@@ -1,13 +1,11 @@
 // LetterLogo, FullWordmark, and ShortWordmark translated from .svg files using https://react-svgr.com/playground/. Magic numbers, complicated rendering: REFACTOR!
-
-import { Icon } from "@chakra-ui/react";
-import Link from "next/link";
+import { Flex, Icon, Link } from "@chakra-ui/react";
 
 // [Letter 'I' Symbol] "University of Illinois \n Urbana Champaign"
 
 export default function FullWordmark(props: any) {
   return (
-    <Link href="http://illinois.edu/">
+    <Flex as={Link} href="http://illinois.edu/" isExternal>
       <Icon
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 401.254 104.293"
@@ -48,6 +46,6 @@ export default function FullWordmark(props: any) {
           transform="matrix(.13333 0 0 -.13333 0 104.293)"
         />
       </Icon>
-    </Link>
+    </Flex>
   );
 }

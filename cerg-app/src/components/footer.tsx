@@ -26,7 +26,7 @@ export default function Footer() {
       >
         <Flex>
           <FooterLogo />
-          {/* <Spacer /> */}
+          <Spacer />
           <Flex
             wrap="wrap"
             align={{ base: "flex-end", sm: "center" }}
@@ -73,7 +73,11 @@ const FooterLogo = () => {
       <Show below="lg">
         <ShortWordmark />
       </Show>
-      <Heading as={Link} fontSize={{ base: "md", lg: "lg" }} href={"/#"}>
+      <Heading
+        as={Link}
+        fontSize={{ base: "sm", md: "md", lg: "lg" }}
+        href={"/#"}
+      >
         Contextual Engineering <br /> Research Group
       </Heading>
     </Flex>
@@ -86,7 +90,7 @@ const BottomInformation = () => {
       <Flex columnGap={{ base: "0.5em", md: "1em" }} wrap="wrap">
         {FOOTER_EXTERNAL_ITEMS.map(({ label, href }) => {
           return (
-            <Link key={label} href={href} fontSize={{ base: "xs", md: "sm" }}>
+            <Link key={label} href={href} fontSize={{ base: "xs", md: "sm" }} isExternal>
               {label}
             </Link>
           );
