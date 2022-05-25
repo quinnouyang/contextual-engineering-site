@@ -2,10 +2,12 @@ import {
   AspectRatio,
   Divider,
   Heading,
+  HStack,
   Image,
   Popover,
   PopoverContent,
   PopoverTrigger as OrigPopoverTrigger,
+  StackDivider,
   Text,
   VStack,
 } from "@chakra-ui/react";
@@ -15,22 +17,16 @@ import { Person } from "../types/team-members";
 export const PopoverTrigger: React.FC<{ children: React.ReactNode }> =
   OrigPopoverTrigger;
 
-const CARD_WIDTH = "16em";
+const CARD_WIDTH = "18em";
 
 const CardInfo = (person: Person) => {
   return (
     <VStack p={"1em"}>
       <VStack spacing={"0.2em"}>
-        <Heading
-          // as={Link}
-          // href={"/" + person.name}
-          fontSize={"1xl"}
-          textAlign="center"
-        >
+        <Heading fontSize={"xl"} textAlign="center">
           {person.name}
         </Heading>
-        <Text fontSize={{ base: "xs", md: "sm" }}>{person.creds}</Text>
-        <Text fontSize={{ base: "xs", md: "sm" }}>{person.email}</Text>
+        {person.title && <Text fontSize="md">{person.title}</Text>}
       </VStack>
       <Divider />
       <Text fontSize={"sm"}>{person.shortBio}</Text>
@@ -59,9 +55,8 @@ interface BioCardProps {
  */
 /**
  * ISSUES:
- * - Popover does not cover ~2px of the bottom image on iPhone SE view (375px)
- * - Opacity breaks as Popover states can "lag" (?). Can recreate by quickly moving cursor horizontally across several cards.
- * - Last row of popovers can overlap footer and hero awkwardly.
+ * - Opacity breaks as Popover states can "lag" (?). Can recreate in mobile by clicking an image, clicking the info card, then clicking another image.
+ * - Last row of popovers can overlap footer and hero awkwardly. ADDED SPACE BELOW
  * - Cannot click card to close popover (Ideal in mobile view).
  * - Popover attention focus not ideal, especially in mobile.
  */
@@ -70,7 +65,6 @@ export default function BioCard({
   isOtherOpen,
   toggleOpen,
 }: BioCardProps) {
-  const opacity = isOtherOpen ? 0.5 : 1;
   return (
     <Popover
       trigger="hover"
@@ -89,7 +83,7 @@ export default function BioCard({
               <Image
                 src={person.headshotPath}
                 alt={person.name}
-                opacity={!isOpen ? opacity : undefined}
+                opacity={isOtherOpen && !isOpen ? 0.5 : 1}
                 transition="opacity .5s ease-out"
               />
             </AspectRatio>
