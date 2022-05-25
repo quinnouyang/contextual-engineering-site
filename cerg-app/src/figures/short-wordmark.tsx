@@ -1,11 +1,11 @@
 // [Letter 'I' Symbol] "ILLINOIS"
 
-import Link from "next/link";
+import { Flex, Link } from "@chakra-ui/react";
 
 export default function ShortWordmark(props: any) {
   return (
     // No hovering indication
-    <Link href="http://illinois.edu/">
+    <Flex as={Link} href="http://illinois.edu/" isExternal>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         // xmlSpace="preserve"
@@ -28,6 +28,6 @@ export default function ShortWordmark(props: any) {
           fill="#FF552E"
         />
       </svg>
-    </Link>
+    </Flex>
   );
 }

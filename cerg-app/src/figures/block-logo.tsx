@@ -1,14 +1,18 @@
 // [Letter 'I' Symbol]
 
-import Link from "next/link";
+import { Flex, Link } from "@chakra-ui/react";
 
 export default function LetterLogo(props: any) {
   return (
-    <Link href="http://illinois.edu/" aria-label="UIUC Website">
+    <Flex
+      as={Link}
+      href="http://illinois.edu/"
+      isExternal
+      aria-label="UIUC Website"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 200 288.895"
-        // style={{ width: "inherit" }}
         width="inherit"
         {...props}
       >
@@ -21,6 +25,6 @@ export default function LetterLogo(props: any) {
           d="M156.62 68.148h33.332V12.596H12.172v55.552H45.51c6.13 0 11.11 4.974 11.11 11.11v133.33c0 6.137-4.98 11.11-11.11 11.11H12.172v55.557h177.78v-55.557H156.62c-6.137 0-11.11-4.974-11.11-11.11V79.258c0-6.137 4.974-11.11 11.11-11.11"
         />
       </svg>
-    </Link>
+    </Flex>
   );
 }

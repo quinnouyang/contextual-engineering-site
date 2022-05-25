@@ -758,7 +758,7 @@
 
 "@fontsource/montserrat@^4.5.10":
   version "4.5.10"
-  resolved "https://registry.yarnpkg.com/@fontsource/montserrat/-/montserrat-4.5.10.tgz#0dc94425c575c785c2ac92d244c543bfbb005080"
+  resolved "https://registry.npmjs.org/@fontsource/montserrat/-/montserrat-4.5.10.tgz"
   integrity sha512-JXe9wURwLFtPfrD3yYnfvue/Uv2L1iSEor4w6M5CcGO4iWSoaFgk7BPLUwksGD7ChKpGKpaNNLUt67VlCu2A1g==
 
 "@fontsource/open-sans@^4.5.10":
@@ -773,12 +773,12 @@
 
 "@fontsource/source-sans-pro@^4.5.9":
   version "4.5.9"
-  resolved "https://registry.yarnpkg.com/@fontsource/source-sans-pro/-/source-sans-pro-4.5.9.tgz#65f0897f4d601931afe4e8451303e9c7a8d177ec"
+  resolved "https://registry.npmjs.org/@fontsource/source-sans-pro/-/source-sans-pro-4.5.9.tgz"
   integrity sha512-N4nFZhIijG/Q1vb3vaMHbcJOVoXb6S8OJKBuoLKictAH+04rduuOyLihPbQe+o2hNYLcjmUpoPMNTDnSm5yzQw==
 
 "@fontsource/source-serif-pro@^4.5.7":
   version "4.5.7"
-  resolved "https://registry.yarnpkg.com/@fontsource/source-serif-pro/-/source-serif-pro-4.5.7.tgz#f1cd9ea16c7698867fd3470c7f927e70058b4e83"
+  resolved "https://registry.npmjs.org/@fontsource/source-serif-pro/-/source-serif-pro-4.5.7.tgz"
   integrity sha512-HMnM3og7vCHhruz9pX9rwF+Da9I2HcSPrvIJHem/BQafcwV/FMqVnbtg5nCHsMDHZFZ0RF00V0G4S0RFyY19uw==
 
 "@humanwhocodes/config-array@^0.9.2":
@@ -2462,7 +2462,7 @@ react-clientside-effect@^1.2.5:
 
 react-dom@17.0.2:
   version "17.0.2"
-  resolved "https://registry.npmjs.org/react-dom/-/react-dom-17.0.2.tgz"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-17.0.2.tgz#ecffb6845e3ad8dbfcdc498f0d0a939736502c23"
   integrity sha512-s4h96KtLDUQlsENhMn1ar8t2bEa+q/YAtj8pPPdIjPDGBDIVNsrD9aXNWqspUe6AzKCIG0C1HZZLqLV7qpOBGA==
   dependencies:
     loose-envify "^1.1.0"
@@ -2537,7 +2537,7 @@ react-style-singleton@^2.1.0, react-style-singleton@^2.2.0:
 
 react@17.0.2:
   version "17.0.2"
-  resolved "https://registry.npmjs.org/react/-/react-17.0.2.tgz"
+  resolved "https://registry.yarnpkg.com/react/-/react-17.0.2.tgz#d0b5cc516d29eb3eee383f75b62864cfb6800037"
   integrity sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==
   dependencies:
     loose-envify "^1.1.0"
@@ -2615,7 +2615,7 @@ safe-buffer@~5.1.1:
 
 scheduler@^0.20.2:
   version "0.20.2"
-  resolved "https://registry.npmjs.org/scheduler/-/scheduler-0.20.2.tgz"
+  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.20.2.tgz#4baee39436e34aa93b4874bddcbf0fe8b8b50e91"
   integrity sha512-2eWfGgAqqWFGqtdMmcL5zCMK1U8KlXv8SQFGglL3CEtd0aDVDWgeF/YoCmvln55m5zSk3J/20hTaSBeSObsQDQ==
   dependencies:
     loose-envify "^1.1.0"

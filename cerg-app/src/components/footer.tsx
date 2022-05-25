@@ -73,7 +73,11 @@ const FooterLogo = () => {
       <Show below="lg">
         <ShortWordmark />
       </Show>
-      <Heading as={Link} fontSize={{ base: "md", lg: "lg" }} href={"/#"}>
+      <Heading
+        as={Link}
+        fontSize={{ base: "sm", md: "md", lg: "lg" }}
+        href={"/#"}
+      >
         Contextual Engineering <br /> Research Group
       </Heading>
     </Flex>
@@ -83,12 +87,12 @@ const FooterLogo = () => {
 const BottomInformation = () => {
   return (
     <Flex mt={"0.5em"}>
-      <Flex columnGap={"1em"} wrap="wrap">
+      <Flex columnGap={{ base: "0.5em", md: "1em" }} wrap="wrap">
         {FOOTER_EXTERNAL_ITEMS.map(({ label, href }) => {
           return (
-            <Text key={label} as={Link} href={href} fontSize={{ base: "xs", md: "sm" }}>
+            <Link key={label} href={href} fontSize={{ base: "xs", md: "sm" }} isExternal>
               {label}
-            </Text>
+            </Link>
           );
         })}
       </Flex>

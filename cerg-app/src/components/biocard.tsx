@@ -1,8 +1,6 @@
 import {
   AspectRatio,
-  Box,
   Divider,
-  Flex,
   Heading,
   Image,
   Popover,
@@ -10,84 +8,73 @@ import {
   PopoverTrigger as OrigPopoverTrigger,
   Text,
   VStack,
-  Link,
 } from "@chakra-ui/react";
-import { useEffect, useRef } from "react";
 import { Person } from "../types/team-members";
 
 // Temporary fix: React 18 issue
 export const PopoverTrigger: React.FC<{ children: React.ReactNode }> =
   OrigPopoverTrigger;
 
-// const CARD_WIDTH = "16em";
-
-// const BioPopover = (person: Person) => {
-//   return (
-// <VStack p={"1em"} w={CARD_WIDTH}>
-//   <Heading fontSize={"1xl"} textAlign="center">
-//     {person.name}
-//   </Heading>
-//   <Text fontSize={"md"} fontWeight="medium">
-//     {person.creds}
-//   </Text>
-//   <Divider />
-//   <Text fontSize={"md"}>{person.shortBio}</Text>
-// </VStack>
-//   );
-// };
-
-// const BioCard = (person: Person) => {
-//   return (
-//     <Flex w={"full"}>
-//       <Popover trigger="hover">
-//         <PopoverTrigger>
-//           <AspectRatio w={CARD_WIDTH} ratio={3 / 4}>
-//             <Image src={person.headshotPath} />
-//           </AspectRatio>
-//         </PopoverTrigger>
-
-//         <PopoverContent
-//           rounded={"none"}
-//           w={CARD_WIDTH}
-//           p={0}
-//           maxH={"400px"}
-//           overflow="scroll"
-//         >
-//           <BioPopover {...person} />
-//         </PopoverContent>
-//       </Popover>
-//     </Flex>
-//   );
-// };
+const CARD_WIDTH = "18em";
 
 const CardInfo = (person: Person) => {
   return (
     <VStack p={"1em"}>
-      <Heading as={Link} href={"/" + person.name} fontSize={"1xl"} textAlign="center">
-        {person.name}
-      </Heading>
-      <Text fontSize={"md"} fontWeight="medium">
-        {person.creds}
-      </Text>
+      <VStack spacing={"0.2em"}>
+        <Heading fontSize={"xl"} textAlign="center">
+          {person.name}
+        </Heading>
+        {person.title && <Text fontSize="md">{person.title}</Text>}
+      </VStack>
       <Divider />
-      <Text fontSize={"md"}>{person.shortBio}</Text>
+      <Text fontSize={"sm"}>{person.shortBio}</Text>
+      <Divider />
+      <Text fontSize={"xs"} fontStyle="italic">
+        Full biography page coming soon...
+      </Text>
     </VStack>
   );
 };
 
-const BioCard = (person: Person) => {
+interface BioCardProps {
+  person: Person;
+  isOtherOpen: boolean;
+  toggleOpen: any; // Void arrow function
+}
+
+export default function BioCard({
+  person,
+  isOtherOpen,
+  toggleOpen,
+}: BioCardProps) {
   return (
-    <Popover trigger="hover">
-      <PopoverTrigger>
-        <AspectRatio ratio={3 / 4}>
-          <Image src={person.headshotPath} alt={person.name} />
-        </AspectRatio>
-      </PopoverTrigger>
-      <PopoverContent rounded={"none"} maxH="400px" overflow="scroll">
-        <CardInfo {...person} />
-      </PopoverContent>
+    <Popover
+      trigger="hover"
+      onOpen={toggleOpen}
+      onClose={toggleOpen}
+      gutter={0}
+      flip={false}
+      // Otherwise multiple popovers remain for too long
+      openDelay={0}
+      closeDelay={0}
+    >
+      {({ isOpen }) => (
+        <>
+          <PopoverTrigger>
+            <AspectRatio ratio={3 / 4} w={CARD_WIDTH}>
+              <Image
+                src={person.headshotPath}
+                alt={person.name}
+                opacity={isOtherOpen && !isOpen ? 0.5 : 1}
+                transition="opacity .5s ease-out"
+              />
+            </AspectRatio>
+          </PopoverTrigger>
+          <PopoverContent rounded={"none"} w={CARD_WIDTH}>
+            <CardInfo {...person} />
+          </PopoverContent>
+        </>
+      )}
     </Popover>
   );
-};
-
-export default BioCard;
+}
