@@ -2,12 +2,10 @@ import {
   AspectRatio,
   Divider,
   Heading,
-  HStack,
   Image,
   Popover,
   PopoverContent,
   PopoverTrigger as OrigPopoverTrigger,
-  StackDivider,
   Text,
   VStack,
 } from "@chakra-ui/react";
@@ -44,22 +42,6 @@ interface BioCardProps {
   toggleOpen: any; // Void arrow function
 }
 
-/**
- * TO-DO
- * - Test sensible hero designs, see marketing office
- * - External link: cannot hover over name. Link icon? "See more"?  [POSTPONED]
- * - Content: short (?) + full bio? Roughly standardize outline(s)  [JUST SHORT BIO FOR NOW]
- * - Categories: undergraduate, graduate, staff (?) [POSTPONED]
- *
- * Ignoring BioPage for now, prioritize basic (emails and) short bios.
- */
-/**
- * ISSUES:
- * - Opacity breaks as Popover states can "lag" (?). Can recreate in mobile by clicking an image, clicking the info card, then clicking another image.
- * - Last row of popovers can overlap footer and hero awkwardly. ADDED SPACE BELOW
- * - Cannot click card to close popover (Ideal in mobile view).
- * - Popover attention focus not ideal, especially in mobile.
- */
 export default function BioCard({
   person,
   isOtherOpen,

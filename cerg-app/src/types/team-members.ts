@@ -1,9 +1,3 @@
-/**
- * TO-DO
- * - Content: determine what info we want, draft rough outlines for longer text, and fetch it from people (they write their own bios)
- * - Finalize attributes of Person object
- * - Consider Frontity migration. Good testing grounds (lots of content in a menu)
- */
 export interface Person {
   readonly name: string;
   readonly title?: string;
