@@ -1,5 +1,5 @@
 import { Container, Flex } from "@chakra-ui/react";
-import Carousel from "../src/demo-components/carousel";
+import Carousel from "../src/components/carousel";
 import Cart from "../src/demo-components/cart";
 import Details from "../src/demo-components/details";
 import Footer from "../src/components/footer";
