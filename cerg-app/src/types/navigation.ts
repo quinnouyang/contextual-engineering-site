@@ -2,11 +2,11 @@
 
 // A "link" with potential child "links"
 export interface NavItem {
-  label: string;
-  subLabel?: string;
-  children?: Array<NavItem>;
-  href?: string;
-  shouldHighlight?: boolean;
+  readonly label: string;
+  readonly subLabel?: string;
+  readonly children?: Array<NavItem>;
+  readonly href?: string;
+  readonly shouldHighlight?: boolean;
 }
 
 // Label(s) for the current page that correspond to the navigation item
@@ -15,7 +15,7 @@ export interface CurrNavItem {
   childLabel?: string;
 }
 
-export const NAVBAR_ITEMS: Array<NavItem> = [
+export const navbarItems: Array<NavItem> = [
   {
     label: "About",
     href: "/about",
@@ -48,7 +48,7 @@ export const NAVBAR_ITEMS: Array<NavItem> = [
   },
 ];
 
-export const FOOTER_ITEMS: Array<NavItem> = [
+export const footerInternalItems: Array<NavItem> = [
   {
     label: "About",
     href: "/about",
@@ -67,7 +67,7 @@ export const FOOTER_ITEMS: Array<NavItem> = [
   },
 ];
 
-export const FOOTER_EXTERNAL_ITEMS: Array<NavItem> = [
+export const footerExternalItems: Array<NavItem> = [
   {
     label: "Privacy",
     href: "https://www.vpaa.uillinois.edu/resources/web_privacy",

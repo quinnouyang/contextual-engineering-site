@@ -11,7 +11,7 @@ import {
 import FullWordmark from "../figures/full-wordmark";
 import ShortWordmark from "../figures/short-wordmark";
 import VerticalDivider from "../figures/vertical-divider";
-import { FOOTER_ITEMS, FOOTER_EXTERNAL_ITEMS } from "../types/navigation";
+import { footerInternalItems, footerExternalItems } from "../types/navigation";
 
 export default function Footer() {
   return (
@@ -33,7 +33,7 @@ export default function Footer() {
             direction={{ base: "column", sm: "row" }}
             columnGap={"1em"}
           >
-            {FOOTER_ITEMS.map(({ label, href }) => {
+            {footerInternalItems.map(({ label, href }) => {
               return (
                 <Link
                   key={label}
@@ -88,9 +88,14 @@ const BottomInformation = () => {
   return (
     <Flex mt={"0.5em"}>
       <Flex columnGap={{ base: "0.5em", md: "1em" }} wrap="wrap">
-        {FOOTER_EXTERNAL_ITEMS.map(({ label, href }) => {
+        {footerExternalItems.map(({ label, href }) => {
           return (
-            <Link key={label} href={href} fontSize={{ base: "xs", md: "sm" }} isExternal>
+            <Link
+              key={label}
+              href={href}
+              fontSize={{ base: "xs", md: "sm" }}
+              isExternal
+            >
               {label}
             </Link>
           );

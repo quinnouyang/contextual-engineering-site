@@ -10,7 +10,6 @@ import {
   Popover,
   PopoverTrigger as OrigPopoverTrigger,
   PopoverContent,
-  useColorModeValue,
   useDisclosure,
   Heading,
   Container,
@@ -31,7 +30,7 @@ import {
 } from "@chakra-ui/icons";
 import BlockLogo from "../figures/block-logo";
 import VerticalDivider from "../figures/vertical-divider";
-import { NavItem, CurrNavItem, NAVBAR_ITEMS } from "../types/navigation";
+import { NavItem, CurrNavItem, navbarItems } from "../types/navigation";
 import OrangeBar from "../figures/orange-bar";
 
 // Temporary fix: React 18 conflict (downgraded to v17 for now...)
@@ -39,10 +38,8 @@ export const PopoverTrigger: React.FC<{ children: React.ReactNode }> =
   OrigPopoverTrigger;
 
 /** TO-DO: Improve and polish mobile UI
- * Set illiniOrange color on appropriate interactions
- * Test various menu layouts (full width?)
+ * Test various menu layouts (full width? sidebar?)
  * Stop the menu from pushing content down (pure overlap)
- * Spacing, margin, etc. tweaks: visually distinct children and parents
  */
 export default function NavBar(curr: CurrNavItem) {
   const { isOpen, onToggle } = useDisclosure();
@@ -76,7 +73,7 @@ export default function NavBar(curr: CurrNavItem) {
           </HStack>
         </Flex>
       </Container>
-      <Flex /*position="absolute"*/ justify={"flex-end"} w="full">
+      <Flex justify={"flex-end"} w="full">
         <Collapse in={isOpen} animateOpacity>
           <MobileMenu />
         </Collapse>
@@ -87,33 +84,29 @@ export default function NavBar(curr: CurrNavItem) {
 
 // TO-DO: Functionality lol
 const Search = () => {
-  const iconColor = useColorModeValue("illiniOrange", "white");
   return (
     <IconButton
       variant="ghost"
-      rounded={"none"}
       _hover={{
         bg: "none",
-        color: iconColor,
+        color: "illiniOrange",
       }}
-      aria-label="Toggle Search Bar"
+      aria-label="Open Search Bar"
     >
       <SearchIcon />
     </IconButton>
   );
 };
 
-// Decent but slightly hard-coded responsive headings
 const HeadingLogo = () => {
-  const linkHoverColor = useColorModeValue("illiniOrange", "white");
   return (
     <>
-      <Flex /*alignContent={"center"}*/>
+      <Flex>
         <Flex width={{ base: "1.5em", lg: "2em" }}>
           <BlockLogo />
         </Flex>
         <VerticalDivider style={{ margin: "0 1em 0 1em" }} />
-        <VStack /*align={"center"}*/ alignItems={"flex-start"} spacing={0}>
+        <Stack spacing={0}>
           <Heading as={Link} href="\#" fontSize={{ base: "1xl", md: "2xl" }}>
             Contextual Engineering <br /> Research Group
           </Heading>
@@ -122,7 +115,7 @@ const HeadingLogo = () => {
               University of Illinois Urbana-Champaign
             </Link>
           </Show>
-        </VStack>
+        </Stack>
       </Flex>
     </>
   );
@@ -130,12 +123,12 @@ const HeadingLogo = () => {
 
 // TO-DO: Simplify names, customize & simplify styling properties and behaviors
 const DesktopMenu = (curr: CurrNavItem) => {
-  const linkColor = useColorModeValue("gray.600", "gray.200");
-  const linkHoverColor = useColorModeValue("illiniOrange", "white");
+  const linkColor = "gray.600";
+  const linkHoverColor = "illiniOrange";
 
   return (
-    <HStack direction={"row"} /*alignItems="center"*/>
-      {NAVBAR_ITEMS.map((item) => (
+    <HStack>
+      {navbarItems.map((item) => (
         <Box key={item.label}>
           <Popover trigger={"hover"} placement={"bottom-start"}>
             <PopoverTrigger>
@@ -152,10 +145,11 @@ const DesktopMenu = (curr: CurrNavItem) => {
               </Link>
             </PopoverTrigger>
 
+            {/* TO-DO: Revise desktop UI to indicate a dropdown */}
             {item.children && (
               <PopoverContent rounded={"none"} minW="xs">
                 <PopoverArrow />
-                <VStack spacing={0} align="start">
+                <Stack spacing={0}>
                   {item.children.map((child) => (
                     <DesktopDropdownItem
                       key={child.label}
@@ -163,7 +157,7 @@ const DesktopMenu = (curr: CurrNavItem) => {
                       shouldHighlight={child.label === curr?.childLabel}
                     />
                   ))}
-                </VStack>
+                </Stack>
               </PopoverContent>
             )}
           </Popover>
@@ -173,14 +167,9 @@ const DesktopMenu = (curr: CurrNavItem) => {
   );
 };
 
-const DesktopDropdownItem = ({
-  label,
-  href,
-  // subLabel,
-  shouldHighlight,
-}: NavItem) => {
-  const linkColor = useColorModeValue("gray.600", "gray.200");
-  const highlightColor = useColorModeValue("illiniOrange", "white");
+const DesktopDropdownItem = ({ label, href, shouldHighlight }: NavItem) => {
+  const linkColor = "gray.600";
+  const highlightColor = "illiniOrange";
 
   return (
     <Link href={href} role={"group"} px={"1em"} py={"0.5em"} w="full">
@@ -192,7 +181,6 @@ const DesktopDropdownItem = ({
           >
             {label}
           </Text>
-          {/* <Text fontSize={"sm"}>{subLabel}</Text> */}
         </Box>
         <Spacer />
         <Flex
@@ -201,12 +189,7 @@ const DesktopDropdownItem = ({
           opacity={0} // Invisible until _groupHover
           _groupHover={{ opacity: "100%", transform: "translateX(0)" }}
         >
-          <Icon
-            color={"illiniOrange"}
-            w={"1.5em"}
-            h={"1.5em"}
-            as={ChevronRightIcon}
-          />
+          <ChevronRightIcon color={"illiniOrange"} boxSize={"1.5em"} />
         </Flex>
       </Flex>
     </Link>
@@ -216,15 +199,14 @@ const DesktopDropdownItem = ({
 const MobileMenu = () => {
   return (
     <VStack
-      bg={useColorModeValue("white", "gray.800")}
+      bg={"cloudwhite.50"}
       py={"0.5em"}
-      spacing={"0.5em"}
       minW={{ base: "100vw", sm: "sm" }}
       display={{ lg: "none" }}
       borderWidth="0.1em"
       divider={<StackDivider />}
     >
-      {NAVBAR_ITEMS.map((item) => (
+      {navbarItems.map((item) => (
         <MobileDropdownItem key={item.label} {...item} />
       ))}
     </VStack>
@@ -236,51 +218,37 @@ const MobileDropdownItem = ({ label, children, href }: NavItem) => {
 
   return (
     <Stack>
-      <Flex
-        align={"center"}
-        _hover={{
-          textDecoration: "none",
-        }}
-        px={"1em"}
-      >
-        <Link href={href ?? "#"} fontSize="xl" fontWeight={"semibold"}>
+      {/* TO-DO: background and text changes color during hover, though might be misleading UI if there's children (dropdown) */}
+      <Flex align={"center"} px={"1em"}>
+        <Link href={href} fontSize="xl" fontWeight={"semibold"}>
           {label}
         </Link>
         <Spacer />
+        {/* TO-DO: Wrap with IconButton (?) */}
         {children && (
           <Icon
             as={ChevronDownIcon}
             onClick={onToggle}
+            boxSize="1.5em"
+            _hover={{ color: "illiniOrange" }}
             transition={"all .25s ease-in-out"}
             transform={isOpen ? "rotate(180deg)" : ""}
-            w={"1.5em"}
-            h={"1.5em"}
           />
         )}
       </Flex>
-
-      <Collapse in={isOpen} animateOpacity style={{ marginTop: "0!important" }}>
-        {/* Smh slightly diff color than <StacDivider> lol */}
-        <Divider mt={"0.5em"} />
-        <VStack
-          mt={"0.5em"}
-          spacing={"0.5em"}
-          align={"start"}
-          divider={<StackDivider borderColor={"cloudWhite.300"} />}
-        >
-          {/* children && [no ?] */}
+      {/* Bug: Dropdown does not close smoothly */}
+      <Collapse
+        in={isOpen}
+        animateOpacity /*style={{ marginTop: "0!important" }}*/
+      >
+        <Divider />
+        <Stack mt={"0.5em"} divider={<StackDivider />}>
           {children?.map((child) => (
-            <Link
-              key={child.label}
-              href={child.href}
-              pl={"2em"}
-              fontSize="md"
-              _active={{ color: "illiniOrange" }}
-            >
+            <Link key={child.label} href={child.href} pl={"2em"}>
               {child.label}
             </Link>
           ))}
-        </VStack>
+        </Stack>
       </Collapse>
     </Stack>
   );
