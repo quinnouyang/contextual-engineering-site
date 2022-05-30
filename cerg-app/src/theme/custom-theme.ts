@@ -120,6 +120,25 @@ const customTheme = extendTheme(
           },
         },
       },
+      Button: {
+        baseStyle: {
+          rounded: "none",
+          variant: "ghost",
+          _hover: {
+            textDecoration: "none",
+            color: "illiniOrange",
+            backgroundColor: "transparent",
+          },
+        },
+      },
+      IconButton: {
+        baseStyle: {
+          rounded: "none",
+          variant: "ghost",
+          background: "transparent",
+          _hover: { textDecoration: "none", color: "illiniOrange" },
+        },
+      },
     },
     //   components: {
     //     Button: {
