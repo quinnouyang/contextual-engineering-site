@@ -100,24 +100,22 @@ const Search = () => {
 
 const HeadingLogo = () => {
   return (
-    <>
-      <Flex>
-        <Flex width={{ base: "1.5em", lg: "2em" }}>
-          <BlockLogo />
-        </Flex>
-        <VerticalDivider style={{ margin: "0 1em 0 1em" }} />
-        <Stack spacing={0}>
-          <Heading as={Link} href="\#" fontSize={{ base: "1xl", md: "2xl" }}>
-            Contextual Engineering <br /> Research Group
-          </Heading>
-          <Show above="md">
-            <Link href="http://illinois.edu/" fontSize={"sm"}>
-              University of Illinois Urbana-Champaign
-            </Link>
-          </Show>
-        </Stack>
+    <Flex>
+      <Flex width={{ base: "1.5em", lg: "2em" }}>
+        <BlockLogo />
       </Flex>
-    </>
+      <VerticalDivider style={{ margin: "0 1em 0 1em" }} />
+      <Stack spacing={0}>
+        <Heading as={Link} href="\#" fontSize={{ base: "1xl", md: "2xl" }}>
+          Contextual Engineering <br /> Research Group
+        </Heading>
+        <Show above="md">
+          <Link href="http://illinois.edu/" fontSize={"sm"}>
+            University of Illinois Urbana-Champaign
+          </Link>
+        </Show>
+      </Stack>
+    </Flex>
   );
 };
 
