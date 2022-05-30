@@ -108,7 +108,7 @@ const customTheme = extendTheme(
       },
       StackDivider: {
         baseStyle: {
-          borderColor: "cloudWhite.300",
+          borderColor: "cloudWhite.300",  // Not working
         },
       },
       Container: {
@@ -136,7 +136,11 @@ const customTheme = extendTheme(
           rounded: "none",
           variant: "ghost",
           background: "transparent",
-          _hover: { textDecoration: "none", color: "illiniOrange" },
+          color: "illiniBlue",
+          _hover: {
+            bg: "none",
+            color: "green",
+          },
         },
       },
     },

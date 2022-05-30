@@ -5,14 +5,16 @@ import { Flex, Icon, Link } from "@chakra-ui/react";
 
 export default function FullWordmark(props: any) {
   return (
-    <Flex as={Link} href="http://illinois.edu/" isExternal>
-      <Icon
+    <Flex
+      as={Link}
+      href="http://illinois.edu/"
+      isExternal
+      aria-label="UIUC Website"
+    >
+      <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 401.254 104.293"
-        height="inherit"
         width="inherit"
-        // focusable={true}
-        aria-label="UIUC Website"
         {...props}
       >
         <path
@@ -45,7 +47,7 @@ export default function FullWordmark(props: any) {
           }}
           transform="matrix(.13333 0 0 -.13333 0 104.293)"
         />
-      </Icon>
+      </svg>
     </Flex>
   );
 }

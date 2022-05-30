@@ -8,14 +8,19 @@ import {
   Container,
   Link,
   Show,
+  Divider,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 import Slider from "react-slick";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const illiniBlueOpaque = "rgba(19, 41, 75, 0.5)";
-const illiniBlueOpaqueHover = "rgba(19, 41, 75, 0.75)";
+// Illini Blue with opacity
+const bgColor = "rgba(19, 41, 75, 0.5)";
+const bgHoverColor = "rgba(19, 41, 75, 0.75)";
+
+const fgColor = "cloudWhite.50";
 
 const sliderSettings = {
   dots: true,
@@ -33,10 +38,10 @@ interface Card {
 
 const cards: Card[] = [
   {
-    title: "Photo 1",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    image:
-      "https://contextual.engineering.illinois.edu/wp-content/uploads/2018/06/spring-measurement-students.jpg",
+    title: "Paper on AFER Wins Best Graduate Research Award at REFA Conference",
+    text: "A team of graduate students presented their work on Apple Florida Ethanol Rosewater (AFER) at the 47th national REFA conference. I need more text so here we go, technical term technical term number 3.1415926...",
+    image: "/images/skateboard.jpeg",
+    // "https://contextual.engineering.illinois.edu/wp-content/uploads/2018/06/spring-measurement-students.jpg",
     link: "/team",
   },
   {
@@ -63,6 +68,7 @@ const cards: Card[] = [
 
 export default function Carousel() {
   const [slider, setSlider] = React.useState<Slider | null>(null);
+  const iconSize = useBreakpointValue({ base: "3em", lg: "4em" });
 
   return (
     <Box position={"relative"}>
@@ -70,28 +76,30 @@ export default function Carousel() {
         <IconButton
           aria-label="left-arrow"
           position="absolute"
+          h={iconSize}
           left={"2em"}
           top={"50%"}
-          color="cloudWhite.50"
-          background={illiniBlueOpaque}
-          _hover={{ background: illiniBlueOpaqueHover }}
+          color={fgColor}
+          background={bgColor}
+          _hover={{ background: bgHoverColor }}
           zIndex={2}
           onClick={() => slider?.slickPrev()}
         >
-          <ChevronLeftIcon boxSize="2em" />
+          <ChevronLeftIcon boxSize={iconSize} />
         </IconButton>
         <IconButton
           aria-label="right-arrow"
           position="absolute"
+          h={iconSize}
           right={"2em"}
           top={"50%"}
-          color="cloudWhite.50"
-          background={illiniBlueOpaque}
-          _hover={{ background: illiniBlueOpaqueHover }}
+          color={fgColor}
+          background={bgColor}
+          _hover={{ background: bgHoverColor }}
           zIndex={2}
           onClick={() => slider?.slickNext()}
         >
-          <ChevronRightIcon boxSize="2em" />
+          <ChevronRightIcon boxSize={iconSize} />
         </IconButton>
       </Show>
 
@@ -110,21 +118,19 @@ export default function Carousel() {
                 <Stack
                   as={Link}
                   href={card.link}
-                  background={illiniBlueOpaque}
+                  background={bgColor}
                   p="1em"
-                  maxW="60ch"
-                  _hover={{ background: illiniBlueOpaqueHover }}
+                  maxW={{ base: "40ch", lg: "50ch" }}
+                  _hover={{ background: bgHoverColor }}
                 >
                   <Heading
-                    fontSize={{ base: "2xl", md: "3xl", lg: "4xl" }}
-                    color="cloudWhite.50"
+                    fontSize={{ base: "2xl", lg: "3xl" }}
+                    color={fgColor}
                   >
                     {card.title}
                   </Heading>
-                  <Text
-                    fontSize={{ base: "sm", md: "md", lg: "lg" }}
-                    color="cloudWhite.50"
-                  >
+                  <Divider borderColor={fgColor} />
+                  <Text fontSize={{ base: "sm", lg: "md" }} color={fgColor}>
                     {card.text}
                   </Text>
                 </Stack>

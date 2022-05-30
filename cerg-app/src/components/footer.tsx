@@ -11,33 +11,25 @@ import {
 import FullWordmark from "../figures/full-wordmark";
 import ShortWordmark from "../figures/short-wordmark";
 import VerticalDivider from "../figures/vertical-divider";
-import { FOOTER_ITEMS, FOOTER_EXTERNAL_ITEMS } from "../types/navigation";
+import { footerInternalItems, footerExternalItems } from "../types/navigation";
 
 export default function Footer() {
   return (
     <Box bg={"cloudWhite.50"}>
-      <Container
-        py="2em"
-        maxW={{
-          base: "container.sm",
-          lg: "container.md",
-          xl: "container.lg",
-        }}
-      >
+      <Container py="2em">
         <Flex>
           <FooterLogo />
           <Spacer />
           <Flex
-            wrap="wrap"
-            align={{ base: "flex-end", sm: "center" }}
-            direction={{ base: "column", sm: "row" }}
             columnGap={"1em"}
+            direction={{ base: "column", sm: "row" }}
+            align={{ base: "flex-end", sm: "center" }}
           >
-            {FOOTER_ITEMS.map(({ label, href }) => {
+            {footerInternalItems.map(({ label, link }) => {
               return (
                 <Link
                   key={label}
-                  href={href}
+                  href={link}
                   fontSize={{ base: "sm", md: "md" }}
                   fontWeight={"semibold"}
                 >
@@ -53,24 +45,22 @@ export default function Footer() {
   );
 }
 
-// TO-DO: Breaks at width 768px (iPad mini), which is the `md` breakpoint
 const FooterLogo = () => {
+  const breakpoint = "lg";
+
   return (
     <Flex
-      alignItems="flex-start"
+      // alignItems="flex-start"
       direction={{ base: "column", lg: "row" }}
       rowGap={"0.5em"}
     >
-      <Show above="lg">
-        <FullWordmark height="3em" />
-        <VerticalDivider
-          style={{
-            margin: "0 1em 0 1em",
-            height: "3em" /* Hard-coded height */,
-          }}
-        />
+      <Show above={breakpoint}>
+        <Flex width="10em">
+          <FullWordmark />
+        </Flex>
+        <VerticalDivider style={{ margin: "0 1em 0 1em" }} />
       </Show>
-      <Show below="lg">
+      <Show below={breakpoint}>
         <ShortWordmark />
       </Show>
       <Heading
@@ -88,9 +78,14 @@ const BottomInformation = () => {
   return (
     <Flex mt={"0.5em"}>
       <Flex columnGap={{ base: "0.5em", md: "1em" }} wrap="wrap">
-        {FOOTER_EXTERNAL_ITEMS.map(({ label, href }) => {
+        {footerExternalItems.map(({ label, link }) => {
           return (
-            <Link key={label} href={href} fontSize={{ base: "xs", md: "sm" }} isExternal>
+            <Link
+              key={label}
+              href={link}
+              fontSize={{ base: "xs", md: "sm" }}
+              isExternal
+            >
               {label}
             </Link>
           );
