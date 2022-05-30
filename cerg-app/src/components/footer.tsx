@@ -33,11 +33,11 @@ export default function Footer() {
             direction={{ base: "column", sm: "row" }}
             columnGap={"1em"}
           >
-            {footerInternalItems.map(({ label, href }) => {
+            {footerInternalItems.map(({ label, link }) => {
               return (
                 <Link
                   key={label}
-                  href={href}
+                  href={link}
                   fontSize={{ base: "sm", md: "md" }}
                   fontWeight={"semibold"}
                 >
@@ -88,11 +88,11 @@ const BottomInformation = () => {
   return (
     <Flex mt={"0.5em"}>
       <Flex columnGap={{ base: "0.5em", md: "1em" }} wrap="wrap">
-        {footerExternalItems.map(({ label, href }) => {
+        {footerExternalItems.map(({ label, link }) => {
           return (
             <Link
               key={label}
-              href={href}
+              href={link}
               fontSize={{ base: "xs", md: "sm" }}
               isExternal
             >

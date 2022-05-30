@@ -5,7 +5,7 @@ export interface NavItem {
   readonly label: string;
   readonly subLabel?: string;
   readonly children?: Array<NavItem>;
-  readonly href?: string;
+  readonly link?: string;
   readonly shouldHighlight?: boolean;
 }
 
@@ -18,69 +18,69 @@ export interface CurrNavItem {
 export const navbarItems: Array<NavItem> = [
   {
     label: "About",
-    href: "/about",
+    link: "/about",
   },
   {
     label: "Research",
-    href: "/research",
+    link: "/research",
     children: [
       {
         label: "Focus Areas",
-        href: "/focus-areas",
+        link: "/focus-areas",
       },
       {
         label: "Projects",
-        href: "/projects",
+        link: "/projects",
       },
       {
         label: "Resources",
-        href: "/resources",
+        link: "/resources",
       },
     ],
   },
   {
     label: "Team",
-    href: "/team",
+    link: "/team",
   },
   {
     label: "News",
-    href: "/news",
+    link: "/news",
   },
 ];
 
 export const footerInternalItems: Array<NavItem> = [
   {
     label: "About",
-    href: "/about",
+    link: "/about",
   },
   {
     label: "Contact",
-    href: "/contact",
+    link: "/contact",
   },
   {
     label: "Team",
-    href: "/team",
+    link: "/team",
   },
   {
     label: "News",
-    href: "/news",
+    link: "/news",
   },
 ];
 
 export const footerExternalItems: Array<NavItem> = [
   {
     label: "Privacy",
-    href: "https://www.vpaa.uillinois.edu/resources/web_privacy",
+    link: "https://www.vpaa.uillinois.edu/resources/web_privacy",
   },
   {
     label: "Cookies",
-    href: "https://www.vpaa.uillinois.edu/resources/cookies",
+    link: "https://www.vpaa.uillinois.edu/resources/cookies",
   },
   {
     label: "Sitemap",
   },
   {
     label: "GitHub",
-    href: "https://github.com/quinnouyang/contextual-engineering-site",
+    link: "https://github.com/quinnouyang/contextual-engineering-site",
   },
 ];
