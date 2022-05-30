@@ -16,22 +16,14 @@ import { footerInternalItems, footerExternalItems } from "../types/navigation";
 export default function Footer() {
   return (
     <Box bg={"cloudWhite.50"}>
-      <Container
-        py="2em"
-        maxW={{
-          base: "container.sm",
-          lg: "container.md",
-          xl: "container.lg",
-        }}
-      >
+      <Container py="2em">
         <Flex>
           <FooterLogo />
           <Spacer />
           <Flex
-            wrap="wrap"
-            align={{ base: "flex-end", sm: "center" }}
-            direction={{ base: "column", sm: "row" }}
             columnGap={"1em"}
+            direction={{ base: "column", sm: "row" }}
+            align={{ base: "flex-end", sm: "center" }}
           >
             {footerInternalItems.map(({ label, link }) => {
               return (
@@ -53,24 +45,22 @@ export default function Footer() {
   );
 }
 
-// TO-DO: Breaks at width 768px (iPad mini), which is the `md` breakpoint
 const FooterLogo = () => {
+  const breakpoint = "lg";
+
   return (
     <Flex
-      alignItems="flex-start"
+      // alignItems="flex-start"
       direction={{ base: "column", lg: "row" }}
       rowGap={"0.5em"}
     >
-      <Show above="lg">
-        <FullWordmark height="3em" />
-        <VerticalDivider
-          style={{
-            margin: "0 1em 0 1em",
-            height: "3em" /* Hard-coded height */,
-          }}
-        />
+      <Show above={breakpoint}>
+        <Flex width="10em">
+          <FullWordmark />
+        </Flex>
+        <VerticalDivider style={{ margin: "0 1em 0 1em" }} />
       </Show>
-      <Show below="lg">
+      <Show below={breakpoint}>
         <ShortWordmark />
       </Show>
       <Heading
