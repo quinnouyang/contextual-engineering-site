@@ -133,7 +133,7 @@ const DesktopMenu = (curr: CurrNavItem) => {
           <Popover trigger={"hover"} placement={"bottom-start"}>
             <PopoverTrigger>
               <Link
-                href={item.href ?? "#"}
+                href={item.link ?? "#"}
                 m={"0.5em"}
                 fontSize={"lg"}
                 fontWeight={"semibold"}
@@ -167,12 +167,12 @@ const DesktopMenu = (curr: CurrNavItem) => {
   );
 };
 
-const DesktopDropdownItem = ({ label, href, shouldHighlight }: NavItem) => {
+const DesktopDropdownItem = ({ label, link, shouldHighlight }: NavItem) => {
   const linkColor = "gray.600";
   const highlightColor = "illiniOrange";
 
   return (
-    <Link href={href} role={"group"} px={"1em"} py={"0.5em"} w="full">
+    <Link href={link} role={"group"} px={"1em"} py={"0.5em"} w="full">
       <Flex>
         <Box>
           <Text
@@ -213,14 +213,14 @@ const MobileMenu = () => {
   );
 };
 
-const MobileDropdownItem = ({ label, children, href }: NavItem) => {
+const MobileDropdownItem = ({ label, children, link }: NavItem) => {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
     <Stack>
       {/* TO-DO: background and text changes color during hover, though might be misleading UI if there's children (dropdown) */}
       <Flex align={"center"} px={"1em"}>
-        <Link href={href} fontSize="xl" fontWeight={"semibold"}>
+        <Link href={link} fontSize="xl" fontWeight={"semibold"}>
           {label}
         </Link>
         <Spacer />
@@ -244,7 +244,7 @@ const MobileDropdownItem = ({ label, children, href }: NavItem) => {
         <Divider />
         <Stack mt={"0.5em"} divider={<StackDivider />}>
           {children?.map((child) => (
-            <Link key={child.label} href={child.href} pl={"2em"}>
+            <Link key={child.label} href={child.link} pl={"2em"}>
               {child.label}
             </Link>
           ))}
