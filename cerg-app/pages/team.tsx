@@ -2,7 +2,7 @@ import { Box, Center, Flex, Heading, VStack } from "@chakra-ui/react";
 import Footer from "../src/components/footer";
 import NavBar from "../src/components/navbar";
 import BioCard from "../src/components/bio-card";
-import { PEOPLE } from "../src/types/team-members";
+import { people } from "../src/types/team-members";
 import { useState } from "react";
 
 const Hero = () => {
@@ -42,7 +42,7 @@ export default function TeamPage() {
         justify="center"
         mx={{ base: "2em", sm: "4em" }}
       >
-        {PEOPLE.map((person) => {
+        {people.map((person) => {
           return (
             <BioCard
               key={person.name}
