@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "cross-env NODE_ENV=production node server.js",
     "lint": "next lint",
     "export": "next export"
   },
@@ -29,7 +29,7 @@
     "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
-    "@types/node": "17.0.31",
+    "@types/node": "14.18.3",
     "@types/react": "18.0.9",
     "@types/react-dom": "18.0.3",
     "@types/react-slick": "^0.23.8",
