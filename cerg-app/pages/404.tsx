@@ -5,7 +5,7 @@ export default function ErrorPage() {
   return (
     <>
       <NavBar {...{ label: "Error" }} />
-      <ErrorPage />
+      {/* <ErrorPage /> */}
       <Footer />
     </>
   );
