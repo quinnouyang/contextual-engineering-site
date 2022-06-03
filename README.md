@@ -1,7 +1,10 @@
 # CERG @ Illinois Website
 
-This is the repository that will eventually house the source code for the [UIUC Contextual Engineering Research Group website](https://contextual.engineering.illinois.edu/), which will use the [Frontity](https://frontity.org/) framework to use the WordPress CMS for retrieving content and React to design a web application. As of 5/9/2022, the project is heavily in-progress with two primary development "groups": `frontity-migration` and `cerg-app`.
+This repository will house the source code of the [UIUC Contextual Engineering Research Group website](https://contextual.engineering.illinois.edu/). It primarily uses React, (probably) [Frontity]([url](https://frontity.org/)), Next.js, and Chakra UI. Instead of hard-coded content, Frontity would enable Wordpress to serve as a content management system (CMS) by fetching data from it to feed into a React application. The project has two main workflows: designing the web application (`cerg-app`) and testing the anticipated integration of Frontity (`frontity-migration`).
 
-`frontity-migration` houses the deployment testing for the eventual migration of the designs from `cerg-app`. `cerg-app` houses the primary front-end implementations with hard-coded content. This "separation of concerns" enables simultaenous progress in both deploying and creating the site.
+As of 7/1/2022, most focus is towards **designing the UI** in `cerg-app` to aim for an initial deployment of late July 2022. This deployment would not use Frontity and instead (temporarily) have hard-coded content. Afterwards, there should be a migration towards using that framework.
 
-This is a solo project. PRs are welcome, but as of now, there's probably not much public material to work off of.
+This is a volunteer project. PRs are welcome, though note that little material may exist to be "workable".
+
+### Current Staging Site (Static HTML Build)
+https://cergtest1.web.illinois.edu/

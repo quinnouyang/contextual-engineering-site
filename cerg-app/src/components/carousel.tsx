@@ -25,6 +25,7 @@ const fgColor = "cloudWhite.50";
 
 const sliderSettings = {
   dots: true,
+  arrows: false,
   autoplay: true,
   autoplaySpeed: 7000,
 };
