@@ -55,7 +55,7 @@ export default function NavBar(curr: CurrNavItem) {
             <DesktopMenu {...curr} />
           </Show>
           <HStack spacing={0}>
-            <Search />
+            {/* <Search /> */}
             <Show below="lg">
               <IconButton
                 onClick={onToggle}
@@ -82,22 +82,6 @@ export default function NavBar(curr: CurrNavItem) {
   );
 }
 
-// TO-DO: Functionality lol
-const Search = () => {
-  return (
-    <IconButton
-      variant="ghost"
-      _hover={{
-        bg: "none",
-        color: "illiniOrange",
-      }}
-      aria-label="Open Search Bar"
-    >
-      <SearchIcon />
-    </IconButton>
-  );
-};
-
 const HeadingLogo = () => {
   return (
     <Flex>
@@ -120,35 +104,64 @@ const HeadingLogo = () => {
 };
 
 // TO-DO: Simplify names, customize & simplify styling properties and behaviors
+// BUG: Dropdown SUCKS and does not line up with the carrot
 const DesktopMenu = (curr: CurrNavItem) => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const linkColor = "gray.600";
   const linkHoverColor = "illiniOrange";
 
   return (
     <HStack>
-      {navbarItems.map((item) => (
-        <Box key={item.label}>
-          <Popover trigger={"hover"} placement={"bottom-start"}>
+      {navbarItems.map(({ label, link, children }) => (
+        <Box key={label}>
+          <Popover
+            trigger={"hover"}
+            placement={"bottom-start"}
+            onOpen={onOpen}
+            onClose={onClose}
+            openDelay={0}
+          >
             <PopoverTrigger>
-              <Link
-                href={item.link ?? "#"}
+              <HStack
+                as={Link}
+                href={link}
+                role={"group"}
                 m={"0.5em"}
-                fontSize={"lg"}
-                fontWeight={"semibold"}
-                color={item.label === curr.label ? linkHoverColor : linkColor}
-                borderBottomWidth={item.label === curr.label ? "0.15em" : 0}
-                borderBottomColor="illiniOrange"
+                spacing={0}
               >
-                {item.label}
-              </Link>
+                <Link // Technically should be Text, but this maintains consistent hover fade-in
+                  fontSize={"lg"}
+                  fontWeight={"semibold"}
+                  color={label === curr.label ? linkHoverColor : linkColor}
+                  // BUG: If toggle width instead, pushes the text up a few pixels. Workaround puts all the text slightly off vertical center
+                  borderBottomWidth={"0.15em"}
+                  borderBottomColor={
+                    label === curr.label ? linkHoverColor : "cloudWhite.50"
+                  }
+                  _groupHover={{ color: linkHoverColor }}
+                >
+                  {label}
+                </Link>
+                {children && (
+                  <ChevronDownIcon
+                    boxSize="1.5em"
+                    color={label === curr.label ? linkHoverColor : linkColor}
+                    transition={"transform .25s"}
+                    _groupHover={{
+                      color: linkHoverColor,
+                      transform: "rotate(180deg)",
+                    }}
+                  />
+                )}
+              </HStack>
             </PopoverTrigger>
 
             {/* TO-DO: Revise desktop UI to indicate a dropdown */}
-            {item.children && (
+            {children && (
               <PopoverContent rounded={"none"} minW="xs">
                 <PopoverArrow />
-                <Stack spacing={0}>
-                  {item.children.map((child) => (
+                <Stack spacing={0} divider={<StackDivider />}>
+                  {children.map((child) => (
                     <DesktopDropdownItem
                       key={child.label}
                       {...child}
@@ -165,6 +178,8 @@ const DesktopMenu = (curr: CurrNavItem) => {
   );
 };
 
+// Consider horizontal dividers, hover over anywhere in row should hihlight text (instead of just text)
+// BUG: CurrNavItem not lined up with rest. Click About and compare against Research
 const DesktopDropdownItem = ({ label, link, shouldHighlight }: NavItem) => {
   const linkColor = "gray.600";
   const highlightColor = "illiniOrange";
@@ -175,20 +190,20 @@ const DesktopDropdownItem = ({ label, link, shouldHighlight }: NavItem) => {
         <Box>
           <Text
             color={shouldHighlight ? highlightColor : linkColor}
-            _hover={{ color: highlightColor }}
+            _groupHover={{ color: highlightColor }}
           >
             {label}
           </Text>
         </Box>
         <Spacer />
-        <Flex
+        <ChevronRightIcon
+          color={"illiniOrange"}
+          boxSize={"1.5em"}
           transition={"all .3s ease"}
           transform={"translateX(-1em)"}
           opacity={0} // Invisible until _groupHover
           _groupHover={{ opacity: "100%", transform: "translateX(0)" }}
-        >
-          <ChevronRightIcon color={"illiniOrange"} boxSize={"1.5em"} />
-        </Flex>
+        />
       </Flex>
     </Link>
   );
@@ -249,5 +264,21 @@ const MobileDropdownItem = ({ label, children, link }: NavItem) => {
         </Stack>
       </Collapse>
     </Stack>
+  );
+};
+
+// TO-DO: Functionality lol
+const Search = () => {
+  return (
+    <IconButton
+      variant="ghost"
+      _hover={{
+        bg: "none",
+        color: "illiniOrange",
+      }}
+      aria-label="Open Search Bar"
+    >
+      <SearchIcon />
+    </IconButton>
   );
 };
