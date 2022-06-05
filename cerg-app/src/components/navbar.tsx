@@ -17,7 +17,6 @@ import {
   Show,
   Spacer,
   HStack,
-  PopoverArrow,
   Divider,
   StackDivider,
 } from "@chakra-ui/react";
@@ -37,15 +36,14 @@ import OrangeBar from "../figures/orange-bar";
 export const PopoverTrigger: React.FC<{ children: React.ReactNode }> =
   OrigPopoverTrigger;
 
-/** TO-DO: Improve and polish mobile UI
- * Test various menu layouts (full width? sidebar?)
- * Stop the menu from pushing content down (pure overlap)
- */
+const textColor = "illiniBlue";
+const highlightColor = "illiniOrange";
+
 export default function NavBar(curr: CurrNavItem) {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
-    <Box bg="cloudWhite.50">
+    <Box /*bg="cloudWhite.50"*/>
       <OrangeBar />
       <Container>
         <Flex py={{ base: "1.5em", md: "2em" }}>
@@ -54,9 +52,9 @@ export default function NavBar(curr: CurrNavItem) {
           <Show above="lg">
             <DesktopMenu {...curr} />
           </Show>
-          <HStack spacing={0}>
-            {/* <Search /> */}
-            <Show below="lg">
+          <Show below="lg">
+            <HStack spacing={0}>
+              {/* <Search /> */}
               <IconButton
                 onClick={onToggle}
                 icon={
@@ -69,8 +67,8 @@ export default function NavBar(curr: CurrNavItem) {
                 variant={"ghost"}
                 aria-label={"Toggle Navigation"}
               />
-            </Show>
-          </HStack>
+            </HStack>
+          </Show>
         </Flex>
       </Container>
       <Flex justify={"flex-end"} w="full">
@@ -103,12 +101,10 @@ const HeadingLogo = () => {
   );
 };
 
-// TO-DO: Simplify names, customize & simplify styling properties and behaviors
-// BUG: Dropdown SUCKS and does not line up with the carrot
+// TO-DO: Simplify names and styling properties and behaviors (especially text color consistency)
+// ISSUE: Dropdown headers with children do not remain higlighted when mouse moves to popover (e.g. Research)
 const DesktopMenu = (curr: CurrNavItem) => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const linkColor = "gray.600";
-  const linkHoverColor = "illiniOrange";
+  const { onOpen, onClose } = useDisclosure();
 
   return (
     <HStack>
@@ -119,36 +115,35 @@ const DesktopMenu = (curr: CurrNavItem) => {
             placement={"bottom-start"}
             onOpen={onOpen}
             onClose={onClose}
-            openDelay={0}
+            gutter={4} // Pixel distance between parent (bottom border) and content
+            // Hard-coded eyeballed value to with ChevronIcon animation
+            openDelay={50}
+            closeDelay={50}
           >
             <PopoverTrigger>
-              <HStack
-                as={Link}
-                href={link}
-                role={"group"}
-                m={"0.5em"}
-                spacing={0}
-              >
-                <Link // Technically should be Text, but this maintains consistent hover fade-in
+              <HStack role={"group"} m={"0.5em"} spacing={0}>
+                <Link // WORKAROUND: Should be text, but this keeps fade-in hover highlight consistent
+                  href={link}
                   fontSize={"lg"}
                   fontWeight={"semibold"}
-                  color={label === curr.label ? linkHoverColor : linkColor}
-                  // BUG: If toggle width instead, pushes the text up a few pixels. Workaround puts all the text slightly off vertical center
-                  borderBottomWidth={"0.15em"}
+                  color={label === curr.label ? highlightColor : ""}
+                  borderBottomWidth="0.15em"
                   borderBottomColor={
-                    label === curr.label ? linkHoverColor : "cloudWhite.50"
+                    label === curr.label ? highlightColor : "transparent"
                   }
-                  _groupHover={{ color: linkHoverColor }}
+                  // "Balances" border thickeness to keep text centered
+                  borderTopWidth="0.15em"
+                  borderTopColor="transparent"
                 >
                   {label}
                 </Link>
                 {children && (
                   <ChevronDownIcon
                     boxSize="1.5em"
-                    color={label === curr.label ? linkHoverColor : linkColor}
-                    transition={"transform .25s"}
+                    color={label === curr.label ? highlightColor : textColor}
+                    transition={"transform 0.25s"}
                     _groupHover={{
-                      color: linkHoverColor,
+                      color: highlightColor,
                       transform: "rotate(180deg)",
                     }}
                   />
@@ -156,11 +151,9 @@ const DesktopMenu = (curr: CurrNavItem) => {
               </HStack>
             </PopoverTrigger>
 
-            {/* TO-DO: Revise desktop UI to indicate a dropdown */}
             {children && (
-              <PopoverContent rounded={"none"} minW="xs">
-                <PopoverArrow />
-                <Stack spacing={0} divider={<StackDivider />}>
+              <PopoverContent minW="xs" rounded={"none"} shadow="none">
+                <Stack mx={"1em"} spacing={0} divider={<StackDivider />}>
                   {children.map((child) => (
                     <DesktopDropdownItem
                       key={child.label}
@@ -178,34 +171,32 @@ const DesktopMenu = (curr: CurrNavItem) => {
   );
 };
 
-// Consider horizontal dividers, hover over anywhere in row should hihlight text (instead of just text)
-// BUG: CurrNavItem not lined up with rest. Click About and compare against Research
 const DesktopDropdownItem = ({ label, link, shouldHighlight }: NavItem) => {
-  const linkColor = "gray.600";
-  const highlightColor = "illiniOrange";
-
   return (
-    <Link href={link} role={"group"} px={"1em"} py={"0.5em"} w="full">
-      <Flex>
-        <Box>
-          <Text
-            color={shouldHighlight ? highlightColor : linkColor}
-            _groupHover={{ color: highlightColor }}
-          >
-            {label}
-          </Text>
-        </Box>
-        <Spacer />
-        <ChevronRightIcon
-          color={"illiniOrange"}
-          boxSize={"1.5em"}
-          transition={"all .3s ease"}
-          transform={"translateX(-1em)"}
-          opacity={0} // Invisible until _groupHover
-          _groupHover={{ opacity: "100%", transform: "translateX(0)" }}
-        />
-      </Flex>
-    </Link>
+    <Flex as={Link} href={link} role={"group"} py={"0.5em"}>
+      <Link // WORKAROUND: Should be text, but this keeps fade-in hover highlight consistent
+        fontWeight={"semibold"}
+        color={shouldHighlight ? highlightColor : textColor}
+        _groupHover={{ color: highlightColor }}
+        borderBottomWidth="0.15em"
+        borderBottomColor={shouldHighlight ? highlightColor : "transparent"}
+        // "Balances" border thickeness to keep text centered
+        borderTopWidth="0.15em"
+        borderTopColor="transparent"
+      >
+        {label}
+      </Link>
+      <Spacer />
+      <ChevronRightIcon
+        color={"illiniOrange"}
+        boxSize={"1.5em"}
+        transition={"all 0.25s"}
+        transform={"translateX(-1em)"}
+        opacity={0} // Invisible until _groupHover
+        _groupHover={{ opacity: "100%", transform: "translateX(0)" }}
+        pt={"0.15em"} // WORKAROUND: "Balance" border thickness to keep icon centered
+      />
+    </Flex>
   );
 };
 
@@ -244,7 +235,7 @@ const MobileDropdownItem = ({ label, children, link }: NavItem) => {
             onClick={onToggle}
             boxSize="1.5em"
             _hover={{ color: "illiniOrange" }}
-            transition={"all .25s ease-in-out"}
+            transition={"all 0.25s ease-in-out"}
             transform={isOpen ? "rotate(180deg)" : ""}
           />
         )}
