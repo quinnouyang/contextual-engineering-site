@@ -3,7 +3,7 @@ import Carousel from "../src/components/carousel";
 import Cart from "../src/demo-components/cart";
 import Details from "../src/demo-components/details";
 import Footer from "../src/components/footer";
-import NavBar from "../src/components/navbar";
+import NavBar from "../src/components/NavBar/NavBar";
 
 export default function HomePage() {
   return (

@@ -22,7 +22,7 @@ export const navbarItems: Array<NavItem> = [
   },
   {
     label: "Research",
-    link: "/research",
+    // link: "/research",
     children: [
       {
         label: "Focus Areas",
