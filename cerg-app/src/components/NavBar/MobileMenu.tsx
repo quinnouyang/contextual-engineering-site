@@ -6,7 +6,6 @@ import {
   Icon,
   Link,
   useDisclosure,
-  VStack,
   Spacer,
   Divider,
   StackDivider,
@@ -16,9 +15,9 @@ import { NavItem, navbarItems } from "../../types/navigation";
 
 export default function MobileMenu() {
   return (
-    <VStack
-      bg={"cloudwhite.50"}
-      py={"0.5em"}
+    <Stack
+      bg="cloudWhite.50"
+      py="0.5em"
       minW={{ base: "100vw", sm: "sm" }}
       // display={{ lg: "none" }}
       borderWidth="0.1em"
@@ -27,7 +26,7 @@ export default function MobileMenu() {
       {navbarItems.map((item) => (
         <MobileDropdownItem key={item.label} {...item} />
       ))}
-    </VStack>
+    </Stack>
   );
 }
 
@@ -37,8 +36,8 @@ const MobileDropdownItem = ({ label, children, link }: NavItem) => {
   return (
     <Stack>
       {/* TO-DO: background and text changes color during hover, though might be misleading UI if there's children (dropdown) */}
-      <Flex align={"center"} px={"1em"}>
-        <Link href={link} fontSize="xl" fontWeight={"semibold"}>
+      <Flex align="center" px="1em">
+        <Link href={link} fontSize="xl" fontWeight="semibold">
           {label}
         </Link>
         <Spacer />
@@ -49,7 +48,7 @@ const MobileDropdownItem = ({ label, children, link }: NavItem) => {
             onClick={onToggle}
             boxSize="1.5em"
             _hover={{ color: "illiniOrange" }}
-            transition={"all 0.25s ease-in-out"}
+            transition="all 0.25s ease-in-out"
             transform={isOpen ? "rotate(180deg)" : ""}
           />
         )}
@@ -60,9 +59,9 @@ const MobileDropdownItem = ({ label, children, link }: NavItem) => {
         animateOpacity /*style={{ marginTop: "0!important" }}*/
       >
         <Divider />
-        <Stack mt={"0.5em"} divider={<StackDivider />}>
+        <Stack mt="0.5em" divider={<StackDivider />}>
           {children?.map((child) => (
-            <Link key={child.label} href={child.link} pl={"2em"}>
+            <Link key={child.label} href={child.link} pl="2em">
               {child.label}
             </Link>
           ))}

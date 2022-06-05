@@ -14,7 +14,7 @@ import {
   HStack,
   useMediaQuery,
 } from "@chakra-ui/react";
-import { HamburgerIcon, CloseIcon/*, SearchIcon*/ } from "@chakra-ui/icons";
+import { HamburgerIcon, CloseIcon /*, SearchIcon*/ } from "@chakra-ui/icons";
 import DesktopMenu from "./DesktopMenu";
 import MobileMenu from "./MobileMenu";
 import BlockLogo from "../../figures/block-logo";
@@ -27,7 +27,7 @@ export default function NavBar(currPage: CurrNavItem) {
   const [isDesktop] = useMediaQuery("(min-width: 62em) and (pointer: fine)"); // 62em is default lg screen width
 
   return (
-    <Box /*bg="cloudWhite.50"*/>
+    <Box bg="cloudWhite.50">
       <OrangeBar />
       <Container>
         <Flex py={{ base: "1.5em", md: "2em" }}>
@@ -54,7 +54,7 @@ export default function NavBar(currPage: CurrNavItem) {
           )}
         </Flex>
       </Container>
-      <Flex justify="flex-end" w="full">
+      <Flex position={"absolute"} justify="flex-end" w="full" zIndex={1}>
         <Collapse in={isOpen} animateOpacity>
           <MobileMenu />
         </Collapse>
