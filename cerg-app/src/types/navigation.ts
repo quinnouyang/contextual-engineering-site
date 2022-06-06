@@ -15,6 +15,7 @@ export interface CurrNavItem {
 }
 
 // TO-DO: Assess which items to include
+// Labels with children SHOULD NOT have their own link
 export const navbarItems: Array<NavItem> = [
   {
     label: "About",

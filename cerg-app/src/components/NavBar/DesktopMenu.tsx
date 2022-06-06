@@ -9,8 +9,10 @@ import {
   useDisclosure,
   HStack,
   StackDivider,
+  useMediaQuery,
+  PopoverArrow,
 } from "@chakra-ui/react";
-import { ChevronDownIcon } from "@chakra-ui/icons";
+import { ChevronDownIcon /*, ChevronRightIcon*/ } from "@chakra-ui/icons";
 import { NavItem, CurrNavItem, navbarItems } from "../../types/navigation";
 
 // Temporary fix: React 18 conflict (downgraded to v17 for now...)
@@ -25,25 +27,26 @@ const highlightColor = "illiniOrange";
 // ISSUE: Dropdown headers do not remain higlighted/"selected" when cursor moves to popover (e.g. Research)
 export default function DesktopMenu(curr: CurrNavItem) {
   const { onOpen, onClose } = useDisclosure();
+  const [isNotTouchScreen] = useMediaQuery("(pointer: fine)");
 
   return (
     <HStack>
       {navbarItems.map(({ label, link, children }) => (
         <Box key={label}>
           <Popover
-            trigger="hover"
+            trigger={isNotTouchScreen ? "hover" : "click"}
             placement="bottom-start"
             onOpen={onOpen}
             onClose={onClose}
-            gutter={4} // Pixel distance between parent (bottom border) and content
-            // Eyeballed values to match ChevronIcon animation
+            gutter={6} // Pixel distance between parent (bottom border) and content
+            // Eyeballed values to match ChevronIcon animation (on hover)
             openDelay={50}
             closeDelay={50}
           >
             <Box role="group">
               <PopoverTrigger>
                 <HStack m="0.5em" spacing={0}>
-                  <Link // WORKAROUND: Should be text, but this keeps fade-in hover highlight consistent
+                  <Link
                     href={link}
                     fontSize="lg"
                     fontWeight="semibold"
@@ -59,11 +62,12 @@ export default function DesktopMenu(curr: CurrNavItem) {
                   >
                     {label}
                   </Link>
+
                   {children && (
                     <ChevronDownIcon
                       boxSize="1.5em"
                       color={label === curr.label ? highlightColor : textColor}
-                      transition="transform 0.25s"
+                      transition="0.25s"
                       _groupHover={{
                         color: highlightColor,
                         transform: "rotate(180deg)",
@@ -75,6 +79,7 @@ export default function DesktopMenu(curr: CurrNavItem) {
 
               {children && (
                 <PopoverContent minW="xs" rounded="none" shadow="none">
+                  <PopoverArrow />
                   <Stack mx="1em" spacing={0} divider={<StackDivider />}>
                     {children.map((child) => (
                       <MenuDropdownItem
@@ -100,7 +105,7 @@ const MenuDropdownItem = ({ label, link /*, shouldHighlight*/ }: NavItem) => {
       href={link}
       w="full"
       py="0.5em"
-      fontWeight="semibold"
+      // fontWeight="semibold"
       // color={shouldHighlight ? highlightColor : textColor}
     >
       {label}

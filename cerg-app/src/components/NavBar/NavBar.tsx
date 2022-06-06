@@ -24,7 +24,7 @@ import { CurrNavItem } from "../../types/navigation";
 
 export default function NavBar(currPage: CurrNavItem) {
   const { isOpen, onToggle } = useDisclosure();
-  const [isDesktop] = useMediaQuery("(min-width: 62em) and (pointer: fine)"); // 62em is default lg screen width
+  const [isDesktop] = useMediaQuery("(min-width: 62em)"); // 62em is default lg screen width
 
   return (
     <Box bg="cloudWhite.50">
@@ -38,15 +38,17 @@ export default function NavBar(currPage: CurrNavItem) {
           ) : (
             <HStack spacing={0}>
               {/* <Search /> */}
-              <IconButton
+              <IconButton // Eyeballed boxSizes
                 onClick={onToggle}
                 icon={
                   isOpen ? (
-                    <CloseIcon w={"1em"} h={"1em"} />
+                    <CloseIcon boxSize={{ base: "1em", md: "1.5em" }} />
                   ) : (
-                    <HamburgerIcon w={"1.5em"} h={"1.5em"} />
+                    <HamburgerIcon boxSize={{ base: "1.5em", md: "2em" }} />
                   )
                 }
+                _hover={{ color: "illiniOrange", bgColor: "transparent" }} // custom-theme defaults don't work:(
+                boxSize={{ base: "2.5em", md: "3em" }}
                 variant="ghost"
                 aria-label="Toggle Navigation"
               />
@@ -54,7 +56,8 @@ export default function NavBar(currPage: CurrNavItem) {
           )}
         </Flex>
       </Container>
-      <Flex position={"absolute"} justify="flex-end" w="full" zIndex={1}>
+
+      <Flex position="absolute" justify="flex-end" w="full" zIndex={1}>
         <Collapse in={isOpen} animateOpacity>
           <MobileMenu />
         </Collapse>
