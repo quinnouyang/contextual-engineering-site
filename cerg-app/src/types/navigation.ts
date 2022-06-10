@@ -1,6 +1,5 @@
 // TO-DO: Consider incorporating a React router library to simplify routing, especially re-rendering page components with switch statements rather than reloading pages
 
-// A "link" with potential child "links"
 export interface NavItem {
   readonly label: string;
   readonly subLabel?: string;
@@ -15,6 +14,8 @@ export interface CurrNavItem {
   childLabel?: string;
 }
 
+// TO-DO: Assess which items to include
+// Labels with children SHOULD NOT have their own link
 export const navbarItems: Array<NavItem> = [
   {
     label: "About",
@@ -22,7 +23,7 @@ export const navbarItems: Array<NavItem> = [
   },
   {
     label: "Research",
-    link: "/research",
+    // link: "/research",
     children: [
       {
         label: "Focus Areas",
@@ -48,6 +49,7 @@ export const navbarItems: Array<NavItem> = [
   },
 ];
 
+// TO-DO: Assess which items to include
 export const footerInternalItems: Array<NavItem> = [
   {
     label: "About",
@@ -76,7 +78,7 @@ export const footerExternalItems: Array<NavItem> = [
     label: "Cookies",
     link: "https://www.vpaa.uillinois.edu/resources/cookies",
   },
-  {
+  { // TO-DO: Generate a sitemap and link it here
     label: "Sitemap",
   },
   {

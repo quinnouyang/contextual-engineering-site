@@ -6,34 +6,6 @@ import {
   // withDefaultVariant,
 } from "@chakra-ui/react";
 
-// const brandRing = {
-//   _focus: {
-//     ring: 2,
-//     ringColor: "brand.500",
-//   },
-// };
-
-// const inputSelectStyles = {
-//   variants: {
-//     filled: {
-//       field: {
-//         _focus: {
-//           // Override default border highlight color
-//           borderColor: "brand.500",
-//         },
-//       },
-//     },
-//   },
-//   sizes: {
-//     md: {
-//       field: {
-//         // Override default round borders
-//         borderRadius: "none",
-//       },
-//     },
-//   },
-// };
-
 // TO-DO: Implement default component styles (no round borders, black as illiniBlue, etc.)
 const customTheme = extendTheme(
   {
@@ -108,7 +80,7 @@ const customTheme = extendTheme(
       },
       StackDivider: {
         baseStyle: {
-          borderColor: "cloudWhite.300",  // Not working
+          borderColor: "cloudWhite.300", // Doesn't work
         },
       },
       Container: {
@@ -135,11 +107,11 @@ const customTheme = extendTheme(
         baseStyle: {
           rounded: "none",
           variant: "ghost",
-          background: "transparent",
+          bgColor: "transparent",
           color: "illiniBlue",
           _hover: {
-            bg: "none",
-            color: "green",
+            bgColor: "transparent",
+            color: "illiniOrange",
           },
         },
       },

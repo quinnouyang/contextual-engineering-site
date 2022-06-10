@@ -1,5 +1,5 @@
 import Footer from "../src/components/footer";
-import NavBar from "../src/components/navbar";
+import NavBar from "../src/components/NavBar/NavBar";
 import CallToActionWithVideo from "../src/demo-components/cta-with-image";
 
 export default function AboutPage() {
