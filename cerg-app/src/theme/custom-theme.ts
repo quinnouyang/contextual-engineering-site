@@ -107,11 +107,11 @@ const customTheme = extendTheme(
         baseStyle: {
           rounded: "none",
           variant: "ghost",
-          background: "transparent",
+          bgColor: "transparent",
           color: "illiniBlue",
           _hover: {
-            bg: "none",
-            color: "green",
+            bgColor: "transparent",
+            color: "illiniOrange",
           },
         },
       },
