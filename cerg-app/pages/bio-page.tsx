@@ -30,7 +30,7 @@ import { Person } from "../src/types/team-members";
 export default function BioPage(person: Person) {
   return (
     <Container>
-      <Flex direction={["column", "row"]}>
+      {/* <Flex direction={["column", "row"]}>
         <VStack align={"flex-start"}>
           <Heading>{person.name}</Heading>
           <IconInfo iconType={EmailIcon}>{person.email}</IconInfo>
@@ -41,7 +41,7 @@ export default function BioPage(person: Person) {
           <Image src={person.headshotPath} alt={person.name} />
         </AspectRatio>
       </Flex>
-      <Text>{person.fullBio}</Text>
+      <Text>{person.fullBio}</Text> */}
     </Container>
   );
 }

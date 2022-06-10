@@ -6,7 +6,7 @@ export default function ResearchPage() {
   return (
     <>
       <NavBar {...{ label: "Research" }} />
-      <Hero />
+      {/* <Hero /> */}
       <Footer />
     </>
   );
