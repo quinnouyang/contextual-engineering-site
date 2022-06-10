@@ -9,6 +9,8 @@ import {
 // TO-DO: Implement default component styles (no round borders, black as illiniBlue, etc.)
 const customTheme = extendTheme(
   {
+    initialColorMode: "light",
+    useSystemColorMode: false,
     // From https://marketing.illinois.edu/design/color
     colors: {
       brand: baseTheme.colors.red,
