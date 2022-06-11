@@ -1,6 +1,7 @@
 import {
   AspectRatio,
   Button,
+  Divider,
   Flex,
   Heading,
   Image,
@@ -28,38 +29,47 @@ export default function ProjectCard({
   description,
   index,
 }: Props) {
-  const width = useBreakpointValue({ base: "full", md: "50%" });
+  const width = useBreakpointValue({ base: "full", lg: "50%" });
 
   return (
+    // Horizontal shrinking forces (usually landscape) images to be in "portrait"
     <Flex w="full">
       <Stack
         as={Link}
         href="/team"
         direction={{
           base: "column",
-          md: index.valueOf() % 2 == 0 ? "row" : "row-reverse",
+          lg: index.valueOf() % 2 == 0 ? "row" : "row-reverse",
         }}
         spacing={0}
+        role="group"
       >
-        <AspectRatio w={width}>
+        <AspectRatio
+          w={width}
+          // Bad: do not actually want 50em
+          maxH={{ base: "20em", lg: "50em" }}
+          // Hard-coded duration and opacity. Duration from default "fast" animation. Should refactor
+          _groupHover={{ opacity: "80%" }}
+          transitionDuration="150ms"
+        >
           <Image src={image} />
         </AspectRatio>
-        {/* Bug: hovering over image does not change background */}
         <Stack
           p="2em"
           w={width}
           bgColor={bgColor}
-          _hover={{ bgColor: bgHoverColor }}
+          _groupHover={{ bgColor: bgHoverColor }}
+          transition="background-color 150ms"
         >
           <Heading color={fgColor} fontSize={{ base: "2xl", lg: "3xl" }}>
             {title}
           </Heading>
+          <Divider />
           <Text color={fgColor}>{description}</Text>
           <Spacer />
           <Button
-            variant={"outline"}
+            variant="outline"
             w="fit-content"
-            bg="transparent"
             textColor={fgColor}
             _hover={{ bg: fgColor, textColor: bgColor }}
           >
