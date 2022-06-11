@@ -15,13 +15,14 @@ import { footerInternalItems, footerExternalItems } from "../types/navigation";
 
 export default function Footer() {
   return (
-    <Box bg={"cloudWhite.50"}>
+    // boxShadow only needs to be visible at top. Hard-coded cloudWhite.300
+    <Box bg="cloudWhite.50" boxShadow="0em 0em 0.5em 0em #D2D2D2">
       <Container py="2em">
         <Flex>
           <FooterLogo />
           <Spacer />
           <Flex
-            columnGap={"1em"}
+            columnGap="1em"
             direction={{ base: "column", sm: "row" }}
             align={{ base: "flex-end", sm: "center" }}
           >
@@ -31,7 +32,7 @@ export default function Footer() {
                   key={label}
                   href={link}
                   fontSize={{ base: "sm", md: "md" }}
-                  fontWeight={"semibold"}
+                  fontWeight="semibold"
                 >
                   {label}
                 </Link>
@@ -52,7 +53,7 @@ const FooterLogo = () => {
     <Flex
       // alignItems="flex-start"
       direction={{ base: "column", lg: "row" }}
-      rowGap={"0.5em"}
+      rowGap="0.5em"
     >
       <Show above={breakpoint}>
         <Flex width="10em">
@@ -66,7 +67,7 @@ const FooterLogo = () => {
       <Heading
         as={Link}
         fontSize={{ base: "sm", md: "md", lg: "lg" }}
-        href={"/#"}
+        href="/#"
       >
         Contextual Engineering <br /> Research Group
       </Heading>
@@ -76,7 +77,7 @@ const FooterLogo = () => {
 
 const BottomInformation = () => {
   return (
-    <Flex mt={"0.5em"}>
+    <Flex mt="0.5em">
       <Flex columnGap={{ base: "0.5em", md: "1em" }} wrap="wrap">
         {footerExternalItems.map(({ label, link }) => {
           return (

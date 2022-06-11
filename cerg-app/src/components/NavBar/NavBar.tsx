@@ -27,7 +27,8 @@ export default function NavBar(currPage: CurrNavItem) {
   const [isDesktop] = useMediaQuery("(min-width: 62em)"); // 62em is default lg screen width
 
   return (
-    <Box bg="cloudWhite.50">
+    // boxShadow only needs to be visible at top. Hard-coded cloudWhite.300
+    <Box bg="cloudWhite.50" boxShadow="0em 0em 0.5em 0em #D2D2D2">
       <OrangeBar />
       <Container>
         <Flex py={{ base: "1.5em", md: "2em" }}>
