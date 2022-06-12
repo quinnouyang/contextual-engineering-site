@@ -1,5 +1,6 @@
 import {
   AspectRatio,
+  Button,
   Divider,
   Heading,
   Image,
@@ -7,6 +8,7 @@ import {
   PopoverContent,
   PopoverTrigger as OrigPopoverTrigger,
   Text,
+  useMediaQuery,
   VStack,
 } from "@chakra-ui/react";
 import { Person } from "../types/team-members";
@@ -49,13 +51,15 @@ export default function BioCard({
   onOpen,
   onClose,
 }: BioCardProps) {
+  const [isNotTouchScreen] = useMediaQuery("(pointer: fine)");
+
   return (
     <Popover
-      trigger="hover"
-      onOpen={onOpen}
-      onClose={onClose}
+      trigger={isNotTouchScreen ? "hover" : "click"}
       gutter={0}
       flip={false}
+      onOpen={onOpen}
+      onClose={onClose}
       // Otherwise multiple popovers remain for too long
       openDelay={0}
       closeDelay={0}
@@ -63,14 +67,16 @@ export default function BioCard({
       {({ isOpen }) => (
         <>
           <PopoverTrigger>
-            <AspectRatio ratio={3 / 4} w={CARD_WIDTH}>
-              <Image
-                src={person.headshotPath}
-                alt={person.name}
-                opacity={isOtherOpen && !isOpen ? 0.5 : 1}
-                transition="opacity .5s ease-out"
-              />
-            </AspectRatio>
+            <Button p={0} h="inherit">
+              <AspectRatio ratio={3 / 4} w={CARD_WIDTH}>
+                <Image
+                  src={person.headshotPath}
+                  alt={person.name}
+                  opacity={isOtherOpen && !isOpen ? 0.5 : 1}
+                  transition="opacity .5s ease-out"
+                />
+              </AspectRatio>
+            </Button>
           </PopoverTrigger>
           <PopoverContent rounded="none" w={CARD_WIDTH}>
             <CardInfo {...person} />
