@@ -19,17 +19,17 @@ const CARD_WIDTH = "18em";
 
 const CardInfo = (person: Person) => {
   return (
-    <VStack p={"1em"}>
-      <VStack spacing={"0.2em"}>
-        <Heading fontSize={"xl"} textAlign="center">
+    <VStack p="1em">
+      <VStack spacing="0.2em">
+        <Heading fontSize="xl" textAlign="center">
           {person.name}
         </Heading>
         {person.title && <Text fontSize="md">{person.title}</Text>}
       </VStack>
       <Divider />
-      <Text fontSize={"sm"}>{person.shortBio}</Text>
+      <Text fontSize="sm">{person.shortBio}</Text>
       <Divider />
-      <Text fontSize={"xs"} fontStyle="italic">
+      <Text fontSize="xs" fontStyle="italic">
         Full biography page coming soon...
       </Text>
     </VStack>
@@ -39,19 +39,21 @@ const CardInfo = (person: Person) => {
 interface BioCardProps {
   person: Person;
   isOtherOpen: boolean;
-  toggleOpen: any; // Void arrow function
+  onOpen: any; // Void arrow functions
+  onClose: any;
 }
 
 export default function BioCard({
   person,
   isOtherOpen,
-  toggleOpen,
+  onOpen,
+  onClose,
 }: BioCardProps) {
   return (
     <Popover
       trigger="hover"
-      onOpen={toggleOpen}
-      onClose={toggleOpen}
+      onOpen={onOpen}
+      onClose={onClose}
       gutter={0}
       flip={false}
       // Otherwise multiple popovers remain for too long
@@ -70,7 +72,7 @@ export default function BioCard({
               />
             </AspectRatio>
           </PopoverTrigger>
-          <PopoverContent rounded={"none"} w={CARD_WIDTH}>
+          <PopoverContent rounded="none" w={CARD_WIDTH}>
             <CardInfo {...person} />
           </PopoverContent>
         </>
