@@ -7,7 +7,7 @@ export default function ErrorPage() {
     <>
       <NavBar {...{ label: "Error" }} />
       <Container maxW="container.lg" centerContent>
-        <Heading m={"1em"}>u in wrong place</Heading>
+        <Heading m="1em">u in wrong place</Heading>
       </Container>
       <Footer />
     </>

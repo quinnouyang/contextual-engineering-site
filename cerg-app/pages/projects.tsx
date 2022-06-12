@@ -6,9 +6,9 @@ import { projects } from "../src/types/projects";
 
 const Hero = () => {
   return (
-    <Center h={"10em"}>
+    <Center h="10em">
       <Heading
-        color={"illiniOrange"}
+        color="illiniOrange"
         textStyle="italics"
         fontSize={{ base: "3xl", md: "4xl", lg: "5xl", xl: "6xl" }}
       >

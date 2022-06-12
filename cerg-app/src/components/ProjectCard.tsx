@@ -51,7 +51,7 @@ export default function ProjectCard({
           <Text color={fgColor}>{description}</Text>
           <Spacer />
           <Button
-            variant={"outline"}
+            variant="outline"
             w="fit-content"
             bg="transparent"
             textColor={fgColor}

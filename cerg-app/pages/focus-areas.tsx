@@ -4,7 +4,7 @@ import NavBar from "../src/components/NavBar/NavBar";
 
 export default function FocusAreasPage() {
   return (
-    <Flex direction={"column"} minH="100vh">
+    <Flex direction="column" minH="100vh">
       <NavBar {...{ label: "Research", childLabel: "Focus Areas" }} />
       <Spacer />
       <Footer />
