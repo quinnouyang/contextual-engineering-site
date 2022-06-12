@@ -1,22 +1,22 @@
 // TO-DO: Consider incorporating a React router library to simplify routing, especially re-rendering page components with switch statements rather than reloading pages
 
-export interface NavItem {
+export type NavItem = {
   readonly label: string;
   readonly subLabel?: string;
-  readonly children?: Array<NavItem>;
+  readonly children?: NavItem[];
   readonly link?: string;
   readonly shouldHighlight?: boolean;
-}
+};
 
 // Label(s) for the current page that correspond to the navigation item
-export interface CurrNavItem {
+export type CurrNavItem = {
   label: string;
   childLabel?: string;
-}
+};
 
 // TO-DO: Assess which items to include
 // Labels with children SHOULD NOT have their own link
-export const navbarItems: Array<NavItem> = [
+export const navbarItems: NavItem[] = [
   {
     label: "About",
     link: "/about",
@@ -50,7 +50,7 @@ export const navbarItems: Array<NavItem> = [
 ];
 
 // TO-DO: Assess which items to include
-export const footerInternalItems: Array<NavItem> = [
+export const footerInternalItems: NavItem[] = [
   {
     label: "About",
     link: "/about",
@@ -69,7 +69,7 @@ export const footerInternalItems: Array<NavItem> = [
   },
 ];
 
-export const footerExternalItems: Array<NavItem> = [
+export const footerExternalItems: NavItem[] = [
   {
     label: "Privacy",
     link: "https://www.vpaa.uillinois.edu/resources/web_privacy",
@@ -78,7 +78,8 @@ export const footerExternalItems: Array<NavItem> = [
     label: "Cookies",
     link: "https://www.vpaa.uillinois.edu/resources/cookies",
   },
-  { // TO-DO: Generate a sitemap and link it here
+  {
+    // TO-DO: Generate a sitemap and link it here
     label: "Sitemap",
   },
   {

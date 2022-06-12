@@ -13,21 +13,15 @@ import {
 import { Project } from "../types/projects";
 
 const bgColor = "illiniBlue";
-const bgHoverColor = "rgba(19, 41, 75, 0.80)";
+const bgHoverColor = "rgba(19, 41, 75, 0.80)"; // illiniBlue with opacity
 const fgColor = "cloudWhite.50";
 
-// TO-DO: Refactor workaround
-interface Index {
-  index: number;
-}
-interface Props extends Project, Index {}
-
 export default function ProjectCard({
-  image,
   title,
   description,
+  image,
   index,
-}: Props) {
+}: Project & { index: number }) {
   const width = useBreakpointValue({ base: "full", md: "50%" });
 
   return (
@@ -57,7 +51,7 @@ export default function ProjectCard({
           <Text color={fgColor}>{description}</Text>
           <Spacer />
           <Button
-            variant={"outline"}
+            variant="outline"
             w="fit-content"
             bg="transparent"
             textColor={fgColor}

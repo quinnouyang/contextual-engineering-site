@@ -1,14 +1,14 @@
 import { Center, Container, Flex, Heading, VStack } from "@chakra-ui/react";
-import Footer from "../src/components/footer";
+import Footer from "../src/components/Footer";
 import NavBar from "../src/components/NavBar/NavBar";
-import ProjectCard from "../src/components/project-card";
+import ProjectCard from "../src/components/ProjectCard";
 import { projects } from "../src/types/projects";
 
 const Hero = () => {
   return (
-    <Center h={"10em"}>
+    <Center h="10em">
       <Heading
-        color={"illiniOrange"}
+        color="illiniOrange"
         textStyle="italics"
         fontSize={{ base: "3xl", md: "4xl", lg: "5xl", xl: "6xl" }}
       >
@@ -27,7 +27,9 @@ export default function ProjectsPage() {
         <VStack spacing="2em">
           {projects.map((project) => {
             const index = projects.indexOf(project);
-            return <ProjectCard key={index} index={index} {...project} />;
+            return (
+              <ProjectCard key={project.title} {...project} index={index} />
+            );
           })}
         </VStack>
       </Container>
