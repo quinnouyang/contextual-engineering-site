@@ -11,6 +11,7 @@ import {
   useMediaQuery,
   VStack,
 } from "@chakra-ui/react";
+import { useRef } from "react";
 import { Person } from "../types/team-members";
 
 // Temporary fix: React 18 issue
@@ -52,6 +53,9 @@ export default function BioCard({
   onClose,
 }: BioCardProps) {
   const [isNotTouchScreen] = useMediaQuery("(pointer: fine)");
+  const ref = useRef<null | HTMLDivElement>(null);
+  const scroll = () =>
+    !isNotTouchScreen && ref?.current?.scrollIntoView({ behavior: "smooth" });
 
   return (
     <Popover
@@ -67,13 +71,13 @@ export default function BioCard({
       {({ isOpen }) => (
         <>
           <PopoverTrigger>
-            <Button p={0} h="inherit">
+            <Button p={0} h="inherit" onClick={scroll} ref={ref}>
               <AspectRatio ratio={3 / 4} w={CARD_WIDTH}>
                 <Image
                   src={person.headshotPath}
                   alt={person.name}
                   opacity={isOtherOpen && !isOpen ? 0.5 : 1}
-                  transition="opacity .5s ease-out"
+                  transition="opacity 0.5s linear"
                 />
               </AspectRatio>
             </Button>
