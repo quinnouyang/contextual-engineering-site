@@ -92,6 +92,7 @@ const customTheme = extendTheme(
             lg: "container.md",
             xl: "container.lg",
           },
+          p: 0,
         },
       },
       Button: {
@@ -151,10 +152,6 @@ const customTheme = extendTheme(
     //   },
   }
   // // Custom global defaults
-  // withDefaultColorScheme({
-  //   colorScheme: "brand",
-  //   components: ["Checkbox"],
-  // }),
   // withDefaultVariant({
   //   variant: "filled",
   //   components: ["Input", "Select"],

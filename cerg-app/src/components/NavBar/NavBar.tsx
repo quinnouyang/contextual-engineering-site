@@ -57,7 +57,7 @@ export default function NavBar(currPage: CurrNavItem) {
         </Flex>
       </Container>
 
-      <Flex position="absolute" justify="flex-end" w="full" zIndex={1}>
+      <Flex position="absolute" justify="flex-end" w="full" zIndex={2}>
         <Collapse in={isOpen} animateOpacity>
           <MobileMenu />
         </Collapse>

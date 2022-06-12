@@ -15,7 +15,7 @@ import Slider from "react-slick";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { Card, cards } from "../types/carousel-cards";
+import { cards } from "../types/carousel-cards";
 
 // Illini Blue with opacity
 const bgColor = "rgba(19, 41, 75, 0.5)";
@@ -29,7 +29,6 @@ const sliderSettings = {
   autoplaySpeed: 7000,
 };
 
-// UI Issue: Card hover still interactible if no link
 export default function Carousel() {
   const [slider, setSlider] = React.useState<Slider | null>(null);
   const iconSize = useBreakpointValue({ base: "3em", lg: "4em" });
