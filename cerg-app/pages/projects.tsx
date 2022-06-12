@@ -1,7 +1,7 @@
 import { Center, Container, Flex, Heading, VStack } from "@chakra-ui/react";
-import Footer from "../src/components/footer";
+import Footer from "../src/components/Footer";
 import NavBar from "../src/components/NavBar/NavBar";
-import ProjectCard from "../src/components/project-card";
+import ProjectCard from "../src/components/ProjectCard";
 import { projects } from "../src/types/projects";
 
 const Hero = () => {

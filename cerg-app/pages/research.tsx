@@ -1,5 +1,5 @@
-import Footer from "../src/components/footer";
-import Hero from "../src/components/hero";
+import Footer from "../src/components/Footer";
+import Hero from "../src/components/Hero";
 import NavBar from "../src/components/NavBar/NavBar";
 
 export default function ResearchPage() {

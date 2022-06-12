@@ -6,7 +6,7 @@ import {
   useDisclosure,
   VStack,
 } from "@chakra-ui/react";
-import Footer from "../src/components/footer";
+import Footer from "../src/components/Footer";
 import NavBar from "../src/components/NavBar/NavBar";
 import BioCard from "../src/components/BioCard";
 import { PEOPLE } from "../src/types/team-members";
