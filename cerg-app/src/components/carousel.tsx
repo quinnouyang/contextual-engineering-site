@@ -30,19 +30,19 @@ const sliderSettings = {
 };
 
 // UI Issue: Card hover still interactible if no link
-interface Card {
+type Card = {
   title: string;
   text: string;
   image: string;
-  link?: string;
-}
+  link: string;
+};
 
 const cards: Card[] = [
   {
     title: "Paper on AFER Wins Best Graduate Research Award at REFA Conference",
     text: "A team of graduate students presented their work on Apple Florida Ethanol Rosewater (AFER) at the 47th national REFA conference. I need more text so here we go, technical term technical term number 3.1415926...",
-    image: "/images/skateboard.jpeg",
-    // "https://contextual.engineering.illinois.edu/wp-content/uploads/2018/06/spring-measurement-students.jpg",
+    image:
+      "https://contextual.engineering.illinois.edu/wp-content/uploads/2018/06/spring-measurement-students.jpg",
     link: "/team",
   },
   {
@@ -58,13 +58,8 @@ const cards: Card[] = [
     text: "“Applying Societal Context to Technical Design Processes” workshop will be held at the 129th ASEE Annual Conference and Exposition in Minneapolis, MN, June 26. Come and learn about how to apply Contextual Engineering to your engineering courses and practices. Visit this website for more information.",
     image:
       "http://contextual.engineering.illinois.edu/wp-content/uploads/2018/01/IMG_0854.jpg",
+    link: "/#",
   },
-  // {
-  //   title: "Hahahaha",
-  //   text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  //   image: "noimagesoit'swhite",
-  //   link: "/#",
-  // },
 ];
 
 export default function Carousel() {

@@ -9,7 +9,7 @@ import {
 import Footer from "../src/components/Footer";
 import NavBar from "../src/components/NavBar/NavBar";
 import BioCard from "../src/components/BioCard";
-import { PEOPLE } from "../src/types/team-members";
+import { PEOPLE, Person } from "../src/types/team-members";
 
 const Hero = () => {
   return (
@@ -33,6 +33,13 @@ const Hero = () => {
       </VStack>
     </Center>
   );
+};
+
+export type BioCardProps = {
+  person: Person;
+  isOtherOpen: boolean;
+  onOpen: () => void;
+  onClose: () => void;
 };
 
 export default function TeamPage() {

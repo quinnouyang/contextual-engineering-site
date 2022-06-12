@@ -27,7 +27,9 @@ export default function ProjectsPage() {
         <VStack spacing="2em">
           {projects.map((project) => {
             const index = projects.indexOf(project);
-            return <ProjectCard key={index} index={index} {...project} />;
+            return (
+              <ProjectCard key={project.title} {...project} index={index} />
+            );
           })}
         </VStack>
       </Container>

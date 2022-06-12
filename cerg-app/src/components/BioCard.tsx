@@ -12,6 +12,7 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { useRef } from "react";
+import { BioCardProps } from "../../pages/team";
 import { Person } from "../types/team-members";
 
 // Temporary fix: React 18 issue
@@ -38,13 +39,6 @@ const CardInfo = (person: Person) => {
     </VStack>
   );
 };
-
-interface BioCardProps {
-  person: Person;
-  isOtherOpen: boolean;
-  onOpen: any; // Void arrow functions
-  onClose: any;
-}
 
 export default function BioCard({
   person,
@@ -74,7 +68,7 @@ export default function BioCard({
             <Button p={0} h="inherit" onClick={scroll} ref={ref}>
               <AspectRatio ratio={3 / 4} w={CARD_WIDTH}>
                 <Image
-                  src={person.headshotPath}
+                  src={person.headshot}
                   alt={person.name}
                   opacity={isOtherOpen && !isOpen ? 0.5 : 1}
                   transition="opacity 0.5s linear"
