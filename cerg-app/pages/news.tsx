@@ -1,6 +1,6 @@
-import Footer from "../src/components/footer";
+import Footer from "../src/components/Footer";
 import NavBar from "../src/components/NavBar/NavBar";
-import WithBackgroundImage from "../src/demo-components/with-background-image-and-gradient";
+import WithBackgroundImage from "../src/demo/with-background-image-and-gradient";
 
 export default function NewsPage() {
   return (

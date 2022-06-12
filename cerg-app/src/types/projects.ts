@@ -1,4 +1,4 @@
-export interface Project {
+export type Project = {
   readonly title: string;
   readonly description: string;
   readonly image: string;

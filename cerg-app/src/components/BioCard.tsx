@@ -1,5 +1,6 @@
 import {
   AspectRatio,
+  Button,
   Divider,
   Heading,
   Image,
@@ -7,8 +8,11 @@ import {
   PopoverContent,
   PopoverTrigger as OrigPopoverTrigger,
   Text,
+  useMediaQuery,
   VStack,
 } from "@chakra-ui/react";
+import { useRef } from "react";
+import { BioCardProps } from "../../pages/team";
 import { Person } from "../types/team-members";
 
 // Temporary fix: React 18 issue
@@ -19,41 +23,41 @@ const CARD_WIDTH = "18em";
 
 const CardInfo = (person: Person) => {
   return (
-    <VStack p={"1em"}>
-      <VStack spacing={"0.2em"}>
-        <Heading fontSize={"xl"} textAlign="center">
+    <VStack p="1em">
+      <VStack spacing="0.2em">
+        <Heading fontSize="xl" textAlign="center">
           {person.name}
         </Heading>
         {person.title && <Text fontSize="md">{person.title}</Text>}
       </VStack>
       <Divider />
-      <Text fontSize={"sm"}>{person.shortBio}</Text>
+      <Text fontSize="sm">{person.shortBio}</Text>
       <Divider />
-      <Text fontSize={"xs"} fontStyle="italic">
+      <Text fontSize="xs" fontStyle="italic">
         Full biography page coming soon...
       </Text>
     </VStack>
   );
 };
 
-interface BioCardProps {
-  person: Person;
-  isOtherOpen: boolean;
-  toggleOpen: any; // Void arrow function
-}
-
 export default function BioCard({
   person,
   isOtherOpen,
-  toggleOpen,
+  onOpen,
+  onClose,
 }: BioCardProps) {
+  const [isNotTouchScreen] = useMediaQuery("(pointer: fine)");
+  const ref = useRef<null | HTMLDivElement>(null);
+  const scroll = () =>
+    !isNotTouchScreen && ref?.current?.scrollIntoView({ behavior: "smooth" });
+
   return (
     <Popover
-      trigger="hover"
-      onOpen={toggleOpen}
-      onClose={toggleOpen}
+      trigger={isNotTouchScreen ? "hover" : "click"}
       gutter={0}
       flip={false}
+      onOpen={onOpen}
+      onClose={onClose}
       // Otherwise multiple popovers remain for too long
       openDelay={0}
       closeDelay={0}
@@ -61,16 +65,18 @@ export default function BioCard({
       {({ isOpen }) => (
         <>
           <PopoverTrigger>
-            <AspectRatio ratio={3 / 4} w={CARD_WIDTH}>
-              <Image
-                src={person.headshotPath}
-                alt={person.name}
-                opacity={isOtherOpen && !isOpen ? 0.5 : 1}
-                transition="opacity .5s ease-out"
-              />
-            </AspectRatio>
+            <Button p={0} h="inherit" onClick={scroll} ref={ref}>
+              <AspectRatio ratio={3 / 4} w={CARD_WIDTH}>
+                <Image
+                  src={person.headshot}
+                  alt={person.name}
+                  opacity={isOtherOpen && !isOpen ? 0.5 : 1}
+                  transition="opacity 0.5s linear"
+                />
+              </AspectRatio>
+            </Button>
           </PopoverTrigger>
-          <PopoverContent rounded={"none"} w={CARD_WIDTH}>
+          <PopoverContent rounded="none" w={CARD_WIDTH}>
             <CardInfo {...person} />
           </PopoverContent>
         </>

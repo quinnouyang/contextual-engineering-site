@@ -8,7 +8,7 @@ import {
   StackDivider,
   useMediaQuery,
 } from "@chakra-ui/react";
-import { ChevronDownIcon, ChevronRightIcon } from "@chakra-ui/icons";
+import { ChevronDownIcon } from "@chakra-ui/icons";
 import { NavItem, navbarItems } from "../../types/navigation";
 
 // BUG: Carousel arrow overlays extended dropdown

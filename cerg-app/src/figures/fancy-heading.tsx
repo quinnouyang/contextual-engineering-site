@@ -11,8 +11,8 @@ export default function FancyHeading(props: {
     >
       {props.leftText}
       <Heading
-        as={"span"}
-        position={"relative"}
+        as="span"
+        position="relative"
         _after={{
           content: "''",
           width: "full",
