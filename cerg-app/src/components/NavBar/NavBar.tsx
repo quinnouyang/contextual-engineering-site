@@ -23,7 +23,7 @@ import { CurrNavItem } from "../../types/navigation";
 
 export default function NavBar(currPage: CurrNavItem) {
   const { isOpen, onToggle } = useDisclosure();
-  const [isDesktop] = useMediaQuery("(min-width: 62em)"); // 62em is default lg screen width
+  const [isDesktop] = useMediaQuery("(min-width: 48em)"); // 62em is default lg screen width
 
   return (
     // boxShadow only needs to be visible at top. Hard-coded cloudWhite.300
@@ -69,7 +69,7 @@ export default function NavBar(currPage: CurrNavItem) {
 const HeadingLogo = () => {
   return (
     <Flex>
-      <Flex width={{ base: "1.5em", lg: "2em" }}>
+      <Flex width={{ base: "1.5em", md: "2em" }}>
         <BlockLogo />
       </Flex>
       <VerticalDivider style={{ margin: "0 1em 0 1em" }} />

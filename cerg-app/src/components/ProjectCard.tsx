@@ -1,75 +1,76 @@
+import { ExternalLinkIcon } from "@chakra-ui/icons";
 import {
   AspectRatio,
-  Button,
+  Box,
   Divider,
-  Flex,
   Heading,
   Image,
   Link,
-  Spacer,
-  Stack,
   Text,
-  useBreakpointValue,
+  VStack,
 } from "@chakra-ui/react";
+import { basename } from "path";
 import { Project } from "../types/projects";
 
 const bgColor = "illiniBlue";
-const bgHoverColor = "rgba(19, 41, 75, 0.80)"; // illiniBlue with opacity
+const bgHoverColor = "rgba(19, 41, 75, 0.90)"; // illiniBlue with opacity
 const fgColor = "cloudWhite.50";
 
+// Hard-coded dimensions to fit ~300 ch. text descriptions
 export default function ProjectCard({
   title,
   description,
   image,
-  index,
-}: Project & { index: number }) {
-  const width = useBreakpointValue({ base: "full", md: "50%" });
+  link,
+}: Project) {
   return (
-    // Horizontal shrinking forces (usually landscape) images to be in "portrait"
-    <Flex w="full">
-      <Stack
-        as={Link}
-        href="/team"
-        direction={{
-          base: "column",
-          lg: index.valueOf() % 2 == 0 ? "row" : "row-reverse",
-        }}
-        spacing={0}
-        role="group"
-      >
+    <VStack
+      as={Link}
+      href={link}
+      pointerEvents={link ? "auto" : "none"} // Disables link behavior if does not exist
+      role="group"
+      w="full"
+      maxW="32em"
+      h="full"
+      spacing={0}
+      boxShadow="0em 0em 0.5em 0em grey"
+      _hover={{ boxShadow: "0em 0em 0.5em 0em black" }}
+    >
+      <Box w="inherit" position="relative" display="inline-block">
         <AspectRatio
-          w={width}
-          // Bad: do not actually want 50em
-          maxH={{ base: "20em", lg: "50em" }}
+          ratio={3 / 2}
+          w="inherit"
           // Hard-coded duration and opacity. Duration from default "fast" animation. Should refactor
-          _groupHover={{ opacity: "80%" }}
+          _groupHover={{ opacity: link ? "90%" : "" }}
           transitionDuration="150ms"
         >
           <Image src={image} />
         </AspectRatio>
-        <Stack
-          p="2em"
-          w={width}
-          bgColor={bgColor}
-          _groupHover={{ bgColor: bgHoverColor }}
-          transition="background-color 150ms"
-        >
-          <Heading color={fgColor} fontSize={{ base: "2xl", lg: "3xl" }}>
-            {title}
-          </Heading>
-          <Divider />
-          <Text color={fgColor}>{description}</Text>
-          <Spacer />
-          <Button
-            variant="outline"
-            w="fit-content"
-            textColor={fgColor}
-            _hover={{ bg: fgColor, textColor: bgColor }}
-          >
-            See More
-          </Button>
-        </Stack>
-      </Stack>
-    </Flex>
+        {link ? (
+          <ExternalLinkIcon
+            position="absolute"
+            top="1em"
+            right="1em"
+            boxSize={{ base: "1.5em", sm: "2em" }}
+            color="cloudWhite.50"
+          />
+        ) : null}
+      </Box>
+      <VStack
+        h="full"
+        p={{ base: "1em", sm: "1.5em" }}
+        bgColor={bgColor}
+        _groupHover={{ bgColor: link ? bgHoverColor : "" }}
+        transition="background-color 150ms"
+      >
+        <Heading color={fgColor} fontSize={{ base: "20px", sm: "2xl" }}>
+          {title}
+        </Heading>
+        <Divider />
+        <Text color={fgColor} fontSize={{ base: "14px", sm: "1em" }}>
+          {description}
+        </Text>
+      </VStack>
+    </VStack>
   );
 }

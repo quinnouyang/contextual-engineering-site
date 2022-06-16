@@ -49,9 +49,9 @@ const customTheme = extendTheme(
         200: "#4D69A0",
         300: "#1E3877", // Dark blue
       },
+      lightGrey: "#F0F0F0",
     },
     fonts: {
-      // `[default], [backup]`
       heading: `Montserrat, sans-serif`,
       body: `Montserrat, sans-serif`,
       mono: `Montserrat, sans-serif`,
@@ -63,10 +63,26 @@ const customTheme = extendTheme(
         baseStyle: {
           color: "illiniBlue",
         },
+        variants: {
+          white: {
+            color: "cloudWhite.50",
+          },
+          hoverable: {
+            _hover: { color: "illiniOrange" },
+          },
+        },
       },
       Text: {
         baseStyle: {
           color: "illiniBlue",
+        },
+        variants: {
+          white: {
+            color: "cloudWhite.50",
+          },
+          hoverable: {
+            _hover: { color: "illiniOrange" },
+          },
         },
       },
       Link: {
@@ -87,12 +103,7 @@ const customTheme = extendTheme(
       },
       Container: {
         baseStyle: {
-          maxW: {
-            base: "container.sm",
-            lg: "container.md",
-            xl: "container.lg",
-          },
-          p: 0,
+          maxW: "container.lg",
         },
       },
       Button: {
