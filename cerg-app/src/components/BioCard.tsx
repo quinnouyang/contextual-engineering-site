@@ -23,7 +23,7 @@ const CARD_WIDTH = "18em";
 
 const CardInfo = (person: Person) => {
   return (
-    <VStack p="1em">
+    <VStack p="1em" boxShadow="0em 0em 0.5em 0em grey">
       <VStack spacing="0.2em">
         <Heading fontSize="xl" textAlign="center">
           {person.name}
@@ -48,8 +48,7 @@ export default function BioCard({
 }: BioCardProps) {
   const [isNotTouchScreen] = useMediaQuery("(pointer: fine)");
   const ref = useRef<null | HTMLDivElement>(null);
-  const scroll = () =>
-    !isNotTouchScreen && ref?.current?.scrollIntoView({ behavior: "smooth" });
+  const scroll = () => ref?.current?.scrollIntoView({ behavior: "smooth" });
 
   return (
     <Popover
@@ -65,16 +64,23 @@ export default function BioCard({
       {({ isOpen }) => (
         <>
           <PopoverTrigger>
-            <Button p={0} h="inherit" onClick={scroll} ref={ref}>
-              <AspectRatio ratio={3 / 4} w={CARD_WIDTH}>
-                <Image
-                  src={person.headshot}
-                  alt={person.name}
-                  opacity={isOtherOpen && !isOpen ? 0.5 : 1}
-                  transition="opacity 0.5s linear"
-                />
-              </AspectRatio>
-            </Button>
+            <AspectRatio
+              ratio={3 / 4}
+              w={CARD_WIDTH}
+              h="inherit"
+              p={0}
+              onClick={scroll}
+              ref={ref}
+              boxShadow="0em 0em 0.5em 0em grey"
+            >
+              <Image
+                src={person.headshot}
+                alt={person.name}
+                opacity={isOtherOpen && !isOpen ? 0.5 : 1}
+                transition="opacity 0.5s linear"
+              />
+            </AspectRatio>
+            {/* </Button> */}
           </PopoverTrigger>
           <PopoverContent rounded="none" w={CARD_WIDTH}>
             <CardInfo {...person} />
