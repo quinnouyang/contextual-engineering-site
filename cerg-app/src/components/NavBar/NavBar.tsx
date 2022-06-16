@@ -23,7 +23,7 @@ import { CurrNavItem } from "../../types/navigation";
 
 export default function NavBar(currPage: CurrNavItem) {
   const { isOpen, onToggle } = useDisclosure();
-  const [isDesktop] = useMediaQuery("(min-width: 48em)"); // 62em is default lg screen width
+  const [isDesktop] = useMediaQuery("(min-width: 48em)"); // 48em is default md screen width
 
   return (
     // boxShadow only needs to be visible at top. Hard-coded cloudWhite.300
@@ -34,7 +34,9 @@ export default function NavBar(currPage: CurrNavItem) {
           <HeadingLogo />
           <Spacer />
           {isDesktop ? (
-            <DesktopMenu {...currPage} />
+            <Box display={{ base: "none", md: "flex" }}>
+              <DesktopMenu {...currPage} />
+            </Box>
           ) : (
             <HStack spacing={0}>
               {/* <Search /> */}
@@ -47,6 +49,7 @@ export default function NavBar(currPage: CurrNavItem) {
                     <HamburgerIcon boxSize={{ base: "1.5em", md: "2em" }} />
                   )
                 }
+                display={{ base: "flex", md: "none" }}
                 _hover={{ color: "illiniOrange", bgColor: "transparent" }} // custom-theme defaults don't work:(
                 boxSize={{ base: "2.5em", md: "3em" }}
                 variant="ghost"
