@@ -78,7 +78,7 @@ const HeadingLogo = () => {
           Contextual Engineering <br /> Research Group
         </Heading>
         <Show above="md">
-          <Link href="http://illinois.edu/" fontSize="sm">
+          <Link href="http://illinois.edu/" fontSize="sm" isExternal>
             University of Illinois Urbana-Champaign
           </Link>
         </Show>
