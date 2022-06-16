@@ -1,11 +1,11 @@
-import Footer from "../src/components/footer";
-import NavBar from "../src/components/navbar";
 
-export default function ErrorPage() {
+import Footer from "../src/components/Footer";
+import NavBar from "../src/components/NavBar/NavBar";
+
+export default function TemplatePage() {
   return (
     <>
-      <NavBar {...{ label: "Error" }} />
-      {/* <ErrorPage /> */}
+      <NavBar {...{ label: "Template" }} />
       <Footer />
     </>
   );

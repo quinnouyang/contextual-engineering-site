@@ -6,37 +6,11 @@ import {
   // withDefaultVariant,
 } from "@chakra-ui/react";
 
-// const brandRing = {
-//   _focus: {
-//     ring: 2,
-//     ringColor: "brand.500",
-//   },
-// };
-
-// const inputSelectStyles = {
-//   variants: {
-//     filled: {
-//       field: {
-//         _focus: {
-//           // Override default border highlight color
-//           borderColor: "brand.500",
-//         },
-//       },
-//     },
-//   },
-//   sizes: {
-//     md: {
-//       field: {
-//         // Override default round borders
-//         borderRadius: "none",
-//       },
-//     },
-//   },
-// };
-
 // TO-DO: Implement default component styles (no round borders, black as illiniBlue, etc.)
 const customTheme = extendTheme(
   {
+    initialColorMode: "light",
+    useSystemColorMode: false,
     // From https://marketing.illinois.edu/design/color
     colors: {
       brand: baseTheme.colors.red,
@@ -75,9 +49,9 @@ const customTheme = extendTheme(
         200: "#4D69A0",
         300: "#1E3877", // Dark blue
       },
+      lightGrey: "#F0F0F0",
     },
     fonts: {
-      // `[default], [backup]`
       heading: `Montserrat, sans-serif`,
       body: `Montserrat, sans-serif`,
       mono: `Montserrat, sans-serif`,
@@ -89,10 +63,26 @@ const customTheme = extendTheme(
         baseStyle: {
           color: "illiniBlue",
         },
+        variants: {
+          white: {
+            color: "cloudWhite.50",
+          },
+          hoverable: {
+            _hover: { color: "illiniOrange" },
+          },
+        },
       },
       Text: {
         baseStyle: {
           color: "illiniBlue",
+        },
+        variants: {
+          white: {
+            color: "cloudWhite.50",
+          },
+          hoverable: {
+            _hover: { color: "illiniOrange" },
+          },
         },
       },
       Link: {
@@ -108,16 +98,12 @@ const customTheme = extendTheme(
       },
       StackDivider: {
         baseStyle: {
-          borderColor: "cloudWhite.300",  // Not working
+          borderColor: "cloudWhite.300", // Doesn't work
         },
       },
       Container: {
         baseStyle: {
-          maxW: {
-            base: "container.sm",
-            lg: "container.md",
-            xl: "container.lg",
-          },
+          maxW: "container.lg",
         },
       },
       Button: {
@@ -135,11 +121,11 @@ const customTheme = extendTheme(
         baseStyle: {
           rounded: "none",
           variant: "ghost",
-          background: "transparent",
+          bgColor: "transparent",
           color: "illiniBlue",
           _hover: {
-            bg: "none",
-            color: "green",
+            bgColor: "transparent",
+            color: "illiniOrange",
           },
         },
       },
@@ -177,10 +163,6 @@ const customTheme = extendTheme(
     //   },
   }
   // // Custom global defaults
-  // withDefaultColorScheme({
-  //   colorScheme: "brand",
-  //   components: ["Checkbox"],
-  // }),
   // withDefaultVariant({
   //   variant: "filled",
   //   components: ["Input", "Select"],

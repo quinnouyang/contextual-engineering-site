@@ -1,37 +1,27 @@
-import { Center, Container, Flex, Heading, VStack } from "@chakra-ui/react";
-import Footer from "../src/components/footer";
-import NavBar from "../src/components/navbar";
-import ProjectCard from "../src/components/project-card";
+import { Container, Box, SimpleGrid, Center } from "@chakra-ui/react";
+import Footer from "../src/components/Footer";
+import Hero from "../src/components/Heros/ColorHero";
+import NavBar from "../src/components/NavBar/NavBar";
+import ProjectCard from "../src/components/ProjectCard";
 import { projects } from "../src/types/projects";
-
-const Hero = () => {
-  return (
-    <Center h={"10em"}>
-      <Heading
-        color={"illiniOrange"}
-        textStyle="italics"
-        fontSize={{ base: "3xl", md: "4xl", lg: "5xl", xl: "6xl" }}
-      >
-        Projects
-      </Heading>
-    </Center>
-  );
-};
 
 export default function ProjectsPage() {
   return (
-    <>
+    <Box bg="lightGrey">
       <NavBar {...{ label: "Research", childLabel: "Projects" }} />
-      <Hero />
-      <Container>
-        <VStack spacing="2em">
+      <Hero {...{ text: "aaa" }} />
+      <Container maxW="container.xl" p="1em">
+        <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing="1em">
           {projects.map((project) => {
-            const index = projects.indexOf(project);
-            return <ProjectCard key={index} index={index} {...project} />;
+            return (
+              <Center w="full">
+                <ProjectCard key={project.title} {...project} />
+              </Center>
+            );
           })}
-        </VStack>
+        </SimpleGrid>
       </Container>
       <Footer />
-    </>
+    </Box>
   );
 }

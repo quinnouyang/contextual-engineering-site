@@ -13,14 +13,13 @@ import {
 } from "@chakra-ui/react";
 import Slider from "react-slick";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
-import { cards } from "../types/carousel";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { cards } from "../types/carousel-cards";
 
 // Illini Blue with opacity
 const bgColor = "rgba(19, 41, 75, 0.5)";
 const bgHoverColor = "rgba(19, 41, 75, 0.75)";
-
 const fgColor = "cloudWhite.50";
 
 const sliderSettings = {
@@ -30,20 +29,19 @@ const sliderSettings = {
   autoplaySpeed: 7000,
 };
 
-// UI Issue: Card hover still interactible if no link
 export default function Carousel() {
   const [slider, setSlider] = React.useState<Slider | null>(null);
   const iconSize = useBreakpointValue({ base: "3em", lg: "4em" });
 
   return (
-    <Box position={"relative"}>
+    <Box position="relative">
       <Show above="md">
         <IconButton
           aria-label="left-arrow"
           position="absolute"
           h={iconSize}
-          left={"2em"}
-          top={"50%"}
+          left="2em"
+          top="50%"
           color={fgColor}
           background={bgColor}
           _hover={{ background: bgHoverColor }}
@@ -56,8 +54,8 @@ export default function Carousel() {
           aria-label="right-arrow"
           position="absolute"
           h={iconSize}
-          right={"2em"}
-          top={"50%"}
+          right="2em"
+          top="50%"
           color={fgColor}
           background={bgColor}
           _hover={{ background: bgHoverColor }}
@@ -75,11 +73,11 @@ export default function Carousel() {
             key={index}
             h="50vh"
             backgroundSize="cover"
-            backgroundPosition={"center"}
+            backgroundPosition="center"
             backgroundImage={card.image}
           >
             <Container h="full">
-              <Stack h="full" justifyContent={"center"}>
+              <Stack h="full" justifyContent="center">
                 <Stack
                   as={Link}
                   href={card.link}
