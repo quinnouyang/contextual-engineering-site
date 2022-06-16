@@ -9,7 +9,7 @@ export default function ProjectsPage() {
   return (
     <Box bg="lightGrey">
       <NavBar {...{ label: "Research", childLabel: "Projects" }} />
-      <Hero {...{ text: "aaa" }} />
+      <Hero {...{ text: "" }} />
       <Container maxW="container.xl" p="1em">
         <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing="1em">
           {projects.map((project) => {
