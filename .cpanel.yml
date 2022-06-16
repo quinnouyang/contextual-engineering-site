@@ -1,0 +1,7 @@
+---
+deployment:
+  # command: ["/bin/sh", "-c"]
+  # args: ["next export"]
+  tasks:
+    - export DEPLOYPATH=/home/cergtest1/test/
+    - /bin/cp -R cerg-app/public $DEPLOYPATH

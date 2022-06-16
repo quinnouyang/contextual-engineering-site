@@ -14,8 +14,8 @@ export default function ProjectsPage() {
         <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing="1em">
           {projects.map((project) => {
             return (
-              <Center w="full">
-                <ProjectCard key={project.title} {...project} />
+              <Center w="full" key={project.title}>
+                <ProjectCard {...project} />
               </Center>
             );
           })}
