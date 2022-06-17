@@ -44,7 +44,7 @@ export default function ProjectCard({
           _groupHover={{ opacity: link ? "90%" : "" }}
           transitionDuration="150ms"
         >
-          <Image src={image} />
+          <Image src={image} alt={title} />
         </AspectRatio>
         {link ? (
           <ExternalLinkIcon
