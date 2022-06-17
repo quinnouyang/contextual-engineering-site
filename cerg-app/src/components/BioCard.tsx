@@ -64,23 +64,23 @@ export default function BioCard({
       {({ isOpen }) => (
         <>
           <PopoverTrigger>
-            <AspectRatio
-              ratio={3 / 4}
-              w={CARD_WIDTH}
-              h="inherit"
-              p={0}
-              onClick={scroll}
-              ref={ref}
-              boxShadow="0em 0em 0.5em 0em grey"
-            >
-              <Image
-                src={person.headshot}
-                alt={person.name}
-                opacity={isOtherOpen && !isOpen ? 0.5 : 1}
-                transition="opacity 0.5s linear"
-              />
-            </AspectRatio>
-            {/* </Button> */}
+            {/* Button to allow clicking to close card (as in demo Popover), though clicking briefly highlights image blue */}
+            <Button h="inherit" p={0} _focus={{ bgColor: "none" }}>
+              <AspectRatio
+                ratio={3 / 4}
+                w={CARD_WIDTH}
+                onClick={scroll}
+                ref={ref}
+                boxShadow="0em 0em 0.5em 0em grey"
+              >
+                <Image
+                  src={person.headshot}
+                  alt={person.name}
+                  opacity={isOtherOpen && !isOpen ? 0.5 : 1}
+                  transition="opacity 0.5s linear"
+                />
+              </AspectRatio>
+            </Button>
           </PopoverTrigger>
           <PopoverContent rounded="none" w={CARD_WIDTH}>
             <CardInfo {...person} />
