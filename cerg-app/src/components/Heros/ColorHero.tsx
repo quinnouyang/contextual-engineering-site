@@ -23,8 +23,9 @@ export default function ColorHero({ text, color }: ColorHeroProps) {
         </Heading>
         <Divider m="1em" borderColor="cloudWhite.50" />
         <Text color="cloudWhite.50" fontSize={{ base: "14px", sm: "1em" }}>
-          {text ??
-            `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          {text
+            ? text
+            : `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat. Duis aute irure dolor in
