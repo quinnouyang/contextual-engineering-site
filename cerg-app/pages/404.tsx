@@ -5,7 +5,7 @@ import NavBar from "../src/components/NavBar/NavBar";
 export default function ErrorPage() {
   return (
     <>
-      <NavBar {...{ label: "Error" }} />
+      <NavBar {...{ label: "" }} />
       <Container maxW="container.lg" centerContent>
         <Heading m="1em">u in wrong place</Heading>
       </Container>

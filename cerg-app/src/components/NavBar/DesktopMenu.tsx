@@ -11,8 +11,8 @@ import {
   useMediaQuery,
   PopoverArrow,
 } from "@chakra-ui/react";
-import { ChevronDownIcon /*, ChevronRightIcon*/ } from "@chakra-ui/icons";
-import { NavItem, CurrNavItem, navbarItems } from "../../types/navigation";
+import { ChevronDownIcon } from "@chakra-ui/icons";
+import { navbarItems, CategoryLabel } from "../../types/navigation";
 
 // Temporary fix: React 18 conflict (downgraded to v17 for now...)
 export const PopoverTrigger: React.FC<{ children: React.ReactNode }> =
@@ -23,15 +23,14 @@ const textColor = "illiniBlue";
 const highlightColor = "illiniOrange";
 
 // TO-DO: Simplify names and styling properties and behaviors (especially text color consistency)
-// ISSUE: Dropdown headers do not remain higlighted/"selected" when cursor moves to popover (e.g. Research)
-export default function DesktopMenu(curr: CurrNavItem) {
+export default function DesktopMenu({ label }: CategoryLabel) {
   const { onOpen, onClose } = useDisclosure();
   const [isNotTouchScreen] = useMediaQuery("(pointer: fine)");
 
   return (
-    <HStack>
-      {navbarItems.map(({ label, link, children }) => (
-        <Box key={label}>
+    <HStack spacing="1em">
+      {navbarItems.map((item) => (
+        <Box key={item.label} role="group">
           <Popover
             trigger={isNotTouchScreen ? "hover" : "click"}
             placement="bottom-start"
@@ -42,72 +41,55 @@ export default function DesktopMenu(curr: CurrNavItem) {
             openDelay={50}
             closeDelay={50}
           >
-            <Box role="group">
-              <PopoverTrigger>
-                <HStack m="0.5em" spacing={0}>
-                  <Link
-                    href={link}
-                    fontSize="lg"
-                    fontWeight="semibold"
-                    _groupHover={{ color: highlightColor }}
-                    color={label === curr.label ? highlightColor : ""}
-                    borderBottomWidth="0.15em"
-                    borderBottomColor={
-                      label === curr.label ? highlightColor : "transparent"
-                    }
-                    // "Balances" border thickeness to keep text centered
-                    borderTopWidth="0.15em"
-                    borderTopColor="transparent"
-                  >
-                    {label}
-                  </Link>
+            <PopoverTrigger>
+              <HStack ml={"children" in item ? "6px" : 0} spacing={0}>
+                <Link
+                  href={"link" in item ? item.link : undefined}
+                  fontSize="lg"
+                  fontWeight="semibold"
+                  _groupHover={{ color: highlightColor }}
+                  // Highlight and underline if currently visiting NavCategory
+                  color={item.label === label ? highlightColor : ""}
+                  borderBottomWidth="0.15em"
+                  borderBottomColor={
+                    item.label === label ? highlightColor : "transparent"
+                  }
+                  // "Balances" border thickeness to keep text centered
+                  borderTopWidth="0.15em"
+                  borderTopColor="transparent"
+                >
+                  {item.label}
+                </Link>
 
-                  {children && (
-                    <ChevronDownIcon
-                      boxSize="1.5em"
-                      color={label === curr.label ? highlightColor : textColor}
-                      transition="0.25s"
-                      _groupHover={{
-                        color: highlightColor,
-                        transform: "rotate(180deg)",
-                      }}
-                    />
-                  )}
-                </HStack>
-              </PopoverTrigger>
+                {"children" in item ? (
+                  <ChevronDownIcon
+                    boxSize="1.5em"
+                    color={item.label === label ? highlightColor : textColor}
+                    transition="0.25s"
+                    _groupHover={{
+                      color: highlightColor,
+                      transform: "rotate(180deg)",
+                    }}
+                  />
+                ) : null}
+              </HStack>
+            </PopoverTrigger>
 
-              {children && (
-                <PopoverContent minW="xs" rounded="none" shadow="none">
-                  <PopoverArrow />
-                  <Stack mx="1em" spacing={0} divider={<StackDivider />}>
-                    {children.map((child) => (
-                      <MenuDropdownItem
-                        key={child.label}
-                        {...child}
-                        // shouldHighlight={child.label === curr?.childLabel}
-                      />
-                    ))}
-                  </Stack>
-                </PopoverContent>
-              )}
-            </Box>
+            {"children" in item ? (
+              <PopoverContent minW="xs" rounded="none">
+                <PopoverArrow />
+                <Stack mx="1em" spacing={0} divider={<StackDivider />}>
+                  {item.children.map(({ label, link }) => (
+                    <Link href={link} key={label} w="full" py="0.5em">
+                      {label}
+                    </Link>
+                  ))}
+                </Stack>
+              </PopoverContent>
+            ) : null}
           </Popover>
         </Box>
       ))}
     </HStack>
   );
 }
-
-const MenuDropdownItem = ({ label, link /*, shouldHighlight*/ }: NavItem) => {
-  return (
-    <Link // WORKAROUND: Should be text, but this keeps fade-in hover highlight consistent
-      href={link}
-      w="full"
-      py="0.5em"
-      // fontWeight="semibold"
-      // color={shouldHighlight ? highlightColor : textColor}
-    >
-      {label}
-    </Link>
-  );
-};

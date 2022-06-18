@@ -1,29 +1,29 @@
-// TO-DO: Consider incorporating a React router library to simplify routing, especially re-rendering page components with switch statements rather than reloading pages
+// TO-DO: Consider re-rendering page components with switch statements rather than reloading pages
+export type NavItem = { readonly label: string };
+export type NavCategory = NavItem & { readonly children: NavPage[] };
+export type NavPage = NavItem & { readonly link: string };
+export type CategoryLabel = { readonly label: string };
 
-export type NavItem = {
-  readonly label: string;
-  readonly subLabel?: string;
-  readonly children?: NavItem[];
-  readonly link?: string;
-  readonly shouldHighlight?: boolean;
-};
-
-// Label(s) for the current page that correspond to the navigation item
-export type CurrNavItem = {
-  label: string;
-  childLabel?: string;
-};
-
-// TO-DO: Assess which items to include
-// Labels with children SHOULD NOT have their own link
-export const navbarItems: NavItem[] = [
+export const navbarItems: Array<NavCategory | NavPage> = [
   {
     label: "About",
-    link: "/about",
+    children: [
+      {
+        label: "The Group",
+        link: "/group",
+      },
+      {
+        label: "Contextual Engineering",
+        link: "/contextual-engineering",
+      },
+    ],
+  },
+  {
+    label: "People",
+    link: "/people",
   },
   {
     label: "Research",
-    // link: "/research",
     children: [
       {
         label: "Focus Areas",
@@ -34,42 +34,42 @@ export const navbarItems: NavItem[] = [
         link: "/projects",
       },
       {
-        label: "Resources",
-        link: "/resources",
+        label: "Publications",
+        link: "/publications",
       },
     ],
   },
   {
-    label: "Team",
-    link: "/team",
-  },
-  {
-    label: "News",
-    link: "/news",
+    label: "Resources",
+    children: [
+      {
+        label: "Predictive Tool",
+        link: "/predictive-tool",
+      },
+      {
+        label: "Courses & Certificate",
+        link: "/courses-certificate",
+      },
+    ],
   },
 ];
 
-// TO-DO: Assess which items to include
-export const footerInternalItems: NavItem[] = [
+export const footerPrimaryItems: NavPage[] = [
   {
     label: "About",
-    link: "/about",
+    link: "/group",
+  },
+  {
+    label: "People",
+    link: "/people",
   },
   {
     label: "Contact",
     link: "/contact",
   },
-  {
-    label: "Team",
-    link: "/team",
-  },
-  {
-    label: "News",
-    link: "/news",
-  },
 ];
 
-export const footerExternalItems: NavItem[] = [
+export const footerSecondaryItems: NavPage[] = [
   {
     label: "Privacy",
     link: "https://www.vpaa.uillinois.edu/resources/web_privacy",
@@ -78,10 +78,11 @@ export const footerExternalItems: NavItem[] = [
     label: "Cookies",
     link: "https://www.vpaa.uillinois.edu/resources/cookies",
   },
-  {
-    // TO-DO: Generate a sitemap and link it here
-    label: "Sitemap",
-  },
+  // {
+  //   // TO-DO: Generate a sitemap and link it here
+  //   label: "Sitemap",
+  //   link: "/",
+  // },
   {
     label: "GitHub",
     link: "https://github.com/quinnouyang/contextual-engineering-site",

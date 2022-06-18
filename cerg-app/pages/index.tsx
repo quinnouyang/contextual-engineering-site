@@ -1,14 +1,12 @@
 import { Container, Flex } from "@chakra-ui/react";
 import Carousel from "../src/components/Carousel";
-import Cart from "../src/demo/cart";
-import Details from "../src/demo/details";
 import Footer from "../src/components/Footer";
 import NavBar from "../src/components/NavBar/NavBar";
 
 export default function HomePage() {
   return (
     <>
-      <NavBar {...{ label: "Home" }} />
+      <NavBar {...{ label: "" }} />
       <Carousel />
       {/* Responsive UI! Arrays and objects (for < 3 breakpoints) */}
       <Container maxW="container.xl" p={0}>
@@ -19,10 +17,7 @@ export default function HomePage() {
           py={[0, 10, 20]}
           // Default is L->R (row). Set so smaller screens are T->B (column-reverse)
           direction={{ base: "column-reverse", md: "row" }}
-        >
-          <Details />
-          <Cart />
-        </Flex>
+        ></Flex>
       </Container>
       <Footer />
     </>

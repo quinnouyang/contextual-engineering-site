@@ -19,23 +19,22 @@ import MobileMenu from "./MobileMenu";
 import BlockLogo from "../../figures/block-logo";
 import VerticalDivider from "../../figures/vertical-divider";
 import OrangeBar from "../../figures/orange-bar";
-import { CurrNavItem } from "../../types/navigation";
+import { CategoryLabel } from "../../types/navigation";
 
-export default function NavBar(currPage: CurrNavItem) {
+export default function NavBar(curr: CategoryLabel) {
   const { isOpen, onToggle } = useDisclosure();
-  const [isDesktop] = useMediaQuery("(min-width: 48em)"); // 48em is default md screen width
+  const [isDesktop] = useMediaQuery("(min-width: 62em)"); // 62em is default lg screen width
 
   return (
     // boxShadow only needs to be visible at top. Hard-coded cloudWhite.300
     <Box bg="cloudWhite.50" boxShadow="0em 0em 0.5em 0em #D2D2D2">
       <OrangeBar />
       <Container>
-        <Flex py={{ base: "1.5em", md: "2em" }}>
+        <Flex py={{ base: "1.5em", md: "2em" }} justify="space-between">
           <HeadingLogo />
-          <Spacer />
           {isDesktop ? (
-            <Box display={{ base: "none", md: "flex" }}>
-              <DesktopMenu {...currPage} />
+            <Box display={{ base: "none", lg: "flex" }}>
+              <DesktopMenu {...curr} />
             </Box>
           ) : (
             <HStack spacing={0}>
@@ -49,7 +48,7 @@ export default function NavBar(currPage: CurrNavItem) {
                     <HamburgerIcon boxSize={{ base: "1.5em", md: "2em" }} />
                   )
                 }
-                display={{ base: "flex", md: "none" }}
+                display={{ base: "flex", lg: "none" }}
                 _hover={{ color: "illiniOrange", bgColor: "transparent" }} // custom-theme defaults don't work:(
                 boxSize={{ base: "2.5em", md: "3em" }}
                 variant="ghost"

@@ -1,10 +1,10 @@
 import Footer from "../src/components/Footer";
 import NavBar from "../src/components/NavBar/NavBar";
 
-export default function TemplatePage() {
+export default function ResourcesPage() {
   return (
     <>
-      <NavBar {...{ label: "" }} />
+      <NavBar {...{ label: "Research" }} />
       <Footer />
     </>
   );

@@ -12,7 +12,7 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { useRef } from "react";
-import { BioCardProps } from "../../pages/team";
+import { BioCardProps } from "../../pages/people";
 import { Person } from "../types/team-members";
 
 // Temporary fix: React 18 issue

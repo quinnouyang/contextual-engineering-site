@@ -42,12 +42,12 @@ export type BioCardProps = {
   onClose: () => void;
 };
 
-export default function TeamPage() {
+export default function PeoplePage() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <>
-      <NavBar {...{ label: "Team" }} />
+      <NavBar {...{ label: "People" }} />
       <Hero />
       <Flex
         wrap="wrap"

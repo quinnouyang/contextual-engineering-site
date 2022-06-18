@@ -9,17 +9,15 @@ import {
   useMediaQuery,
 } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
-import { NavItem, navbarItems } from "../../types/navigation";
+import { navbarItems, NavCategory, NavPage } from "../../types/navigation";
 
-// BUG: Carousel arrow overlays extended dropdown
 export default function MobileMenu() {
   return (
     <Stack
-      bg="cloudWhite.50"
       minW={{ base: "100vw", sm: "sm" }}
       p="1em"
+      bg="cloudWhite.50"
       borderWidth={1}
-      // display={{ lg: "none" }}
       divider={<StackDivider />}
     >
       {navbarItems.map((item) => (
@@ -28,9 +26,8 @@ export default function MobileMenu() {
     </Stack>
   );
 }
-const MenuItem = ({ label, children, link }: NavItem) => {
+const MenuItem = (item: NavCategory | NavPage) => {
   const { isOpen, onToggle } = useDisclosure();
-  // WORKAROUND: No higlight color if pressed on touchscreen
   const hoverColor = useMediaQuery("(pointer: fine)").at(0)
     ? "illiniOrange"
     : "illiniBlue";
@@ -39,8 +36,8 @@ const MenuItem = ({ label, children, link }: NavItem) => {
     <Stack>
       <Flex
         as={Link}
-        href={link}
-        onClick={children && onToggle}
+        href={"link" in item ? item.link : undefined}
+        onClick={"children" in item ? onToggle : undefined}
         role="group"
         justify="space-between"
         align="center"
@@ -50,16 +47,16 @@ const MenuItem = ({ label, children, link }: NavItem) => {
           fontWeight="semibold"
           _groupHover={{ color: hoverColor }}
         >
-          {label}
+          {item.label}
         </Link>
-        {children && (
+        {"children" in item ? (
           <ChevronDownIcon
             transition="0.25s"
             _groupHover={{ color: hoverColor }}
             transform={isOpen ? "rotate(180deg)" : ""}
             boxSize="1.5em"
           />
-        )}
+        ) : null}
       </Flex>
 
       {/* Bug: Dropdown does not close smoothly */}
@@ -69,19 +66,20 @@ const MenuItem = ({ label, children, link }: NavItem) => {
       >
         <Divider />
         <Stack spacing={0} pl="1em" divider={<StackDivider />}>
-          {children &&
-            children.map(({ label, link }, i, arr) =>
-              arr.length - 1 !== i ? ( // Not last child
-                <Link key={label} py="0.5em" href={link}>
-                  {label}
-                </Link>
-              ) : (
-                // Remove extra bottom padding of last child
-                <Link key={label} pt="0.5em" href={link}>
-                  {label}
-                </Link>
+          {"children" in item
+            ? item.children.map(({ label, link }, i, arr) =>
+                arr.length - 1 !== i ? ( // Not last child
+                  <Link key={label} py="0.5em" href={link}>
+                    {label}
+                  </Link>
+                ) : (
+                  // Remove extra bottom padding of last child
+                  <Link key={label} pt="0.5em" href={link}>
+                    {label}
+                  </Link>
+                )
               )
-            )}
+            : null}
         </Stack>
       </Collapse>
     </Stack>

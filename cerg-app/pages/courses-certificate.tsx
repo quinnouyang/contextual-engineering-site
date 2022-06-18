@@ -1,10 +1,10 @@
 import Footer from "../src/components/Footer";
 import NavBar from "../src/components/NavBar/NavBar";
 
-export default function ResourcesPage() {
+export default function CoursesCertificatePage() {
   return (
     <>
-      <NavBar {...{ label: "Research", childLabel: "Resources" }} />
+      <NavBar {...{ label: "Resources" }} />
       <Footer />
     </>
   );
