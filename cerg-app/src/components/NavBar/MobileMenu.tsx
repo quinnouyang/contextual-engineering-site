@@ -44,7 +44,7 @@ const MenuItem = (item: NavCategory | NavPage) => {
       >
         <Link
           fontSize="xl"
-          fontWeight="semibold"
+          fontWeight="medium"
           _groupHover={{ color: hoverColor }}
         >
           {item.label}

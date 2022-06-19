@@ -46,7 +46,7 @@ export default function DesktopMenu({ label }: CategoryLabel) {
                 <Link
                   href={"link" in item ? item.link : undefined}
                   fontSize="lg"
-                  fontWeight="semibold"
+                  fontWeight="medium"
                   _groupHover={{ color: highlightColor }}
                   // Highlight and underline if currently visiting NavCategory
                   color={item.label === label ? highlightColor : ""}

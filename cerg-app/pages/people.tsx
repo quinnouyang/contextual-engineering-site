@@ -55,10 +55,10 @@ export default function PeoplePage() {
         justify="center"
         mx={{ base: "2em", sm: "4em" }}
       >
-        {PEOPLE.map((person) => {
+        {PEOPLE.map((person, i) => {
           return (
             <BioCard
-              key={person.name}
+              key={i + person.name}
               person={person}
               isOtherOpen={isOpen}
               onOpen={onOpen}

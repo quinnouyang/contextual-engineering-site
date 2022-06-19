@@ -9,7 +9,6 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
-import { basename } from "path";
 import { Project } from "../types/projects";
 
 const bgColor = "illiniBlue";
@@ -30,7 +29,7 @@ export default function ProjectCard({
       pointerEvents={link ? "auto" : "none"} // Disables link behavior if does not exist
       role="group"
       w="full"
-      maxW="32em"
+      maxW={{ base: "24em", md: "32em" }}
       h="full"
       spacing={0}
       boxShadow="0em 0em 0.5em 0em grey"
@@ -58,16 +57,16 @@ export default function ProjectCard({
       </Box>
       <VStack
         h="full"
-        p={{ base: "1em", sm: "1.5em" }}
+        p={{ base: "1.5em", md: "2em" }}
         bgColor={bgColor}
         _groupHover={{ bgColor: link ? bgHoverColor : "" }}
         transition="background-color 150ms"
       >
-        <Heading color={fgColor} fontSize={{ base: "20px", sm: "2xl" }}>
+        <Heading color={fgColor} fontSize={{ base: "xl", md: "2xl" }}>
           {title}
         </Heading>
         <Divider />
-        <Text color={fgColor} fontSize={{ base: "14px", sm: "1em" }}>
+        <Text color={fgColor} fontSize="md">
           {description}
         </Text>
       </VStack>

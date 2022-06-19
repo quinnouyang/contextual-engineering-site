@@ -16,7 +16,7 @@ import { footerPrimaryItems, footerSecondaryItems } from "../types/navigation";
 export default function Footer() {
   return (
     // boxShadow only needs to be visible at top. Hard-coded cloudWhite.300
-    <Box bg="cloudWhite.50" boxShadow="0em 0em 0.5em 0em #D2D2D2">
+    <Box bg="cloudWhite.50" boxShadow="10px -10px 6px -6px rgba(0, 0, 0, 0.1)">
       <Container py="2em">
         <Flex>
           <FooterLogo />
@@ -32,7 +32,7 @@ export default function Footer() {
                   key={label}
                   href={link}
                   fontSize={{ base: "sm", md: "md" }}
-                  fontWeight="semibold"
+                  fontWeight="medium"
                 >
                   {label}
                 </Link>

@@ -9,7 +9,6 @@ import {
   Heading,
   Container,
   Show,
-  Spacer,
   HStack,
   useMediaQuery,
 } from "@chakra-ui/react";
@@ -26,8 +25,11 @@ export default function NavBar(curr: CategoryLabel) {
   const [isDesktop] = useMediaQuery("(min-width: 62em)"); // 62em is default lg screen width
 
   return (
-    // boxShadow only needs to be visible at top. Hard-coded cloudWhite.300
-    <Box bg="cloudWhite.50" boxShadow="0em 0em 0.5em 0em #D2D2D2">
+    <Box
+      bg="cloudWhite.50"
+      boxShadow="0 10px 6px -6px rgba(0, 0, 0, 0.1)" // Absolute units inconsistent throughout codebase
+      position="relative"
+    >
       <OrangeBar />
       <Container>
         <Flex py={{ base: "1.5em", md: "2em" }} justify="space-between">

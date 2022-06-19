@@ -62,6 +62,7 @@ const customTheme = extendTheme(
       Heading: {
         baseStyle: {
           color: "illiniBlue",
+          fontWeight: 500,
         },
         variants: {
           white: {
@@ -104,6 +105,7 @@ const customTheme = extendTheme(
       Container: {
         baseStyle: {
           maxW: "container.lg",
+          px: { base: "1em", md: "2em" },
         },
       },
       Button: {
