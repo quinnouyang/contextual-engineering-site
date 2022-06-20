@@ -6,7 +6,7 @@ export type Person = {
   readonly externalSite?: string;
 }
 
-export const PEOPLE: Person[] = [
+export const people: Person[] = [
   {
     name: "Ann-Perry Witmer",
     title: "Ph.D, P.E.",

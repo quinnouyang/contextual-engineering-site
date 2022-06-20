@@ -9,7 +9,7 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
-import { Project } from "../types/projects";
+import { Project } from "../types/projects-types";
 
 const bgColor = "illiniBlue";
 const bgHoverColor = "rgba(19, 41, 75, 0.90)"; // illiniBlue with opacity

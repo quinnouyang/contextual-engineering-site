@@ -12,7 +12,7 @@ import {
   PopoverArrow,
 } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
-import { navbarItems, CategoryLabel } from "../../types/navigation";
+import { CategoryLabel, navbarItems } from "../../types/navigation-types";
 
 // Temporary fix: React 18 conflict (downgraded to v17 for now...)
 export const PopoverTrigger: React.FC<{ children: React.ReactNode }> =

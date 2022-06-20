@@ -1,11 +1,5 @@
-import Footer from "../src/components/Footer";
-import NavBar from "../src/components/NavBar/NavBar";
+import PageWrapper from "../src/components/PageWrapper";
 
 export default function PredictiveToolPage() {
-  return (
-    <>
-      <NavBar {...{ label: "Resources" }} />
-      <Footer />
-    </>
-  );
+  return <PageWrapper category={{ label: "Resources" }}></PageWrapper>;
 }

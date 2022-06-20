@@ -1,9 +1,8 @@
-import { Container, Box, SimpleGrid, Center } from "@chakra-ui/react";
-import Footer from "../src/components/Footer";
+import { Container, SimpleGrid, Center } from "@chakra-ui/react";
 import Hero, { ColorHeroProps } from "../src/components/Heros/ColorHero";
-import NavBar from "../src/components/NavBar/NavBar";
+import PageWrapper from "../src/components/PageWrapper";
 import ProjectCard from "../src/components/ProjectCard";
-import { projects } from "../src/types/projects";
+import { projects } from "../src/types/projects-types";
 
 const heroProps: ColorHeroProps = {
   heading: "Research Projects",
@@ -18,8 +17,7 @@ const heroProps: ColorHeroProps = {
 
 export default function ProjectsPage() {
   return (
-    <Box bg="lightGrey">
-      <NavBar {...{ label: "Research" }} />
+    <PageWrapper category={{ label: "Research" }}>
       <Hero {...heroProps} />
       <Container maxW="container.xl" py={{ base: "2em", md: "3em", lg: "4em" }}>
         <SimpleGrid minChildWidth="20em" spacing={{ base: "1em", sm: "1.5em" }}>
@@ -33,7 +31,6 @@ export default function ProjectsPage() {
           })}
         </SimpleGrid>
       </Container>
-      <Footer />
-    </Box>
+    </PageWrapper>
   );
 }

@@ -9,7 +9,7 @@ import {
   useMediaQuery,
 } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
-import { navbarItems, NavCategory, NavPage } from "../../types/navigation";
+import { navbarItems, NavCategory, NavPage } from "../../types/navigation-types";
 
 export default function MobileMenu() {
   return (

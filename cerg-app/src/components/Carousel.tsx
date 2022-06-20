@@ -15,7 +15,7 @@ import Slider from "react-slick";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { cards } from "../types/carousel-cards";
+import { cards } from "../types/carousel-cards-types";
 
 // Illini Blue with opacity
 const bgColor = "rgba(19, 41, 75, 0.5)";

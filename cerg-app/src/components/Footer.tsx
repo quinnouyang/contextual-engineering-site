@@ -11,7 +11,7 @@ import {
 import FullWordmark from "../figures/full-wordmark";
 import ShortWordmark from "../figures/short-wordmark";
 import VerticalDivider from "../figures/vertical-divider";
-import { footerPrimaryItems, footerSecondaryItems } from "../types/navigation";
+import { footerPrimaryItems, footerSecondaryItems } from "../types/navigation-types";
 
 export default function Footer() {
   return (

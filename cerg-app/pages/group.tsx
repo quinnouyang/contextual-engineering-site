@@ -1,11 +1,9 @@
-import { Container, Flex } from "@chakra-ui/react/dist/declarations/src";
-import Footer from "../src/components/Footer";
-import NavBar from "../src/components/NavBar/NavBar";
+import { Container, Flex } from "@chakra-ui/react";
+import PageWrapper from "../src/components/PageWrapper";
 
 export default function GroupPage() {
   return (
-    <>
-      <NavBar {...{ label: "About" }} />
+    <PageWrapper category={{ label: "About" }}>
       {/* Responsive UI! Arrays and objects (for < 3 breakpoints) */}
       <Container maxW="container.xl" p={0}>
         <Flex
@@ -17,7 +15,6 @@ export default function GroupPage() {
           direction={{ base: "column-reverse", md: "row" }}
         ></Flex>
       </Container>
-      <Footer />
-    </>
+    </PageWrapper>
   );
 }

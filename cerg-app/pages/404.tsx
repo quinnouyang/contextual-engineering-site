@@ -1,15 +1,12 @@
 import { Container, Heading } from "@chakra-ui/react";
-import Footer from "../src/components/Footer";
-import NavBar from "../src/components/NavBar/NavBar";
+import PageWrapper from "../src/components/PageWrapper";
 
 export default function ErrorPage() {
   return (
-    <>
-      <NavBar {...{ label: "" }} />
+    <PageWrapper>
       <Container maxW="container.lg" centerContent>
         <Heading m="1em">u in wrong place</Heading>
       </Container>
-      <Footer />
-    </>
+    </PageWrapper>
   );
 }
