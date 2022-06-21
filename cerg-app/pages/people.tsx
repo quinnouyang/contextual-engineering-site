@@ -1,38 +1,30 @@
-import { Box, Flex, useDisclosure } from "@chakra-ui/react";
+import { Box, Flex, Heading, useDisclosure } from "@chakra-ui/react";
 import BioCard from "../src/components/BioCard";
 import { people, Person } from "../src/types/people-types";
-import ImageHero, { ImageHeroProps } from "../src/components/Heros/ImageHero";
 import PageWrapper from "../src/components/PageWrapper";
+import ColorHero, { ColorHeroProps } from "../src/components/Heros/ColorHero";
 
-// const Hero = () => {
-//   return (
-//     <Center h="10em">
-//       <VStack
-//         maxW={{ base: "container.xs", sm: "container.sm", md: "container.md" }}
-//         justify="center"
-//       >
-//         <Flex>
-//           <Heading fontSize={{ base: "3xl", md: "4xl", lg: "5xl", xl: "6xl" }}>
-//             Meet the&nbsp;
-//           </Heading>
-//           <Heading
-//             color="illiniOrange"
-//             textStyle="italics"
-//             fontSize={{ base: "3xl", md: "4xl", lg: "5xl", xl: "6xl" }}
-//           >
-//             Team.
-//           </Heading>
-//         </Flex>
-//       </VStack>
-//     </Center>
-//   );
-// };
-
-const heroProps: ImageHeroProps = {
-  heading: "Meet the Team.",
-  image:
-    "http://contextual.engineering.illinois.edu/wp-content/uploads/2022/03/IMG_0868-1024x768.jpg",
-  textColor: "illiniBlue",
+const heroProps: ColorHeroProps = {
+  minH: { base: "auto", md: "20em" },
+  heading: (
+    <Flex wrap="wrap">
+      <Heading
+        color="white"
+        fontSize={{ base: "5xl", md: "6xl" }}
+        fontWeight="bold"
+      >
+        Meet the&nbsp;
+      </Heading>
+      <Heading
+        color="illiniOrange"
+        fontSize={{ base: "5xl", md: "6xl" }}
+        fontWeight="bold"
+      >
+        Team.
+      </Heading>
+    </Flex>
+  ),
+  bgColor: "illiniBlue",
 };
 
 export type BioCardProps = {
@@ -47,7 +39,7 @@ export default function PeoplePage() {
 
   return (
     <PageWrapper category={{ label: "People" }}>
-      <ImageHero {...heroProps} />
+      <ColorHero {...heroProps} />
       <Flex
         wrap="wrap"
         gap="1em"

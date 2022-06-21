@@ -19,11 +19,12 @@ export default function HomepageHero() {
         align={"center"}
         py="5em"
         direction={{ base: "column", md: "row" }}
+        spacing="2em"
       >
-        <Stack flex={1} spacing="2em">
+        <Stack flex={1} spacing="1em">
           <Heading
             lineHeight={1.1}
-            fontWeight={600}
+            fontWeight="bold"
             fontSize={{ base: "3xl", sm: "4xl", lg: "5xl" }}
           >
             <Text
@@ -47,8 +48,8 @@ export default function HomepageHero() {
               Certificate
             </Text>
           </Heading>
-          <Text color="illiniBlue">
-            University of Illinois students, certify yourself in user-informed design and engineering 
+          <Text fontSize="xl" color="illiniBlue">
+            University of Illinois undergraduate and graduate students, learn about user-informed design and engineering in a 12 credit-hour certificate program!
           </Text>
           <Stack
             spacing={{ base: 4, sm: 6 }}
@@ -60,7 +61,7 @@ export default function HomepageHero() {
               bg="illiniOrange"
               _hover={{ bg: "illiniBlue" }}
             >
-              Learn More<ExternalLinkIcon />
+              Learn More&nbsp;<ExternalLinkIcon />
             </Button>
           </Stack>
         </Stack>

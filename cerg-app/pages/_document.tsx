@@ -8,10 +8,12 @@ export default class CustomDocument extends Document {
       <Html>
         <Head>
           <Script
+            id="Google Analytics Script"
             async
             src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
           />
           <Script
+            id="Google Analytics Tag"
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{
               __html: `

@@ -13,7 +13,7 @@ import {
 } from "@chakra-ui/react";
 import { useRef } from "react";
 import { BioCardProps } from "../../pages/people";
-import { Person } from "../types/team-members";
+import { Person } from "../types/people-types";
 
 // Temporary fix: React 18 issue
 export const PopoverTrigger: React.FC<{ children: React.ReactNode }> =

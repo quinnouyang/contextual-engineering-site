@@ -1,4 +1,4 @@
-import { Container, SimpleGrid, Center } from "@chakra-ui/react";
+import { Container, SimpleGrid, Center, Divider } from "@chakra-ui/react";
 import Hero, { ColorHeroProps } from "../src/components/Heros/ColorHero";
 import PageWrapper from "../src/components/PageWrapper";
 import ProjectCard from "../src/components/ProjectCard";
@@ -13,6 +13,7 @@ const heroProps: ColorHeroProps = {
           reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
           pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
           culpa qui officia deserunt mollit anim id est laborum.`,
+  divider: <Divider my={{ base: "1.5em", lg: "2em" }} borderColor="white" />,
 };
 
 export default function ProjectsPage() {
