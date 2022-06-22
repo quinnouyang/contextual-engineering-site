@@ -10,16 +10,17 @@ import {
   Image,
   Icon,
   IconProps,
+  Link,
 } from "@chakra-ui/react";
 
 export default function HomepageHero() {
   return (
     <Container maxW="container.xl">
       <Stack
-        align={"center"}
+        align="center"
         py="5em"
         direction={{ base: "column", md: "row" }}
-        spacing="2em"
+        spacing={{ base: "1.5em", md: "3em" }}
       >
         <Stack flex={1} spacing="1em">
           <Heading
@@ -48,20 +49,26 @@ export default function HomepageHero() {
               Certificate
             </Text>
           </Heading>
-          <Text fontSize="xl" color="illiniBlue">
-            University of Illinois undergraduate and graduate students, learn about user-informed design and engineering in a 12 credit-hour certificate program!
+          <Text fontSize={{ base: "lg", md: "xl" }} color="illiniBlue">
+            University of Illinois undergraduate and graduate students, learn
+            about user-informed design and engineering in a 12 credit-hour
+            certificate program!
           </Text>
           <Stack
             spacing={{ base: 4, sm: 6 }}
             direction={{ base: "column", sm: "row" }}
           >
             <Button
+              as={Link}
+              href="https://abe.illinois.edu/academics/certificates/contextual-engineering-certificate"
+              isExternal
               size="lg"
-              textColor="cloudWhite.50"
+              textColor="white"
               bg="illiniOrange"
-              _hover={{ bg: "illiniBlue" }}
+              _hover={{ color: "white", bg: "illiniBlue" }}
             >
-              Learn More&nbsp;<ExternalLinkIcon />
+              Learn More&nbsp;
+              <ExternalLinkIcon />
             </Button>
           </Stack>
         </Stack>
@@ -94,9 +101,7 @@ export default function HomepageHero() {
               align={"center"}
               w={"100%"}
               h={"100%"}
-              src={
-                "http://contextual.engineering.illinois.edu/wp-content/uploads/2022/03/IMG_0868-1024x768.jpg"
-              }
+              src="http://contextual.engineering.illinois.edu/wp-content/uploads/2018/06/spring-measurement-students-1024x376.jpg"
             />
           </Box>
         </Flex>

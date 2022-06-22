@@ -1,11 +1,20 @@
-import Footer from "../src/components/Footer";
-import NavBar from "../src/components/NavBar/NavBar";
+import { Container, Text } from "@chakra-ui/react";
+import ColorHero, { ColorHeroProps } from "../src/components/Heros/ColorHero";
+import PageWrapper from "../src/components/PageWrapper";
+
+const heroProps: ColorHeroProps = {
+  heading: "Contact Us",
+};
 
 export default function TemplatePage() {
   return (
-    <>
-      <NavBar {...{ label: "" }} />
-      <Footer />
-    </>
+    <PageWrapper>
+      <ColorHero {...heroProps} />
+      <Container py="3em">
+        <Text fontSize="xl">Email: contextual-engineering@illinois.edu</Text>
+        <Text fontSize="xl">Phone number: n/a</Text>
+        <Text fontSize="xl">Address: n/a</Text>
+      </Container>
+    </PageWrapper>
   );
 }

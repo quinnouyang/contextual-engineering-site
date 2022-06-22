@@ -1,9 +1,16 @@
-import { VStack, Container, Divider, Heading, Text } from "@chakra-ui/react";
+import {
+  VStack,
+  Container,
+  Divider,
+  Heading,
+  Text,
+  Box,
+} from "@chakra-ui/react";
 
 export type ColorHeroProps = {
-  readonly minH?: string | number | any;  // Need to limit to {base:, sm: }, etc. 
+  readonly minH?: string | number | any; // Need to limit to {base:, sm: }, etc.
   readonly heading: string | React.ReactNode;
-  readonly text?: string;
+  readonly text?: string | React.ReactNode;
   readonly bgColor?: string;
   readonly textColor?: string;
   readonly divider?: JSX.Element; // Need to limit to <Divider />
@@ -18,15 +25,17 @@ export default function ColorHero({
   divider,
 }: ColorHeroProps) {
   return (
-    <VStack
-      py={{ base: "3em", lg: "4em" }}
-      h="full"
+    <Box
       minH={minH ?? "auto"}
+      py={{ base: "4em", lg: "5em" }}
       bgColor={bgColor ?? "heritageOrange.100"}
-      justify="center"
+      boxShadow={
+        // Unsure if desirable
+        "0 10px 6px -6px rgba(0, 0, 0, 0.1)"
+      }
     >
       <Container>
-        <>
+        <VStack align="left" spacing="1.5em">
           {typeof heading === "string" ? (
             <Heading
               color={textColor ?? "white"}
@@ -39,7 +48,7 @@ export default function ColorHero({
             heading
           )}
           {divider}
-          {text ? (
+          {typeof text === "string" ? (
             <Text
               color={textColor ?? "white"}
               fontSize={{ base: "md", md: "lg" }}
@@ -47,9 +56,11 @@ export default function ColorHero({
             >
               {text}
             </Text>
-          ) : null}
-        </>
+          ) : (
+            text
+          )}
+        </VStack>
       </Container>
-    </VStack>
+    </Box>
   );
 }

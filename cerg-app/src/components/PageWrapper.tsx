@@ -1,7 +1,7 @@
 import { Flex, Spacer } from "@chakra-ui/react";
 import { CategoryLabel } from "../types/navigation-types";
-import Footer from "./Footer";
-import NavBar from "./NavBar/NavBar";
+import Footer from "./Navigation/Footer";
+import NavBar from "./Navigation/NavBar";
 
 type PageWrapperProps = {
   category?: CategoryLabel;

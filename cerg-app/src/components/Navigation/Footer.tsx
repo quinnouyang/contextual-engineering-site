@@ -8,10 +8,10 @@ import {
   Spacer,
   Text,
 } from "@chakra-ui/react";
-import FullWordmark from "../figures/full-wordmark";
-import ShortWordmark from "../figures/short-wordmark";
-import VerticalDivider from "../figures/vertical-divider";
-import { footerPrimaryItems, footerSecondaryItems } from "../types/navigation-types";
+import FullWordmark from "../../figures/full-wordmark";
+import ShortWordmark from "../../figures/short-wordmark";
+import VerticalDivider from "../../figures/vertical-divider";
+import { footerPrimaryItems, footerSecondaryItems } from "../../types/navigation-types";
 
 export default function Footer() {
   return (

@@ -9,7 +9,7 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
-import { Project } from "../types/projects-types";
+import { Project } from "../../types/projects-types";
 
 const bgColor = "illiniBlue";
 const bgHoverColor = "rgba(19, 41, 75, 0.90)"; // illiniBlue with opacity
@@ -57,7 +57,9 @@ export default function ProjectCard({
       </Box>
       <VStack
         h="full"
+        spacing="1em"
         p={{ base: "1.5em", md: "2em" }}
+        align="left"
         bgColor={bgColor}
         _groupHover={{ bgColor: link ? bgHoverColor : "" }}
         transition="background-color 150ms"
@@ -65,7 +67,7 @@ export default function ProjectCard({
         <Heading color={fgColor} fontSize={{ base: "xl", md: "2xl" }}>
           {title}
         </Heading>
-        <Divider />
+        <Divider borderColor="white" />
         <Text color={fgColor} fontSize="md">
           {description}
         </Text>

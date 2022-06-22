@@ -4,7 +4,7 @@ export type NavCategory = NavItem & { readonly children: NavPage[] };
 export type NavPage = NavItem & { readonly link: string };
 export type CategoryLabel = { readonly label: string };
 
- export const navbarItems: Array<NavCategory | NavPage> = [
+export const navbarItems: Array<NavCategory | NavPage> = [
   {
     label: "About",
     children: [
@@ -47,8 +47,8 @@ export type CategoryLabel = { readonly label: string };
         link: "/predictive-tool",
       },
       {
-        label: "Courses & Certificate",
-        link: "/courses-certificate",
+        label: "Courses & Textbook",
+        link: "/courses-textbook",
       },
     ],
   },
