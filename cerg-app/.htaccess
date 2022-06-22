@@ -1,0 +1,21 @@
+# DO NOT REMOVE OR MODIFY. CLOUDLINUX ENV VARS CONFIGURATION BEGIN
+<IfModule Litespeed>
+SetEnv NODE_ENV production node server.js
+</IfModule>
+# DO NOT REMOVE OR MODIFY. CLOUDLINUX ENV VARS CONFIGURATION END
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^.]+)$ $1.html [NC,L]
+
+RewriteEngine on
+RewriteCond %{THE_REQUEST} /([^.]+).html [NC]
+RewriteRule ^ /%1 [NC,L,R]
+
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^ %{REQUEST_URI}.html [NC,L]
+RewriteCond %{HTTP_HOST} ^cergtest1\.web\.illinois\.edu$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.cergtest1\.web\.illinois\.edu$
+RewriteRule ^team$ "https\:\/\/cergtest1\.web\.illinois\.edu\/people" [R=302,L]
+
+ErrorDocument 404 /404.html
