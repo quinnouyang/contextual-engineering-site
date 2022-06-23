@@ -1,10 +1,9 @@
-# CERG @ Illinois Website
+![UIUC](cerg-app/public/vector-graphics/full-wordmark.svg)
 
-This repository will house the source code of the [UIUC Contextual Engineering Research Group website](https://contextual.engineering.illinois.edu/). It primarily uses React, (probably) [Frontity]([url](https://frontity.org/)), Next.js, and Chakra UI. Instead of hard-coded content, Frontity would enable Wordpress to serve as a content management system (CMS) by fetching data from it to feed into a React application. The project has two main workflows: designing the web application (`cerg-app`) and testing the anticipated integration of Frontity (`frontity-migration`).
+# Contextual Engineering @ Illinois
 
-As of 7/1/2022, most focus is towards **designing the UI** in `cerg-app` to aim for an initial deployment of late July 2022. This deployment would not use Frontity and instead (temporarily) have hard-coded content. Afterwards, there should be a migration towards using that framework.
+This repository houses the source code of the [Contextual Engineering Research Group website](https://contextual.engineering.illinois.edu/) at the University of Illinois Urbana-Champaign. (Yeah, it's a mouthful.) It primarily uses the JS frameworks React, Next.js, Chakra UI, and (hopefully) [Frontity]([url](https://frontity.org/)). Currently, the site exists as a static HTML build on CPanel, rooted at `cerg-app`. After finishing the intial design, we'll plan to implement separate content management using Frontity, rooted at `frontity-migration`.
 
-This is a volunteer project. PRs are welcome, though note that little material may exist to be "workable".
+Instead of hard-coded content, Frontity enables WordPress to serve as a content management system (CMS) by fetching data from it to feed into a React application. (Our old site was a plain WordPress build.) Most development focus is towards **designing the UI** in `cerg-app`. This deployment does not use Frontity and instead (temporarily) uses hard-coded content. Afterwards, we'll attempt migrating towards using that framework.
 
-### Current Staging Site (Static HTML Build)
-https://cergtest1.web.illinois.edu/
+This is a volunteer project. PRs and issue involvement are welcome, though you should contact me through qouyang3@illinois.edu first.
