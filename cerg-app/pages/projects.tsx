@@ -24,7 +24,7 @@ const heroProps: ColorHeroProps = {
 // Hard-coded minimum child width to fit container maxW (?)
 export default function ProjectsPage() {
   return (
-    <PageWrapper category={{ label: "Research" }}>
+    <PageWrapper {...{ mainTitle: "Research Projects", category: "Research" }}>
       <Hero {...heroProps} />
       <Container maxW="container.xl" py={{ base: "2em", md: "3em", lg: "4em" }}>
         <SimpleGrid minChildWidth="20em" spacing="1.5em">

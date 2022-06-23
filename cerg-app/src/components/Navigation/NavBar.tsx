@@ -18,9 +18,8 @@ import MobileMenu from "./MobileMenu";
 import BlockLogo from "../../figures/block-logo";
 import VerticalDivider from "../../figures/vertical-divider";
 import OrangeBar from "../../figures/orange-bar";
-import { CategoryLabel } from "../../types/navigation-types";
 
-export default function NavBar(currCategory: CategoryLabel) {
+export default function NavBar({ currCategory }: { currCategory: string }) {
   const { isOpen, onToggle } = useDisclosure();
   const [isDesktop] = useMediaQuery("(min-width: 62em)"); // 62em is default lg screen width
 
@@ -36,7 +35,7 @@ export default function NavBar(currCategory: CategoryLabel) {
           <HeadingLogo />
           {isDesktop ? (
             <Box display={{ base: "none", lg: "flex" }}>
-              <DesktopMenu {...currCategory} />
+              <DesktopMenu label={currCategory} />
             </Box>
           ) : (
             <HStack spacing={0}>

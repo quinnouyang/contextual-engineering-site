@@ -45,7 +45,7 @@ export default function PeoplePage() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
-    <PageWrapper category={{ label: "People" }}>
+    <PageWrapper {...{mainTitle: "Our People", category: "People"}}>
       <ColorHero {...heroProps} />
       <Container
         maxW="container.xl"

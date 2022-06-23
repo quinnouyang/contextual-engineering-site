@@ -3,7 +3,7 @@ import PageWrapper from "../src/components/PageWrapper";
 
 export default function GroupPage() {
   return (
-    <PageWrapper category={{ label: "About" }}>
+    <PageWrapper {...{ mainTitle: "About the Group", category: "About" }}>
       {/* Responsive UI! Arrays and objects (for < 3 breakpoints) */}
       <Container maxW="container.xl" p={0}>
         {/* <Flex

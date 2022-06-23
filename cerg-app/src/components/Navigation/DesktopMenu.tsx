@@ -12,7 +12,7 @@ import {
   PopoverArrow,
 } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
-import { CategoryLabel, navbarItems } from "../../types/navigation-types";
+import { navbarItems } from "../../types/navigation-types";
 
 // Temporary fix: React 18 conflict (downgraded to v17 for now...)
 export const PopoverTrigger: React.FC<{ children: React.ReactNode }> =
@@ -23,7 +23,7 @@ const textColor = "illiniBlue";
 const highlightColor = "illiniOrange";
 
 // TO-DO: Simplify names and styling properties and behaviors (especially text color consistency)
-export default function DesktopMenu({ label }: CategoryLabel) {
+export default function DesktopMenu({ label }: { label: string }) {
   const { onOpen, onClose } = useDisclosure();
   const [isNotTouchScreen] = useMediaQuery("(pointer: fine)");
 
