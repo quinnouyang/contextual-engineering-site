@@ -1,7 +1,6 @@
 import {
   VStack,
   Container,
-  Divider,
   Heading,
   Text,
   Box,
