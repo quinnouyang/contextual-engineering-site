@@ -9,8 +9,7 @@ export const projects: Project[] = [
   {
     title: "Predicting Rural Responses to Climate Change",
     description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. (50 words)`,
-    image:
-      "https://contextual.engineering.illinois.edu/wp-content/uploads/2018/06/spring-measurement-students.jpg",
+    image: "/images/spring-measurement-students.jpeg",
     link: "/#",
   },
   {
@@ -18,8 +17,7 @@ export const projects: Project[] = [
       "Extra Long Title to Test How Extra Long Titles Look. Okay, Maybe a Bit Longer...",
     description:
       "“Applying Societal Context to Technical Design Processes” workshop will be held at the 129th ASEE Annual Conference and Exposition in Minneapolis, MN, June 26. (24 words)",
-    image:
-      "http://contextual.engineering.illinois.edu/wp-content/uploads/2018/01/gabions1-1024x768.jpg",
+    image: "/images/gabions1.jpeg",
   },
   {
     title: "Predicting Rural Responses to Climate Change",
@@ -38,8 +36,7 @@ export const projects: Project[] = [
   {
     title: "Predicting Rural Responses to Climate Change",
     description: `Testing a modified version of the Contextual Tool, undergraduate researchers are surveying various rural communities in Illinois to determine their co`,
-    image:
-      "https://contextual.engineering.illinois.edu/wp-content/uploads/2018/06/spring-measurement-students.jpg",
+    image: "/images/spring-measurement-students.jpeg",
     link: "/#",
   },
   {

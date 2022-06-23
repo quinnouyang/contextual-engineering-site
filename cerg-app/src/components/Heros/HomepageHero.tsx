@@ -101,7 +101,7 @@ export default function HomepageHero() {
               align={"center"}
               w={"100%"}
               h={"100%"}
-              src="http://contextual.engineering.illinois.edu/wp-content/uploads/2018/06/spring-measurement-students-1024x376.jpg"
+              src="/images/IMG_0868-1024x768.jpeg"
             />
           </Box>
         </Flex>
