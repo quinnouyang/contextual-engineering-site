@@ -11,11 +11,6 @@ import {
 } from "@chakra-ui/react";
 import { Project } from "../../types/projects-types";
 
-const bgColor = "illiniBlue";
-const bgHoverColor = "rgba(19, 41, 75, 0.90)"; // illiniBlue with opacity
-const fgColor = "cloudWhite.50";
-
-// Hard-coded dimensions to fit ~300 ch. text descriptions
 export default function ProjectCard({
   title,
   description,
@@ -24,23 +19,21 @@ export default function ProjectCard({
 }: Project) {
   return (
     <VStack
-      as={Link}
+      as={link ? Link : undefined}
       href={link}
-      pointerEvents={link ? "auto" : "none"} // Disables link behavior if does not exist
       role="group"
       w="full"
       maxW={{ base: "24em", md: "32em" }}
       h="full"
       spacing={0}
-      boxShadow="0em 0em 0.5em 0em grey"
-      _hover={{ boxShadow: "0em 0em 0.5em 0em black" }}
+      bgColor="white"
     >
       <Box w="inherit" position="relative" display="inline-block">
         <AspectRatio
           ratio={3 / 2}
           w="inherit"
-          // Hard-coded duration and opacity. Duration from default "fast" animation. Should refactor
-          _groupHover={{ opacity: link ? "90%" : "" }}
+          // Eyeballed duration from default "fast" animation. Should refactor
+          _groupHover={{ opacity: link ? 0.8 : 1 }}
           transitionDuration="150ms"
         >
           <Image src={image} alt={title} />
@@ -50,25 +43,31 @@ export default function ProjectCard({
             position="absolute"
             top="1em"
             right="1em"
-            boxSize={{ base: "1.5em", sm: "2em" }}
-            color="cloudWhite.50"
+            boxSize="2em"
+            color="white"
           />
         ) : null}
       </Box>
-      <VStack
-        h="full"
-        spacing="1em"
-        p={{ base: "1.5em", md: "2em" }}
-        align="left"
-        bgColor={bgColor}
-        _groupHover={{ bgColor: link ? bgHoverColor : "" }}
-        transition="background-color 150ms"
-      >
-        <Heading color={fgColor} fontSize={{ base: "xl", md: "2xl" }}>
+      <Box h="0.75em" w="full" bgColor="illiniOrange" />
+      <VStack spacing="1em" p={{ base: "1.5em", md: "2em" }} align="left">
+        <Heading
+          fontSize="2xl"
+          fontWeight="bold"
+          _groupHover={{ color: link ? "illiniOrange" : "auto" }}
+          transition="150ms"
+        >
           {title}
         </Heading>
-        <Divider borderColor="white" />
-        <Text color={fgColor} fontSize="md">
+        <Divider
+          borderColor="illiniBlue"
+          _groupHover={{ borderColor: link ? "illiniOrange" : "auto" }}
+          transition="150ms"
+        />
+        <Text
+          fontSize="md"
+          _groupHover={{ color: link ? "illiniOrange" : "auto" }}
+          transition="150ms"
+        >
           {description}
         </Text>
       </VStack>

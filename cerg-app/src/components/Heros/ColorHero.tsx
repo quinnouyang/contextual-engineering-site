@@ -39,7 +39,7 @@ export default function ColorHero({
           {typeof heading === "string" ? (
             <Heading
               color={textColor ?? "white"}
-              fontSize={{ base: "4xl", lg: "6xl" }}
+              fontSize={{ base: "4xl", md: "5xl", lg: "6xl" }}
               fontWeight="bold"
             >
               {heading}

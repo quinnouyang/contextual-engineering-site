@@ -1,9 +1,11 @@
+import { ExternalLinkIcon } from "@chakra-ui/icons";
 import {
   AspectRatio,
   Button,
   Divider,
   Heading,
   Image,
+  Link,
   Popover,
   PopoverContent,
   PopoverTrigger as OrigPopoverTrigger,
@@ -21,21 +23,24 @@ export const PopoverTrigger: React.FC<{ children: React.ReactNode }> =
 
 const CARD_WIDTH = "18em";
 
-const CardInfo = (person: Person) => {
+const CardInfo = ({ name, title, shortBio, link }: Person) => {
   return (
-    <VStack p="1em" boxShadow="0em 0em 0.5em 0em grey">
+    <VStack p="1em">
       <VStack spacing="0.2em">
         <Heading fontSize="xl" textAlign="center">
-          {person.name}
+          {name}
         </Heading>
-        {person.title && <Text fontSize="md">{person.title}</Text>}
+        {title && <Text fontSize="md">{title}</Text>}
       </VStack>
       <Divider />
-      <Text fontSize="sm">{person.shortBio}</Text>
+      <Text fontSize="sm">{shortBio}</Text>
       <Divider />
       <Text fontSize="xs" fontStyle="italic">
         Full biography page coming soon...
       </Text>
+      {/* {link ? (
+        <ExternalLinkIcon as={Link} href={link} boxSize="1em" color="illiniBlue" />
+      ) : null} */}
     </VStack>
   );
 };
@@ -60,23 +65,23 @@ export default function BioCard({
       // Otherwise multiple popovers remain for too long
       openDelay={0}
       closeDelay={0}
+      matchWidth
     >
       {({ isOpen }) => (
         <>
           <PopoverTrigger>
             {/* Button to allow clicking to close card (as in demo Popover), though clicking briefly highlights image blue */}
-            <Button h="inherit" p={0} _focus={{ bgColor: "none" }}>
+            <Button h="inherit" p={0}>
               <AspectRatio
                 ratio={3 / 4}
                 w={CARD_WIDTH}
                 onClick={scroll}
                 ref={ref}
-                boxShadow="0em 0em 0.5em 0em grey"
               >
                 <Image
                   src={person.headshot}
                   alt={person.name}
-                  opacity={isOtherOpen && !isOpen ? 0.5 : 1}
+                  opacity={isOtherOpen && !isOpen ? 0.7 : 1}
                   transition="opacity 0.5s linear"
                 />
               </AspectRatio>

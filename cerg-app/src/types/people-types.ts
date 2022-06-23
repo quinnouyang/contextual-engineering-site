@@ -3,7 +3,7 @@ export type Person = {
   readonly title?: string;
   readonly shortBio: string;
   readonly headshot: string;
-  readonly externalSite?: string;
+  readonly link?: string;
 }
 
 export const people: Person[] = [
@@ -12,7 +12,7 @@ export const people: Person[] = [
     title: "Ph.D, P.E.",
     shortBio: `Ann holds Professional Engineer licenses and is a LEED Accredited Professional. In addition to teaching senior design and contextual engineering courses at UIUC, Ann acts as faculty advisor to Engineers Without Borders-UIUC and AWWA/WEF student chapters. Her research focus is on investigating the relationship between technical design and non-engineering considerations such as politics, culture and economics.`,
     headshot: "/images/smiley-e1580149018141-768x1024.jpeg",
-    externalSite:
+    link:
       "https://appliedresearch.illinois.edu/directory/profile/awitmer",
   },
   {

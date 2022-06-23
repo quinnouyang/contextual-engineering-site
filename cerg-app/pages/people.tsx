@@ -1,4 +1,11 @@
-import { Box, Flex, Heading, useDisclosure } from "@chakra-ui/react";
+import {
+  Box,
+  Container,
+  Flex,
+  Heading,
+  SimpleGrid,
+  useDisclosure,
+} from "@chakra-ui/react";
 import BioCard from "../src/components/Cards/BioCard";
 import { people, Person } from "../src/types/people-types";
 import PageWrapper from "../src/components/PageWrapper";
@@ -40,25 +47,27 @@ export default function PeoplePage() {
   return (
     <PageWrapper category={{ label: "People" }}>
       <ColorHero {...heroProps} />
-      <Flex
-        wrap="wrap"
-        gap="1em"
-        justify="center"
-        m={{ base: "2em", sm: "4em" }}
+      <Container
+        maxW="container.xl"
+        p={0}
+        m={{ base: "1em", sm: "2em", md: "3em" }}
+        pb="10em"
+        alignSelf="center"
       >
-        {people.map((person, i) => {
-          return (
-            <BioCard
-              key={i + person.name}
-              person={person}
-              isOtherOpen={isOpen}
-              onOpen={onOpen}
-              onClose={onClose}
-            />
-          );
-        })}
-      </Flex>
-      <Box h="15em" />
+        <Flex wrap="wrap" gap="1em" justify="center">
+          {people.map((person, i) => {
+            return (
+              <BioCard
+                key={i + person.name}
+                person={person}
+                isOtherOpen={isOpen}
+                onOpen={onOpen}
+                onClose={onClose}
+              />
+            );
+          })}
+        </Flex>
+      </Container>
     </PageWrapper>
   );
 }

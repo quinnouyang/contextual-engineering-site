@@ -17,7 +17,7 @@ export default function PageWrapper({
   const currCategory = category ?? { label: "" };
 
   return (
-    <Flex direction="column" minH="100vh" bg={bgColor ?? "lightGrey"}>
+    <Flex direction="column" minH="100vh" bg={bgColor ?? "warmWhite"}>
       <NavBar {...currCategory} />
       {children}
       <Spacer />

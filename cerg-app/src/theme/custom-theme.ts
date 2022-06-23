@@ -49,7 +49,8 @@ const customTheme = extendTheme(
         200: "#4D69A0",
         300: "#1E3877", // Dark blue
       },
-      lightGrey: "#F0F0F0",
+      warmWhite: "#F0F0F0",
+      coolWhite: "#EBF1F4"
     },
     fonts: {
       heading: `Montserrat, sans-serif`,
