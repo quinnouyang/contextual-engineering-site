@@ -3,7 +3,7 @@ import PageWrapper from "../src/components/PageWrapper";
 
 export default function ErrorPage() {
   return (
-    <PageWrapper>
+    <PageWrapper {...{ mainTitle: "404 Error" }}>
       <Container maxW="container.xl" centerContent>
         <Heading m="1em">
           either u got a wrong/outdated link or i broke something:(

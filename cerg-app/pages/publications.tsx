@@ -11,7 +11,7 @@ const heroProps: ColorHeroProps = {
 };
 export default function PublicationsPage() {
   return (
-    <PageWrapper category={{ label: "Research" }}>
+    <PageWrapper {...{ mainTitle: "Publications", category: "Research" }}>
       <ColorHero {...heroProps} />
       <Container py={{ base: "2em", md: "3em", lg: "4em" }}>
         <Text mb="1em" fontSize="xl" fontWeight="semibold">

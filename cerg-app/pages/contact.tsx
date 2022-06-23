@@ -8,7 +8,7 @@ const heroProps: ColorHeroProps = {
 
 export default function TemplatePage() {
   return (
-    <PageWrapper>
+    <PageWrapper {...{ mainTitle: "Contact Us" }}>
       <ColorHero {...heroProps} />
       <Container py="3em">
         <Text fontSize="xl">Email: contextual-engineering@illinois.edu</Text>

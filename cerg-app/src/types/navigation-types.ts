@@ -2,7 +2,6 @@
 export type NavItem = { readonly label: string };
 export type NavCategory = NavItem & { readonly children: NavPage[] };
 export type NavPage = NavItem & { readonly link: string };
-export type CategoryLabel = { readonly label: string };
 
 export const navbarItems: Array<NavCategory | NavPage> = [
   {
