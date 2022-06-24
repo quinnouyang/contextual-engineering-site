@@ -50,7 +50,7 @@ export default function ColorHero({
           {typeof text === "string" ? (
             <Text
               color={textColor ?? "white"}
-              fontSize={{ base: "md", md: "lg" }}
+              fontSize={{ base: "md", md: "lg", lg: "xl" }}
               fontWeight="medium"
             >
               {text}

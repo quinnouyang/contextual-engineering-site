@@ -1,6 +1,7 @@
 import {
   Box,
   Container,
+  Divider,
   Flex,
   Heading,
   SimpleGrid,
@@ -32,6 +33,7 @@ const heroProps: ColorHeroProps = {
     </Flex>
   ),
   bgColor: "illiniBlue",
+  text: "A diverse group of students and researchers from the University of Illinois Urbana-Champaign. Beyond typical engineering backgrounds, members bring a wide variety of experiences, skills, and knowledge to incorporate technical design with the social sciences and humanities.",
 };
 
 export type BioCardProps = {
@@ -45,7 +47,7 @@ export default function PeoplePage() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
-    <PageWrapper {...{mainTitle: "Our People", category: "People"}}>
+    <PageWrapper {...{ mainTitle: "Our People", category: "People" }}>
       <ColorHero {...heroProps} />
       <Container
         maxW="container.xl"
