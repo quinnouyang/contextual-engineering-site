@@ -50,7 +50,7 @@ const customTheme = extendTheme(
         300: "#1E3877", // Dark blue
       },
       warmWhite: "#F0F0F0",
-      coolWhite: "#EBF1F4"
+      coolWhite: "#EBF1F4",
     },
     fonts: {
       heading: `Montserrat, sans-serif`,
@@ -91,6 +91,12 @@ const customTheme = extendTheme(
         baseStyle: {
           color: "illiniBlue",
           _hover: { textDecoration: "none", color: "illiniOrange" },
+        },
+        variants: {
+          underline: {
+            textDecoration: "underline",
+            _hover: { color: "illiniOrange" },
+          },
         },
       },
       Divider: {
