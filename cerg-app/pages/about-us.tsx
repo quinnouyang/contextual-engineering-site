@@ -7,13 +7,15 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
+import CaptionedImage, {
+  CaptionedImageProps,
+} from "../src/components/CaptionedImage";
 import ColorHero, { ColorHeroProps } from "../src/components/Heros/ColorHero";
 import PageWrapper from "../src/components/PageWrapper";
 
 const heroProps: ColorHeroProps = {
   variant: "largeHero",
   heading: "About Us",
-  text: "adjhasjldhakdhjklasdhjasdhalsdha dasjdh aslkdhajsldh ajslsdh jaslkdh alskjdh asljkd ",
 };
 
 type Information = {
@@ -32,20 +34,30 @@ const moreInformation: Information[] = [
   },
   {
     label: "Research Projects",
-    link: "/projects",
+    link: "/research-projects",
   },
 ];
 
-export default function GroupPage() {
+const imageProps: CaptionedImageProps = {
+  image: (
+    <Image
+      src="/images/Manu Picture.JPG"
+      w="full"
+      h="md"
+      objectFit="cover"
+      alt="Children surrounding a water tap in Cameroon"
+    />
+  ),
+  caption:
+    "School children in the village of Ntisaw, Cameroon, gather around a water tap to wash their hands.",
+};
+
+export default function AboutUsPage() {
   return (
-    <PageWrapper {...{ mainTitle: "About the Group", category: "About" }}>
+    <PageWrapper {...{ mainTitle: "About Us", category: "About" }}>
       <ColorHero {...heroProps} />
-      <Container py={{ base: "2em", md: "3em", lg: "4em" }}>
-        <Image
-          src="/images/spring-measurement-students.jpeg"
-          objectFit="cover"
-          h="md"
-        />
+      <Container pt="2em" pb={{ base: "2em", md: "3em", lg: "4em" }}>
+        <CaptionedImage {...imageProps} />
         <VStack p={["1.5em", "2em"]} spacing="1em" bgColor="white" align="left">
           <Text variant="article">
             The Contextual Engineering Research Group (CERG) at the{" "}
@@ -81,16 +93,24 @@ export default function GroupPage() {
             technical problem-solving from other development responsibilities
             creates an entirely new way of pursuing technical solutions to
             engineering challenges around the world:{" "}
-            <Link href="/contextual-engineering" variant="underline">
+            <Link href="/about-contextual-engineering" variant="underline">
               contextual engineering
             </Link>
             .
           </Text>
           <Divider />
-          <Heading fontSize="lg">To Learn More:</Heading>
+          <Heading fontSize={["lg", "xl"]}>More Information</Heading>
           <VStack pl="2em" align="left">
             {moreInformation.map(({ label, link }) => (
-              <Link href={link}>{label}</Link>
+              <Link
+                key={label}
+                href={link}
+                variant="underline"
+                w="fit-content"
+                fontSize={["md", "lg"]}
+              >
+                {label}
+              </Link>
             ))}
           </VStack>
         </VStack>

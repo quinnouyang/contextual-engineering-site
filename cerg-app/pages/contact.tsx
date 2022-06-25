@@ -3,6 +3,7 @@ import ColorHero, { ColorHeroProps } from "../src/components/Heros/ColorHero";
 import PageWrapper from "../src/components/PageWrapper";
 
 const heroProps: ColorHeroProps = {
+  variant: "largeHero",
   heading: "Contact Us",
 };
 

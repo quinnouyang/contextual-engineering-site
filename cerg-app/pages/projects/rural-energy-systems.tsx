@@ -37,13 +37,14 @@ const imageProps: CaptionedImageProps = {
       objectFit="cover"
       w="full"
       maxH="30em"
+      alt="A small solar panel system in a Navajo reservation."
     />
   ),
   caption:
     "CERG researchers and local guides discuss a water tank from a previous project and survey the Navajo land.",
 };
 
-const relevantPublications: Publication[] = [
+const relatedPublications: Publication[] = [
   {
     title:
       "The Need for Teaching Place-Based Contextualization For Sustainable Power System Infrastructure Design",
@@ -61,7 +62,6 @@ export default function SampleProject() {
     <PageWrapper
       {...{
         mainTitle: "Contextualized Design of Rural Energy Systems",
-        includeSecondaryTitle: false,
         category: "Research",
       }}
     >
@@ -132,12 +132,14 @@ export default function SampleProject() {
             ethnography.
           </Text>
           <Divider />
-          <Heading fontSize={["lg", "xl"]}>Relevant Publications:</Heading>
+          <Heading fontSize={["lg", "xl"]}>Related Publications</Heading>
           <VStack pl="2em" align="left">
-            {relevantPublications.map(({ title, link }) => (
+            {relatedPublications.map(({ title, link }) => (
               <Link
+                key={title}
                 href={link}
                 variant="underline"
+                w="fit-content"
                 fontSize={["md", "lg"]}
                 isExternal
               >

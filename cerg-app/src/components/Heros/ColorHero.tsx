@@ -48,7 +48,11 @@ export default function ColorHero({
             <Divider borderColor={fgColor ?? "white"} />
           ) : null}
           {typeof text === "string" ? (
-            <Text variant="article" color={fgColor ?? "white"}>
+            <Text
+              variant="article"
+              fontWeight="medium"
+              color={fgColor ?? "white"}
+            >
               {text}
             </Text>
           ) : (

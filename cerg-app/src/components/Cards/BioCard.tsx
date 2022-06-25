@@ -66,6 +66,7 @@ export default function BioCard({
       openDelay={0}
       closeDelay={0}
       matchWidth
+      isLazy
     >
       {({ isOpen }) => (
         <>
@@ -82,7 +83,7 @@ export default function BioCard({
                   src={person.headshot}
                   alt={person.name}
                   opacity={isOtherOpen && !isOpen ? 0.7 : 1}
-                  transition="opacity 0.5s linear"
+                  transition="opacity 0.75s linear"
                 />
               </AspectRatio>
             </Button>

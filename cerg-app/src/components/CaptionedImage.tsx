@@ -10,9 +10,9 @@ export default function CaptionedImage({
   caption,
 }: CaptionedImageProps) {
   return (
-    <VStack align="center">
+    <VStack align="center" bgColor="white">
       {image}
-      <Text fontSize={["xs", "sm", "md"]}>{caption}</Text>
+      <Text px="2em" fontSize={["xs", "sm", "md"]}>{caption}</Text>
     </VStack>
   );
 }

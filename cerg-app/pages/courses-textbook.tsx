@@ -1,23 +1,24 @@
 import { Container, VStack, Text, Image } from "@chakra-ui/react";
-import ColorHero from "../src/components/Heros/ColorHero";
+import ColorHero, { ColorHeroProps } from "../src/components/Heros/ColorHero";
 import PageWrapper from "../src/components/PageWrapper";
+
+const heroProps: ColorHeroProps = {
+  variant: "mediumHero",
+  heading: "Courses and Textbook",
+};
 
 export default function CoursesTextbookPage() {
   return (
     <PageWrapper
       {...{ mainTitle: "Courses & Textbook", category: "Resources" }}
     >
-      <ColorHero
-        {...{
-          heading:
-            "Contextualized Design of Rural...[title]",
-        }}
-      />
+      <ColorHero {...heroProps} />
       <Container py={{ base: "2em", md: "3em", lg: "4em" }}>
         <Image
           src="/images/spring-measurement-students.jpeg"
           objectFit="cover"
           h="md"
+          alt=""
         />
         <VStack p="2em" spacing="1em" bgColor="white" align="left">
           <Text fontSize={{ base: "md", md: "lg" }}>

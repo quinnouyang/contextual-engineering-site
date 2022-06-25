@@ -27,6 +27,7 @@ export default function ProjectCard({
       h="full"
       spacing={0}
       bgColor="white"
+      isExternal={link?.at(0) !== "/"} // Internal links start with /, others with https, etc.
     >
       <Box w="inherit" position="relative" display="inline-block">
         <AspectRatio
