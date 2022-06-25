@@ -6,6 +6,7 @@ import PageWrapper from "../src/components/PageWrapper";
 import { publications } from "../src/types/publications-types";
 
 const heroProps: ColorHeroProps = {
+  variant: "largeHero",
   heading: "Publications",
   bgColor: "illiniBlue",
 };

@@ -1,10 +1,11 @@
-import { Container, SimpleGrid, Center, Divider, Text } from "@chakra-ui/react";
-import Hero, { ColorHeroProps } from "../src/components/Heros/ColorHero";
+import { Container, SimpleGrid, Center, Text } from "@chakra-ui/react";
+import ImageHero, { ImageHeroProps } from "../src/components/Heros/ImageHero";
 import PageWrapper from "../src/components/PageWrapper";
 import ProjectCard from "../src/components/Cards/ProjectCard";
 import { projects } from "../src/types/projects-types";
 
-const heroProps: ColorHeroProps = {
+const heroProps: ImageHeroProps = {
+  variant: "largeHero",
   heading: "Research Projects",
   text: (
     <Text color="white" fontSize={{ base: "md", md: "lg" }} fontWeight="medium">
@@ -17,15 +18,15 @@ const heroProps: ColorHeroProps = {
       est laborum.
     </Text>
   ),
-  divider: <Divider borderColor="white" />,
-  bgColor: "illiniBlue",
+  image: "/images/mayor-interview-2.JPG",
+  imagePos: "50% 60%",
 };
 
 // Hard-coded minimum child width to fit container maxW (?)
 export default function ProjectsPage() {
   return (
     <PageWrapper {...{ mainTitle: "Research Projects", category: "Research" }}>
-      <Hero {...heroProps} />
+      <ImageHero {...heroProps} />
       <Container maxW="container.xl" py={{ base: "2em", md: "3em", lg: "4em" }}>
         <SimpleGrid minChildWidth="20em" spacing="1.5em">
           {projects.map((project, i) => {

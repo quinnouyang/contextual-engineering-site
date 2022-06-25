@@ -9,7 +9,11 @@ import {
   useMediaQuery,
 } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
-import { navbarItems, NavCategory, NavPage } from "../../types/navigation-types";
+import {
+  navbarItems,
+  NavCategory,
+  NavPage,
+} from "../../types/navigation-types";
 
 export default function MobileMenu() {
   return (
@@ -64,7 +68,7 @@ const MenuItem = (item: NavCategory | NavPage) => {
         in={isOpen}
         animateOpacity /*</Stack>style={{ margin: "0!important" }}*/
       >
-        <Divider />
+        <Divider borderColor="cloudWhite.300" />
         <Stack spacing={0} pl="1em" divider={<StackDivider />}>
           {"children" in item
             ? item.children.map(({ label, link }, i, arr) =>

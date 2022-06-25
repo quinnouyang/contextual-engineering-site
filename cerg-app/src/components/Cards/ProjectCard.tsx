@@ -1,4 +1,3 @@
-import { ExternalLinkIcon } from "@chakra-ui/icons";
 import {
   AspectRatio,
   Box,
@@ -14,6 +13,7 @@ import { Project } from "../../types/projects-types";
 export default function ProjectCard({
   title,
   description,
+  researchers,
   image,
   link,
 }: Project) {
@@ -38,19 +38,11 @@ export default function ProjectCard({
         >
           <Image src={image} alt={title} />
         </AspectRatio>
-        {link ? (
-          <ExternalLinkIcon
-            position="absolute"
-            top="1em"
-            right="1em"
-            boxSize="2em"
-            color="white"
-          />
-        ) : null}
       </Box>
       <Box h="0.75em" w="full" bgColor="illiniOrange" />
       <VStack spacing="1em" p={{ base: "1.5em", md: "2em" }} align="left">
         <Heading
+          textDecoration={link ? "underline" : undefined}
           fontSize="2xl"
           fontWeight="bold"
           _groupHover={{ color: link ? "illiniOrange" : "auto" }}
@@ -58,18 +50,15 @@ export default function ProjectCard({
         >
           {title}
         </Heading>
-        <Divider
-          borderColor="illiniBlue"
-          _groupHover={{ borderColor: link ? "illiniOrange" : "auto" }}
-          transition="150ms"
-        />
-        <Text
-          fontSize="md"
-          _groupHover={{ color: link ? "illiniOrange" : "auto" }}
-          transition="150ms"
-        >
-          {description}
-        </Text>
+        <Text fontSize="md">{description}</Text>
+        {researchers ? (
+          <>
+            <Divider borderColor="illiniBlue" />
+            <Text fontSize="sm" fontWeight="medium">
+              Researcher(s): {researchers}
+            </Text>
+          </>
+        ) : null}
       </VStack>
     </VStack>
   );

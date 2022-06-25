@@ -4,55 +4,51 @@ import {
   Heading,
   Text,
   Box,
+  Divider,
 } from "@chakra-ui/react";
 
 export type ColorHeroProps = {
-  readonly minH?: string | number | any; // Need to limit to {base:, sm: }, etc.
+  readonly variant: "largeHero" | "mediumHero" | "smallHero";
   readonly heading: string | React.ReactNode;
   readonly text?: string | React.ReactNode;
+  readonly py?: string | number | any; // Need to limit to {base:, sm: }, etc.
+  readonly fgColor?: string;
   readonly bgColor?: string;
-  readonly textColor?: string;
-  readonly divider?: JSX.Element; // Need to limit to <Divider />
+  readonly divider?: boolean;
 };
 
 export default function ColorHero({
-  minH,
+  variant,
   heading,
   text,
+  py,
+  fgColor,
   bgColor,
-  textColor,
   divider,
 }: ColorHeroProps) {
   return (
     <Box
-      minH={minH ?? "auto"}
-      py={{ base: "4em", lg: "5em" }}
+      py={py ?? ["2em", "3em", "4em", "5em"]}
       bgColor={bgColor ?? "heritageOrange.100"}
-      boxShadow={
-        // Unsure if desirable
-        "0 10px 6px -6px rgba(0, 0, 0, 0.1)"
-      }
     >
       <Container>
-        <VStack align="left" spacing="1.5em">
+        <VStack align="left" spacing="1em">
           {typeof heading === "string" ? (
             <Heading
-              color={textColor ?? "white"}
-              fontSize={{ base: "4xl", md: "5xl", lg: "6xl" }}
-              fontWeight="bold"
+              variant={variant}
+              maxW="container.md"
+              color={fgColor ?? "white"}
             >
               {heading}
             </Heading>
           ) : (
             heading
           )}
-          {divider}
+          {divider === true ? ( // If not specified, assume false
+            <Divider borderColor={fgColor ?? "white"} />
+          ) : null}
           {typeof text === "string" ? (
-            <Text
-              color={textColor ?? "white"}
-              fontSize={{ base: "md", md: "lg" }}
-              fontWeight="medium"
-            >
+            <Text variant="article" color={fgColor ?? "white"}>
               {text}
             </Text>
           ) : (

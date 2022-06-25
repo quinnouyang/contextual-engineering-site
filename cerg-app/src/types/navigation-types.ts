@@ -9,11 +9,11 @@ export const navbarItems: Array<NavCategory | NavPage> = [
     children: [
       {
         label: "The Group",
-        link: "/group",
+        link: "/about-us",
       },
       {
         label: "Contextual Engineering",
-        link: "/contextual-engineering",
+        link: "/about-contextual-engineering",
       },
     ],
   },

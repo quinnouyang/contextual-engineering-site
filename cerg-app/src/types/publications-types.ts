@@ -38,7 +38,12 @@ export const publications: Publication[] = [
       "The Need for Teaching Place-Based Contextualization For Sustainable Power System Infrastructure Design",
     abstract:
       "Using the example of energy infrastructure design, researchers examine the failures of student-designed international energy projects, and make the case for programs that teach contextual analysis to engineering students.",
-    link: "https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9399820",
+    link: "https://doi.org/10.1109/TPWRS.2021.3072069",
+  },
+  {
+    title:
+      "Contextual Challenges in using DERs to Advance Remote Electrification",
+    link: "https://scholarspace.manoa.hawaii.edu/items/917251b2-40ee-4cc9-b3b8-19b6a47b422e/full",
   },
   {
     title:
