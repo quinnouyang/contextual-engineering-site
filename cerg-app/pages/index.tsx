@@ -89,7 +89,7 @@ export default function Homepage() {
                   <UnorderedList>
                     {focusAreas.map(({ label }) => {
                       return (
-                        <ListItem color="white">
+                        <ListItem key={label} color="white">
                           <Text key={label} variant="article" color="white">
                             {label}
                           </Text>
@@ -147,7 +147,10 @@ export default function Homepage() {
               w={{ base: "full", md: "50%" }}
               maxH={{ base: "20em", md: "full" }}
             >
-              <Image src="/images/PXL_20220511_220036479.jpg" />
+              <Image
+                src="/images/PXL_20220511_220036479.jpg"
+                alt="A small solar panel system in a Navajo reservation."
+              />
             </AspectRatio>
           </Stack>
         </VStack>
