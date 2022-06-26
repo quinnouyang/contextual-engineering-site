@@ -45,8 +45,8 @@ export const people: Person[] = [
   },
   {
     name: "Jessica Altenberg",
-    shortBio: `Jessica is a sophomore studying mechanical engineering. Besides engaging in contextual engineering research, Jessica is involved in American Society of Mechanical Engineers and TAMID. Her research focuses on the application of contextual engineering in the realm of entrepreneurship. Specifically, she is looking at how entrepreneurs interpret and apply contextual thinking to their respective projects, as well as the effects of the use of contextual engineering principles.`, // REVISE
-    headshot: "/images/headshots/Professional-Headshot.jpeg", // Old site
+    shortBio: `Jessie is a senior studying Mechanical Engineering with a minor in business. Jessie has been a member of CERG since spring 2020. For her first two years with the group, Jessie and her research partners conducted a case study on Enactus USA. Currently she is a research assistant for Talal Khalid, assisting with research related to optimizing public fast charging of electric vehicles, with a focus on demand charges. Outside of CERG Jessie is involved in TAMID and the Illinois Consulting Academy on campus.`,
+    headshot: "/images/headshots/altenberg.jpeg",
   },
   {
     name: "Kariem Hashem", // Old site
