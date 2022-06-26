@@ -1,6 +1,13 @@
-import { CloseButton, Flex, Link, Spacer, Text } from "@chakra-ui/react";
+import {
+  // CloseButton,
+  Flex,
+  // Heading,
+  // Link,
+  Spacer,
+  // Text,
+} from "@chakra-ui/react";
 import Head from "next/head";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import Footer from "./Navigation/Footer";
 import NavBar from "./Navigation/NavBar";
 
@@ -19,13 +26,13 @@ export default function PageWrapper({
   bgColor,
   children,
 }: PageWrapperProps) {
-  const [bannerClosed, setBannerClosed] = useState(false);
-  useEffect(() => {
-    if (localStorage["bannerClosed"] || bannerClosed) {
-      setBannerClosed(true);
-      localStorage["bannerClosed"] = true;
-    }
-  }, [bannerClosed]);
+  // const [cookieClosed, setCookieClosed] = useState(false);
+  // useEffect(() => {
+  //   if (localStorage["cookieClosed"] || cookieClosed) {
+  //     setCookieClosed(true);
+  //     localStorage["cookieClosed"] = true;
+  //   }
+  // }, [cookieClosed]);
 
   const fullTitle = // If not specified, assume true (i.e. no secondary only if explicitly false)
     includeSecondaryTitle === false
@@ -34,12 +41,27 @@ export default function PageWrapper({
 
   return (
     <>
-      {!bannerClosed ? (
-        <Flex p="0.5em" justify="center" align="center" bg="illiniBlue">
+      {/* {!cookieClosed ? (
+        <Flex
+          position="fixed"
+          p="0.5em"
+          justify="center"
+          align="center"
+          bg="illiniBlue"
+        >
           <Spacer />
+          <Heading>Cookie Notice</Heading>
           <Text color="white" fontSize={["xs", "sm", "md"]} fontWeight="medium">
-            Welcome to our new website! Some things may be broken or incomplete,
-            so please bear with us.
+            We use Cookies on this site to enhance your experience and improve
+            our marketing efforts. By continuing to browse without changing your
+            browser settings to block or delete Cookies, you agree to{" "}
+            <Link
+              href="https://www.vpaa.uillinois.edu/resources/cookies"
+              variant="underline"
+              isExternal
+            >
+              the storing of Cookies and related technologies on your device.
+            </Link>
           </Text>
           <Spacer />
           <CloseButton
@@ -48,10 +70,10 @@ export default function PageWrapper({
             color="white"
             _hover={{ color: "illiniOrange" }}
             rounded="none"
-            onClick={() => setBannerClosed(true)}
+            onClick={() => setCookieClosed(true)}
           />
         </Flex>
-      ) : null}
+      ) : null} */}
       <Head key="PageWrapper">
         <title>{fullTitle}</title>
       </Head>

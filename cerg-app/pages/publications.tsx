@@ -9,7 +9,6 @@ const heroProps: ColorHeroProps = {
   variant: "largeHero",
   heading: "Publications",
   text: "A non-exhasutive list of journal articles related to contextual engineering with at least one author affiliated with CERG.",
-  bgColor: "illiniBlue",
 };
 export default function PublicationsPage() {
   return (

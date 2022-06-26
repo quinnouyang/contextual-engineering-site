@@ -69,11 +69,7 @@ export default function SampleProject() {
       <Container py={["2em", "3em", "4em"]}>
         <VStack p="2em" spacing="1em" bgColor="white" align="left">
           <Text variant="article">
-            This project is using a case study of energy needs in the Navajo
-            Nation to better understand how the local social, political,
-            cultural, and economic contexts influences the selection of the most
-            appropriate engineering design solutions for rural and remote
-            communities.
+            This project is a case study of energy needs in the Navajo Nation aimed at better understanding how the local social, political, cultural, and economic factors influence the selection of the most appropriate engineering design solutions for rural and remote communities.
           </Text>
           <Text variant="article">
             The case study is a partnership between CERG, the{" "}
