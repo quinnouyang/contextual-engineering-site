@@ -43,12 +43,7 @@ const coursesHeroProps: ColorHeroProps = {
 const textbookHeroProps: ColorHeroProps = {
   variant: "largeHero",
   heading: "Textbook",
-  text: "Coming this summer: the first comprehensive text dedicated towards contexutal engineering!",
-};
-
-const heroProps: ColorHeroProps = {
-  variant: "mediumHero",
-  heading: "Courses and Textbook",
+  text: "Coming this summer: the first comprehensive text dedicated towards contexutal engineering. ",
 };
 
 export default function CoursesTextbookPage() {
