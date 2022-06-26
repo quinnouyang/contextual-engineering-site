@@ -32,9 +32,8 @@ export default function MobileMenu() {
 }
 const MenuItem = (item: NavCategory | NavPage) => {
   const { isOpen, onToggle } = useDisclosure();
-  const hoverColor = useMediaQuery("(pointer: fine)").at(0)
-    ? "illiniOrange"
-    : "illiniBlue";
+  const [isNotTouchscreen] = useMediaQuery("(pointer: fine)");
+  console.log(isNotTouchscreen);
 
   return (
     <Stack>
@@ -49,14 +48,18 @@ const MenuItem = (item: NavCategory | NavPage) => {
         <Link
           fontSize="xl"
           fontWeight="medium"
-          _groupHover={{ color: hoverColor }}
+          _groupHover={{
+            color: isNotTouchscreen ? "illiniOrange" : "illiniBlue",
+          }}
         >
           {item.label}
         </Link>
         {"children" in item ? (
           <ChevronDownIcon
             transition="0.25s"
-            _groupHover={{ color: hoverColor }}
+            _groupHover={{
+              color: isNotTouchscreen ? "illiniOrange" : "illiniBlue",
+            }}
             transform={isOpen ? "rotate(180deg)" : ""}
             boxSize="1.5em"
           />
