@@ -60,7 +60,12 @@ export default function CoursesTextbookPage() {
       <Container py={["1em", "2em", "3em"]}>
         <VStack spacing={["1em", "1.5em"]}>
           {COURSES.map(({ title, subtitle, description, link }) => (
-            <VStack p={["1.5em", "2em"]} align="left" bgColor="white">
+            <VStack
+              key="title"
+              p={["1.5em", "2em"]}
+              align="left"
+              bgColor="white"
+            >
               <Heading
                 as={link ? Link : undefined}
                 href={link}

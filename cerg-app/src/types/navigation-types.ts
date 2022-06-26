@@ -13,7 +13,7 @@ export const navbarItems: Array<NavCategory | NavPage> = [
       },
       {
         label: "Contextual Engineering",
-        link: "/contextual-engineering",
+        link: "/about-contextual-engineering",
       },
     ],
   },
@@ -30,7 +30,7 @@ export const navbarItems: Array<NavCategory | NavPage> = [
       },
       {
         label: "Projects",
-        link: "/projects",
+        link: "/research-projects",
       },
       {
         label: "Publications",

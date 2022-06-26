@@ -1,12 +1,4 @@
-import {
-  Box,
-  Container,
-  Divider,
-  Flex,
-  Heading,
-  SimpleGrid,
-  useDisclosure,
-} from "@chakra-ui/react";
+import { Container, Flex, Heading, useDisclosure } from "@chakra-ui/react";
 import BioCard from "../src/components/Cards/BioCard";
 import { people, Person } from "../src/types/people-types";
 import PageWrapper from "../src/components/PageWrapper";
@@ -32,7 +24,7 @@ const heroProps: ColorHeroProps = {
       </Heading>
     </Flex>
   ),
-  text: "An extraordinary assembly of undergraduates, graduates, and staff from UIUC. Members bring a wide variety of experiences, skills, and knowledge to incorporate technical design with the social sciences and humanities.",
+  text: "An extraordinary assembly of undergraduates, graduates, and staff at UIUC. Members bring a wide variety of experiences, skills, and knowledge to incorporate technical design with the social sciences and humanities.",
   divider: true,
   bgColor: "illiniBlue",
 };
