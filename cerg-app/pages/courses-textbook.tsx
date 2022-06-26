@@ -44,7 +44,7 @@ const coursesHeroProps: ColorHeroProps = {
 const textbookHeroProps: ColorHeroProps = {
   variant: "largeHero",
   heading: "Textbook",
-  text: "Coming this summer: the first comprehensive text dedicated to Contexutal Engineering!",
+  text: "Coming this summer: the first comprehensive text dedicated to Contextual Engineering!",
   bgColor: "illiniBlue",
   divider: true,
 };
