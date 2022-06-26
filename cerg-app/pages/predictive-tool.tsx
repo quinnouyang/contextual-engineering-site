@@ -3,10 +3,8 @@ import {
   Text,
   Container,
   VStack,
-  OrderedList,
   UnorderedList,
   ListItem,
-  Center,
   Link,
   Alert,
   AlertDescription,
@@ -20,6 +18,7 @@ const heroProps: ColorHeroProps = {
   variant: "mediumHero",
   heading: "Contextual Predictive Tool",
   text: `Intendend for use during the preparation and research of an engineering project, this core resource helps to identify non-engineering conditions that should be considered in designing and implementing sustainable infrastructure.`,
+  bgColor: "illiniBlue",
 };
 
 export default function PredictiveToolPage() {

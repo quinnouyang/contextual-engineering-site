@@ -37,13 +37,13 @@ const coursesHeroProps: ColorHeroProps = {
       .
     </Text>
   ),
-  bgColor: "illiniBlue",
 };
 
 const textbookHeroProps: ColorHeroProps = {
   variant: "largeHero",
   heading: "Textbook",
   text: "Coming this summer: the first comprehensive text dedicated to Contexutal Engineering!",
+  bgColor: "illiniBlue",
 };
 
 export default function CoursesTextbookPage() {
