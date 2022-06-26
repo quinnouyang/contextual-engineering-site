@@ -65,7 +65,7 @@ export default function ContextualEngineeringPage() {
             technical and societal knowledge to construct solutions for the
             specific needs of client communities, increasing the probability of
             successful implementation and adoption. Additionally, in
-            Contextual Engineering, solving physical needs supercedes solving
+            Contextual Engineering, solving physical needs supersedes solving
             political, economic, or social problems.
           </Text>
           <Text variant="article">
