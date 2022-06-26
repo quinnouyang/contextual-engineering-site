@@ -7,7 +7,7 @@ import { projects } from "../src/types/projects-types";
 const heroProps: ColorHeroProps = {
   variant: "largeHero",
   heading: "Research Projects",
-  text: `Taking place domestically and internationally, research initiatives by students and staff at CERG span a wide variety of applications, particularly in aiding rural communities.`,
+  text: `Taking place domestically and internationally, research initiatives by students and staff at CERG span a wide variety of applications, particularly in aiding rural communities. Many of these include analyses of contexual factors and infrastructural projects.`,
   divider: true,
   bgColor: "illiniBlue",
 };
