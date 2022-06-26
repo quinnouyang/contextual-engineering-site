@@ -2,17 +2,19 @@ import HomepageHero from "../src/components/Heros/HomepageHero";
 import PageWrapper from "../src/components/PageWrapper";
 import {
   VStack,
-  HStack,
   Text,
   Container,
   Box,
   Center,
-  Button,
   Link,
   Image,
   UnorderedList,
-  ListItem
+  ListItem,
+  Heading,
+  AspectRatio,
+  Stack,
 } from "@chakra-ui/react";
+import { focusAreas } from "../src/types/focus-areas-types";
 
 export default function Homepage() {
   return (
@@ -23,54 +25,143 @@ export default function Homepage() {
       }}
     >
       <HomepageHero />
+      <Box bgColor="illiniBlue">
+        <Container>
+          <Stack
+            direction={{
+              base: "column-reverse",
+              lg: "row",
+            }}
+            w="full"
+            spacing={0}
+            align="center"
+          >
+            <AspectRatio
+              ratio={1}
+              // maxW="40em"
+              w={{ base: "full", lg: "50%" }}
+              maxH={{ base: "20em", lg: "full" }}
+            >
+              <Image
+                src="/images/IMG_0628.JPG"
+                alt="Ann Witmer talks with local residents at their water well."
+              />
+            </AspectRatio>
+            <VStack w={{ base: "full", lg: "50%" }} p={["1.5em", "2em"]}>
+              <Stack
+                direction={{ base: "column", md: "row", lg: "column" }}
+                p={["1.5em", "2em"]}
+                spacing="1em"
+                align="left"
+              >
+                <VStack
+                  align="left"
+                  w={{ base: "full", md: "50%", lg: "full" }}
+                >
+                  <Heading
+                    as={Link}
+                    href="/about-us"
+                    textDecoration="underline"
+                    _hover={{
+                      textDecoration: "underline",
+                      color: "illiniOrange",
+                    }}
+                    fontWeight="bold"
+                    color="white"
+                  >
+                    About the Group
+                  </Heading>
+                  <Text variant="article" color="white">
+                    CERG consists of University of Illinois students and staff
+                    researching user-informed approaches in engineering projects
+                    around the world.
+                  </Text>
+                </VStack>
+                <VStack align="left">
+                  <Heading
+                    as={Link}
+                    href="/focus-areas"
+                    textDecoration="underline"
+                    _hover={{
+                      textDecoration: "underline",
+                      color: "illiniOrange",
+                    }}
+                    fontWeight="bold"
+                    fontSize={["xl", "2xl"]}
+                    color="white"
+                  >
+                    Our Focus Areas
+                  </Heading>
+                  <VStack align="left" pl="1em">
+                    <UnorderedList>
+                      {focusAreas.map(({ label }) => {
+                        return (
+                          <ListItem color="white">
+                            <Text key={label} variant="article" color="white">
+                              {label}
+                            </Text>
+                          </ListItem>
+                        );
+                      })}
+                    </UnorderedList>
+                  </VStack>
+                </VStack>
+              </Stack>
+            </VStack>
+          </Stack>
+        </Container>
+      </Box>
       <Container py={["1em", "2em", "3em"]}>
         <VStack>
-          <Box p={["1.5em", "2em"]} bgColor="white" width="100%">
-            <Text fontSize="3xl"><Center>What is Contextual Engineering?</Center></Text>
-            <Text fontSize="xl">
-              The creative application of science, mathematical methods, societal
-              understanding, and place-based knowledge to address a physical need that
-              serves the user of the innovation while recognizing the influence of
-              stakeholder motivations, capabilities, and values.
-            </Text>
-          </Box>
-          <Box p={["1.5em", "2em"]} bgColor="white" width="100%">
-            <Text fontSize="3xl"><Center>Example Project: XYZ</Center></Text>
-            <HStack>
-              <Text variant="article">
-                During this project we did stuff. And more stuff.
-                During this project we did stuff. And more stuff.
-                During this project we did stuff. And more stuff.
-                During this project we did stuff. And more stuff.
-                During this project we did stuff. And more stuff.
-                During this project we did stuff. And more stuff.
-                During this project we did stuff. And more stuff.
-              </Text>
-              <Image
-                alt={"Some Image"}
-                fit={"cover"}
-                align={"center"}
-                w={"100%"}
-                h={"100%"}
-                src="/images/IMG_0868-1024x768.jpeg"
-              />
-            </HStack>
-            <HStack paddingTop="2em" justify="center">
-              <Button
+          <Stack
+            direction={{
+              base: "column-reverse",
+              md: "row",
+            }}
+            w="full"
+            spacing={0}
+          >
+            <VStack
+              w={{ base: "full", md: "50%" }}
+              p={["1.5em", "2em"]}
+              align="left"
+              bgColor="white"
+              borderLeftWidth="1em"
+              borderColor="illiniOrange"
+            >
+              <Heading fontSize={["lg", "xl"]}>Featured Project</Heading>
+              <Heading
                 as={Link}
-                href="https://google.com/"
-                isExternal
-                size="lg"
-                textColor="white"
-                bg="illiniOrange"
-                _hover={{ color: "white", bg: "illiniBlue" }}
+                href="/projects/rural-energy-systems"
+                textDecoration="underline"
+                _hover={{ color: "illiniOrange", textDecoration: "underline" }}
+                maxW="20em"
+                fontSize={["2xl", "3xl"]}
+                fontWeight="bold"
               >
-                Learn More&nbsp;
-              </Button>
-            </HStack>
-          </Box>
+                Contextualized Design of Rural Energy Systems for Improved
+                Sustainability
+              </Heading>
+              <Text variant="article">
+                This project is a case study of energy needs in the Navajo
+                Nation aimed at better understanding how the local social,
+                political, cultural, and economic factors influence the
+                selection of the most appropriate engineering design solutions
+                for rural and remote communities.
+              </Text>
+            </VStack>
+            <AspectRatio
+              ratio={1}
+              w={{ base: "full", md: "50%" }}
+              maxH={{ base: "20em", md: "full" }}
+            >
+              <Image src="/images/PXL_20220511_220036479.jpg" />
+            </AspectRatio>
+          </Stack>
           <Box p={["1.5em", "2em"]} bgColor="white" width="100%">
-            <Text fontSize="3xl"><Center>Learn More</Center></Text>
+            <Text fontSize="3xl">
+              <Center>Learn More</Center>
+            </Text>
             <UnorderedList>
               <ListItem>
                 <Text variant="article">
@@ -81,14 +172,14 @@ export default function Homepage() {
               </ListItem>
               <ListItem>
                 <Text variant="article">
-                    <Link color="blue" href="/focus-areas">
-                      Projects
-                    </Link>
-                  </Text>
-                </ListItem>
+                  <Link color="blue" href="/focus-areas">
+                    Projects
+                  </Link>
+                </Text>
+              </ListItem>
             </UnorderedList>
           </Box>
-      </VStack>
+        </VStack>
       </Container>
     </PageWrapper>
   );

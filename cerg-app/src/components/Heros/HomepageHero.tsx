@@ -2,129 +2,75 @@ import { ExternalLinkIcon } from "@chakra-ui/icons";
 import {
   Container,
   Stack,
-  Flex,
-  Box,
   Heading,
   Text,
   Button,
   Image,
-  Icon,
-  IconProps,
   Link,
+  VStack,
 } from "@chakra-ui/react";
+import CaptionedImage, { CaptionedImageProps } from "../CaptionedImage";
+
+const imageProps: CaptionedImageProps = {
+  image: (
+    <Image
+      minW={{ base: "auto", lg: "30em", xl: "40em" }}
+      minH="xs"
+      objectFit="cover"
+      boxShadow="2xl"
+      alt={
+        "Engineers assessing the surrounding water sources near a community in Honduras."
+      }
+      src="/images/spring-measurement-students.jpeg"
+    />
+  ),
+  caption:
+    "Engineers assess the surrounding water sources in El Tablon, Honduras for a water-stressed Lenca community that would not consider drawing from the nearby springs as they held sacred meaning to their culture.",
+  whiteBg: false,
+};
 
 export default function HomepageHero() {
   return (
-    <Container maxW="container.xl">
+    <Container maxW="8xl" py={["2em", "4em", "6em"]}>
       <Stack
         align="center"
-        py="5em"
-        direction={{ base: "column", md: "row" }}
+        direction={{ base: "column", lg: "row" }}
         spacing={{ base: "1.5em", md: "3em" }}
       >
-        <Stack flex={1} spacing="1em">
+        <VStack
+          align="left"
+          spacing={["1em", "1.5em"]}
+          maxW={{ basee: "full", md: "40em" }}
+        >
           <Heading
-            lineHeight={1.1}
+            lineHeight={1.2}
             fontWeight="bold"
-            fontSize={{ base: "3xl", sm: "4xl", lg: "5xl" }}
+            fontSize={{ base: "4xl", sm: "5xl", md: "6xl" }}
           >
-            <Text
-              as={"span"}
-              position={"relative"}
-              _after={{
-                content: "''",
-                width: "full",
-                height: "20%",
-                position: "absolute",
-                bottom: "5px",
-                left: 0,
-                bg: "illiniOrange",
-                zIndex: -1,
-              }}
-            >
-              Contextual Engineering
-            </Text>
-            <br />
-            <Text as={"span"} color="illiniOrange">
-              Certificate
-            </Text>
+            <Text>Contextual Engineering</Text>
+            <Text color="illiniOrange">Certificate</Text>
           </Heading>
-          <Text fontSize={{ base: "lg", md: "xl" }} color="illiniBlue">
+          <Text variant="article" p={0}>
             University of Illinois undergraduate and graduate students, learn
-            about user-informed design and engineering in a 12 credit-hour
+            about community-informed design and engineering in a 12 credit-hour
             certificate program!
           </Text>
-          <Stack
-            spacing={{ base: 4, sm: 6 }}
-            direction={{ base: "column", sm: "row" }}
+          <Button
+            as={Link}
+            href="https://abe.illinois.edu/academics/certificates/contextual-engineering-certificate"
+            maxW={{ base: "full", lg: "fit-content" }}
+            isExternal
+            size="lg"
+            textColor="white"
+            bg="illiniOrange"
+            _hover={{ color: "white", bg: "illiniBlue" }}
           >
-            <Button
-              as={Link}
-              href="https://abe.illinois.edu/academics/certificates/contextual-engineering-certificate"
-              isExternal
-              size="lg"
-              textColor="white"
-              bg="illiniOrange"
-              _hover={{ color: "white", bg: "illiniBlue" }}
-            >
-              Learn More&nbsp;
-              <ExternalLinkIcon />
-            </Button>
-          </Stack>
-        </Stack>
-        <Flex
-          flex={1}
-          justify={"center"}
-          align={"center"}
-          position={"relative"}
-          w={"full"}
-        >
-          {/* <Blob
-            w={"150%"}
-            h={"150%"}
-            position={"absolute"}
-            top={"-20%"}
-            left={0}
-            zIndex={-1}
-            color={useColorModeValue("red.50", "illiniOrange")}
-          /> */}
-          <Box
-            position={"relative"}
-            height={"300px"}
-            boxShadow={"2xl"}
-            width={"full"}
-            overflow={"hidden"}
-          >
-            <Image
-              alt={"Hero Image"}
-              fit={"cover"}
-              align={"center"}
-              w={"100%"}
-              h={"100%"}
-              src="/images/IMG_0868-1024x768.jpeg"
-            />
-          </Box>
-        </Flex>
+            Sign Up&nbsp;
+            <ExternalLinkIcon />
+          </Button>
+        </VStack>
+        <CaptionedImage {...imageProps} />
       </Stack>
     </Container>
   );
 }
-
-export const Blob = (props: IconProps) => {
-  return (
-    <Icon
-      width={"100%"}
-      viewBox="0 0 578 440"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
-      <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M239.184 439.443c-55.13-5.419-110.241-21.365-151.074-58.767C42.307 338.722-7.478 282.729.938 221.217c8.433-61.644 78.896-91.048 126.871-130.712 34.337-28.388 70.198-51.348 112.004-66.78C282.34 8.024 325.382-3.369 370.518.904c54.019 5.115 112.774 10.886 150.881 49.482 39.916 40.427 49.421 100.753 53.385 157.402 4.13 59.015 11.255 128.44-30.444 170.44-41.383 41.683-111.6 19.106-169.213 30.663-46.68 9.364-88.56 35.21-135.943 30.551z"
-        fill="currentColor"
-      />
-    </Icon>
-  );
-};

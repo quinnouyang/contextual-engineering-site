@@ -26,7 +26,7 @@ export const focusAreas: FocusArea[] = [
     image: "/images/IMG_4124.jpg",
   },
   {
-    label: "Climate Change Responses",
+    label: "Reponses to Climate Change",
     description: `Applying context to ensure engineering projects are environmentally and socially sustainable, particularly for rural communities that are prone to the damaging effects of climate change. Although developing long-lasting solutions are important, significant focus often goes towards determining how various communities will respond to global warming, critically informing technical decisions.`,
     image: "/images/freetown mudslides.JPG",
   },

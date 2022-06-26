@@ -17,8 +17,9 @@ import ColorHero, { ColorHeroProps } from "../src/components/Heros/ColorHero";
 const heroProps: ColorHeroProps = {
   variant: "mediumHero",
   heading: "Contextual Predictive Tool",
-  text: `Intendend for use during the preparation and research of an engineering project, this core resource helps to identify non-engineering conditions that should be considered in designing and implementing sustainable infrastructure.`,
+  text: `Intended for use during the preparation and research before an engineering project, this core resource helps to identify non-engineering conditions that should be considered in designing and implementing sustainable infrastructure.`,
   bgColor: "illiniBlue",
+  divider: true,
 };
 
 export default function PredictiveToolPage() {
@@ -57,13 +58,12 @@ export default function PredictiveToolPage() {
             </ListItem>
             <ListItem>
               <Text variant="article">
-                <b>Mechanical</b> - the capacity to keep things running
+                <b>Mechanical</b> - the capacity to keep technology running
               </Text>
             </ListItem>
             <ListItem>
               <Text variant="article">
-                <b>Economic</b> - the influence of material need (any necessary
-                resources, not just money)
+                <b>Economic</b> - the influence of monetary or material need
               </Text>
             </ListItem>
           </UnorderedList>
@@ -76,6 +76,7 @@ export default function PredictiveToolPage() {
             values, beliefs, and identities that determine whether a society
             will accept, adopt and evolve the infrastructure they design.
           </Text>
+          <Heading fontWeight="bold">How to Access the Predictive Tool</Heading>
           <Alert
             status="warning"
             variant="subtle"
@@ -86,13 +87,14 @@ export default function PredictiveToolPage() {
           >
             <AlertIcon boxSize="3em" mr={0} />
             <AlertTitle mt={4} mb={1} fontSize="lg">
-              Tool Access is on Our Old Website
+              Tool Access is on a Different Website
             </AlertTitle>
             <AlertDescription w="full" fontSize={["sm", "md"]}>
               As this new website is still under development,{" "}
-              <b>account access to the tool is still on the old site</b>.{" "}
+              <b>account access to the tool is still on the old site</b>. <br />
+              Please note that{" "}
               <Link href="/" variant="underline">
-                contextual.<b>engineering</b>
+                contextual.<b>engineering</b>...
               </Link>{" "}
               is our new domain and{" "}
               <Link
@@ -100,12 +102,11 @@ export default function PredictiveToolPage() {
                 variant="underline"
                 isExternal
               >
-                contextual.<b>web</b>
+                contextual.<b>web</b>...
               </Link>{" "}
               is our old one.
             </AlertDescription>
           </Alert>
-          <Heading fontWeight="bold">How to Access the Predictive Tool</Heading>
           <VStack align="left" pl="1em">
             <Text variant="article">
               <b>1.</b> Create an account on our old site at{" "}
@@ -134,8 +135,8 @@ export default function PredictiveToolPage() {
               .
             </Text>
             <Text variant="article">
-              <b>4.</b> Click "Download the Predictive Text Tool" at the bottom
-              of this page:{" "}
+              <b>4.</b> Click &quot;Download the Predictive Text Tool&quot; near
+              the <b>bottom</b> of this page:{" "}
               <Link
                 variant="underline"
                 href="https://contextual.web.illinois.edu/tool/"

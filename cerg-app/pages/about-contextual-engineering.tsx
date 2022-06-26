@@ -27,15 +27,15 @@ const heroProps: ColorHeroProps = {
 const imageProps: CaptionedImageProps = {
   image: (
     <Image
-      src="/images/spring-measurement-students.jpeg"
+      src="/images/IMG_4124.jpg"
       w="full"
       h="md"
       objectFit="cover"
-      alt="Engineers assessing local water resources in El Tablon, Honduras."
+      alt="Women surrounding a water well with a pulley in Senegal."
     />
   ),
   caption:
-    "Contextual engineers assess the physical conditions surrounding water resources for the community of El Tablon, Honduras, a water-stressed Lenca community that would not consider drawing from the nearby springs as they held sacred meaning to their culture.",
+    "A hand-drawn pulley eases the work of drawing water from a well in Keur Balla Marie, Senegal. The well also provides a gathering space for women in the village, many of whom are not permitted outside of their homes unless they are working on household chores.",
 };
 
 export default function ContextualEngineeringPage() {
@@ -54,11 +54,11 @@ export default function ContextualEngineeringPage() {
           <Text variant="article">
             The justification for contextual engineering can be best viewed
             through the perspective of humanitarian engineering. When projects
-            fail to last under a recipient community's care, it is often from
-            popular but false assumptions: that industrialized infrastructure
-            must also develop a society's economic and social conditions, and
-            that their failure to maintain infrastructure stems from
-            insufficient training.
+            fail to last under a recipient community&npos;s care, it is often
+            from popular but false assumptions: that industrialized
+            infrastructure must also develop a society&npos;s economic and
+            social conditions, and that their failure to maintain infrastructure
+            stems from insufficient training.
           </Text>
           <Text variant="article">
             Challenging these assumptions, contextual engineering utilizes

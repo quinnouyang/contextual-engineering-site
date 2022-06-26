@@ -15,6 +15,7 @@ const heroProps: ColorHeroProps = {
   variant: "largeHero",
   heading: "Focus Areas",
   text: "Much of the research at CERG falls under one or more focus areas that surround understanding client contexts in a variety of situations. This non-exhaustive list captures some of the core applications of contextual engineering.",
+  divider: true,
 };
 
 export default function FocusAreasPage() {

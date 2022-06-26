@@ -21,6 +21,14 @@ export const people: Person[] = [
     headshot: "/images/headshots/jsoltysikdotcom-45-768x512.jpeg",
   },
   {
+    name: "Alex Timmons", // Old site
+    title: "M.S.",
+    shortBio: `Alex Timmons recently completed her master's degree in the Department of Agricultural and Biological Engineering. Her research focused on bridging the gap between a technical engineering mindset and a sociological and cultural focus in relation to engineering design projects, particularly internationally. Alex has a strong dual interest in engineering and social sciences and hopes to share this passion with others by encouraging the importance of cultural focus within technical design. Her undergraduate work focused particularly on water resources and systems and she hopes to expand on this work within her graduate studies, as well as studying the potential impact of contextual engineering processes on a global scale.`,
+    headshot:
+      "/images/headshots/Alexandra-Timmons-Engineering-Cropped-293x300.jpeg",
+    link: "https://appliedresearch.illinois.edu/directory/profile/atimmon2",
+  },
+  {
     name: "Muhammad Talal Khalid", // Old site
     shortBio: `Muhammad is a PhD student in the department of Electrical and Computer Engineering. Talal's interests lie in the electrification of the transportation sector, the largest contributor to US greenhouse gas emissions. He takes a systems perspective to understand the interactions between the operations of key stakeholders involved in the development of sustainable EVFCI in demographically and socioeconomically diverse communities by the application of system dynamics framework.`,
     headshot: "/images/headshots/MTK-pic.jpeg",
@@ -124,13 +132,6 @@ export const people: Person[] = [
     title: "E.I.T.",
     shortBio: `Nick is a M.S. student in the Department of Agricultural and Biological Engineering. Looking at cultural, political, educational, technical and economic components of a project, his research focuses on international engineering projects and the impact of a project's origin on its execution and outcome. Nick has been involved with international engineering projects since his undergraduate days at Illinois, and he currently works as a project lead and a board member for a non-profit organization.`,
     headshot: "/images/headshots/Close-Up-250kb-300x300.jpeg",
-  },
-  {
-    name: "Alex Timmons", // Old site
-    title: "M.S.",
-    shortBio: `Alex Timmons recently completed her master's degree in the Department of Agricultural and Biological Engineering. Her research focused on bridging the gap between a technical engineering mindset and a sociological and cultural focus in relation to engineering design projects, particularly internationally. Alex has a strong dual interest in engineering and social sciences and hopes to share this passion with others by encouraging the importance of cultural focus within technical design. Her undergraduate work focused particularly on water resources and systems and she hopes to expand on this work within her graduate studies, as well as studying the potential impact of contextual engineering processes on a global scale.`,
-    headshot:
-      "/images/headshots/Alexandra-Timmons-Engineering-Cropped-293x300.jpeg",
   },
   {
     name: "Kealie Vogel", // Old site

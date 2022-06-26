@@ -14,6 +14,7 @@ const heroProps: ColorHeroProps = {
 const imageProps: CaptionedImageProps = {
   image: (
     <Image
+      pt="1em"
       src="/images/IMG_0938.JPG"
       w="full"
       h="md"
@@ -30,15 +31,25 @@ export default function TemplatePage() {
     <PageWrapper {...{ mainTitle: "Contact Us" }}>
       <ColorHero {...heroProps} />
       <Container py="3em">
-        <VStack p={["1.5em", "2em"]} spacing="1em" bgColor="white" align="left">
+        <VStack p={["1.5em", "2em"]} bgColor="white" align="left">
           <Text variant="article">
-            Email:{" "}
+            For general inquiries:{" "}
             <Link
               href="mailto:contextual-engineering@illinois.edu"
               variant="underline"
               isExternal
             >
               contextual-engineering@illinois.edu
+            </Link>
+          </Text>
+          <Text variant="article">
+            For website-related concerns:{" "}
+            <Link
+              href="mailto:qouyang3@illinois.edu"
+              variant="underline"
+              isExternal
+            >
+              qouyang3@illinois.edu
             </Link>
           </Text>
           {/* <Text variant="article">Phone number: n/a</Text> */}

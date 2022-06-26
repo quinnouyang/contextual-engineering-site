@@ -28,7 +28,8 @@ const coursesHeroProps: ColorHeroProps = {
       these are taught by our principal investigator,{" "}
       <Link
         href="https://appliedresearch.illinois.edu/directory/profile/awitmer"
-        variant="underline"
+        textDecoration="underline"
+        _hover={{ color: "illiniBlue", textDecoration: "underline" }}
         color="white"
         isExternal
       >
@@ -37,6 +38,7 @@ const coursesHeroProps: ColorHeroProps = {
       .
     </Text>
   ),
+  divider: true,
 };
 
 const textbookHeroProps: ColorHeroProps = {
@@ -44,6 +46,7 @@ const textbookHeroProps: ColorHeroProps = {
   heading: "Textbook",
   text: "Coming this summer: the first comprehensive text dedicated to Contexutal Engineering!",
   bgColor: "illiniBlue",
+  divider: true,
 };
 
 export default function CoursesTextbookPage() {
