@@ -98,6 +98,7 @@ export default extendTheme({
       },
       variants: {
         underline: {
+          color: "industrialBlue.300",
           textDecoration: "underline",
           _hover: { textDecoration: "underline", color: "illiniOrange" },
         },
