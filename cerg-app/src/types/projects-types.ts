@@ -87,7 +87,7 @@ export const projects: Project[] = [
   {
     title:
       "Using GIS to Assess Dynamic Accessibility in Public Transportation for Underrepresented Groups",
-    description: `This is a case study addressing the dynamic accessibility provided by the Champaign Urbana Mass Transit District. The study addresses the need for transit services at off-peak times for spontaneous trips, considering the accessible area for different starting locations under a fixed time constraint. Dynamic accessibility was compared across geographies and socioeconomic characteristics as well as temporal considerations of off-peak travel demands.`,
+    description: `This is a case study addressing the dynamic accessibility provided by the Champaign-Urbana Mass Transit District. The study addresses the need for transit services at off-peak times for spontaneous trips, considering the accessible area for different starting locations under a fixed time constraint. Dynamic accessibility was compared across geographies and socioeconomic characteristics as well as temporal considerations of off-peak travel demands.`,
     researchers: "Dale Robbennolt",
     image: "/images/d81_8837.jpeg",
   },

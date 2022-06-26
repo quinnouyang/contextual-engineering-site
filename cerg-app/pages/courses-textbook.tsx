@@ -1,5 +1,3 @@
-import { Container, VStack, Text, Image } from "@chakra-ui/react";
-import ColorHero, { ColorHeroProps } from "../src/components/Heros/ColorHero";
 import PageWrapper from "../src/components/PageWrapper";
 import {
   Container,
@@ -17,6 +15,7 @@ import ColorHero, { ColorHeroProps } from "../src/components/Heros/ColorHero";
 import React from "react";
 
 const coursesHeroProps: ColorHeroProps = {
+  variant: "largeHero",
   heading: "Courses",
   text: (
     <Text
@@ -42,6 +41,7 @@ const coursesHeroProps: ColorHeroProps = {
 };
 
 const textbookHeroProps: ColorHeroProps = {
+  variant: "largeHero",
   heading: "Textbook",
   text: "Coming this summer: the first comprehensive text dedicated towards contexutal engineering!",
 };

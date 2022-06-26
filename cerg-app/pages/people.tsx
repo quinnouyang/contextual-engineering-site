@@ -32,7 +32,7 @@ const heroProps: ColorHeroProps = {
       </Heading>
     </Flex>
   ),
-  text: "An extraordinary assembly of undergraduates, graduates, and staff from the University of Illinois Urbana-Champaign. Members bring a wide variety of experiences, skills, and knowledge to incorporate technical design with the social sciences and humanities.",
+  text: "An extraordinary assembly of undergraduates, graduates, and staff from UIUC. Members bring a wide variety of experiences, skills, and knowledge to incorporate technical design with the social sciences and humanities.",
   divider: true,
   bgColor: "illiniBlue",
 };
@@ -48,7 +48,7 @@ export default function PeoplePage() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
-    <PageWrapper {...{ mainTitle: "Our People", category: "People" }}>
+    <PageWrapper {...{ mainTitle: "People", category: "People" }}>
       <ColorHero {...heroProps} />
       <Container
         maxW="container.xl"

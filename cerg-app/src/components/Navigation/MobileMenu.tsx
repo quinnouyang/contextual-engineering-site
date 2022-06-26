@@ -33,7 +33,6 @@ export default function MobileMenu() {
 const MenuItem = (item: NavCategory | NavPage) => {
   const { isOpen, onToggle } = useDisclosure();
   const [isNotTouchscreen] = useMediaQuery("(pointer: fine)");
-  console.log(isNotTouchscreen);
 
   return (
     <Stack>

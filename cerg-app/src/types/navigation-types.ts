@@ -13,7 +13,7 @@ export const navbarItems: Array<NavCategory | NavPage> = [
       },
       {
         label: "Contextual Engineering",
-        link: "/about-contextual-engineering",
+        link: "/contextual-engineering",
       },
     ],
   },
@@ -30,7 +30,7 @@ export const navbarItems: Array<NavCategory | NavPage> = [
       },
       {
         label: "Projects",
-        link: "/research-projects",
+        link: "/projects",
       },
       {
         label: "Publications",
@@ -85,9 +85,5 @@ export const footerSecondaryItems: NavPage[] = [
   {
     label: "GitHub",
     link: "https://github.com/quinnouyang/contextual-engineering-site",
-  },
-  {
-    label: "Old Website",
-    link: "https://contextual.web.illinois.edu/",
   },
 ];

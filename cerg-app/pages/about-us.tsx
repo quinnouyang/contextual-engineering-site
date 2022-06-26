@@ -25,7 +25,7 @@ type Information = {
 
 const moreInformation: Information[] = [
   {
-    label: "Our People",
+    label: "People",
     link: "/people",
   },
   {
@@ -64,8 +64,8 @@ export default function AboutUsPage() {
             <Link href="http://illinois.edu/" variant="underline" isExternal>
               University of Illinois Urbana-Champaign
             </Link>{" "}
-            investigates the ways in how engineers can work sustainably on
-            projects in communities different from those they are used to. We
+            (UIUC) investigates the ways in how engineers can work sustainably
+            on projects in communities different from those they are used to. We
             explore the application of engineering technology throughout the
             world to evolve our understanding of appropriate technology and
             place-based design, striving to deliver tailored engineering

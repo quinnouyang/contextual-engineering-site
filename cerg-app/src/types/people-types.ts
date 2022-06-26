@@ -10,7 +10,7 @@ export const people: Person[] = [
   {
     name: "Ann-Perry Witmer",
     title: "Ph.D, P.E.",
-    shortBio: `Ann holds Professional Engineer licenses and is a LEED Accredited Professional. In addition to teaching senior design and contextual engineering courses at UIUC, Ann acts as faculty advisor to Engineers Without Borders-UIUC and AWWA/WEF student chapters. Her research focus is on investigating the relationship between technical design and non-engineering considerations such as politics, culture and economics.`, // REVISE
+    shortBio: `The principle investigator at CERG, Ann holds professional engineer licenses and is a LEED accredited professional. In addition to teaching senior design and contextual engineering courses at UIUC, Ann acts as faculty advisor to Engineers Without Borders-UIUC and AWWA/WEF student chapters. Her research focus is on investigating the relationship between technical design and non-engineering considerations such as politics, culture, and economics.`, // REVISE
     headshot: "/images/headshots/smiley-e1580149018141-768x1024.jpeg", // Old site
     link: "https://appliedresearch.illinois.edu/directory/profile/awitmer",
   },
@@ -21,31 +21,31 @@ export const people: Person[] = [
     headshot: "/images/headshots/jsoltysikdotcom-45-768x512.jpeg",
   },
   {
-    name: "Muhammad Talal Khalid",
-    shortBio: `Muhammad is a PhD student in the department of Electrical and Computer Engineering. Talal's interests lie in the electrification of the transportation sector, the largest contributor to US greenhouse gas emissions. He takes a systems perspective to understand the interactions between the operations of key stakeholders involved in the development of sustainable EVFCI in demographically and socioeconomically diverse communities by the application of System Dynamics framework.`, // REVISE
-    headshot: "/images/headshots/MTK-pic.jpeg", // Old site
+    name: "Muhammad Talal Khalid", // Old site
+    shortBio: `Muhammad is a PhD student in the department of Electrical and Computer Engineering. Talal's interests lie in the electrification of the transportation sector, the largest contributor to US greenhouse gas emissions. He takes a systems perspective to understand the interactions between the operations of key stakeholders involved in the development of sustainable EVFCI in demographically and socioeconomically diverse communities by the application of system dynamics framework.`,
+    headshot: "/images/headshots/MTK-pic.jpeg",
   },
   {
     name: "Emily Lawson-Bulten",
     title: "E.I.T",
-    shortBio: `Emily (she/her) is a Ph.D. student in ABE. Her research focuses on increasing community agency in disaster scenarios through their water infrastructure design. She has worked on water projects across the globe, including Jordan, Ecuador, Ethiopia, and currently, Honduras. Before joining the CERG team at UIUC, Emily worked for NRCS as a natural resource engineer and as a private consultant in construction management and natural gas distribution. `,
+    shortBio: `Emily (she/her) is a Ph.D. student in the department of Agriculture and Biological Engineering. Her research focuses on increasing community agency in disaster scenarios through their water infrastructure design. She has worked on water projects across the globe, including Jordan, Ecuador, Ethiopia, and currently, Honduras. Before joining CERG at UIUC, Emily worked for NRCS as a natural resource engineer and as a private consultant in construction management and natural gas distribution.`,
     headshot:
       "/images/headshots/244931942_480104406315112_8069889508813995790_n.jpeg", // Old site
   },
   {
-    name: "Alina “Rory” Lusebrink",
+    name: "Alina Lusebrink",
     title: "M.S.",
-    shortBio: `Alina (hu/hus) is a 3rd year Ph.D. student in Agricultural in Biological Engineering. Hu is interested in the use of bioinspired materials in design and implementation to address climate change appropriately for distinct physical and societal landscapes. Hu is particularly focused on making sustainable change within communities.`,
+    shortBio: `Alina (hu/hus) is a 3rd year Ph.D. student in Agricultural and Biological Engineering. Hu is interested in the use of bioinspired materials in design and implementation to address climate change appropriately for distinct physical and societal landscapes, focusing particularly on making sustainable change within communities.`,
     headshot: "/images/headshots/rory-768x960.jpeg",
   },
   {
     name: "Julissa Nunez",
-    shortBio: `Julissa is second year Masters student in the department of Agriculture and Biological Engineering studying Contextual Engineering. Her masters research is focused on the application of place based context to drinking water system design. Specifically, she aims to identify contextual inflection points in the design process.`,
+    shortBio: `Julissa is second year Masters student in the department of Agriculture and Biological Engineering studying contextual engineering. Her masters research is focused on the application of place based context to drinking water system design. Specifically, she aims to identify contextual inflection points in the design process.`,
     headshot: "/images/headshots/julissa.jpeg", // Old site
   },
   {
     name: "Jessica Altenberg",
-    shortBio: `Jessica is a sophomore studying Mechanical Engineering. Besides engaging in Contextual Engineering research, Jessica is involved in American Society of Mechanical Engineers and TAMID. Jessica is a member of the Special projects team for ASME, working on projects for Engineering Open House and other events throughout the school year.`, // REVISE
+    shortBio: `Jessica is a sophomore studying mechanical engineering. Besides engaging in contextual engineering research, Jessica is involved in American Society of Mechanical Engineers and TAMID. Her research focuses on the application of contextual engineering in the realm of entrepreneurship. Specifically, she is looking at how entrepreneurs interpret and apply contextual thinking to their respective projects, as well as the effects of the use of contextual engineering principles.`, // REVISE
     headshot: "/images/headshots/Professional-Headshot.jpeg", // Old site
   },
   {
@@ -134,7 +134,7 @@ export const people: Person[] = [
   {
     name: "Kealie Vogel", // Old site
     title: "M.S.",
-    shortBio: `Kealie received her B.S. in Natural Resources and Environmental Sciences with a concentration in Human Dimensions of the Environment at the University of Illinois Urbana-Champaign in 2019. Her research interests center around human interests within environmental policymaking and US energy policy, stakeholder experiences with environmental regulatory processes, and the relationship between stakeholder participation in these regulatory processes and positive environmental outcomes. Her graduate research focuses on the politics of the Dakota Access Pipeline (DAPL) in Illinois and Iowa.`,
+    shortBio: `Kealie received her B.S. in Natural Resources and Environmental Sciences with a concentration in Human Dimensions of the Environment at UIUC in 2019. Her research interests center around human interests within environmental policymaking and US energy policy, stakeholder experiences with environmental regulatory processes, and the relationship between stakeholder participation in these regulatory processes and positive environmental outcomes. Her graduate research focuses on the politics of the Dakota Access Pipeline (DAPL) in Illinois and Iowa.`,
     headshot: "/images/headshots/781A8542-202x300.jpeg", // Edited
   },
   {
