@@ -27,7 +27,18 @@ const CardInfo = ({ name, title, shortBio, link }: Person) => {
   return (
     <VStack p="1em">
       <VStack spacing="0.2em">
-        <Heading fontSize="xl" textAlign="center">
+        <Heading
+          as={link ? Link : undefined}
+          href={link}
+          textDecoration={link ? "underline" : "none"}
+          _hover={{
+            color: link ? "illiniOrange" : "illiniBlue",
+            textDecoration: link ? "underline" : "none",
+          }}
+          fontSize="xl"
+          textAlign="center"
+          isExternal
+        >
           {name}
         </Heading>
         {title && <Text fontSize="md">{title}</Text>}
@@ -38,9 +49,6 @@ const CardInfo = ({ name, title, shortBio, link }: Person) => {
       <Text fontSize="xs" fontStyle="italic">
         Full biography page coming soon...
       </Text>
-      {/* {link ? (
-        <ExternalLinkIcon as={Link} href={link} boxSize="1em" color="illiniBlue" />
-      ) : null} */}
     </VStack>
   );
 };

@@ -24,7 +24,7 @@ const heroProps: ColorHeroProps = {
       </Heading>
     </Flex>
   ),
-  text: "An extraordinary assembly of undergraduates, graduates, and staff at UIUC. Members bring a wide variety of experiences, skills, and knowledge to incorporate technical design with the social sciences and humanities.",
+  text: "An extraordinary assembly of undergraduates, graduates, and staff at UIUC who bring a wide variety of experiences, skills, and knowledge to incorporate technical design with the social sciences and humanities.",
   divider: true,
   bgColor: "illiniBlue",
 };

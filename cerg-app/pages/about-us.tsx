@@ -57,21 +57,21 @@ export default function AboutUsPage() {
     <PageWrapper {...{ mainTitle: "About Us", category: "About" }}>
       <ColorHero {...heroProps} />
       <Container pt="2em" pb={{ base: "2em", md: "3em", lg: "4em" }}>
-        <CaptionedImage {...imageProps} />
         <VStack p={["1.5em", "2em"]} spacing="1em" bgColor="white" align="left">
+          <CaptionedImage {...imageProps} />
           <Text variant="article">
             The Contextual Engineering Research Group (CERG) at the{" "}
             <Link href="http://illinois.edu/" variant="underline" isExternal>
               University of Illinois Urbana-Champaign
             </Link>{" "}
             (UIUC) investigates the ways in how engineers can work sustainably
-            on projects in communities different from those they are used to. We
-            explore the application of engineering technology throughout the
-            world to evolve our understanding of appropriate technology and
-            place-based design, striving to deliver tailored engineering
-            solutions and expertise to people around the world: from those in
-            modern industrialized cities to those in tradition-centered remote
-            villages.
+            on projects in communities different from those they are familiar
+            with. We explore the application of engineering technology
+            throughout the world to evolve our understanding of appropriate
+            technology and place-based design, striving to deliver tailored
+            engineering solutions and expertise to people around the world: from
+            those in modern industrialized cities to those in tradition-centered
+            remote villages.
           </Text>
           <Text variant="article">
             Historically, we have placed heavy emphasis on rural societies,

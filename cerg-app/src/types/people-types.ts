@@ -21,6 +21,14 @@ export const people: Person[] = [
     headshot: "/images/headshots/jsoltysikdotcom-45-768x512.jpeg",
   },
   {
+    name: "Alex Timmons", // Old site
+    title: "M.S.",
+    shortBio: `Alex Timmons recently completed her master's degree in the Department of Agricultural and Biological Engineering. Her research focused on bridging the gap between a technical engineering mindset and a sociological and cultural focus in relation to engineering design projects, particularly internationally. Alex has a strong dual interest in engineering and social sciences and hopes to share this passion with others by encouraging the importance of cultural focus within technical design. Her undergraduate work focused particularly on water resources and systems and she hopes to expand on this work within her graduate studies, as well as studying the potential impact of contextual engineering processes on a global scale.`,
+    headshot:
+      "/images/headshots/Alexandra-Timmons-Engineering-Cropped-293x300.jpeg",
+    link: "https://appliedresearch.illinois.edu/directory/profile/atimmon2",
+  },
+  {
     name: "Muhammad Talal Khalid", // Old site
     shortBio: `Muhammad is a PhD student in the department of Electrical and Computer Engineering. Talal's interests lie in the electrification of the transportation sector, the largest contributor to US greenhouse gas emissions. He takes a systems perspective to understand the interactions between the operations of key stakeholders involved in the development of sustainable EVFCI in demographically and socioeconomically diverse communities by the application of system dynamics framework.`,
     headshot: "/images/headshots/MTK-pic.jpeg",
@@ -45,8 +53,8 @@ export const people: Person[] = [
   },
   {
     name: "Jessica Altenberg",
-    shortBio: `Jessica is a sophomore studying mechanical engineering. Besides engaging in contextual engineering research, Jessica is involved in American Society of Mechanical Engineers and TAMID. Her research focuses on the application of contextual engineering in the realm of entrepreneurship. Specifically, she is looking at how entrepreneurs interpret and apply contextual thinking to their respective projects, as well as the effects of the use of contextual engineering principles.`, // REVISE
-    headshot: "/images/headshots/Professional-Headshot.jpeg", // Old site
+    shortBio: `Jessie is a senior studying Mechanical Engineering with a minor in business. Jessie has been a member of CERG since spring 2020. For her first two years with the group, Jessie and her research partners conducted a case study on Enactus USA. Currently she is a research assistant for Talal Khalid, assisting with research related to optimizing public fast charging of electric vehicles, with a focus on demand charges. Outside of CERG Jessie is involved in TAMID and the Illinois Consulting Academy on campus.`,
+    headshot: "/images/headshots/altenberg.jpeg",
   },
   {
     name: "Kariem Hashem", // Old site
@@ -67,7 +75,7 @@ export const people: Person[] = [
   {
     name: "Aisha Syed",
     shortBio: `Aisha (she/her) is majoring in Geography with a concentration in GIS. She is passionate about using GIS and data analysis to inform environmentally and socially sustainable solutions. She is involved with the Contextual Engineering Research Group where she investigates community contexts, thus bridging the gap between engineering and social science. She is also involved in the BioMASS Research Group where she seeks to apply GIS to disaster relief and resilience efforts.`,
-    headshot: "/images/headshots/pfp-225x300.jpeg", // Old site
+    headshot: "/images/headshots/headshot.png",
   },
   {
     name: "Abigail Mohan",
@@ -91,13 +99,13 @@ export const people: Person[] = [
   },
   {
     name: "Jacob Harris",
-    shortBio: `Jacob is a senior in Engineering Mechanics. He has been on the Engineers without Borders Ecuador team since sophomore year. Jacob joined the Rural Context Identification for Climate Change Adaption in spring 2022.`,
+    shortBio: `Jacob is a senior in Engineering Mechanics. He has been on the Engineers without Borders Ecuador team since sophomore year. Jacob joined the Rural Context Identification for Climate Change Adaption in Spring 2022.`,
     headshot:
       "/images/headshots/vOZsyDTK2-BeLVRdJxGDvgSN9mOz3cUz_p5sZtGQcejnRGWqOafReFhYU_vLDeqqgzzTlwSR70ngeII7VNA0v3vnzL_SuyI-Igl7v0ERWEFujMpv20qPsozEXBnG.png",
   },
   {
     name: "Connor LaSalle",
-    shortBio: `Connor is a junior in Agricultural engineering, minoring in natural resource conservation. He has been a member of the contextual engineering research group for a semester, and enjoys all of the unique perspectives it offers in regards to engineering design. He is also a member of global engineering ambassadors, and pursuing a certificate in contextual engineering.`,
+    shortBio: `Connor is a junior in Agricultural Engineering, minoring in natural resource conservation. He has been a member of the contextual engineering research group for a semester, and enjoys all of the unique perspectives it offers in regards to engineering design. He is also a member of global engineering ambassadors, and pursuing a certificate in contextual engineering.`,
     headshot: "/images/headshots/08.jpg",
   },
   {
@@ -114,7 +122,8 @@ export const people: Person[] = [
   {
     name: "Samantha Lindgren", // Old site
     title: "Ph.D.",
-    shortBio: `A current Link Foundation Energy Fellow, Sam's current research aims to broaden our understanding of the role of youth in advancing sustainable energy in rural households in low- and middle-income countries. Specifically, she examines whether children's attitudes about energy affect household behaviors such as the adoption of efficient cookstoves or solar cookers, or decisions about fuel selection and use. She also works with informal educators at camps in rural Illinois and in Namibia, and at a high school in Cambodia, to assess how youth's attitudes about topics in sustainable energy and agriculture change after participating in activities that are focused on conservation, and aligned to the United Nation's Sustainable Development Goals and Education for Sustainable Development framework.`,
+    //shortBio: `A current Link Foundation Energy Fellow, Sam's current research aims to broaden our understanding of the role of youth in advancing sustainable energy in rural households in low- and middle-income countries. Specifically, she examines whether children's attitudes about energy affect household behaviors such as the adoption of efficient cookstoves or solar cookers, or decisions about fuel selection and use. She also works with informal educators at camps in rural Illinois and in Namibia, and at a high school in Cambodia, to assess how youth's attitudes about topics in sustainable energy and agriculture change after participating in activities that are focused on conservation, and aligned to the United Nation's Sustainable Development Goals and Education for Sustainable Development framework.`,
+    shortBio: `A current Link Foundation Energy Fellow, Sam's current research aims to broaden our understanding of the role of youth in advancing sustainable energy in rural households in low- and middle-income countries. Specifically, she examines whether children's attitudes about energy affect household behaviors such as the adoption of efficient cookstoves or solar cookers, or decisions about fuel selection and use. She also works with informal educators at camps in rural Illinois and in Namibia, and at a high school in Cambodia, to assess how youth's attitudes about topics in sustainable energy and agriculture change after participating in activities that are focused on conservation.`,
     headshot:
       "/images/headshots/88257A96-3C09-40CB-84B3-DC4E05FDFDF3-225x300.jpeg",
   },
@@ -123,13 +132,6 @@ export const people: Person[] = [
     title: "E.I.T.",
     shortBio: `Nick is a M.S. student in the Department of Agricultural and Biological Engineering. Looking at cultural, political, educational, technical and economic components of a project, his research focuses on international engineering projects and the impact of a project's origin on its execution and outcome. Nick has been involved with international engineering projects since his undergraduate days at Illinois, and he currently works as a project lead and a board member for a non-profit organization.`,
     headshot: "/images/headshots/Close-Up-250kb-300x300.jpeg",
-  },
-  {
-    name: "Alex Timmons", // Old site
-    title: "M.S.",
-    shortBio: `Alex Timmons recently completed her master's degree in the Department of Agricultural and Biological Engineering. Her research focused on bridging the gap between a technical engineering mindset and a sociological and cultural focus in relation to engineering design projects, particularly internationally. Alex has a strong dual interest in engineering and social sciences and hopes to share this passion with others by encouraging the importance of cultural focus within technical design. Her undergraduate work focused particularly on water resources and systems and she hopes to expand on this work within her graduate studies, as well as studying the potential impact of contextual engineering processes on a global scale.`,
-    headshot:
-      "/images/headshots/Alexandra-Timmons-Engineering-Cropped-293x300.jpeg",
   },
   {
     name: "Kealie Vogel", // Old site
@@ -175,12 +177,12 @@ export const people: Person[] = [
   },
   {
     name: "Aaryaman Patel",
-    shortBio: `Aaryaman is a junior studying Mechanical Engineering. He has a profound interest in sustainability and hopes to incorporate it in the work he does as an engineer. He got involved with the Contextual Engineering team in the summer of 2021 and is currently working on improving the cardamom drying process for the farmers in Guatemala. He had the opportunity to talk about this project during the 2021 EWB 'Pathways to Resilience' Virtual Conference and even visit Guatemala for a site visit. By incorporating the principles of contextual engineering into the technical principles of mechanical engineering, he believes he can function as a more fulfilled engineer.`, // Truncated
-    headshot: "",
+    shortBio: `Aaryaman is a junior studying Mechanical Engineering. He has a profound interest in sustainability and hopes to incorporate it in the work he does as an engineer. He got involved with the Contextual Engineering team in the summer of 2021 and is currently working on improving the cardamom drying process for the farmers in Guatemala. He had the opportunity to talk about this project during the 2021 EWB 'Pathways to Resilience' Virtual Conference and even visit Guatemala for a site visit.`, // Truncated
+    headshot: "/images/headshots/Headshot.jpg",
   },
   {
     name: "Alec McKay",
-    shortBio: `Alec is a 5th year in Math and Physics. His interests include sustainability and data analysis. Alec joined the Cardamom project in spring 2022.`,
-    headshot: "",
+    shortBio: `Alec is a 5th year in Math and Physics. His interests include sustainability and data analysis. Alec joined the Cardamom project in Spring 2022.`,
+    headshot: "/images/headshots/Copy of Alec grad pic.jpg",
   },
 ];
