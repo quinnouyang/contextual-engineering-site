@@ -68,13 +68,6 @@ const imageProps: CaptionedImageProps = {
     "Contextual engineers assess the physical conditions surrounding water resources for the community of El Tablon, Honduras, a water-stressed Lenca community that would not consider drawing from the nearby springs that hold sacred meaning to their culture.",
 };
 
-const paragraphs = [
-  'The justification for contextual engineering is best viewed in the context of humanitarian engineering.',
-  'Contextual engineering utilizes technical and societal knowledge to develop engineering solutions for the specific needs of client communities. When building infrastructure to solve a physical need, practitioners should not also seek to solve political, economic or social problems. Contextual Engineering also claims that understanding the social conditions of the community receiving the infrastructure and tailoring the infrastructure to the community should increase the probability of a successful infrastructure implementation.',
-  'Contextual Engineering understands client communities in multiple ways First, Contextual Engineering takes into account global influences. These global influences could affect the conditions within the community as well as how the community interacts with the outside world. Second, Contextual Engineering must take into account the unique local physical and social characteristics. Different physical characteristics might affect the functioning of infrastructure. Different social characteristics might affect the operations of infrastructure. Third, one must take into account the motivations and expectations of each stakeholder. This will allow one to determine what drives stakeholders, including the practitioners themselves, to make decisions.  The practitioners then utilize this information to collaborate with the client to iteratively develop a solution (what is contextual engineering).',
-  'Perhaps what distinguishes Contextual Engineering from Humanitarian Engineering, though, is the recognition that the engineers bring their own perspectives and experiences into any contextual engineering. For this reason, it is imperative that any Contextual investigator first look at themselves and their own context, allowing them to acknowledge and address any implicit biases and predispositions that may prevent them from fully understanding their client community.'
-];
-
 export default function ContextualEngineeringPage() {
   return (
     <PageWrapper
