@@ -41,7 +41,7 @@ export default function Homepage() {
               w={{ base: "full", md: "50%" }}
               maxH="full"
             >
-              <Image src="/images/IMG_0628.JPG" />
+              <Image src="/images/IMG_0628.jpg" />
             </AspectRatio>
             <Stack
               direction={{ base: "column", md: "column" }}
