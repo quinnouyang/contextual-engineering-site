@@ -91,13 +91,13 @@ export const people: Person[] = [
   },
   {
     name: "Jacob Harris",
-    shortBio: `Jacob is a senior in Engineering Mechanics. He has been on the Engineers without Borders Ecuador team since sophomore year. Jacob joined the Rural Context Identification for Climate Change Adaption in spring 2022.`,
+    shortBio: `Jacob is a senior in Engineering Mechanics. He has been on the Engineers without Borders Ecuador team since sophomore year. Jacob joined the Rural Context Identification for Climate Change Adaption in Spring 2022.`,
     headshot:
       "/images/headshots/vOZsyDTK2-BeLVRdJxGDvgSN9mOz3cUz_p5sZtGQcejnRGWqOafReFhYU_vLDeqqgzzTlwSR70ngeII7VNA0v3vnzL_SuyI-Igl7v0ERWEFujMpv20qPsozEXBnG.png",
   },
   {
     name: "Connor LaSalle",
-    shortBio: `Connor is a junior in Agricultural engineering, minoring in natural resource conservation. He has been a member of the contextual engineering research group for a semester, and enjoys all of the unique perspectives it offers in regards to engineering design. He is also a member of global engineering ambassadors, and pursuing a certificate in contextual engineering.`,
+    shortBio: `Connor is a junior in Agricultural Engineering, minoring in natural resource conservation. He has been a member of the contextual engineering research group for a semester, and enjoys all of the unique perspectives it offers in regards to engineering design. He is also a member of global engineering ambassadors, and pursuing a certificate in contextual engineering.`,
     headshot: "/images/headshots/08.jpg",
   },
   {
@@ -114,7 +114,8 @@ export const people: Person[] = [
   {
     name: "Samantha Lindgren", // Old site
     title: "Ph.D.",
-    shortBio: `A current Link Foundation Energy Fellow, Sam's current research aims to broaden our understanding of the role of youth in advancing sustainable energy in rural households in low- and middle-income countries. Specifically, she examines whether children's attitudes about energy affect household behaviors such as the adoption of efficient cookstoves or solar cookers, or decisions about fuel selection and use. She also works with informal educators at camps in rural Illinois and in Namibia, and at a high school in Cambodia, to assess how youth's attitudes about topics in sustainable energy and agriculture change after participating in activities that are focused on conservation, and aligned to the United Nation's Sustainable Development Goals and Education for Sustainable Development framework.`,
+    //shortBio: `A current Link Foundation Energy Fellow, Sam's current research aims to broaden our understanding of the role of youth in advancing sustainable energy in rural households in low- and middle-income countries. Specifically, she examines whether children's attitudes about energy affect household behaviors such as the adoption of efficient cookstoves or solar cookers, or decisions about fuel selection and use. She also works with informal educators at camps in rural Illinois and in Namibia, and at a high school in Cambodia, to assess how youth's attitudes about topics in sustainable energy and agriculture change after participating in activities that are focused on conservation, and aligned to the United Nation's Sustainable Development Goals and Education for Sustainable Development framework.`,
+    shortBio: `A current Link Foundation Energy Fellow, Sam's current research aims to broaden our understanding of the role of youth in advancing sustainable energy in rural households in low- and middle-income countries. Specifically, she examines whether children's attitudes about energy affect household behaviors such as the adoption of efficient cookstoves or solar cookers, or decisions about fuel selection and use. She also works with informal educators at camps in rural Illinois and in Namibia, and at a high school in Cambodia, to assess how youth's attitudes about topics in sustainable energy and agriculture change after participating in activities that are focused on conservation.`,
     headshot:
       "/images/headshots/88257A96-3C09-40CB-84B3-DC4E05FDFDF3-225x300.jpeg",
   },
@@ -180,7 +181,7 @@ export const people: Person[] = [
   },
   {
     name: "Alec McKay",
-    shortBio: `Alec is a 5th year in Math and Physics. His interests include sustainability and data analysis. Alec joined the Cardamom project in spring 2022.`,
+    shortBio: `Alec is a 5th year in Math and Physics. His interests include sustainability and data analysis. Alec joined the Cardamom project in Spring 2022.`,
     headshot: "/images/headshots/Copy of Alec grad pic.jpg",
   },
 ];

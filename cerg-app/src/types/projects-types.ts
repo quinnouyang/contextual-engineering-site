@@ -10,7 +10,7 @@ export const projects: Project[] = [
   {
     title:
       "Contextualized Design of Rural Energy Systems for Improved Sustainability",
-    description: `This project is using a case study of energy needs in the Navajo Nation to better understand how the local social, political, cultural, and economic contexts influences the selection of the most appropriate engineering design solutions for rural and remote communities.`,
+    description: `This project is a case study of energy needs in the Navajo Nation aimed at better understanding how the local social, political, cultural, and economic factors influence the selection of the most appropriate engineering design solutions for rural and remote communities.`,
     researchers: "Abhi Chattopadhyay, Julissa Nunez",
     image: "/images/PXL_20220511_220036479.jpg",
     link: "/projects/rural-energy-systems",
@@ -40,7 +40,7 @@ export const projects: Project[] = [
   {
     title:
       "Impact of Contextualized Water Infrastructure Design on Community Disaster Resilience",
-    description: `This research aims to increase community-valued disaster resilience by utilizing the contextual engineering design process in conjunction with the client communities. A case study and background, ethnographic research has begun with multiple communities in Honduras recovering from Hurricanes Eta and Iota.`,
+    description: `This research aims to increase community-valued disaster resilience by utilizing the contextual engineering design process in conjunction with the client communities. A case study, background and ethnographic research has begun with multiple communities in Honduras recovering from Hurricanes Eta and Iota.`,
     researchers: "Emily Lawson-Bulten",
     image: "/images/P1030044.JPG",
   },
