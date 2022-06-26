@@ -9,7 +9,11 @@ import {
   useMediaQuery,
 } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
-import { navbarItems, NavCategory, NavPage } from "../../types/navigation-types";
+import {
+  navbarItems,
+  NavCategory,
+  NavPage,
+} from "../../types/navigation-types";
 
 export default function MobileMenu() {
   return (
@@ -28,9 +32,7 @@ export default function MobileMenu() {
 }
 const MenuItem = (item: NavCategory | NavPage) => {
   const { isOpen, onToggle } = useDisclosure();
-  const hoverColor = useMediaQuery("(pointer: fine)").at(0)
-    ? "illiniOrange"
-    : "illiniBlue";
+  const [isNotTouchscreen] = useMediaQuery("(pointer: fine)");
 
   return (
     <Stack>
@@ -45,14 +47,18 @@ const MenuItem = (item: NavCategory | NavPage) => {
         <Link
           fontSize="xl"
           fontWeight="medium"
-          _groupHover={{ color: hoverColor }}
+          _groupHover={{
+            color: isNotTouchscreen ? "illiniOrange" : "illiniBlue",
+          }}
         >
           {item.label}
         </Link>
         {"children" in item ? (
           <ChevronDownIcon
             transition="0.25s"
-            _groupHover={{ color: hoverColor }}
+            _groupHover={{
+              color: isNotTouchscreen ? "illiniOrange" : "illiniBlue",
+            }}
             transform={isOpen ? "rotate(180deg)" : ""}
             boxSize="1.5em"
           />
@@ -64,7 +70,7 @@ const MenuItem = (item: NavCategory | NavPage) => {
         in={isOpen}
         animateOpacity /*</Stack>style={{ margin: "0!important" }}*/
       >
-        <Divider />
+        <Divider borderColor="cloudWhite.300" />
         <Stack spacing={0} pl="1em" divider={<StackDivider />}>
           {"children" in item
             ? item.children.map(({ label, link }, i, arr) =>
