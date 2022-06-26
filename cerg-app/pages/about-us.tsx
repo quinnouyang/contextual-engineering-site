@@ -57,8 +57,8 @@ export default function AboutUsPage() {
     <PageWrapper {...{ mainTitle: "About Us", category: "About" }}>
       <ColorHero {...heroProps} />
       <Container pt="2em" pb={{ base: "2em", md: "3em", lg: "4em" }}>
-        <CaptionedImage {...imageProps} />
         <VStack p={["1.5em", "2em"]} spacing="1em" bgColor="white" align="left">
+          <CaptionedImage {...imageProps} />
           <Text variant="article">
             The Contextual Engineering Research Group (CERG) at the{" "}
             <Link href="http://illinois.edu/" variant="underline" isExternal>

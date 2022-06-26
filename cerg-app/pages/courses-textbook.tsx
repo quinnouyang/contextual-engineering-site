@@ -46,11 +46,6 @@ const textbookHeroProps: ColorHeroProps = {
   text: "Coming this summer: the first comprehensive text dedicated to Contexutal Engineering!",
 };
 
-const heroProps: ColorHeroProps = {
-  variant: "mediumHero",
-  heading: "Courses and Textbook",
-};
-
 export default function CoursesTextbookPage() {
   return (
     <PageWrapper
