@@ -67,7 +67,7 @@ export const people: Person[] = [
   {
     name: "Aisha Syed",
     shortBio: `Aisha (she/her) is majoring in Geography with a concentration in GIS. She is passionate about using GIS and data analysis to inform environmentally and socially sustainable solutions. She is involved with the Contextual Engineering Research Group where she investigates community contexts, thus bridging the gap between engineering and social science. She is also involved in the BioMASS Research Group where she seeks to apply GIS to disaster relief and resilience efforts.`,
-    headshot: "/images/headshots/pfp-225x300.jpeg", // Old site
+    headshot: "/images/headshots/headshot.png",
   },
   {
     name: "Abigail Mohan",
@@ -175,12 +175,12 @@ export const people: Person[] = [
   },
   {
     name: "Aaryaman Patel",
-    shortBio: `Aaryaman is a junior studying Mechanical Engineering. He has a profound interest in sustainability and hopes to incorporate it in the work he does as an engineer. He got involved with the Contextual Engineering team in the summer of 2021 and is currently working on improving the cardamom drying process for the farmers in Guatemala. He had the opportunity to talk about this project during the 2021 EWB 'Pathways to Resilience' Virtual Conference and even visit Guatemala for a site visit. By incorporating the principles of contextual engineering into the technical principles of mechanical engineering, he believes he can function as a more fulfilled engineer.`, // Truncated
-    headshot: "",
+    shortBio: `Aaryaman is a junior studying Mechanical Engineering. He has a profound interest in sustainability and hopes to incorporate it in the work he does as an engineer. He got involved with the Contextual Engineering team in the summer of 2021 and is currently working on improving the cardamom drying process for the farmers in Guatemala. He had the opportunity to talk about this project during the 2021 EWB 'Pathways to Resilience' Virtual Conference and even visit Guatemala for a site visit.`, // Truncated
+    headshot: "/images/headshots/Headshot.jpg",
   },
   {
     name: "Alec McKay",
     shortBio: `Alec is a 5th year in Math and Physics. His interests include sustainability and data analysis. Alec joined the Cardamom project in spring 2022.`,
-    headshot: "",
+    headshot: "/images/headshots/Copy of Alec grad pic.jpg",
   },
 ];
