@@ -43,7 +43,7 @@ const coursesHeroProps: ColorHeroProps = {
 const textbookHeroProps: ColorHeroProps = {
   variant: "largeHero",
   heading: "Textbook",
-  text: "Coming this summer: the first comprehensive text dedicated towards contexutal engineering. ",
+  text: "Coming this summer: the first comprehensive text dedicated to Contexutal Engineering!",
 };
 
 export default function CoursesTextbookPage() {
@@ -198,6 +198,6 @@ const COURSES: Course[] = [
 
 const textbook = {
   title: "Contextual Engineering: Translating User Voice Into Design",
-  description: `"This book shows readers a new way of thinking about the engineering design process, as well as how to expand their understanding of the role of technical designers in society, whether working with international communities or user populations from their own hometown...At the same time, readers will learn techniques to explore their own predispositions and the biases they may not be aware they have, equipping them to interact with others more impartially. This self-reflection process also assists the designer in working with and accepting the uncertainty that is inherent in exploring context."`,
+  description: `This book shows readers a new way of thinking about the engineering design process, as well as how to expand their understanding of the role of technical designers in society, whether working with international communities or user populations from their own hometown...At the same time, readers will learn techniques to explore their own predispositions and the biases they may not be aware they have, equipping them to interact with others more impartially. This self-reflection process also assists the designer in working with and accepting the uncertainty that is inherent in exploring context.`,
   link: "https://www.amazon.com/Contextual-Engineering-Translating-Synthesis-Technology/dp/3031076915",
 };
