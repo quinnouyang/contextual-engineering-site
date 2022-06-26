@@ -5,7 +5,6 @@ import {
   Text,
   Container,
   Box,
-  Center,
   Link,
   Image,
   UnorderedList,
@@ -30,84 +29,77 @@ export default function Homepage() {
           <Stack
             direction={{
               base: "column-reverse",
-              lg: "row",
+              md: "row",
             }}
             w="full"
-            spacing={0}
+            spacing="1em"
             align="center"
           >
             <AspectRatio
-              ratio={1}
-              // maxW="40em"
-              w={{ base: "full", lg: "50%" }}
-              maxH={{ base: "20em", lg: "full" }}
+              ratio={2 / 3}
+              maxW="24em"
+              w={{ base: "full", md: "50%" }}
+              maxH="full"
             >
-              <Image
-                src="/images/IMG_0628.JPG"
-                alt="Ann Witmer talks with local residents at their water well."
-              />
+              <Image src="/images/IMG_0628.JPG" />
             </AspectRatio>
-            <VStack w={{ base: "full", lg: "50%" }} p={["1.5em", "2em"]}>
-              <Stack
-                direction={{ base: "column", md: "row", lg: "column" }}
-                p={["1.5em", "2em"]}
-                spacing="1em"
-                align="left"
-              >
-                <VStack
-                  align="left"
-                  w={{ base: "full", md: "50%", lg: "full" }}
+            <Stack
+              direction={{ base: "column", md: "column" }}
+              w={{ base: "full", md: "50%" }}
+              p={["1.5em", "2em"]}
+              spacing="1em"
+              align="left"
+            >
+              <VStack align="left" w="full">
+                <Heading
+                  as={Link}
+                  href="/about-us"
+                  textDecoration="underline"
+                  _hover={{
+                    textDecoration: "underline",
+                    color: "illiniOrange",
+                  }}
+                  fontWeight="bold"
+                  color="white"
                 >
-                  <Heading
-                    as={Link}
-                    href="/about-us"
-                    textDecoration="underline"
-                    _hover={{
-                      textDecoration: "underline",
-                      color: "illiniOrange",
-                    }}
-                    fontWeight="bold"
-                    color="white"
-                  >
-                    About the Group
-                  </Heading>
-                  <Text variant="article" color="white">
-                    CERG consists of University of Illinois students and staff
-                    researching user-informed approaches in engineering projects
-                    around the world.
-                  </Text>
+                  About the Group
+                </Heading>
+                <Text variant="article" color="white">
+                  CERG consists of University of Illinois students and staff
+                  researching user-informed approaches in engineering projects
+                  around the world.
+                </Text>
+              </VStack>
+              <VStack align="left">
+                <Heading
+                  as={Link}
+                  href="/focus-areas"
+                  textDecoration="underline"
+                  _hover={{
+                    textDecoration: "underline",
+                    color: "illiniOrange",
+                  }}
+                  fontWeight="bold"
+                  fontSize={["xl", "2xl"]}
+                  color="white"
+                >
+                  Our Focus Areas
+                </Heading>
+                <VStack align="left" pl="1em">
+                  <UnorderedList>
+                    {focusAreas.map(({ label }) => {
+                      return (
+                        <ListItem color="white">
+                          <Text key={label} variant="article" color="white">
+                            {label}
+                          </Text>
+                        </ListItem>
+                      );
+                    })}
+                  </UnorderedList>
                 </VStack>
-                <VStack align="left">
-                  <Heading
-                    as={Link}
-                    href="/focus-areas"
-                    textDecoration="underline"
-                    _hover={{
-                      textDecoration: "underline",
-                      color: "illiniOrange",
-                    }}
-                    fontWeight="bold"
-                    fontSize={["xl", "2xl"]}
-                    color="white"
-                  >
-                    Our Focus Areas
-                  </Heading>
-                  <VStack align="left" pl="1em">
-                    <UnorderedList>
-                      {focusAreas.map(({ label }) => {
-                        return (
-                          <ListItem color="white">
-                            <Text key={label} variant="article" color="white">
-                              {label}
-                            </Text>
-                          </ListItem>
-                        );
-                      })}
-                    </UnorderedList>
-                  </VStack>
-                </VStack>
-              </Stack>
-            </VStack>
+              </VStack>
+            </Stack>
           </Stack>
         </Container>
       </Box>
@@ -158,27 +150,6 @@ export default function Homepage() {
               <Image src="/images/PXL_20220511_220036479.jpg" />
             </AspectRatio>
           </Stack>
-          <Box p={["1.5em", "2em"]} bgColor="white" width="100%">
-            <Text fontSize="3xl">
-              <Center>Learn More</Center>
-            </Text>
-            <UnorderedList>
-              <ListItem>
-                <Text variant="article">
-                  <Link color="blue" href="/focus-areas">
-                    Focus areas
-                  </Link>
-                </Text>
-              </ListItem>
-              <ListItem>
-                <Text variant="article">
-                  <Link color="blue" href="/focus-areas">
-                    Projects
-                  </Link>
-                </Text>
-              </ListItem>
-            </UnorderedList>
-          </Box>
         </VStack>
       </Container>
     </PageWrapper>
