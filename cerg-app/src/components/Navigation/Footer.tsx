@@ -11,12 +11,15 @@ import {
 import FullWordmark from "../../figures/full-wordmark";
 import ShortWordmark from "../../figures/short-wordmark";
 import VerticalDivider from "../../figures/vertical-divider";
-import { footerPrimaryItems, footerSecondaryItems } from "../../types/navigation-types";
+import {
+  footerPrimaryItems,
+  footerSecondaryItems,
+} from "../../types/navigation-types";
 
 export default function Footer() {
   return (
     // boxShadow only needs to be visible at top. Hard-coded cloudWhite.300
-    <Box bg="cloudWhite.50" boxShadow="10px -10px 6px -6px rgba(0, 0, 0, 0.1)">
+    <Box bg="cloudWhite.50" boxShadow="0px -10px 6px -6px rgba(0, 0, 0, 0.1)">
       <Container py="2em">
         <Flex>
           <FooterLogo />

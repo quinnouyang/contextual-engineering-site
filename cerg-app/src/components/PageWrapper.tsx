@@ -1,5 +1,6 @@
-import { Flex, Spacer } from "@chakra-ui/react";
+import { CloseButton, Flex, Link, Spacer, Text } from "@chakra-ui/react";
 import Head from "next/head";
+import { useEffect, useState } from "react";
 import Footer from "./Navigation/Footer";
 import NavBar from "./Navigation/NavBar";
 
@@ -18,6 +19,14 @@ export default function PageWrapper({
   bgColor,
   children,
 }: PageWrapperProps) {
+  const [bannerClosed, setBannerClosed] = useState(false);
+  useEffect(() => {
+    if (localStorage["bannerClosed"] || bannerClosed) {
+      setBannerClosed(true);
+      localStorage["bannerClosed"] = true;
+    }
+  }, [bannerClosed]);
+
   const fullTitle = // If not specified, assume true (i.e. no secondary only if explicitly false)
     includeSecondaryTitle === false
       ? mainTitle
@@ -25,6 +34,24 @@ export default function PageWrapper({
 
   return (
     <>
+      {!bannerClosed ? (
+        <Flex p="0.5em" justify="center" align="center" bg="illiniBlue">
+          <Spacer />
+          <Text color="white" fontSize={["xs", "sm", "md"]} fontWeight="medium">
+            Welcome to our new website! Some things may be broken or incomplete,
+            so please bear with us.
+          </Text>
+          <Spacer />
+          <CloseButton
+            justifyContent="flex-end"
+            p="1em"
+            color="white"
+            _hover={{ color: "illiniOrange" }}
+            rounded="none"
+            onClick={() => setBannerClosed(true)}
+          />
+        </Flex>
+      ) : null}
       <Head key="PageWrapper">
         <title>{fullTitle}</title>
       </Head>

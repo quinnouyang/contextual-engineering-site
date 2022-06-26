@@ -1,3 +1,5 @@
+import { Container, VStack, Text, Image } from "@chakra-ui/react";
+import ColorHero, { ColorHeroProps } from "../src/components/Heros/ColorHero";
 import PageWrapper from "../src/components/PageWrapper";
 import {
   Container,
@@ -42,6 +44,11 @@ const coursesHeroProps: ColorHeroProps = {
 const textbookHeroProps: ColorHeroProps = {
   heading: "Textbook",
   text: "Coming this summer: the first comprehensive text dedicated towards contexutal engineering!",
+};
+
+const heroProps: ColorHeroProps = {
+  variant: "mediumHero",
+  heading: "Courses and Textbook",
 };
 
 export default function CoursesTextbookPage() {

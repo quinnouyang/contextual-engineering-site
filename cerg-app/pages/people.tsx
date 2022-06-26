@@ -13,7 +13,7 @@ import PageWrapper from "../src/components/PageWrapper";
 import ColorHero, { ColorHeroProps } from "../src/components/Heros/ColorHero";
 
 const heroProps: ColorHeroProps = {
-  // minH: { base: "auto", md: "20em" },
+  variant: "largeHero",
   heading: (
     <Flex wrap="wrap">
       <Heading
@@ -32,8 +32,9 @@ const heroProps: ColorHeroProps = {
       </Heading>
     </Flex>
   ),
+  text: "An extraordinary assembly of undergraduates, graduates, and staff from the University of Illinois Urbana-Champaign. Members bring a wide variety of experiences, skills, and knowledge to incorporate technical design with the social sciences and humanities.",
+  divider: true,
   bgColor: "illiniBlue",
-  text: "A diverse group of students and researchers from the University of Illinois Urbana-Champaign. Beyond typical engineering backgrounds, members bring a wide variety of experiences, skills, and knowledge to incorporate technical design with the social sciences and humanities.",
 };
 
 export type BioCardProps = {

@@ -4,10 +4,17 @@ import PageWrapper from "../src/components/PageWrapper";
 export default function ErrorPage() {
   return (
     <PageWrapper {...{ mainTitle: "404 Error" }}>
-      <Container maxW="container.xl" centerContent>
-        <Heading m="1em">
-          either u got a wrong/outdated link or i broke something:(
-        </Heading>
+      <Container h="full" centerContent>
+        <Heading mt="1em">404 Error: This page does not exist!</Heading>
+        <Text p="1em" fontSize="lg" fontWeight="medium" align="center">
+          Sorry, you probably accessed a mistyped or outdated link, which is
+          especially possible as this website is new and under development. If
+          you&apos;re looking for our old website,{" "}
+          <Link href="http://contextual.web.illinois.edu/" variant="underline">
+            click here
+          </Link>
+          . Otherwise...
+        </Text>
         <Button
           as={Link}
           href="/"
@@ -17,7 +24,6 @@ export default function ErrorPage() {
         >
           Take me home!
         </Button>
-        <Text py="1em">(watch this be broken too lol)</Text>
       </Container>
     </PageWrapper>
   );

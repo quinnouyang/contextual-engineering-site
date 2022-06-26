@@ -22,10 +22,8 @@ export default function App({ Component, pageProps }: AppProps) {
   }, [router.events]);
 
   return (
-    <>
-      <ChakraProvider theme={CustomTheme}>
-        <Component {...pageProps} />
-      </ChakraProvider>
-    </>
+    <ChakraProvider theme={CustomTheme}>
+      <Component {...pageProps} />
+    </ChakraProvider>
   );
 }
