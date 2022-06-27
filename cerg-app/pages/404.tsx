@@ -9,7 +9,7 @@ export default function ErrorPage() {
         <Text p="1em" fontSize="lg" fontWeight="medium" align="center">
           Sorry, you probably accessed a mistyped or outdated link, which is
           especially possible as this website is new and under development. If
-          you&apos;re looking for our old website,{" "}
+          you&#39;re looking for our old website,{" "}
           <Link href="http://contextual.web.illinois.edu/" variant="underline">
             click here
           </Link>
