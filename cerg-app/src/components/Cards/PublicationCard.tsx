@@ -23,7 +23,7 @@ export default function PublicationCard({
       >
         {title}
         {link ? (
-          <ExternalLinkIcon ml="0.5em" boxSize={{ base: "0.5em", sm: "1em" }} />
+          <ExternalLinkIcon ml="0.5em" boxSize="1em" />
         ) : null}
       </Heading>
       {abstract ? <Text pl="2em">{abstract}</Text> : null}

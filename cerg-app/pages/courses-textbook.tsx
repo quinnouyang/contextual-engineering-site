@@ -28,7 +28,7 @@ const coursesHeroProps: ColorHeroProps = {
       <Link
         href="https://appliedresearch.illinois.edu/directory/profile/awitmer"
         textDecoration="underline"
-        _hover={{ color: "illiniBlue", textDecoration: "underline" }}
+        _hover={{ color: "industrialBlue.300", textDecoration: "underline" }}
         color="white"
         isExternal
       >
