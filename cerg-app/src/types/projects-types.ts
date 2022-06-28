@@ -91,4 +91,10 @@ export const projects: Project[] = [
     researchers: "Dale Robbennolt",
     image: "/images/d81_8837.jpeg",
   },
+  {
+    title: "Coastal Resilience in the Great Lakes Region",
+    description: `Anthropogenic forcing has led to an increase in frequency and intensity of extreme climate events, including storms and flooding. Such changes have lasting social, ecological, and economic effects on the surrounding coastal communities. We will use Contextual Engineering to identify sustainable shoreline stabilization and coastal resilience techniques appropriate for different communities along the Great Lakes.`,
+    researchers: "Alina Lusebrink, Kyle Thompson",
+    image: "/images/8-scaled.jpeg",
+  },
 ];
