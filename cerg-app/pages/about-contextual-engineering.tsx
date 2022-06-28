@@ -54,19 +54,19 @@ export default function ContextualEngineeringPage() {
           <Text variant="article">
             The justification for Contextual Engineering can be best viewed
             through the perspective of humanitarian engineering. When projects
-            fail to last under a recipient community&npos;s care, it is often
+            fail to last under a recipient community&#39;s care, it is often
             from popular but false assumptions: that industrialized
-            infrastructure must also develop a society&npos;s economic and
-            social conditions, and that their failure to maintain infrastructure
-            stems from insufficient training.
+            infrastructure must also develop a society&#39;s economic and social
+            conditions, and that their failure to maintain infrastructure stems
+            from insufficient training.
           </Text>
           <Text variant="article">
             Challenging these assumptions, Contextual Engineering utilizes
             technical and societal knowledge to construct solutions for the
             specific needs of client communities, increasing the probability of
-            successful implementation and adoption. Additionally, in
-            Contextual Engineering, solving physical needs supersedes solving
-            political, economic, or social problems.
+            successful implementation and adoption. Additionally, in Contextual
+            Engineering, solving physical needs supersedes solving political,
+            economic, or social problems.
           </Text>
           <Text variant="article">
             Perhaps what distinguishes Contextual Engineering from humanitarian
@@ -81,7 +81,7 @@ export default function ContextualEngineeringPage() {
           <VStack pl="1em">
             <Text variant="article">
               <b>1. Take into account global influences,</b> as their effects on
-              community dyanmics and how they interact with the outside world
+              community dynamics and how they interact with the outside world
               often largely determine how they respond and perceive foreign
               assistance and engineering.
             </Text>
@@ -102,11 +102,9 @@ export default function ContextualEngineeringPage() {
               ramifications of an initiative.
             </Text>
             <Text variant="article">
-              <b>
-                4. Collaborate and iteratively work with the client.
-              </b>{" "}
-              Collaboration and iterative design increases client feedback and insight
-              into how the client will use the infrastructure.
+              <b>4. Collaborate and iteratively work with the client.</b>{" "}
+              Collaboration and iterative design increases client feedback and
+              insight into how the client will use the infrastructure.
             </Text>
           </VStack>
         </VStack>
