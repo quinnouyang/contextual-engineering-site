@@ -104,7 +104,18 @@ export default function PredictiveToolPage() {
               >
                 contextual.<b>web</b>...
               </Link>{" "}
-              is our old one.
+              is our old one. <br />{" "}
+              <b>
+                Contact{" "}
+                <Link
+                  href="mailto:contextual-engineering@illinois.edu"
+                  variant="underline"
+                  isExternal
+                >
+                  contextual-engineering@illinois.edu
+                </Link>{" "}
+                if there are any issues.
+              </b>
             </AlertDescription>
           </Alert>
           <VStack align="left" pl="1em">
@@ -124,7 +135,7 @@ export default function PredictiveToolPage() {
               account. You should get an email notifcation once this happens.
             </Text>
             <Text variant="article">
-              <b>3.</b> Log into our old site at{" "}
+              <b>3.</b> Log in to our old site at{" "}
               <Link
                 variant="underline"
                 href="https://contextual.web.illinois.edu/account/"
