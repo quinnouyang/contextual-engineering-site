@@ -3,30 +3,38 @@ import WpSource from "@frontity/wp-source/types";
 import Theme from "@frontity/mars-theme-typescript/types";
 
 const settings: Settings<Theme | WpSource> = {
-  name: "frontity-migration",
+  name: "frontity",
   state: {
     frontity: {
-      url: "https://contextual.engineering.illinois.edu/",
+      url: "https://test.frontity.org",
       title: "Test Frontity Blog",
       description: "WordPress installation for Frontity development",
     },
   },
   packages: [
     {
-      name: "mars-theme-typescript",
+      name: "@frontity/mars-theme-typescript",
+      state: {
+        theme: {
+          menu: [
+            ["Home", "/"],
+            ["Nature", "/category/nature/"],
+            ["Travel", "/category/travel/"],
+            ["Japan", "/tag/japan/"],
+            ["About Us", "/about-us/"],
+          ],
+          featured: {
+            showOnList: false,
+            showOnPost: false,
+          },
+        },
+      },
     },
     {
       name: "@frontity/wp-source",
       state: {
         source: {
-          url: "https://contextual.engineering.illinois.edu/",
-          postTypes: [
-            {
-              type: "destinations",
-              endpoint: "destinations",
-              archive: "/destinations",
-            },
-          ],
+          url: "https://test.frontity.org",
         },
       },
     },

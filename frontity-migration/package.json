@@ -26,6 +26,7 @@
     "cerg-theme": "file:packages/cerg-theme",
     "dayjs": "^1.11.1",
     "frontity": "^1.17.2",
+    "frontity-chakra-theme": "^1.0.3",
     "test-theme": "file:packages/test-theme"
   },
   "devDependencies": {
