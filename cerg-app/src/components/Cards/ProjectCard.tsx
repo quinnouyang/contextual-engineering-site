@@ -37,7 +37,7 @@ export default function ProjectCard({
           _groupHover={{ opacity: link ? 0.8 : 1 }}
           transitionDuration="150ms"
         >
-          <Image src={image} alt={title} />
+          <Image src={image} alt={title} w={390} h={260} />
         </AspectRatio>
       </Box>
       <Box h="0.75em" w="full" bgColor="illiniOrange" />
