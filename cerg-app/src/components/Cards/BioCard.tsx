@@ -63,46 +63,46 @@ export default function BioCard({
 	const ref = useRef<null | HTMLDivElement>(null);
 	const scroll = () => ref?.current?.scrollIntoView({ behavior: "smooth" });
 
-	return (
-		<Popover
-			trigger={isNotTouchScreen ? "hover" : "click"}
-			gutter={0}
-			flip={false}
-			onOpen={onOpen}
-			onClose={onClose}
-			// Otherwise multiple popovers remain for too long
-			openDelay={0}
-			closeDelay={0}
-			matchWidth
-			isLazy
-		>
-			{({ isOpen }) => (
-				<>
-					<PopoverTrigger>
-						{/* Button to allow clicking to close card (as in demo Popover), though clicking briefly highlights image blue */}
-						<Button h="inherit" p={0}>
-							<AspectRatio
-								ratio={3 / 4}
-								w={CARD_WIDTH}
-								onClick={scroll}
-								ref={ref}
-							>
-								<Image
-									src={person.headshot}
-									alt={person.name}
-									opacity={isOtherOpen && !isOpen ? 0.7 : 1}
-									transition="opacity 0.75s linear"
-									w={288}
-									h={384}
-								/>
-							</AspectRatio>
-						</Button>
-					</PopoverTrigger>
-					<PopoverContent rounded="none" w={CARD_WIDTH}>
-						<CardInfo {...person} />
-					</PopoverContent>
-				</>
-			)}
-		</Popover>
-	);
+  return (
+    <Popover
+      trigger={isNotTouchScreen ? "hover" : "click"}
+      gutter={0}
+      flip={false}
+      onOpen={onOpen}
+      onClose={onClose}
+      // Otherwise multiple popovers remain for too long
+      openDelay={0}
+      closeDelay={0}
+      matchWidth
+      isLazy
+    >
+      {({ isOpen }) => (
+        <>
+          <PopoverTrigger>
+            {/* Button to allow clicking to close card (as in demo Popover), though clicking briefly highlights image blue */}
+            <Button h="inherit" p={0}>
+              <AspectRatio
+                ratio={3 / 4}
+                w={CARD_WIDTH}
+                onClick={scroll}
+                ref={ref}
+              >
+                <Image
+                  src={person.headshot}
+                  alt={person.name}
+                  opacity={isOtherOpen && !isOpen ? 0.7 : 1}
+                  transition="opacity 0.75s linear"
+                  w={288}
+                  h={384}
+                />
+              </AspectRatio>
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent rounded="none" w={CARD_WIDTH}>
+            <CardInfo {...person} />
+          </PopoverContent>
+        </>
+      )}
+    </Popover>
+  );
 }
