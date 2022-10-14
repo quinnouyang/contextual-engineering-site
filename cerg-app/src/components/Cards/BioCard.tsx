@@ -92,6 +92,8 @@ export default function BioCard({
                   alt={person.name}
                   opacity={isOtherOpen && !isOpen ? 0.7 : 1}
                   transition="opacity 0.75s linear"
+                  w={288}
+                  h={384}
                 />
               </AspectRatio>
             </Button>
