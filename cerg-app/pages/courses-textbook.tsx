@@ -5,7 +5,7 @@ import {
 	Text,
 	Link,
 	Image,
-	Center,
+	// Center,
 	Heading,
 	Divider,
 	Flex,
