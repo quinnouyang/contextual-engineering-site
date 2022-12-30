@@ -1,5 +1,5 @@
 {
-  "name": "frontity",
+  "name": "frontity-test",
   "version": "1.0.0",
   "private": true,
   "description": "Frontity project",
@@ -21,10 +21,11 @@
     "@frontity/core": "^1.16.0",
     "@frontity/wp-source": "^1.11.7",
     "@frontity/tiny-router": "^1.4.4",
+    "@frontity/html2react": "^1.7.0",
     "@frontity/mars-theme-typescript": "./packages/mars-theme-typescript"
   },
   "devDependencies": {
-    "@types/react": "^18.0.15",
+    "@types/react": "^18.0.26",
     "@types/node-fetch": "^2.6.2"
   }
 }

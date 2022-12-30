@@ -2,7 +2,7 @@ import { Settings } from "frontity/types";
 import WpSource from "@frontity/wp-source/types";
 import Theme from "@frontity/mars-theme-typescript/types";
 
-const settings: Settings<Theme | WpSource> = {
+const settings: Settings/*<Theme | WpSource>*/ = {
   name: "frontity",
   state: {
     frontity: {
@@ -12,32 +12,32 @@ const settings: Settings<Theme | WpSource> = {
     },
   },
   packages: [
-    {
-      name: "@frontity/mars-theme-typescript",
-      state: {
-        theme: {
-          menu: [
-            ["Home", "/"],
-            ["Nature", "/category/nature/"],
-            ["Travel", "/category/travel/"],
-            ["Japan", "/tag/japan/"],
-            ["About Us", "/about-us/"],
-          ],
-          featured: {
-            showOnList: false,
-            showOnPost: false,
-          },
-        },
-      },
-    },
-    {
-      name: "@frontity/wp-source",
-      state: {
-        source: {
-          url: "https://test.frontity.org",
-        },
-      },
-    },
+    // {
+    //   name: "@frontity/mars-theme-typescript",
+    //   state: {
+    //     theme: {
+    //       menu: [
+    //         ["Home", "/"],
+    //         ["Nature", "/category/nature/"],
+    //         ["Travel", "/category/travel/"],
+    //         ["Japan", "/tag/japan/"],
+    //         ["About Us", "/about-us/"],
+    //       ],
+    //       featured: {
+    //         showOnList: false,
+    //         showOnPost: false,
+    //       },
+    //     },
+    //   },
+    // },
+    // {
+    //   name: "@frontity/wp-source",
+    //   state: {
+    //     source: {
+    //       url: "https://test.frontity.org",
+    //     },
+    //   },
+    // },
     "@frontity/tiny-router",
     "@frontity/html2react",
   ],
