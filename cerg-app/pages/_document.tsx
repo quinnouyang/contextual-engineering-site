@@ -1,13 +1,13 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
-import Script from "next/script";
-import { GA_TRACKING_ID } from "../lib/gtag";
+// import Script from "next/script";
+// import { GA_TRACKING_ID } from "../lib/gtag";
 
 export default class CustomDocument extends Document {
   render() {
     return (
       <Html>
         <Head>
-          <Script
+          {/* <Script
             id="Google Analytics Script"
             async
             src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
@@ -25,7 +25,7 @@ export default class CustomDocument extends Document {
             });
           `,
             }}
-          />
+          /> */}
           <link
             rel="apple-touch-icon"
             sizes="180x180"

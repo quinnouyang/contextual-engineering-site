@@ -4,86 +4,81 @@ export type NavCategory = NavItem & { readonly children: NavPage[] };
 export type NavPage = NavItem & { readonly link: string };
 
 export const navbarItems: Array<NavCategory | NavPage> = [
-  {
-    label: "About",
-    children: [
-      {
-        label: "The Group",
-        link: "/about-us",
-      },
-      {
-        label: "Contextual Engineering",
-        link: "/about-contextual-engineering",
-      },
-    ],
-  },
-  {
-    label: "People",
-    link: "/people",
-  },
-  {
-    label: "Research",
-    children: [
-      {
-        label: "Focus Areas",
-        link: "/focus-areas",
-      },
-      {
-        label: "Projects",
-        link: "/research-projects",
-      },
-      {
-        label: "Publications",
-        link: "/publications",
-      },
-    ],
-  },
-  {
-    label: "Resources",
-    children: [
-      {
-        label: "Predictive Tool",
-        link: "/predictive-tool",
-      },
-      {
-        label: "Courses & Textbook",
-        link: "/courses-textbook",
-      },
-    ],
-  },
+	{
+		label: "About",
+		children: [
+			{
+				label: "The Group",
+				link: "/about-us",
+			},
+			{
+				label: "Contextual Engineering",
+				link: "/about-contextual-engineering",
+			},
+		],
+	},
+	{
+		label: "People",
+		link: "/people",
+	},
+	{
+		label: "Research",
+		children: [
+			{
+				label: "Focus Areas",
+				link: "/focus-areas",
+			},
+			{
+				label: "Projects",
+				link: "/research-projects",
+			},
+			{
+				label: "Publications",
+				link: "/publications",
+			},
+		],
+	},
+	{
+		label: "Resources",
+		children: [
+			{
+				label: "Predictive Tool",
+				link: "/predictive-tool",
+			},
+			{
+				label: "Courses & Textbook",
+				link: "/courses-textbook",
+			},
+		],
+	},
 ];
 
 export const footerPrimaryItems: NavPage[] = [
-  {
-    label: "About",
-    link: "/about-us",
-  },
-  {
-    label: "People",
-    link: "/people",
-  },
-  {
-    label: "Contact",
-    link: "/contact",
-  },
+	{
+		label: "About",
+		link: "/about-us",
+	},
+	{
+		label: "People",
+		link: "/people",
+	},
+	{
+		label: "Contact",
+		link: "/contact",
+	},
 ];
 
 export const footerSecondaryItems: NavPage[] = [
-  {
-    label: "Privacy",
-    link: "https://www.vpaa.uillinois.edu/resources/web_privacy",
-  },
-  {
-    label: "Cookies",
-    link: "https://www.vpaa.uillinois.edu/resources/cookies",
-  },
-  // {
-  //   // TO-DO: Generate a sitemap and link it here
-  //   label: "Sitemap",
-  //   link: "/",
-  // },
-  {
-    label: "GitHub",
-    link: "https://github.com/quinnouyang/contextual-engineering-site",
-  },
+	{
+		label: "Privacy",
+		link: "https://www.vpaa.uillinois.edu/resources/web_privacy",
+	},
+	{
+		label: "Cookies",
+		link: "https://www.vpaa.uillinois.edu/resources/cookies",
+	},
+	{
+		label: "GitHub",
+		link: "https://github.com/quinnouyang/contextual-engineering-site",
+	},
 ];

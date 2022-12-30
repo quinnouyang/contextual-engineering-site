@@ -1,17 +1,17 @@
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import {
-  AspectRatio,
-  Button,
-  Divider,
-  Heading,
-  Image,
-  Link,
-  Popover,
-  PopoverContent,
-  PopoverTrigger as OrigPopoverTrigger,
-  Text,
-  useMediaQuery,
-  VStack,
+	AspectRatio,
+	Button,
+	Divider,
+	Heading,
+	Image,
+	Link,
+	Popover,
+	PopoverContent,
+	PopoverTrigger as OrigPopoverTrigger,
+	Text,
+	useMediaQuery,
+	VStack,
 } from "@chakra-ui/react";
 import { useRef } from "react";
 import { BioCardProps } from "../../../pages/people";
@@ -19,49 +19,49 @@ import { Person } from "../../types/people-types";
 
 // Temporary fix: React 18 issue
 export const PopoverTrigger: React.FC<{ children: React.ReactNode }> =
-  OrigPopoverTrigger;
+	OrigPopoverTrigger;
 
 const CARD_WIDTH = "18em";
 
 const CardInfo = ({ name, title, shortBio, link }: Person) => {
-  return (
-    <VStack p="1em">
-      <VStack spacing="0.2em">
-        <Heading
-          as={link ? Link : undefined}
-          href={link}
-          textDecoration={link ? "underline" : "none"}
-          _hover={{
-            color: link ? "illiniOrange" : "illiniBlue",
-            textDecoration: link ? "underline" : "none",
-          }}
-          fontSize="xl"
-          textAlign="center"
-          isExternal
-        >
-          {name}
-        </Heading>
-        {title && <Text fontSize="md">{title}</Text>}
-      </VStack>
-      <Divider />
-      <Text fontSize="sm">{shortBio}</Text>
-      <Divider />
-      <Text fontSize="xs" fontStyle="italic">
-        Full biography page coming soon...
-      </Text>
-    </VStack>
-  );
+	return (
+		<VStack p="1em">
+			<VStack spacing="0.2em">
+				<Heading
+					as={link ? Link : undefined}
+					href={link}
+					textDecoration={link ? "underline" : "none"}
+					_hover={{
+						color: link ? "illiniOrange" : "illiniBlue",
+						textDecoration: link ? "underline" : "none",
+					}}
+					fontSize="xl"
+					textAlign="center"
+					isExternal
+				>
+					{name}
+				</Heading>
+				{title && <Text fontSize="md">{title}</Text>}
+			</VStack>
+			<Divider />
+			<Text fontSize="sm">{shortBio}</Text>
+			<Divider />
+			<Text fontSize="xs" fontStyle="italic">
+				Full biography page coming soon...
+			</Text>
+		</VStack>
+	);
 };
 
 export default function BioCard({
-  person,
-  isOtherOpen,
-  onOpen,
-  onClose,
+	person,
+	isOtherOpen,
+	onOpen,
+	onClose,
 }: BioCardProps) {
-  const [isNotTouchScreen] = useMediaQuery("(pointer: fine)");
-  const ref = useRef<null | HTMLDivElement>(null);
-  const scroll = () => ref?.current?.scrollIntoView({ behavior: "smooth" });
+	const [isNotTouchScreen] = useMediaQuery("(pointer: fine)");
+	const ref = useRef<null | HTMLDivElement>(null);
+	const scroll = () => ref?.current?.scrollIntoView({ behavior: "smooth" });
 
   return (
     <Popover
