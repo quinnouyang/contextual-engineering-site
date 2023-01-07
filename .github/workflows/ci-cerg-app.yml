@@ -15,8 +15,9 @@ jobs:
         with:
           node-version: 14.20.1 # Should be same version as that used on CPanel
 
+      - name: Basic checks
         working-directory: ./cerg-app
-      - run: |
+        run: |
           npm ci
           npm run lint
           npm run build
