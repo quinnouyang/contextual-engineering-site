@@ -17,6 +17,7 @@ jobs:
 
         working-directory: ./cerg-app
 
-      - run: npm ci
-      - run: npm run lint
-      - run: npm run build
+        run: |
+          npm ci
+          npm run lint
+          npm run build
