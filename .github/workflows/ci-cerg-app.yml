@@ -2,10 +2,10 @@ name: ci-cerg-app
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
-    
+    branches: [main]
+
 jobs:
   test-cerg-app:
     runs-on: ubuntu-latest
