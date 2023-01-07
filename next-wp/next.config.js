@@ -1,3 +1,6 @@
+const { cpus } = require("os");
+const { cpuUsage } = require("process");
+
 if (!process.env.WORDPRESS_API_URL) {
 	throw new Error(`
     Please provide a valid WordPress instance URL.
@@ -15,5 +18,9 @@ module.exports = {
 			"2.gravatar.com",
 			"secure.gravatar.com",
 		],
+	},
+	experimental: {
+		workerThreads: false,
+		cpus: 4,
 	},
 };
