@@ -1,4 +1,4 @@
-name: continuous-integration
+name: ci-cerg-app
 
 on:
   push:
@@ -7,13 +7,16 @@ on:
     branches: [ main ]
     
 jobs:
-  test_pull_request:
+  test-cerg-app:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: 14.20.1 # Should be same version as that used on CPanel
+          
+      - working-directory: ./cerg-app
+      
       - run: npm ci
       - run: npm run lint
       - run: npm run build
