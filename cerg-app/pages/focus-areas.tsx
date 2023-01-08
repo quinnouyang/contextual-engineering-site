@@ -52,7 +52,7 @@ export default function FocusAreasPage() {
                 w={{ base: "full", md: "50%" }}
                 maxH={{ base: "20em", md: "full" }}
               >
-                <Image src={image} />
+                <Image src={image} alt={image} />
               </AspectRatio>
             </Stack>
           ))}
