@@ -4,8 +4,6 @@ import {
 	VStack,
 	Text,
 	Link,
-	Image,
-	// Center,
 	Heading,
 	Divider,
 	Flex,
@@ -14,6 +12,7 @@ import {
 import ColorHero, { ColorHeroProps } from "../src/components/Heros/ColorHero";
 import React from "react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
+import { OptimizedImage } from "../src/components/OptimizedImage";
 
 const coursesHeroProps: ColorHeroProps = {
 	variant: "largeHero",
@@ -109,7 +108,7 @@ export default function CoursesTextbookPage() {
 							<ExternalLinkIcon />
 						</Button>
 					</VStack>
-					<Image
+					<OptimizedImage
 						src="/images/textbook-cover.jpeg"
 						w="full"
 						maxW="20em"

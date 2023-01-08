@@ -5,15 +5,15 @@ import {
 	Heading,
 	Text,
 	Button,
-	Image,
 	Link,
 	VStack,
 } from "@chakra-ui/react";
 import CaptionedImage, { CaptionedImageProps } from "../CaptionedImage";
+import { OptimizedImage } from "../OptimizedImage";
 
 const imageProps: CaptionedImageProps = {
 	image: (
-		<Image
+		<OptimizedImage
 			minW={{ base: "auto", lg: "30em", xl: "40em" }}
 			minH="xs"
 			objectFit="cover"
