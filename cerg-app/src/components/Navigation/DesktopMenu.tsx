@@ -88,8 +88,8 @@ export default function DesktopMenu({ label }: { label: string }) {
 
 const Dropdown = ({ item }: { label: string; item: NavCategory }) => {
 	return (
-		<PopoverContent minW="xs" rounded="none">
-			<PopoverArrow />
+		<PopoverContent minW="xs" rounded="none" bgColor="cloudWhite.50">
+			<PopoverArrow bgColor="cloudWhite.50" />
 			<Stack
 				mx="1em"
 				spacing={0}

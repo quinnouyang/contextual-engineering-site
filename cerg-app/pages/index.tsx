@@ -6,7 +6,6 @@ import {
 	Container,
 	Box,
 	Link,
-	Image,
 	UnorderedList,
 	ListItem,
 	Heading,
@@ -14,6 +13,7 @@ import {
 	Stack,
 } from "@chakra-ui/react";
 import { focusAreas } from "../src/types/focus-areas-types";
+import { OptimizedImage } from "../src/components/OptimizedImage";
 
 export default function Homepage() {
 	return (
@@ -41,7 +41,10 @@ export default function Homepage() {
 							w={{ base: "full", md: "50%" }}
 							maxH="full"
 						>
-							<Image src="/images/IMG_0628.jpg" alt="IMG_0628.jpg lol" />
+							<OptimizedImage
+								src="/images/IMG_0628.jpg"
+								alt="IMG_0628.jpg lol"
+							/>
 						</AspectRatio>
 						<Stack
 							direction={{ base: "column", md: "column" }}
@@ -147,7 +150,7 @@ export default function Homepage() {
 							w={{ base: "full", md: "50%" }}
 							maxH={{ base: "20em", md: "full" }}
 						>
-							<Image
+							<OptimizedImage
 								src="/images/PXL_20220511_220036479.jpg"
 								alt="A small solar panel system in a Navajo reservation."
 							/>
