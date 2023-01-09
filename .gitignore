@@ -1,4 +1,1 @@
-# `cerg-app` and `frontity-migration` have their own .gitignore files
-
 .DS_Store
-wp.json
