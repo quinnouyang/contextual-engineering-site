@@ -18,6 +18,6 @@ jobs:
       - name: Basic checks
         working-directory: ./cerg-app
         run: |
-          npm ci
+          npm ci --omit=dev
           npm run lint
           npm run build
