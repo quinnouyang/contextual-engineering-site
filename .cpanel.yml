@@ -1,5 +1,7 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/cergtest2/public_html/next-wp
-    - /bin/cp -R next-wp $DEPLOYPATH
+    - run: |
+        source /home/cergtest2/nodevenv/repository/trunk/14/bin/activate && cd /home/cergtest2/repository/trunk
+        npm ci --omit=dev
+        npm run build
