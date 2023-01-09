@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/cergtest1/test/
-    - /bin/cp -R cerg-app/public $DEPLOYPATH
+    - export DEPLOYPATH=/home/cergtest2/public_html/next-wp
+    - /bin/cp -R next-wp $DEPLOYPATH
