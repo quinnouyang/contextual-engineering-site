@@ -1,11 +1,6 @@
-body {
-  overscroll-behavior: none;
-}
-
-/* Hard coded:( */
 .divider {
-  display: inline-block;
-  width: 1px;
-  height: inherit;
-  background-color: #13294b; /* Hard-coded: Illini Blue */
+	display: inline-block;
+	width: 1px;
+	height: inherit;
+	background-color: #13294b; /* Hard-coded: Illini Blue */
 }
