@@ -2,5 +2,9 @@
 	display: inline-block;
 	width: 1px;
 	height: inherit;
-	background-color: #13294b; /* Hard-coded: Illini Blue */
+	background-color: #13294b; /* Illini Blue */
+}
+
+html {
+  background-color: #F8FAFC; /* cloudWhite.50 */
 }
