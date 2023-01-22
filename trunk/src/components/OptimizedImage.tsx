@@ -35,8 +35,8 @@ const myLoader = (resolverProps: ImageLoaderProps): string => {
 };
 
 export const OptimizedImage = (props: ImageProps & FlexProps) => {
-	const { src, width, height, alt, quality, layout, objectFit, ...rest } = props;
-	console.log(layout)
+	const { src, width, height, alt, quality, layout, objectFit, ...rest } =
+		props;
 
 	return (
 		<Flex
