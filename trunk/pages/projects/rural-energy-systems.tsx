@@ -35,8 +35,7 @@ const imageProps: CaptionedImageProps = {
 		<OptimizedImage
 			src="/images/PXL_20220511_210948153.MP.jpg"
 			objectFit="cover"
-			w="full"
-			maxH="30em"
+			h={[300, 400, 500]}
 			alt="A small solar panel system in a Navajo reservation."
 		/>
 	),

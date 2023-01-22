@@ -43,7 +43,7 @@ const imageProps: CaptionedImageProps = {
 		<OptimizedImage
 			src="/images/Manu Picture.JPG"
 			w="full"
-			h="md"
+			h={["xs", "sm", "md"]}
 			objectFit="cover"
 			alt="Children surrounding a water tap in Cameroon"
 		/>

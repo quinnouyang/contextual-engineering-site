@@ -92,7 +92,7 @@ export default function CoursesTextbookPage() {
 					bgColor="white"
 					gap={["1.5em", "2em"]}
 				>
-					<VStack spacing="1em">
+					<VStack spacing="1em" maxW={{base: "full", lg: "lg"}}>
 						<Heading fontWeight="semibold">{textbook.title}</Heading>
 						<Text variant="article">{textbook.description}</Text>
 						<Button
@@ -110,8 +110,9 @@ export default function CoursesTextbookPage() {
 					</VStack>
 					<OptimizedImage
 						src="/images/textbook-cover.jpeg"
+						objectFit="contain"
 						w="full"
-						maxW="20em"
+						h={["sm", "md", "lg"]}
 						alignSelf="center"
 						alt="Textbook cover"
 					/>
