@@ -12,4 +12,4 @@ This is a largely solo volunteer project. Contact qouyang3@illinois.edu for ques
 
 ---
 
-Thank you to [UIUC CPanel](https://web.illinois.edu/), Ann Witmer, @jacobah3, and [everyone else at CERG](https://contextual.engineering.illinois.edu/people)–this would have not seen the light of day without you all!
+Thank you to [UIUC CPanel](https://web.illinois.edu/), Ann Witmer, @jacobah3, and [everyone else at CERG](https://contextual.engineering.illinois.edu/)–this would have not seen the light of day without you all!
