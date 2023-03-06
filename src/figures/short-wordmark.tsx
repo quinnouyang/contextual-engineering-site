@@ -8,9 +8,6 @@ export default function ShortWordmark(props: any) {
     <Flex as={Link} href="http://illinois.edu/" isExternal>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        // xmlSpace="preserve"
-        // style={{ width: "fit", height: "fit" }}
-        // viewbox="0 0 150 27.392"
         height={27.392}
         width="inherit"
         href="http://illinois.edu/"

@@ -53,8 +53,6 @@ export default function TemplatePage() {
 							qouyang3@illinois.edu
 						</Link>
 					</Text>
-					{/* <Text variant="article">Phone number: n/a</Text> */}
-					{/* <Text variant="article">Address: n/a</Text> */}
 					<CaptionedImage {...imageProps} />
 				</VStack>
 			</Container>

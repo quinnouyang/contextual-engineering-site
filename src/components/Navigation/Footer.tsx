@@ -54,7 +54,6 @@ const FooterLogo = () => {
 
 	return (
 		<Flex
-			// alignItems="flex-start"
 			direction={{ base: "column", lg: "row" }}
 			rowGap="0.5em"
 		>
