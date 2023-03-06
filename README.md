@@ -1,4 +1,4 @@
-![UIUC](trunk/public/vector-graphics/full-wordmark.svg)
+![UIUC](public/vector-graphics/full-wordmark.svg)
 
 # Contextual Engineering @ Illinois [DEPRECATED]
 
